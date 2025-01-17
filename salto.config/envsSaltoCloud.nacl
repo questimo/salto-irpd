@@ -1,0 +1,8 @@
+envs {
+  envsCloud = [
+    {
+      uuid = "6f57a775-ef38-411d-8739-9108d34f69e8"
+      folderName = "HBYX destination"
+    },
+  ]
+}
