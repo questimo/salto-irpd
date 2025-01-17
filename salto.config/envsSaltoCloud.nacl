@@ -1,0 +1,8 @@
+envs {
+  envsCloud = [
+    {
+      uuid = "5d3f0384-6348-4a6b-be02-b6bdabe1094e"
+      folderName = "IRPD"
+    },
+  ]
+}
