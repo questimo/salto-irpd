@@ -1,0 +1,123 @@
+jira.WorkflowConfiguration TESTTQU0__Blank_project_default_workflow@fssss {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "TESTTQU0: Blank project default workflow"
+  description = ""
+  isEditable = true
+  startPointLayout = {
+    x = 1500
+    y = 0
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.done
+      layout = {
+        x = 2100
+        y = 80
+      }
+      deprecated = false
+      name = "Done"
+    },
+    {
+      statusReference = jira.Status.instance.in_progress@s
+      layout = {
+        x = 1900
+        y = 80
+      }
+      deprecated = false
+      name = "In Progress"
+    },
+    {
+      statusReference = jira.Status.instance.to_do@s
+      layout = {
+        x = 1700
+        y = 80
+      }
+      deprecated = false
+      name = "To Do"
+    },
+  ]
+  transitions = {
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      links = [
+        {
+          toPort = 1
+        },
+      ]
+      name = "Create"
+      description = ""
+      actions = [
+        {
+          ruleKey = "system:update-field"
+          parameters = {
+            field = jira.Field.instance.Resolution__resolution
+          }
+        },
+      ]
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+      properties = [
+        {
+          key = "jira.i18n.submit"
+          value = "common.forms.create"
+        },
+        {
+          key = "jira.i18n.title"
+          value = "common.forms.create"
+        },
+      ]
+    }
+    Done__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.done
+      name = "Done"
+      description = ""
+      actions = [
+        {
+          ruleKey = "system:update-field"
+          parameters = {
+            field = jira.Field.instance.Resolution__resolution
+            value = jira.Resolution.instance.Done
+          }
+        },
+      ]
+    }
+    To_Do__From__any_status__Global@sfffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      name = "To Do"
+      description = ""
+      actions = [
+        {
+          ruleKey = "system:update-field"
+          parameters = {
+            field = jira.Field.instance.Resolution__resolution
+          }
+        },
+      ]
+    }
+    In_Progress__From__any_status__Global@sfffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.in_progress@s
+      name = "In Progress"
+      description = ""
+      actions = [
+        {
+          ruleKey = "system:update-field"
+          parameters = {
+            field = jira.Field.instance.Resolution__resolution
+          }
+        },
+      ]
+    }
+  }
+}
