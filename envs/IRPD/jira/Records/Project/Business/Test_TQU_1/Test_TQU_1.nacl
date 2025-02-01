@@ -1,7 +1,7 @@
-jira.Project Test_TQU_0@s {
-  key = "TESTTQU0"
+jira.Project Test_TQU_1@s {
+  key = "TESTTQU1"
   description = ""
-  name = "Test TQU 0 - edit by Salto (GitHub)"
+  name = "Test TQU 1 - new by Salto (GitHub)"
   projectTypeKey = "business"
   workflowScheme = jira.WorkflowScheme.instance.TESTTQU0__Blank_project_workflow_scheme@fssss
   permissionScheme = jira.PermissionScheme.instance.Default_Permission_Scheme@s
