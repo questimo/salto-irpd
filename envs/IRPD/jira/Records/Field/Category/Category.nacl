@@ -13,6 +13,7 @@ jira.Field Category__jwm_category__c@uubuu {
     jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Legal_Operations@uuuuumusssssfss,
     jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Employee_onboarding_@uuuuumusssssfsss,
     jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Test_TQU_0@uuuuumusssssfsss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Test_TQU_1___new_by_Salto__GitHub_@uuuuumusssssfssssbssssjk,
   ]
   _alias = "Category"
 }
