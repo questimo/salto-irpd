@@ -1,0 +1,25 @@
+jira.Filter Filter_for_PLAT_board@s {
+  name = "Filter for PLAT board"
+  description = ""
+  owner = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  jql = "${ jira.Field.instance.Project__project } = ${ jira.Project.instance.Platform_Development@s.key } ORDER BY ${ jira.Field.instance.Rank__gh_lexo_rank__c@uubbuu.name } ASC"
+  sharePermissions = [
+    {
+      type = "project"
+      project = {
+        id = jira.Project.instance.Platform_Development@s
+      }
+    },
+  ]
+  editPermissions = [
+    {
+      type = "group"
+      group = {
+        name = jira.Group.instance.site_admins@b
+      }
+    },
+  ]
+}

@@ -1,0 +1,7 @@
+jira.ScreenScheme FAC_Request_a_move_SS@ussu {
+  name = "FAC_Request a move_SS"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.FAC_Request_a_move_OP_default_SCR@ussuuu
+  }
+}

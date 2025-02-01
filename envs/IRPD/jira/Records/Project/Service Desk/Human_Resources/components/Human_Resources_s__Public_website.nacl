@@ -1,0 +1,13 @@
+jira.ProjectComponent Human_Resources_s__Public_website@umuus {
+  description = "Issues related to the public website. Created by Jira Service Management."
+  assigneeType = "UNASSIGNED"
+  name = "Public website"
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  _parent = [
+    jira.Project.instance.Human_Resources@s,
+  ]
+  _alias = "Human Resources:Public website"
+}

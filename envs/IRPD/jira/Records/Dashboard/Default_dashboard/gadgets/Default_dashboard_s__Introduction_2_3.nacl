@@ -1,0 +1,13 @@
+jira.DashboardGadget Default_dashboard_s__Introduction_2_3@umuuuu {
+  moduleKey = "com.atlassian.jira.gadgets:introduction-dashboard-item"
+  color = "blue"
+  position = {
+    row = 3
+    column = 2
+  }
+  title = "Introduction"
+  _parent = [
+    jira.Dashboard.instance.Default_dashboard@s,
+  ]
+  _alias = "Introduction"
+}

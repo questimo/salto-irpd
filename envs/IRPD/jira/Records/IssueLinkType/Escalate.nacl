@@ -1,0 +1,5 @@
+jira.IssueLinkType Escalate {
+  name = "Escalate"
+  inward = "escalated-by"
+  outward = "escalates"
+}

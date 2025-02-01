@@ -1,0 +1,10 @@
+jira.Field Project_s___cmdb_object_cftype__c@jkuubbuu {
+  name = "Project(s)"
+  description = "Project(s) to tie assets to (Insight: Engineering Support) - ENGS CS ITO"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Project_s___cmdb_object_cftype__c_jkuubbuu_Default_Configuration_Scheme_for_Project_s_@uuuuuuuumussssjk,
+  ]
+  _alias = "Project(s)"
+}

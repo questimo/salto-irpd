@@ -1,0 +1,5 @@
+jira.IssueLinkType Action_item@s {
+  name = "Action item"
+  inward = "action item from"
+  outward = "has action item"
+}

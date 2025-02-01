@@ -1,0 +1,10 @@
+jira.Field New_Date__datepicker__c@suuuu {
+  name = "New Date"
+  description = "Used to hold a new date for interaction with assets - ITO ITS PROC INV "
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:daterange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.New_Date__datepicker__c_suuuu_Default_Configuration_Scheme_for_New_Date@uuuuumusssss,
+  ]
+  _alias = "New Date"
+}

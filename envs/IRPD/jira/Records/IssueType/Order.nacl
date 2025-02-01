@@ -1,0 +1,7 @@
+jira.IssueType Order {
+  description = "A procurement request."
+  name = "Order"
+  untranslatedName = "Order"
+  hierarchyLevel = 0
+  avatar = file("jira/IssueType/Order.png")
+}

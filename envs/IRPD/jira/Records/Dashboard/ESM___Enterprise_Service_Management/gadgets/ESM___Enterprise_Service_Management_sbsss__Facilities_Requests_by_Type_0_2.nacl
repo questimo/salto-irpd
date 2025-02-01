@@ -1,0 +1,52 @@
+jira.DashboardGadget ESM___Enterprise_Service_Management_sbsss__Facilities_Requests_by_Type_0_2@uuuuumuusssuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:pie-chart-gadget/gadgets/piechart-gadget.xml"
+  color = "blue"
+  position = {
+    row = 2
+    column = 0
+  }
+  title = "Facilities Requests by Type"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "statType"
+          value = jira.Field.instance.Issue_Type__issuetype@suu
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "name"
+          value = "The project you requested does not exist or you do not have permission to view it."
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "projectOrFilterId"
+          value = ""
+        },
+        {
+          key = "id"
+          value = "10006"
+        },
+        {
+          key = "type"
+          value = "project"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.ESM___Enterprise_Service_Management@sbsss,
+  ]
+  _alias = "Facilities Requests by Type"
+}

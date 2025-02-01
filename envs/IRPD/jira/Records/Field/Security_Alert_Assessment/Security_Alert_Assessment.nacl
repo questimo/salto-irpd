@@ -1,0 +1,10 @@
+jira.Field Security_Alert_Assessment__cmdb_object_cftype__c@ssuubbuu {
+  name = "Security Alert Assessment"
+  description = "SecOps Security Alert Assessment - Schema: Standards & Practices - SecOps"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Security_Alert_Assessment__cmdb_object_cftype__c_ssuubbuu_Default_Configuration_Scheme_for_Security_Alert_Assessment@uuuuuuuumussssss,
+  ]
+  _alias = "Security Alert Assessment"
+}

@@ -1,0 +1,204 @@
+jira.Automation ENGS__Report_a_bug_OR_Request_Enhancement__4__Update_ENGS_ticket_when_linked_JSW_moved_to_done__Engineering_Support_Mobile_Dev_Platform_Development@fsssssssbbssssssssssususus {
+  name = "ENGS: Report a bug OR Request Enhancement -4- Update ENGS ticket when linked JSW moved to done "
+  state = "ENABLED"
+  description = "When JSW linked bug is closed/done, the related tickets will also transition to done."
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.done.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "BRANCH"
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+          "blocks",
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "CONDITION"
+          type = "jira.issue.condition"
+          value = {
+            selectedField = {
+              type = "NAME"
+              value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+            }
+            selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+            comparison = "EQUALS"
+            compareFieldValue = {
+              type = "NAME"
+              value = "Report a bug"
+              multiValue = false
+            }
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          type = "jira.issue.transition"
+          value = {
+            operations = [
+            ]
+            sendNotifications = true
+            destinationStatus = {
+              type = "NAME"
+              value = jira.Status.instance.fix_identified@s.name
+            }
+            transitionMatch = ""
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          type = "jira.issue.comment"
+          value = {
+            comment = "A fix for {{triggerIssue.key}} has been tested and accepted ! Please work with the reporter & stakeholders to ensure they know the bug has been fixed and validate their rollout."
+            publicComment = false
+            sendNotifications = true
+            addCommentOnce = true
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+          "blocks",
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "CONDITION"
+          type = "jira.issue.condition"
+          value = {
+            selectedField = {
+              type = "NAME"
+              value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+            }
+            selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+            comparison = "EQUALS"
+            compareFieldValue = {
+              type = "NAME"
+              value = "Request a product enhancement"
+              multiValue = false
+            }
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          type = "jira.issue.transition"
+          value = {
+            operations = [
+            ]
+            sendNotifications = true
+            destinationStatus = {
+              type = "NAME"
+              value = jira.Status.instance.in_progress@s.name
+            }
+            transitionMatch = ""
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          type = "jira.issue.comment"
+          value = {
+            comment = '''
+Development has completed their prototype for this feature! 
+
+Please work with the reporter & stakeholders to arrange a preview session.
+'''
+            publicComment = false
+            sendNotifications = true
+            addCommentOnce = true
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Engineering_Support@s
+    },
+    {
+      projectId = jira.Project.instance.Mobile_Dev@s
+    },
+    {
+      projectId = jira.Project.instance.Platform_Development@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ENGS: Report a bug OR Request Enhancement -4- Update ENGS ticket when linked JSW moved to done "
+}

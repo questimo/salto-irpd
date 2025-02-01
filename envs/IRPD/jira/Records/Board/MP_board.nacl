@@ -1,0 +1,50 @@
+jira.Board MP_board@s {
+  name = "MP board"
+  type = "kanban"
+  admins = {
+    users = [
+      {
+        id = "5f51c0c59a0131004155b56e"
+        displayName = "field-demo-bot"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Mobile_Program@s
+  }
+  isPrivate = false
+  filterId = jira.Filter.instance.missing_10011
+  columnConfig = {
+    columns = [
+      {
+        name = "Backlog"
+      },
+      {
+        name = "Backlog"
+        statuses = [
+          jira.Status.instance.backlog,
+        ]
+      },
+      {
+        name = "Selected for Development"
+        statuses = [
+          jira.Status.instance.selected_for_development@s,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.in_progress@s,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.done,
+        ]
+      },
+    ]
+    constraintType = "issueCount"
+  }
+  subQuery = "fixVersion in unreleasedVersions() OR fixVersion is EMPTY"
+}

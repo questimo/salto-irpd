@@ -1,0 +1,96 @@
+jira.Automation MC__Unblocked_issue_notification_comment_Marketing_Content_Mobile_Dev@fssssusus {
+  name = "MC: Unblocked issue notification comment"
+  state = "DISABLED"
+  description = "Notifies assigning when an issue blocking their work has move to completed"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.done.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "BRANCH"
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+          "blocks",
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "ACTION"
+          type = "jira.issue.comment"
+          value = {
+            comment = '''
+Hi [~accountId:{{assignee.accountId}}]!  A blocker for this issue has been completed. 
+
+You're good to go! {{triggerissue.updated}}, {{triggerissue.key}} 
+
+
+'''
+            publicComment = false
+            sendNotifications = true
+            addCommentOnce = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Marketing_Content@s
+    },
+    {
+      projectId = jira.Project.instance.Mobile_Dev@s
+    },
+    {
+      projectId = jira.Project.instance.missing_10009
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "MC: Unblocked issue notification comment"
+}

@@ -1,0 +1,10 @@
+jira.Field Consumable_Asset__cmdb_object_cftype__c@suubbuu {
+  name = "Consumable Asset"
+  description = "Consumable Assets (Insight: IT Employee Assets) - ITS INV"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Consumable_Asset__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Consumable_Asset@uuuuuuumusssss,
+  ]
+  _alias = "Consumable Asset"
+}

@@ -1,0 +1,3 @@
+jira.Group jira_servicemanagement_user_access_admins_se_enterprise_demo@b {
+  name = "jira-servicemanagement-user-access-admins-se-enterprise-demo"
+}

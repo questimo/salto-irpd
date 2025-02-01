@@ -1,0 +1,10 @@
+jira.Field Application_to_Change__cmdb_object_cftype__c@ssuubbuu {
+  name = "Application to Change"
+  description = "Target application to change for a standard change (Insight : Application Portfolio) - ITO"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Application_to_Change__cmdb_object_cftype__c_ssuubbuu_Default_Configuration_Scheme_for_Application_to_Change@uuuuuuuumussssss,
+  ]
+  _alias = "Application to Change"
+}

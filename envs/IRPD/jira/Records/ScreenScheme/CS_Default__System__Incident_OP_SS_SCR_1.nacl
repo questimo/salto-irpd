@@ -1,0 +1,9 @@
+jira.ScreenScheme CS_Default__System__Incident_OP_SS_SCR_1@udhisuuuu {
+  name = "CS_Default/[System] Incident_OP_SS_SCR_1"
+  screens = {
+    default = jira.Screen.instance.CS_Default__System__Incident_OP_Create_Default_SCR@udhisuudu
+    edit = jira.Screen.instance.CS_Default__System__Incident_OP_Edit_View_SCR@udhisuudu
+    create = jira.Screen.instance.CS_Default__System__Incident_OP_Create_Default_SCR@udhisuudu
+    view = jira.Screen.instance.CS_Default__System__Incident_OP_Edit_View_SCR@udhisuudu
+  }
+}

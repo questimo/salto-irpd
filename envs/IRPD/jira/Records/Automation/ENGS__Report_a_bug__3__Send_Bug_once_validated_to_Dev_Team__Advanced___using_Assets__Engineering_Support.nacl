@@ -1,0 +1,222 @@
+jira.Automation ENGS__Report_a_bug__3__Send_Bug_once_validated_to_Dev_Team__Advanced___using_Assets__Engineering_Support@fssssbbssssssssjsbsskus {
+  name = "ENGS: Report a bug -3- Send Bug once validated to Dev Team (Advanced - using Assets)"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.bug_validated@s.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      type = "jira.issue.create"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Fix confirmed bug: {{issue.Summary}}"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "ID"
+                value = "description"
+                fieldType = "description"
+              }
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            fieldType = "project"
+            type = "SET"
+            value = {
+              type = "SMART"
+              value = "{{issue.Product Family.JSW Project Key Id}}"
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            fieldType = "issuetype"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.IssueType.instance.Bug
+            }
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Product_Family__cmdb_object_cftype__c@suubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "NAME"
+                value = "Product Family"
+                fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+              }
+            }
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Product__cmdb_object_cftype__c@uubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "NAME"
+                value = "Product"
+                fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+              }
+            }
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Company__cmdb_object_cftype__c@uubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "NAME"
+                value = "Company"
+                fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+              }
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Attachment__array
+            }
+            fieldType = "attachment"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "ID"
+                value = "attachment"
+                fieldType = "attachment"
+              }
+            }
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "NAME"
+                value = "Affected services"
+                fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+              }
+            }
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.link"
+      value = {
+        linkType = jira.IssueLinkType.instance.Blocks
+        issue = {
+          type = "COPY"
+          value = "created"
+        }
+        linkTypeDirection = "inward"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Engineering_Support@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ENGS: Report a bug -3- Send Bug once validated to Dev Team (Advanced - using Assets)"
+}

@@ -1,0 +1,185 @@
+jira.Automation ITO_MOBL_PLAT__Update_from_JSW_projects_to_linked_JSM_issues_IT_Operations_Mobile_Dev_Platform_Development@bbfssssssssususus {
+  name = "ITO-MOBL-PLAT: Update from JSW projects to linked JSM issues"
+  state = "ENABLED"
+  description = "Send JSW comments back as internal comments to the JSM ticket"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:commented"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_commented"
+      eventTypes = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Issue_Type__issuetype@suu
+        }
+        selectedFieldType = "issuetype"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "ID"
+          multiValue = true
+          values = [
+            jira.IssueType.instance.Story,
+            jira.IssueType.instance.Task,
+            jira.IssueType.instance.Sub_task@b,
+            jira.IssueType.instance.Bug,
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1629220511632"
+        name = {
+          type = "FREE"
+          value = "update"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.comment.last.body}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1629220604679"
+        name = {
+          type = "FREE"
+          value = "author"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.comment.author.displayName.getFromEnd(0)}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{author}}"
+    },
+    {
+      component = "BRANCH"
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "CONDITION"
+          type = "jira.issue.condition"
+          value = {
+            selectedField = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            selectedFieldType = "project"
+            comparison = "EQUALS"
+            compareFieldValue = {
+              type = "ID"
+              value = jira.Project.instance.IT_Operations@s
+              multiValue = false
+            }
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          type = "jira.issue.comment"
+          value = {
+            comment = '''
+{{author}} has an update:
+
+{{update}}
+'''
+            publicComment = false
+            sendNotifications = true
+            addCommentOnce = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+    {
+      projectId = jira.Project.instance.Mobile_Dev@s
+    },
+    {
+      projectId = jira.Project.instance.Platform_Development@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO-MOBL-PLAT: Update from JSW projects to linked JSM issues"
+}

@@ -1,0 +1,10 @@
+jira.ScreenScheme ITS__System__Change_SS@uhisu {
+  name = "ITS_[System] Change_SS"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.ITS__System__Change_OP_default_create_SCR@uhisuudu
+    edit = jira.Screen.instance.ITS__System__Change_OP_edit_view_SCR@uhisuudu
+    create = jira.Screen.instance.ITS__System__Change_OP_default_create_SCR@uhisuudu
+    view = jira.Screen.instance.ITS__System__Change_OP_edit_view_SCR@uhisuudu
+  }
+}

@@ -1,0 +1,9 @@
+jira.Field Compliance_review_scope__textarea__c@ssuuuu {
+  name = "Compliance review scope"
+  description = ""
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Compliance_review_scope__textarea__c_ssuuuu_Default_Configuration_Scheme_for_Compliance_review_scope@uuuuuumussssss,
+  ]
+  _alias = "Compliance review scope"
+}

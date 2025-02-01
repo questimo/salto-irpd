@@ -1,0 +1,98 @@
+jira.Board MOBL_Baltimore@s {
+  name = "MOBL Baltimore"
+  type = "scrum"
+  admins = {
+    users = [
+      {
+        id = "60ad31159e21bd0071e67bfa"
+        displayName = "Admin Istrator"
+      },
+      {
+        id = "60ad2d2a06bf0c006a42fa84"
+        displayName = "Alana Grant"
+      },
+      {
+        id = "5f51c0c59a0131004155b56e"
+        displayName = "field-demo-bot"
+      },
+      {
+        id = "60ad2eb506bf0c006a432a17"
+        displayName = "Mitch Davis"
+      },
+      {
+        id = "60ad32ec411c2200684cd355"
+        displayName = "Cassi Owens"
+      },
+    ]
+    groups = [
+      {
+        name = "site-admins"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Mobile_Dev@s
+  }
+  isPrivate = false
+  filterId = jira.Filter.instance.MOBL_Baltimore@s
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.to_do@s,
+          jira.Status.instance.open,
+          jira.Status.instance.requested,
+          jira.Status.instance.selected_for_development@s,
+          jira.Status.instance.review,
+          jira.Status.instance.waiting_for_approval@s,
+          jira.Status.instance.under_review@s,
+          jira.Status.instance.reopened,
+          jira.Status.instance.draft,
+          jira.Status.instance.backlog,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.escalated,
+          jira.Status.instance.accepted,
+          jira.Status.instance.planning,
+          jira.Status.instance.implementing,
+          jira.Status.instance.authorize,
+          jira.Status.instance.waiting_for_customer@s,
+          jira.Status.instance.in_review@s,
+          jira.Status.instance.second_review@s,
+          jira.Status.instance.waiting_for_support@s,
+          jira.Status.instance.in_progress@s,
+          jira.Status.instance.work_in_progress@s,
+          jira.Status.instance.under_investigation@s,
+          jira.Status.instance.awaiting_implementation@s,
+          jira.Status.instance.testing,
+          jira.Status.instance.pending,
+          jira.Status.instance.architecture_review@s,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.done,
+          jira.Status.instance.resolved,
+          jira.Status.instance.purchased,
+          jira.Status.instance.rejected,
+          jira.Status.instance.failed,
+          jira.Status.instance.closed,
+          jira.Status.instance.complete,
+          jira.Status.instance.declined,
+          jira.Status.instance.completed,
+          jira.Status.instance.canceled,
+          jira.Status.instance.final_review@s,
+        ]
+      },
+    ]
+    constraintType = "none"
+  }
+  estimation = {
+    field = jira.Field.instance.Story_Points__float__c@suuuu
+  }
+}

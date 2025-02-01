@@ -1,0 +1,28 @@
+jira.CustomFieldContextOption Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood_1_Unlikely@uuuuussssu_00061 {
+  value = "1=Unlikely"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood@uuuuussss,
+  ]
+}
+jira.CustomFieldContextOption Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood_2_Possible@uuuuussssu_00061 {
+  value = "2=Possible"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood@uuuuussss,
+  ]
+}
+jira.CustomFieldContextOption Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood_3_Likely@uuuuussssu_00061 {
+  value = "3=Likely"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood@uuuuussss,
+  ]
+}
+jira.CustomFieldContextOption Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood_4_Certain@uuuuussssu_00061 {
+  value = "4=Certain"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood@uuuuussss,
+  ]
+}

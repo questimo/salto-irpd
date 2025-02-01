@@ -1,0 +1,10 @@
+jira.Field Employee_Asset_s___cmdb_object_cftype__c@sjkuubbuu {
+  name = "Employee Asset(s)"
+  description = "Holds current assets associated with an Employee (Insight : IT Employee Assets) - INV HR"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Employee_Asset_s___cmdb_object_cftype__c_sjkuubbuu_Default_Configuration_Scheme_for_Employee_Asset_s_@uuuuuuuuumusssssjk,
+  ]
+  _alias = "Employee Asset(s)"
+}

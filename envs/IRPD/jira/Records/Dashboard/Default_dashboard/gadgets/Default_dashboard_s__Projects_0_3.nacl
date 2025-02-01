@@ -1,0 +1,44 @@
+jira.DashboardGadget Default_dashboard_s__Projects_0_3@umuuuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:project-gadget/gadgets/project-gadget.xml"
+  color = "blue"
+  position = {
+    row = 3
+    column = 0
+  }
+  title = "Projects"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "projectsOrCategories"
+          value = "allprojects"
+        },
+        {
+          key = "maxResults"
+          value = "10"
+        },
+        {
+          key = "viewType"
+          value = "detailed"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "cols"
+          value = "three-col"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Default_dashboard@s,
+  ]
+  _alias = "Projects"
+}

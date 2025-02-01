@@ -1,0 +1,8 @@
+jira.SecurityScheme SecOps_Issue_Scheme@s {
+  name = "SecOps Issue Scheme"
+  description = "SecOps Issue Scheme"
+  levels = [
+    jira.SecurityLevel.instance.SecOps_Issue_Scheme_s__Lock_Down___Auth_Users_Only@uumuussbsss,
+    jira.SecurityLevel.instance.SecOps_Issue_Scheme_s__Security_Team___All@uumuussbs,
+  ]
+}

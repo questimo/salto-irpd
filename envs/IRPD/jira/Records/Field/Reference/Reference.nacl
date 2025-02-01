@@ -1,0 +1,10 @@
+jira.Field Reference__textfield__c {
+  name = "Reference"
+  description = "Document or case number"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Reference__textfield__c_Default_Configuration_Scheme_for_Reference@uuuuussss,
+  ]
+  _alias = "Reference"
+}

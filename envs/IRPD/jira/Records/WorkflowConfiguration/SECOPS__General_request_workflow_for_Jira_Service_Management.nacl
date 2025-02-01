@@ -1,0 +1,94 @@
+jira.WorkflowConfiguration SECOPS__General_request_workflow_for_Jira_Service_Management@fsssssss {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "SECOPS: General request workflow for Jira Service Management"
+  description = "This Jira Service Management Service General request workflow was generated for Project SECOPS"
+  isEditable = true
+  statuses = [
+    {
+      statusReference = jira.Status.instance.done
+      deprecated = false
+      name = "Done"
+    },
+    {
+      statusReference = jira.Status.instance.in_progress@s
+      deprecated = false
+      name = "In progress"
+    },
+    {
+      statusReference = jira.Status.instance.to_do@s
+      deprecated = false
+      name = "To Do"
+    },
+  ]
+  transitions = {
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+    }
+    Start__From__To_Do__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_progress@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.to_do@s
+        },
+      ]
+      name = "Start"
+      description = ""
+    }
+    Reopened__From__Done__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_progress@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.done
+        },
+      ]
+      name = "Reopened"
+      description = ""
+      actions = [
+        {
+          ruleKey = "system:update-field"
+          parameters = {
+            field = jira.Field.instance.Resolution__resolution
+          }
+        },
+      ]
+      properties = [
+        {
+          key = "sd.resolution.clear"
+          value = ""
+        },
+      ]
+    }
+    Resolved__From__In_progress__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.done
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_progress@s
+        },
+      ]
+      name = "Resolved"
+      description = ""
+      transitionScreen = {
+        ruleKey = "system:transition-screen"
+        parameters = {
+          screenId = jira.Screen.instance.SecOps___Jira_Service_Desk_Resolve_Issue_Screen___11@sbsssssssbs
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+jira.Field Department__textfield__c {
+  name = "Department"
+  description = ""
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Department__textfield__c_Default_Configuration_Scheme_for_Department@uuuuussss,
+  ]
+  _alias = "Department"
+}

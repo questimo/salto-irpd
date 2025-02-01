@@ -1,0 +1,56 @@
+jira.DashboardGadget Platform_Development_s__Recently_Created_Chart_0_0@umuussuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:recently-created-chart-gadget/gadgets/recently-created-gadget.xml"
+  color = "blue"
+  position = {
+    row = 0
+    column = 0
+  }
+  title = "Recently Created Chart"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "name"
+          value = "Platform Development"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "periodName"
+          value = "daily"
+        },
+        {
+          key = "projectOrFilterId"
+          value = jira.Project.instance.Platform_Development@s
+        },
+        {
+          key = "daysprevious"
+          value = "3"
+        },
+        {
+          key = "id"
+          value = "10008"
+        },
+        {
+          key = "type"
+          value = "project"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Platform_Development@s,
+  ]
+  _alias = "Recently Created Chart"
+}

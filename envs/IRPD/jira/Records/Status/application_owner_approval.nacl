@@ -1,0 +1,6 @@
+jira.Status application_owner_approval@s {
+  name = "Application Owner Approval"
+  statusCategory = jira.StatusCategory.instance.In_Progress@s
+  description = ""
+  _alias = "Application Owner Approval"
+}

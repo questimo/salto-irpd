@@ -1,0 +1,36 @@
+jira.DashboardGadget Default_dashboard_s__Issues_in_progress_1_2@umuussuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:in-progress-gadget/gadgets/in-progress-gadget.xml"
+  color = "blue"
+  position = {
+    row = 2
+    column = 1
+  }
+  title = "Issues in progress"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "columnNames"
+          value = "issuetype|issuekey|summary|priority"
+        },
+        {
+          key = "num"
+          value = "10"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Default_dashboard@s,
+  ]
+  _alias = "Issues in progress"
+}

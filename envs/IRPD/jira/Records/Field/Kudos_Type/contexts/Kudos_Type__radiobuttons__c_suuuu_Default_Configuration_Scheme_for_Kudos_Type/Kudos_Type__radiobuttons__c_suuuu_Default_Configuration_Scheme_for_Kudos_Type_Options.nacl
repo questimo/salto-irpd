@@ -1,0 +1,21 @@
+jira.CustomFieldContextOption Kudos_Type__radiobuttons__c_suuuu_Default_Configuration_Scheme_for_Kudos_Type_Better_Kudos@uuuuumusssssus {
+  value = "Better Kudos"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Kudos_Type__radiobuttons__c_suuuu_Default_Configuration_Scheme_for_Kudos_Type@uuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Kudos_Type__radiobuttons__c_suuuu_Default_Configuration_Scheme_for_Kudos_Type_Big_Kudos@uuuuumusssssus {
+  value = "Big Kudos"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Kudos_Type__radiobuttons__c_suuuu_Default_Configuration_Scheme_for_Kudos_Type@uuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Kudos_Type__radiobuttons__c_suuuu_Default_Configuration_Scheme_for_Kudos_Type_Standard@uuuuumusssssu {
+  value = "Standard"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Kudos_Type__radiobuttons__c_suuuu_Default_Configuration_Scheme_for_Kudos_Type@uuuuumusssss,
+  ]
+}

@@ -1,0 +1,13 @@
+jira.ProjectComponent IT_Support_s__Public_Website@umuus {
+  description = "Created by Jira Service Management"
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Public Website"
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  _parent = [
+    jira.Project.instance.IT_Support@s,
+  ]
+  _alias = "IT Support:Public Website"
+}

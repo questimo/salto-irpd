@@ -1,0 +1,15 @@
+jira {
+  fetch = {
+    include = [
+      {
+        type = ".*"
+      },
+    ]
+    exclude = [
+    ]
+    enableScriptRunnerAddon = true
+  }
+  deploy = {
+    forceDelete = false
+  }
+}

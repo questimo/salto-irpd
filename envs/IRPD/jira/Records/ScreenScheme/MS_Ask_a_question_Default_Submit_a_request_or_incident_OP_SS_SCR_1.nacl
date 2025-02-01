@@ -1,0 +1,7 @@
+jira.ScreenScheme MS_Ask_a_question_Default_Submit_a_request_or_incident_OP_SS_SCR_1@ussddssssuuuu {
+  name = "MS_Ask a question/Default/Submit a request or incident_OP_SS_SCR_1"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.MS_Ask_a_question_Default_Submit_a_request_or_incident_OP_Default_SCR_1@ussddssssuuuu
+  }
+}

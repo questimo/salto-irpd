@@ -1,0 +1,110 @@
+jira.Automation ITO__When_an_issue_is_created___automatically_assign_using_balanced_workload_IT_Operations@fssssss_08594sssssus {
+  name = "ITO: When an issue is created → automatically assign using balanced workload"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.assign"
+              value = {
+                assignType = "LIST_VALUE"
+                jql = "${ jira.Field.instance.Created__datetime } >= 2022-01-10 order by ${ jira.Field.instance.Created__datetime } desc"
+                excludedUsers = [
+                ]
+                userList = [
+                  {
+                    type = "ID"
+                    value = "60ad2d2a06bf0c006a42fa84"
+                  },
+                  {
+                    type = "ID"
+                    value = "60ad35d906bf0c006a441102"
+                  },
+                  {
+                    type = "ID"
+                    value = "60ad37a4ad76ea0070d7fdf8"
+                  },
+                  {
+                    type = "ID"
+                    value = "60ad2eb506bf0c006a432a17"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "ID"
+                  value = jira.Field.instance.Assignee__user
+                }
+                selectedFieldType = "assignee"
+                comparison = "EMPTY"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: When an issue is created → automatically assign using balanced workload"
+}

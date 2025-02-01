@@ -1,0 +1,7 @@
+jira.Priority Informational {
+  statusColor = "#6495ED"
+  description = "No impact on users"
+  iconUrl = "/images/icons/priorities/minor.svg"
+  name = "Informational"
+  _alias = "Informational"
+}

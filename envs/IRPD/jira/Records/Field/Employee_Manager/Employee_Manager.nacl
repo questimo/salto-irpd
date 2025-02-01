@@ -1,0 +1,10 @@
+jira.Field Employee_Manager__cmdb_object_cftype__c@suubbuu {
+  name = "Employee Manager"
+  description = "Employee Manager (Insight : People) - HR"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Employee_Manager__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Employee_Manager@uuuuuuumusssss,
+  ]
+  _alias = "Employee Manager"
+}

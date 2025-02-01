@@ -1,0 +1,10 @@
+jira.FieldConfigurationScheme FAC_FCS {
+  name = "FAC_FCS"
+  description = " "
+  items = [
+    {
+      issueTypeId = "default"
+      fieldConfigurationId = jira.FieldConfiguration.instance.FAC_Default_FC
+    },
+  ]
+}

@@ -1,0 +1,11 @@
+jira.FieldContextOptionsOrder Employment_type__select__c_suuuu_Default_Configuration_Scheme_for_Employment_type_order_child@uuuuumusssssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Employment_type__select__c_suuuu_Default_Configuration_Scheme_for_Employment_type_Full_Time@uuuuumusssssus,
+    jira.CustomFieldContextOption.instance.Employment_type__select__c_suuuu_Default_Configuration_Scheme_for_Employment_type_Part_Time@uuuuumusssssus,
+    jira.CustomFieldContextOption.instance.Employment_type__select__c_suuuu_Default_Configuration_Scheme_for_Employment_type_Contract@uuuuumusssssu,
+    jira.CustomFieldContextOption.instance.Employment_type__select__c_suuuu_Default_Configuration_Scheme_for_Employment_type_Casual@uuuuumusssssu,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Employment_type__select__c_suuuu_Default_Configuration_Scheme_for_Employment_type@uuuuumusssss,
+  ]
+}

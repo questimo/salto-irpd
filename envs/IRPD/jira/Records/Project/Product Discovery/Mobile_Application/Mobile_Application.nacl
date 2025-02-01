@@ -1,0 +1,14 @@
+jira.Project Mobile_Application@s {
+  key = "MOB"
+  description = ""
+  name = "Mobile Application"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "product_discovery"
+  entityId = "7899f881-cf93-4a63-b6bf-ff1b4927881f"
+  uuid = "7899f881-cf93-4a63-b6bf-ff1b4927881f"
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  assigneeType = "UNASSIGNED"
+}

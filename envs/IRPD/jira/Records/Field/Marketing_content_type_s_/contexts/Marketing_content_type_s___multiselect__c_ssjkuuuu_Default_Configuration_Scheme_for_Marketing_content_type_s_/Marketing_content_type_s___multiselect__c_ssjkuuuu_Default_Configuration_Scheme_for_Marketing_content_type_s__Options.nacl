@@ -1,0 +1,77 @@
+jira.CustomFieldContextOption Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s__Community_posting@uuuuuuuumussssssjkus {
+  value = "Community posting"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuumussssssjk,
+  ]
+}
+jira.CustomFieldContextOption Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s__Email_campaign@uuuuuuuumussssssjkus {
+  value = "Email campaign"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuumussssssjk,
+  ]
+}
+jira.CustomFieldContextOption Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s__Enablement@uuuuuuuumussssssjku {
+  value = "Enablement"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuumussssssjk,
+  ]
+}
+jira.CustomFieldContextOption Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s__FAQs@uuuuuuuumussssssjku {
+  value = "FAQs"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuumussssssjk,
+  ]
+}
+jira.CustomFieldContextOption Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s__In_product_update_s_@uuuuuuuumussssssjkubsjk {
+  value = "In-product update(s)"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuumussssssjk,
+  ]
+}
+jira.CustomFieldContextOption Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s__Launch_video@uuuuuuuumussssssjkus {
+  value = "Launch video"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuumussssssjk,
+  ]
+}
+jira.CustomFieldContextOption Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s__Messaging@uuuuuuuumussssssjku {
+  value = "Messaging"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuumussssssjk,
+  ]
+}
+jira.CustomFieldContextOption Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s__Press_Analyst_Relations@uuuuuuuumussssssjkuds {
+  value = "Press/Analyst Relations"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuumussssssjk,
+  ]
+}
+jira.CustomFieldContextOption Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s__Product_documentation@uuuuuuuumussssssjkus {
+  value = "Product documentation"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuumussssssjk,
+  ]
+}
+jira.CustomFieldContextOption Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s__Social_media_posting_s_@uuuuuuuumussssssjkussjk {
+  value = "Social media posting(s)"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuumussssssjk,
+  ]
+}
+jira.CustomFieldContextOption Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s__Website_updates@uuuuuuuumussssssjkus {
+  value = "Website updates"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___multiselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuumussssssjk,
+  ]
+}

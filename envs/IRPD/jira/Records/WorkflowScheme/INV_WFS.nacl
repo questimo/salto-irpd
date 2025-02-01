@@ -1,0 +1,39 @@
+jira.WorkflowScheme INV_WFS {
+  name = "INV_WFS"
+  description = "This Jira Service Management IT Support Workflow Scheme was generated for Project INV"
+  defaultWorkflow = jira.WorkflowConfiguration.instance.jira
+  items = [
+    {
+      workflow = jira.WorkflowConfiguration.instance.INV__Jira_Service_Management_default_workflow@fsssss
+      issueType = jira.IssueType.instance.Task
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.INV__Jira_Service_Management_default_workflow@fsssss
+      issueType = jira.IssueType.instance.Sub_task@b
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.INV__Service_Request_Fulfilment_workflow_for_Jira_Service_Management@fssssssss
+      issueType = jira.IssueType.instance._System__Service_request@hiss
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.INV__Service_Request_Fulfilment_with_Approvals_workflow_for_Jira_Service_Management@fssssssssss
+      issueType = jira.IssueType.instance._System__Service_request_with_approvals@hissss
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.INV__Change_Management_workflow_for_Jira_Service_Management@fsssssss
+      issueType = jira.IssueType.instance._System__Change@his
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.INV__Simple_ESM_workflow_for_Jira_Service_Management@fsssssss
+      issueType = jira.IssueType.instance.Emailed_request@s
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.INV__Default_ESM_workflow_for_Jira_Service_Management@fsssssss
+      issueType = jira.IssueType.instance.Submit_a_request_or_incident@s
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.INV__Simple_ESM_workflow_for_Jira_Service_Management@fsssssss
+      issueType = jira.IssueType.instance.Ask_a_question@s
+    },
+  ]
+}

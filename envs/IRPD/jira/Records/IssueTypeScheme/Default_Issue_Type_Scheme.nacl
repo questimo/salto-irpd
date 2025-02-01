@@ -1,0 +1,41 @@
+jira.IssueTypeScheme Default_Issue_Type_Scheme@s {
+  name = "Default Issue Type Scheme"
+  description = "Default issue type scheme is the list of global issue types. All newly created issue types will automatically be added to this scheme."
+  isDefault = true
+  issueTypeIds = [
+    jira.IssueType.instance.Epic,
+    jira.IssueType.instance.Improvement,
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Sub_task@b,
+    jira.IssueType.instance.New_Feature@s,
+    jira.IssueType.instance.Bug,
+    jira.IssueType.instance._System__Incident@his,
+    jira.IssueType.instance._System__Service_request@hiss,
+    jira.IssueType.instance._System__Service_request_with_approvals@hissss,
+    jira.IssueType.instance._System__Change@his,
+    jira.IssueType.instance._System__Problem@his,
+    jira.IssueType.instance.Support,
+    jira.IssueType.instance.Change_request@s,
+    jira.IssueType.instance.Questions_for_HR@s,
+    jira.IssueType.instance.Employee_onboarding@s,
+    jira.IssueType.instance.Employee_offboarding@s,
+    jira.IssueType.instance.Emailed_request@s,
+    jira.IssueType.instance.Report_a_maintenance_issue@s,
+    jira.IssueType.instance.Request_a_move@s,
+    jira.IssueType.instance.Request_an_event@s,
+    jira.IssueType.instance.Questions_for_facilities@s,
+    jira.IssueType.instance.Order,
+    jira.IssueType.instance.Story,
+    jira.IssueType.instance.Employee_setup@s,
+    jira.IssueType.instance.Access,
+    jira.IssueType.instance.Document,
+    jira.IssueType.instance.Marketing_Asset@s,
+    jira.IssueType.instance.Submit_a_request_or_incident@s,
+    jira.IssueType.instance.Ask_a_question@s,
+    jira.IssueType.instance._System__Post_incident_review@hisbs,
+    jira.IssueType.instance.Request_a_contract_review@s,
+    jira.IssueType.instance.Questions_for_legal@s,
+    jira.IssueType.instance.General_request@s,
+    jira.IssueType.instance.Security_Incident@s,
+  ]
+}

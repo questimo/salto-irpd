@@ -1,0 +1,14 @@
+jira.IssueTypeScreenScheme CS_ITSS {
+  name = "CS_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = jira.IssueType.instance._System__Incident@his
+      screenSchemeId = jira.ScreenScheme.instance.CS_Default__System__Incident_OP_SS_SCR_1@udhisuuuu
+    },
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.CS_Default__System__Incident_OP_SS_SCR@udhisuuu
+    },
+  ]
+}

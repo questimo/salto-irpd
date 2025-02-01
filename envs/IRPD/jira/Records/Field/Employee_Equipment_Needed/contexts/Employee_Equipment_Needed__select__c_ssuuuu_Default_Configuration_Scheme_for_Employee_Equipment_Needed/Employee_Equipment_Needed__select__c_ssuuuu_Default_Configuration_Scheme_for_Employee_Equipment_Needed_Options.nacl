@@ -1,0 +1,14 @@
+jira.CustomFieldContextOption Employee_Equipment_Needed__select__c_ssuuuu_Default_Configuration_Scheme_for_Employee_Equipment_Needed_No___No_Equipment_is_Needed@uuuuuumussssssusbssss {
+  value = "No - No Equipment is Needed"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Employee_Equipment_Needed__select__c_ssuuuu_Default_Configuration_Scheme_for_Employee_Equipment_Needed@uuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Employee_Equipment_Needed__select__c_ssuuuu_Default_Configuration_Scheme_for_Employee_Equipment_Needed_Yes___Standard_for_Role@uuuuuumussssssusbsss {
+  value = "Yes - Standard for Role"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Employee_Equipment_Needed__select__c_ssuuuu_Default_Configuration_Scheme_for_Employee_Equipment_Needed@uuuuuumussssss,
+  ]
+}

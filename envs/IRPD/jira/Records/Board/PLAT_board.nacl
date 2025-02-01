@@ -1,0 +1,48 @@
+jira.Board PLAT_board@s {
+  name = "PLAT board"
+  type = "scrum"
+  admins = {
+    users = [
+      {
+        id = "60ad2d2a06bf0c006a42fa84"
+        displayName = "Alana Grant"
+      },
+    ]
+    groups = [
+      {
+        name = "site-admins"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Platform_Development@s
+  }
+  isPrivate = false
+  filterId = jira.Filter.instance.Filter_for_PLAT_board@s
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.to_do@s,
+        ]
+      },
+      {
+        name = "In Progress"
+        statuses = [
+          jira.Status.instance.in_progress@s,
+        ]
+      },
+      {
+        name = "Done"
+        statuses = [
+          jira.Status.instance.done,
+        ]
+      },
+    ]
+    constraintType = "none"
+  }
+  estimation = {
+    field = jira.Field.instance.Story_Points__float__c@suuuu
+  }
+}

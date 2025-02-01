@@ -1,0 +1,36 @@
+jira.Project Engineering_Support@s {
+  key = "ENGS"
+  description = ""
+  name = "Engineering Support"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "service_desk"
+  components = [
+    jira.ProjectComponent.instance.Engineering_Support_s__Active_Directory@umuus,
+    jira.ProjectComponent.instance.Engineering_Support_s__Analytics_and_Reporting_Service@umuusss,
+    jira.ProjectComponent.instance.Engineering_Support_s__Billing_Services@umuus,
+    jira.ProjectComponent.instance.Engineering_Support_s__Cloud_Storage_Services@umuuss,
+    jira.ProjectComponent.instance.Engineering_Support_s__Data_Center_Services@umuuss,
+    jira.ProjectComponent.instance.Engineering_Support_s__Email_and_Collaboration_Services@umuusss,
+    jira.ProjectComponent.instance.Engineering_Support_s__Financial_Services@umuus,
+    jira.ProjectComponent.instance.Engineering_Support_s__HR_Services@umuus,
+    jira.ProjectComponent.instance.Engineering_Support_s__Intranet@umuu,
+    jira.ProjectComponent.instance.Engineering_Support_s__Jira@umuu,
+    jira.ProjectComponent.instance.Engineering_Support_s__Office_Network@umuus,
+    jira.ProjectComponent.instance.Engineering_Support_s__Payroll_Services@umuus,
+    jira.ProjectComponent.instance.Engineering_Support_s__Printers@umuu,
+    jira.ProjectComponent.instance.Engineering_Support_s__Public_Website@umuus,
+    jira.ProjectComponent.instance.Engineering_Support_s__VPN_Server@umuus,
+    jira.ProjectComponent.instance.Engineering_Support_s__Webstore_Purchasing_Services@umuuss,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.ENGS_WFS
+  permissionScheme = jira.PermissionScheme.instance.Jira_Service_Management_Permission_Scheme_for_Project_ENGS@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.ENGS_ITSS
+  issueTypeScheme = jira.IssueTypeScheme.instance.ENGS__Jira_Service_Management_Issue_Type_Scheme@fssssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.ENGS_FCS
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  assigneeType = "UNASSIGNED"
+}

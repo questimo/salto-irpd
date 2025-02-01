@@ -1,0 +1,6 @@
+jira.Status requested {
+  name = "Requested"
+  statusCategory = jira.StatusCategory.instance.To_Do@s
+  description = ""
+  _alias = "Requested"
+}

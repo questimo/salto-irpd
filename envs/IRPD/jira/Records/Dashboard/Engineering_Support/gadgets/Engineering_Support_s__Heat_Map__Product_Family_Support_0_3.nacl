@@ -1,0 +1,52 @@
+jira.DashboardGadget Engineering_Support_s__Heat_Map__Product_Family_Support_0_3@umuusfsssuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:heat-map-gadget/gadgets/heatmap-gadget.xml"
+  color = "blue"
+  position = {
+    row = 3
+    column = 0
+  }
+  title = "Heat Map: Product Family Support"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "statType"
+          value = jira.Field.instance.Product_Family__cmdb_object_cftype__c@suubbuu
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "name"
+          value = "The project you requested does not exist or you do not have permission to view it."
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "projectOrFilterId"
+          value = jira.Project.instance.Engineering_Support@s
+        },
+        {
+          key = "id"
+          value = "10018"
+        },
+        {
+          key = "type"
+          value = "project"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Engineering_Support@s,
+  ]
+  _alias = "Heat Map: Product Family Support"
+}

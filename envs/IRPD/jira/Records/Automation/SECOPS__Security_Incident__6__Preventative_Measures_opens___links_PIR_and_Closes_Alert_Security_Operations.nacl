@@ -1,0 +1,287 @@
+jira.Automation SECOPS__Security_Incident__6__Preventative_Measures_opens___links_PIR_and_Closes_Alert_Security_Operations@fsssbbssssesssssus {
+  name = "SECOPS: Security Incident -6- Preventative Measures opens & links PIR and Closes Alert"
+  state = "ENABLED"
+  description = "Close alert that raised this and raise PIR if critical"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.resolved.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Issue_Type__issuetype@suu
+        }
+        selectedFieldType = "issuetype"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "ID"
+          value = jira.IssueType.instance.Security_Incident@s
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.sd.create.request"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = "raiseOnBehalfOf"
+                    }
+                    fieldType = "raiseOnBehalfOf"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Summary__string
+                    }
+                    fieldType = "summary"
+                    type = "SET"
+                    rawValue = "Review Threat Response: {{issue.Summary}}"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "ID"
+                        value = "description"
+                        fieldType = "description"
+                      }
+                    }
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Impact__select__c.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "NAME"
+                        value = "Impact"
+                        fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                      }
+                    }
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "NAME"
+                        value = "Affected services"
+                        fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+                      }
+                    }
+                  },
+                ]
+                sendNotifications = false
+                requestType = jira.RequestType.instance.missing_148
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.link"
+              value = {
+                linkType = jira.IssueLinkType.instance.Problem_Incident@d
+                issue = {
+                  type = "COPY"
+                  value = "created"
+                }
+                linkTypeDirection = "outward"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "ID"
+                  value = jira.Field.instance.Priority__priority
+                }
+                selectedFieldType = "priority"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "ID"
+                  multiValue = true
+                  values = [
+                    jira.Priority.instance.Critical,
+                    jira.Priority.instance.Highest,
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.preventative_measures@s.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+          "is caused by",
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "ACTION"
+          type = "jira.issue.transition"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Resolution__resolution
+                }
+                fieldType = "resolution"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.Resolution.instance.Done
+                }
+              },
+            ]
+            sendNotifications = true
+            destinationStatus = {
+              type = "NAME"
+              value = jira.Status.instance.completed.name
+            }
+            transitionMatch = ""
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Security_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "SECOPS: Security Incident -6- Preventative Measures opens & links PIR and Closes Alert"
+}

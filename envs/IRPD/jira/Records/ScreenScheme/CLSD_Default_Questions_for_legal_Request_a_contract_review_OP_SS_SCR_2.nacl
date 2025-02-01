@@ -1,0 +1,7 @@
+jira.ScreenScheme CLSD_Default_Questions_for_legal_Request_a_contract_review_OP_SS_SCR_2@udssdsssuuuu {
+  name = "CLSD_Default/Questions for legal/Request a contract review_OP_SS_SCR_2"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.CLSD_Default_Questions_for_legal_Request_a_contract_review_OP_Default_SCR_2@udssdsssuuuu
+  }
+}

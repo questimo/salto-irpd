@@ -1,0 +1,216 @@
+jira.Automation HR__Employee_Offboarding__2__Link_Reclaim_Ticket_for_Facilities_Human_Resources@fsssbbsssssus {
+  name = "HR: Employee Offboarding -2- Link Reclaim Ticket for Facilities"
+  state = "ENABLED"
+  description = "For associated assets, raise a facilities ticket to reclaim them"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.implementing.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Employee offboarding"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.sd.create.request"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = "raiseOnBehalfOf"
+                    }
+                    fieldType = "raiseOnBehalfOf"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Summary__string
+                    }
+                    fieldType = "summary"
+                    type = "SET"
+                    rawValue = "Reclaim Asset(s) from Leaving Employee"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "SET"
+                    rawValue = '''
+Assets associated with {{issue.Leaving Employee.Name}}:
+
+|| Asset Tag  || Model || Manufacturer || Serial Number ||
+{{#lookupObjects}}
+|{{Name}} |{{Model.Name}} |{{Manufacturer.Name}} |{{Serial Number}} |
+{{/}}
+
+'''
+                  },
+                ]
+                sendNotifications = false
+                requestType = jira.RequestType.instance.missing_93
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.link"
+              value = {
+                linkType = jira.IssueLinkType.instance.Relates
+                issue = {
+                  type = "COPY"
+                  value = "created"
+                }
+                linkTypeDirection = "inward"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Employee Asset(s)}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = "This user is not associated with any active IT Assets."
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.in_progress@s.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Human_Resources@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "HR: Employee Offboarding -2- Link Reclaim Ticket for Facilities"
+}

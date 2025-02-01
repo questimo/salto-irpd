@@ -1,0 +1,82 @@
+jira.Board MOBL_Cowboys@s {
+  name = "MOBL Cowboys"
+  type = "scrum"
+  admins = {
+    users = [
+      {
+        id = "60ad31159e21bd0071e67bfa"
+        displayName = "Admin Istrator"
+      },
+      {
+        id = "60ad2d2a06bf0c006a42fa84"
+        displayName = "Alana Grant"
+      },
+      {
+        id = "60ad32ec411c2200684cd355"
+        displayName = "Cassi Owens"
+      },
+      {
+        id = "5f51c0c59a0131004155b56e"
+        displayName = "field-demo-bot"
+      },
+      {
+        id = "60ad2eb506bf0c006a432a17"
+        displayName = "Mitch Davis"
+      },
+    ]
+    groups = [
+      {
+        name = "site-admins"
+      },
+    ]
+  }
+  location = {
+    projectId = jira.Project.instance.Mobile_Dev@s
+  }
+  isPrivate = false
+  filterId = jira.Filter.instance.Filter_for_MOBL_board@s
+  columnConfig = {
+    columns = [
+      {
+        name = "To Do"
+        statuses = [
+          jira.Status.instance.to_do@s,
+        ]
+      },
+      {
+        name = "Architecture Review"
+        statuses = [
+          jira.Status.instance.architecture_review@s,
+        ]
+      },
+      {
+        name = "Coding - In Progress"
+        statuses = [
+          jira.Status.instance.in_progress@s,
+        ]
+      },
+      {
+        name = "Testing"
+        statuses = [
+          jira.Status.instance.testing,
+        ]
+      },
+      {
+        name = "Accepted"
+        statuses = [
+          jira.Status.instance.accepted,
+        ]
+      },
+      {
+        name = "Released"
+        statuses = [
+          jira.Status.instance.done,
+        ]
+      },
+    ]
+    constraintType = "none"
+  }
+  estimation = {
+    field = jira.Field.instance.Story_Points__float__c@suuuu
+  }
+}

@@ -1,0 +1,25 @@
+jira.Dashboard ESM___Enterprise_Service_Management@sbsss {
+  description = ""
+  name = "ESM - Enterprise Service Management"
+  owner = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+  gadgets = [
+    jira.DashboardGadget.instance.ESM___Enterprise_Service_Management_sbsss__Service_project_report_0_0@uuuuumuussuu,
+    jira.DashboardGadget.instance.ESM___Enterprise_Service_Management_sbsss__Facilities__To_Do__0_1@uuuuumuusjskuu,
+    jira.DashboardGadget.instance.ESM___Enterprise_Service_Management_sbsss__Facilities_Requests_by_Type_0_2@uuuuumuusssuu,
+    jira.DashboardGadget.instance.ESM___Enterprise_Service_Management_sbsss__All_Open_HR_Cases_1_0@uuuuumuusssuu,
+    jira.DashboardGadget.instance.ESM___Enterprise_Service_Management_sbsss__Service_project_report_1_1@uuuuumuussuu,
+    jira.DashboardGadget.instance.ESM___Enterprise_Service_Management_sbsss__Issue_Statistics_1_2@uuuuumuusuu,
+    jira.DashboardGadget.instance.ESM___Enterprise_Service_Management_sbsss__Marketing_Content_Requests_by_Type_2_0@uuuuumuussssuu,
+    jira.DashboardGadget.instance.ESM___Enterprise_Service_Management_sbsss__Marketing__To_Do__2_1@uuuuumuusjskuu,
+    jira.DashboardGadget.instance.ESM___Enterprise_Service_Management_sbsss__Service_project_report_2_2@uuuuumuussuu,
+  ]
+  layout = "AAA"
+}

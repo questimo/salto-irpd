@@ -1,0 +1,390 @@
+jira.Automation INV__Agent___Request_or_Order_new_hardware___Lookup_Inventory_Inventory_Management@fssbssssssbssus {
+  name = "INV: Agent - Request or Order new hardware - Lookup Inventory"
+  state = "ENABLED"
+  description = "Lookup inventory details from the agent view and add info as an internal comment"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groupIds = true
+      groups = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "NAME"
+          multiValue = true
+          values = [
+            "Request new hardware",
+            "Order new hardware",
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1628007889267"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING outboundReferences() AND \"Model\" = {{issue.Device}} AND \"Status\" = \"In Stock\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1628353958128"
+        name = {
+          type = "FREE"
+          value = "stocked"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{lookupObjects.size}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1628354036550"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING outboundReferences() AND \"Model\" = {{issue.Device}} AND \"Status\" = \"Active\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1628354131019"
+        name = {
+          type = "FREE"
+          value = "active"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{lookupObjects.size}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1628354320042"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING outboundReferences() AND \"Model\" = {{issue.Device}} AND \"Status\" = \"Retired\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1628354353384"
+        name = {
+          type = "FREE"
+          value = "retired"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{lookupObjects.size}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1628354659135"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING outboundReferences() AND \"Model\" = {{issue.Device}} AND \"Status\" = \"On Order\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1628354747716"
+        name = {
+          type = "FREE"
+          value = "ordered"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{lookupObjects.size}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1628354685958"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING outboundReferences() AND \"Model\" = {{issue.Device}} AND \"Status\" IN (\"Support Requested\", \"In Service\")"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1628354773700"
+        name = {
+          type = "FREE"
+          value = "support"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{lookupObjects.size}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1628353799932"
+        name = {
+          type = "FREE"
+          value = "total"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{#=}}{{stocked}}+{{active}}+{{retired}}+{{ordered}}+{{support}}{{/}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{total}} = {{stocked}}+{{active}}+{{retired}}+{{ordered}}+{{support}}"
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1628354417802"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING outboundReferences() AND \"Model\" = {{issue.Device}} order by Status asc"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+You requested details on 
+{{issue.${ jira.Field.instance.Device_Type__cmdb_object_cftype__c@suubbuu.name }}} : {{issue.${ jira.Field.instance.Device_Type__cmdb_object_cftype__c@suubbuu.name }.Name}} 
+model:
+{{issue.${ jira.Field.instance.Device__cmdb_object_cftype__c@uubbuu.name }}} : {{issue.${ jira.Field.instance.Device__cmdb_object_cftype__c@uubbuu.name }.Name}} 
+
+h4. Total: {{lookupObjects.size}}
+- In-Stock: {{stocked}}
+- On Order {{ordered}}
+- Assigned: {{active}}
+- Awaiting Support {{support}}
+- Retired: {{retired}}
+
+|| Asset Tag || Serial Number || Owner || Status ||
+{{#lookupObjects}}
+|{{Name}} |{{${ jira.Field.instance.Serial_Number__textfield__c@suuuu.name }}} |{{Owner.Name}} |{{${ jira.Field.instance.Status__status.name }}} |
+{{/}}
+
+
+'''
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Inventory_Management@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "INV: Agent - Request or Order new hardware - Lookup Inventory"
+}

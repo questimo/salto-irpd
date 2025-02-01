@@ -1,0 +1,283 @@
+jira.WorkflowConfiguration ITO__Multilevel_Approvals@fss {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "ITO: Multilevel Approvals"
+  description = "Manager and Application Owner Approvals"
+  isEditable = true
+  startPointLayout = {
+    x = 569
+    y = -171.6
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.canceled
+      layout = {
+        x = 794.9333324432373
+        y = 66.39999999999998
+      }
+      deprecated = false
+      name = "Canceled"
+    },
+    {
+      statusReference = jira.Status.instance.completed
+      layout = {
+        x = 524.9749984741211
+        y = 237.30000488281252
+      }
+      deprecated = false
+      name = "Completed"
+    },
+    {
+      statusReference = jira.Status.instance.open
+      layout = {
+        x = 543.9166660308838
+        y = -115.6
+      }
+      deprecated = false
+      name = "Open"
+    },
+    {
+      statusReference = jira.Status.instance.second_review@s
+      layout = {
+        x = 512.75
+        y = 66.39999999999998
+      }
+      properties = [
+        {
+          key = "approval.active"
+          value = "true"
+        },
+        {
+          key = "approval.condition.type"
+          value = "number"
+        },
+        {
+          key = "approval.condition.value"
+          value = "1"
+        },
+        {
+          key = "approval.field.id"
+          value = jira.Field.instance.Approver_groups__multigrouppicker__c@suuuu
+        },
+        {
+          key = "approval.pre-populated.field.id"
+          value = ""
+        },
+        {
+          key = "approval.transition.approved"
+          value = jira.WorkflowConfiguration.instance.ITO__Multilevel_Approvals@fss.transitions.Approved__From__Second_Review__Directed@fffssff
+        },
+        {
+          key = "approval.transition.rejected"
+          value = jira.WorkflowConfiguration.instance.ITO__Multilevel_Approvals@fss.transitions.Cancel_request__From__Second_Review__Directed@sfffssff
+        },
+      ]
+      deprecated = false
+      name = "Second Review"
+    },
+    {
+      statusReference = jira.Status.instance.waiting_for_approval@s
+      layout = {
+        x = 491.16666412353516
+        y = -19.599999999999994
+      }
+      properties = [
+        {
+          key = "approval.active"
+          value = "true"
+        },
+        {
+          key = "approval.condition.type"
+          value = "percent"
+        },
+        {
+          key = "approval.condition.value"
+          value = "100"
+        },
+        {
+          key = "approval.field.id"
+          value = jira.Field.instance.Manager__multiuserpicker__c
+        },
+        {
+          key = "approval.pre-populated.field.id"
+          value = ""
+        },
+        {
+          key = "approval.transition.approved"
+          value = jira.WorkflowConfiguration.instance.ITO__Multilevel_Approvals@fss.transitions.Application_Owner_Approval__From__Manager_Approval__Directed@ssfffssff
+        },
+        {
+          key = "approval.transition.rejected"
+          value = jira.WorkflowConfiguration.instance.ITO__Multilevel_Approvals@fss.transitions.Cancel_request__From__Manager_Approval__Directed@sfffssff
+        },
+      ]
+      deprecated = false
+      name = "Manager Approval"
+    },
+    {
+      statusReference = jira.Status.instance.waiting_for_support@s
+      layout = {
+        x = 494.7333297729492
+        y = 153.30000488281252
+      }
+      deprecated = false
+      name = "Waiting for support"
+    },
+  ]
+  transitions = {
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.open
+      links = [
+        {
+          toPort = 7
+        },
+      ]
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+    }
+    Cancel_request__From__Second_Review__Directed@sfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.canceled
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.second_review@s
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Cancel request"
+      description = ""
+      conditions = {
+        operation = "ALL"
+        conditions = [
+          {
+            ruleKey = "system:block-in-progress-approval"
+          },
+        ]
+      }
+      transitionScreen = {
+        ruleKey = "system:transition-screen"
+        parameters = {
+          screenId = jira.Screen.instance.JIRA_Service_Desk_Resolve_Issue_Screen___12@ssssssbs
+        }
+      }
+    }
+    Work_Completed__From__Waiting_for_support__Directed@sfffsssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.completed
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.waiting_for_support@s
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Work Completed"
+      description = ""
+      transitionScreen = {
+        ruleKey = "system:transition-screen"
+        parameters = {
+          screenId = jira.Screen.instance.JIRA_Service_Desk_Resolve_Issue_Screen___12@ssssssbs
+        }
+      }
+    }
+    Application_Owner_Approval__From__Manager_Approval__Directed@ssfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.second_review@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.waiting_for_approval@s
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Application Owner Approval"
+      description = "Application Owner Approval"
+      conditions = {
+        operation = "ALL"
+        conditions = [
+          {
+            ruleKey = "system:block-in-progress-approval"
+          },
+        ]
+      }
+    }
+    Request_Manager_Approval__From__Open__Directed@ssfffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.waiting_for_approval@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.open
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Request Manager Approval"
+      description = ""
+    }
+    Canceled__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.canceled
+      name = "Canceled"
+      description = ""
+    }
+    Cancel_request__From__Manager_Approval__Directed@sfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.canceled
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.waiting_for_approval@s
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Cancel request"
+      description = ""
+      conditions = {
+        operation = "ALL"
+        conditions = [
+          {
+            ruleKey = "system:block-in-progress-approval"
+          },
+        ]
+      }
+      transitionScreen = {
+        ruleKey = "system:transition-screen"
+        parameters = {
+          screenId = jira.Screen.instance.JIRA_Service_Desk_Resolve_Issue_Screen___12@ssssssbs
+        }
+      }
+    }
+    Approved__From__Second_Review__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.waiting_for_support@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.second_review@s
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Approved"
+      description = ""
+      conditions = {
+        operation = "ALL"
+        conditions = [
+          {
+            ruleKey = "system:block-in-progress-approval"
+          },
+        ]
+      }
+    }
+  }
+}

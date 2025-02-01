@@ -1,0 +1,24 @@
+jira.Dashboard Engineering_Support@s {
+  description = "Engineering Support Dashboard"
+  name = "Engineering Support"
+  owner = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+  gadgets = [
+    jira.DashboardGadget.instance.Engineering_Support_s__Engineering_Support_Status_Overview_0_0@umuusssuu,
+    jira.DashboardGadget.instance.Engineering_Support_s__Service_project_report_0_1@umuussuu,
+    jira.DashboardGadget.instance.Engineering_Support_s__Service_project_report_0_2@umuussuu,
+    jira.DashboardGadget.instance.Engineering_Support_s__Heat_Map__Product_Family_Support_0_3@umuusfsssuu,
+    jira.DashboardGadget.instance.Engineering_Support_s__All_Open_by_Engineering_Group_1_0@umuussssuu,
+    jira.DashboardGadget.instance.Engineering_Support_s__Open_Statistics__Group_x_Team_1_1@umuusfsssuu,
+    jira.DashboardGadget.instance.Engineering_Support_s__Service_project_report_1_2@umuussuu,
+    jira.DashboardGadget.instance.Engineering_Support_s__All_Open_by_Engineering_Group_1_3@umuussssuu,
+  ]
+  layout = "BA"
+}

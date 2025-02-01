@@ -1,0 +1,7 @@
+jira.ScreenScheme PLAT_Default_SS {
+  name = "PLAT_Default_SS"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.PLAT_Default_OP_default_SCR
+  }
+}

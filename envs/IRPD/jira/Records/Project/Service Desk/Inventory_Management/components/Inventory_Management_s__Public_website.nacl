@@ -1,0 +1,13 @@
+jira.ProjectComponent Inventory_Management_s__Public_website@umuus {
+  description = "Issues related to the public website. Created by Jira Service Management."
+  assigneeType = "UNASSIGNED"
+  name = "Public website"
+  leadAccountId = {
+    id = "60ad31159e21bd0071e67bfa"
+    displayName = "Admin Istrator"
+  }
+  _parent = [
+    jira.Project.instance.Inventory_Management@s,
+  ]
+  _alias = "Inventory Management:Public website"
+}

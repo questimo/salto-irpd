@@ -1,0 +1,10 @@
+jira.Field Floor__cmdb_object_cftype__c@uubbuu {
+  name = "Floor"
+  description = "Floor of a given office building (Insight : Facilities) - ITS FAC HR "
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Floor__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Floor@uuuuuumussss,
+  ]
+  _alias = "Floor"
+}

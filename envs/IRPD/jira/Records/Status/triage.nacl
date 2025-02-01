@@ -1,0 +1,6 @@
+jira.Status triage {
+  name = "Triage"
+  statusCategory = jira.StatusCategory.instance.In_Progress@s
+  description = ""
+  _alias = "Triage"
+}

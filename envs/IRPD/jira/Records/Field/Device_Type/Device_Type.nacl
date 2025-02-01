@@ -1,0 +1,10 @@
+jira.Field Device_Type__cmdb_object_cftype__c@suubbuu {
+  name = "Device Type"
+  description = "Select the type of device (e.g. Laptop, Phone, Monitor) from the Supported Hardware (Insight : IT Employee Assets) - ITS "
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Device_Type__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Device_Type@uuuuuuumusssss,
+  ]
+  _alias = "Device Type"
+}

@@ -1,0 +1,10 @@
+jira.Field Suggested_Subscriptions__cmdb_object_cftype__c@suubbuu {
+  name = "Suggested Subscriptions"
+  description = "Suggested Cloud Subscriptions for Role (Insight: IT Employee Assets) - HR"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Suggested_Subscriptions__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Suggested_Subscriptions@uuuuuuumusssss,
+  ]
+  _alias = "Suggested Subscriptions"
+}

@@ -1,0 +1,7 @@
+jira.ScreenScheme PLAT_Bug_SS {
+  name = "PLAT_Bug_SS"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.PLAT_Bug_OP_default_SCR
+  }
+}

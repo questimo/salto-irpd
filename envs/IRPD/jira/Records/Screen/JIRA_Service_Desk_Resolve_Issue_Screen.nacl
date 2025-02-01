@@ -1,0 +1,35 @@
+jira.Screen JIRA_Service_Desk_Resolve_Issue_Screen@s {
+  name = "JIRA Service Desk Resolve Issue Screen"
+  description = "Allows to set resolution and linked issues"
+  tabs = {
+    General = {
+      name = "General"
+      fields = [
+        jira.Field.instance.Resolution__resolution,
+        jira.Field.instance.Linked_Issues__array@suu,
+        jira.Field.instance.grossRiskScore__float__c,
+        jira.Field.instance.missing_customfield_10302,
+        jira.Field.instance.Likelyhood__select__c,
+        jira.Field.instance.Criticality__select__c,
+      ]
+      position = 0
+    }
+  }
+}
+jira.Screen Jira_Service_Desk_Resolve_Issue_Screen@s {
+  name = "Jira Service Desk Resolve Issue Screen"
+  description = "Allows to set resolution"
+  tabs = {
+    General = {
+      name = "General"
+      fields = [
+        jira.Field.instance.Resolution__resolution,
+        jira.Field.instance.grossRiskScore__float__c,
+        jira.Field.instance.missing_customfield_10302,
+        jira.Field.instance.Likelyhood__select__c,
+        jira.Field.instance.Criticality__select__c,
+      ]
+      position = 0
+    }
+  }
+}

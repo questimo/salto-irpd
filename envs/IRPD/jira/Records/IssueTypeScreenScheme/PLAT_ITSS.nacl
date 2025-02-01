@@ -1,0 +1,14 @@
+jira.IssueTypeScreenScheme PLAT_ITSS {
+  name = "PLAT_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = jira.IssueType.instance.Bug
+      screenSchemeId = jira.ScreenScheme.instance.PLAT_Bug_SS
+    },
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.PLAT_Default_SS
+    },
+  ]
+}

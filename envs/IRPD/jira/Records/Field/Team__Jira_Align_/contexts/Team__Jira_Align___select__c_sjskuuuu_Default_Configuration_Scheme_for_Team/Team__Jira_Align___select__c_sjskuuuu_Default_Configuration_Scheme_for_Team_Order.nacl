@@ -1,0 +1,12 @@
+jira.FieldContextOptionsOrder Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team_order_child@uuuuuuuumussssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team_Baltimore@uuuuuuuumussssu,
+    jira.CustomFieldContextOption.instance.Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team_Cowboys@uuuuuuuumussssu,
+    jira.CustomFieldContextOption.instance.Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team_Washington@uuuuuuuumussssu,
+    jira.CustomFieldContextOption.instance.Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team_Tiger@uuuuuuuumussssu,
+    jira.CustomFieldContextOption.instance.Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team_Houston@uuuuuuuumussssu,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team@uuuuuuuumussss,
+  ]
+}

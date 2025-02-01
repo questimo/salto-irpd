@@ -1,0 +1,388 @@
+jira.Automation HR__Employee_Onboarding__1__Create_New_Person_and_transition_to_Implementing_Human_Resources@fsssbbsssssssus {
+  name = "HR: Employee Onboarding -1- Create New Person and transition to Implementing"
+  state = "ENABLED"
+  description = "Create new person object based on details from form and transition to next stage"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Employee onboarding"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_7
+        customSmartValue = {
+          id = "_customsmartvalue_id_1649183721891"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "Name = \"{{issue.Summary}}\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "cmdb.object.create"
+              value = {
+                workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+                schemaLabel = "People"
+                schemaId = jira.ObjectSchema.instance.missing_7
+                objectTypeLabel = "People"
+                objectTypeId = jira.ObjectType.instance.missing_33
+                attributes = [
+                  {
+                    name = "Name"
+                    value = "{{issue.summary}}"
+                    isLabel = true
+                  },
+                  {
+                    name = "Organization"
+                    value = "Atlassian"
+                    isLabel = false
+                  },
+                  {
+                    name = "Department"
+                    value = "{{issue.Employee Department}}"
+                    isLabel = false
+                  },
+                  {
+                    name = "Status"
+                    value = "Onboarding"
+                    isLabel = false
+                  },
+                  {
+                    name = "Approver"
+                    value = "{{issue.Employee Manager}}"
+                    isLabel = false
+                  },
+                  {
+                    name = "Title"
+                    value = "{{issue.Job title}}"
+                    isLabel = false
+                  },
+                  {
+                    name = "Job Role"
+                    value = "{{issue.Employee Role}}"
+                    isLabel = false
+                  },
+                  {
+                    name = "Office"
+                    value = "{{issue.Office}}"
+                    isLabel = false
+                  },
+                  {
+                    name = "Start Date"
+                    value = "{{issue.Employee Start date}}"
+                    isLabel = false
+                  },
+                  {
+                    name = "Region"
+                    value = "{{issue.Region}}"
+                    isLabel = false
+                  },
+                  {
+                    name = "Type"
+                    value = "{{issue.Employee Type}}"
+                    isLabel = false
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Due_date__date@suu
+                    }
+                    fieldType = "duedate"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "NAME"
+                        value = "Employee Start date"
+                        fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+                      }
+                    }
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "NAME"
+                  value = jira.Status.instance.implementing.name
+                }
+                transitionMatch = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{lookupObjects}}"
+                second = ""
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+{panel:title=WARNING|borderStyle=dashed|borderColor=#ccc|titleBGColor=#F7D6C1|bgColor=#FFFFCE}This user is already in the system {panel}
+
+This request has been canceled. 
+'''
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.New_Employee__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN {{lookupObjects}}"
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Resolution__resolution
+                    }
+                    fieldType = "resolution"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.Resolution.instance.Duplicate
+                    }
+                  },
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "NAME"
+                  value = jira.Status.instance.canceled.name
+                }
+                transitionMatch = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{lookupObjects.Status}}"
+                second = "Deactivated"
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+{panel:title=WARNING|borderStyle=dashed|borderColor=#ccc|titleBGColor=#F7D6C1|bgColor=#FFFFCE}This is a re-hire {panel}
+
+The person you are trying to onboard has worked here before. Please check their work history before proceeding.
+'''
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.New_Employee__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN {{lookupObjects}}"
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Human_Resources@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "HR: Employee Onboarding -1- Create New Person and transition to Implementing"
+}

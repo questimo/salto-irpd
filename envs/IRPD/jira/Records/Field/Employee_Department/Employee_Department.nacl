@@ -1,0 +1,10 @@
+jira.Field Employee_Department__cmdb_object_cftype__c@suubbuu {
+  name = "Employee Department"
+  description = "Employee Department (Insight: People) - HR"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Employee_Department__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Employee_Department@uuuuuuumusssss,
+  ]
+  _alias = "Employee Department"
+}

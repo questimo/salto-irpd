@@ -1,0 +1,60 @@
+jira.DashboardGadget Default_dashboard_s__All_Open_Issues_by_Type___Priority_1_4@umuusssssesuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:two-dimensional-stats-gadget/gadgets/two-dimensional-stats-gadget.xml"
+  color = "blue"
+  position = {
+    row = 4
+    column = 1
+  }
+  title = "All Open Issues by Type & Priority"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "filterId"
+          value = jira.Filter.instance.All_Open_Issues@s
+        },
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "sortDirection"
+          value = "asc"
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "ystattype"
+          value = jira.Field.instance.Issue_Type__issuetype@suu
+        },
+        {
+          key = "more"
+          value = "true"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "sortBy"
+          value = "natural"
+        },
+        {
+          key = "numberToShow"
+          value = "5"
+        },
+        {
+          key = "xstattype"
+          value = "priorities"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Default_dashboard@s,
+  ]
+  _alias = "All Open Issues by Type & Priority"
+}

@@ -1,0 +1,3 @@
+jira.Group bitbucket_users_one_atlas_irpd@b {
+  name = "bitbucket-users-one-atlas-irpd"
+}

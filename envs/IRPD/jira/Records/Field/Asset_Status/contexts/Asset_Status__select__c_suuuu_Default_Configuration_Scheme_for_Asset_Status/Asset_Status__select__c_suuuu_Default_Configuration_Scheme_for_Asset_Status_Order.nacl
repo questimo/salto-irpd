@@ -1,0 +1,13 @@
+jira.FieldContextOptionsOrder Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_order_child@uuuuumusssssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_Active@uuuuumusssssu,
+    jira.CustomFieldContextOption.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_In_Service@uuuuumusssssus,
+    jira.CustomFieldContextOption.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_In_Stock@uuuuumusssssus,
+    jira.CustomFieldContextOption.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_On_Order@uuuuumusssssus,
+    jira.CustomFieldContextOption.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_Retired@uuuuumusssssu,
+    jira.CustomFieldContextOption.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_Support_Requested@uuuuumusssssus,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuumusssss,
+  ]
+}

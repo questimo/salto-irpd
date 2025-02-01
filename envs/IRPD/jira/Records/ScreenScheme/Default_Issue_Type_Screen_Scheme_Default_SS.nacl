@@ -1,0 +1,7 @@
+jira.ScreenScheme Default_Issue_Type_Screen_Scheme_Default_SS@ssssuu {
+  name = "Default Issue Type Screen Scheme_Default_SS"
+  description = "Default Screen Scheme"
+  screens = {
+    default = jira.Screen.instance.Default_Issue_Type_Screen_Scheme_Default_OP_default_SCR@ssssuuuu
+  }
+}

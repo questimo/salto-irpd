@@ -1,0 +1,11 @@
+jira.FieldContextOptionsOrder Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood_order_child@uuuuussssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood_1_Unlikely@uuuuussssu_00061,
+    jira.CustomFieldContextOption.instance.Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood_2_Possible@uuuuussssu_00061,
+    jira.CustomFieldContextOption.instance.Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood_3_Likely@uuuuussssu_00061,
+    jira.CustomFieldContextOption.instance.Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood_4_Certain@uuuuussssu_00061,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Likelyhood__select__c_Default_Configuration_Scheme_for_Likelyhood@uuuuussss,
+  ]
+}

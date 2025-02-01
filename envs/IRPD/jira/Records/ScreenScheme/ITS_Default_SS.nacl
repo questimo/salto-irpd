@@ -1,0 +1,7 @@
+jira.ScreenScheme ITS_Default_SS {
+  name = "ITS_Default_SS"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.ITS_Default_OP_default_SCR
+  }
+}

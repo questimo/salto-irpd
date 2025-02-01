@@ -1,0 +1,5 @@
+jira.IssueLinkType Deployments {
+  name = "Deployments"
+  inward = "is deployed by"
+  outward = "deploys"
+}

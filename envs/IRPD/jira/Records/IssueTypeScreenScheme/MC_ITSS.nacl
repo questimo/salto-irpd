@@ -1,0 +1,10 @@
+jira.IssueTypeScreenScheme MC_ITSS {
+  name = "MC_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.MC_Default_OP_SS_SCR
+    },
+  ]
+}

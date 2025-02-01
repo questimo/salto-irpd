@@ -1,0 +1,6 @@
+jira.Status fix_identified@s {
+  name = "Fix Identified"
+  statusCategory = jira.StatusCategory.instance.In_Progress@s
+  description = ""
+  _alias = "Fix Identified"
+}

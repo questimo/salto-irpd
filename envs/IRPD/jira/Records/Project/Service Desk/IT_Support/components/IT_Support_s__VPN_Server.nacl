@@ -1,0 +1,13 @@
+jira.ProjectComponent IT_Support_s__VPN_Server@umuus {
+  description = "Created by Jira Service Management"
+  assigneeType = "PROJECT_DEFAULT"
+  name = "VPN Server"
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  _parent = [
+    jira.Project.instance.IT_Support@s,
+  ]
+  _alias = "IT Support:VPN Server"
+}

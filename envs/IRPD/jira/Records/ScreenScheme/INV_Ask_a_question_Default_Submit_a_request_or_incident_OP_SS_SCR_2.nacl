@@ -1,0 +1,7 @@
+jira.ScreenScheme INV_Ask_a_question_Default_Submit_a_request_or_incident_OP_SS_SCR_2@ussddssssuuuu {
+  name = "INV_Ask a question/Default/Submit a request or incident_OP_SS_SCR_2"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.INV_Ask_a_question_Default_Submit_a_request_or_incident_OP_Default_SCR_2@ussddssssuuuu
+  }
+}

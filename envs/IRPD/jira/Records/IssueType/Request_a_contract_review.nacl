@@ -1,0 +1,7 @@
+jira.IssueType Request_a_contract_review@s {
+  description = "Submit your contract for review."
+  name = "Request a contract review"
+  untranslatedName = "Request a contract review"
+  hierarchyLevel = 0
+  avatar = file("jira/IssueType/Request_a_contract_review.s.png")
+}

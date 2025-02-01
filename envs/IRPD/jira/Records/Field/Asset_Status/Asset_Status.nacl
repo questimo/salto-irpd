@@ -1,0 +1,10 @@
+jira.Field Asset_Status__select__c@suuuu {
+  name = "Asset Status"
+  description = "Asset Status - ITS PROC INV "
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+  contexts = [
+    jira.CustomFieldContext.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuumusssss,
+  ]
+  _alias = "Asset Status"
+}

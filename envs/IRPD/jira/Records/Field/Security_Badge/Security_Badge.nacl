@@ -1,0 +1,10 @@
+jira.Field Security_Badge__select__c@suuuu {
+  name = "Security Badge"
+  description = "Is a security badge required for this? - ITS FAC "
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+  contexts = [
+    jira.CustomFieldContext.instance.Security_Badge__select__c_suuuu_Configuration_Scheme_for_Security_Badge@uuuuumussss,
+  ]
+  _alias = "Security Badge"
+}

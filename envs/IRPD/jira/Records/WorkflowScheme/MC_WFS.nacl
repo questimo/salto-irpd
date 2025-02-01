@@ -1,0 +1,5 @@
+jira.WorkflowScheme MC_WFS {
+  name = "MC_WFS"
+  description = ""
+  defaultWorkflow = jira.WorkflowConfiguration.instance.MC__Content_Management_Workflow_v2@fssss
+}

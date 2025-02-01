@@ -1,0 +1,17 @@
+jira.Field Category__jwm_category__c@uubuu {
+  name = "Category"
+  description = "Choose a category using a popup picker window."
+  isLocked = true
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:jwm-category"
+  contexts = [
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Legal@uuuuumusssssfs,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Design@uuuuumusssssfs,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Marketing_Content@uuuuumusssssfss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Procurement@uuuuumusssssfs,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Default_Configuration_Scheme_for_Category@uuuuumussss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Legal_Operations@uuuuumusssssfss,
+    jira.CustomFieldContext.instance.Category__jwm_category__c_uubuu_Category_Field_Config_Scheme_for_Project__Employee_onboarding_@uuuuumusssssfsss,
+  ]
+  _alias = "Category"
+}

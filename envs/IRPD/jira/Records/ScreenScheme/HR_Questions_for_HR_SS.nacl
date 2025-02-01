@@ -1,0 +1,7 @@
+jira.ScreenScheme HR_Questions_for_HR_SS@ussu {
+  name = "HR_Questions for HR_SS"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.HR_Questions_for_HR_OP_default_SCR@ussuuu
+  }
+}

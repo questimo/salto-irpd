@@ -1,0 +1,6 @@
+jira.Status second_review@s {
+  name = "Second Review"
+  statusCategory = jira.StatusCategory.instance.In_Progress@s
+  description = ""
+  _alias = "Second Review"
+}

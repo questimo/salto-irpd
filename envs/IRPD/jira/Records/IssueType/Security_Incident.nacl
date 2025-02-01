@@ -1,0 +1,7 @@
+jira.IssueType Security_Incident@s {
+  description = "Security Incident - NIST Framework"
+  name = "Security Incident"
+  untranslatedName = "Security Incident"
+  hierarchyLevel = 0
+  avatar = file("jira/IssueType/Security_Incident.s.png")
+}

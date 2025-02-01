@@ -1,0 +1,10 @@
+jira.Field Standard_Change__cmdb_object_cftype__c@suubbuu {
+  name = "Standard Change"
+  description = "Selection list of pre-approved, standard changes for Change Enablement Practice (Insight : Practice Standards) - ITO "
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Standard_Change__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Standard_Change@uuuuuuumusssss,
+  ]
+  _alias = "Standard Change"
+}

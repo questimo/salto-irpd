@@ -1,0 +1,23 @@
+jira.Project Facilities {
+  key = "FAC"
+  description = "Facilities Service Desk - includes move requests, room inspections, event support"
+  name = "Facilities"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "service_desk"
+  components = [
+    jira.ProjectComponent.instance.Facilities__Intranet,
+    jira.ProjectComponent.instance.Facilities__Jira,
+    jira.ProjectComponent.instance.Facilities__Public_website@uus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.FAC_WFS
+  permissionScheme = jira.PermissionScheme.instance.Jira_Service_Management_Permission_Scheme_for_Project_FAC@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.FAC_ITSS
+  issueTypeScheme = jira.IssueTypeScheme.instance.FAC__Jira_Service_Management_Issue_Type_Scheme@fssssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.FAC_FCS
+  leadAccountId = {
+    id = "60ad2eb506bf0c006a432a17"
+    displayName = "Mitch Davis"
+  }
+  assigneeType = "PROJECT_LEAD"
+}

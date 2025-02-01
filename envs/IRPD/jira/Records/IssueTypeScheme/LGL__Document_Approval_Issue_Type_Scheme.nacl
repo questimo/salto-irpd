@@ -1,0 +1,10 @@
+jira.IssueTypeScheme LGL__Document_Approval_Issue_Type_Scheme@fsssss {
+  name = "LGL: Document Approval Issue Type Scheme"
+  defaultIssueTypeId = jira.IssueType.instance.Document
+  issueTypeIds = [
+    jira.IssueType.instance.Document,
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Story,
+    jira.IssueType.instance.Epic,
+  ]
+}

@@ -1,0 +1,10 @@
+jira.Field Security_Offerings__cmdb_object_cftype__c@suubbuu {
+  name = "Security Offerings"
+  description = "SecOps & Security Engineering Offerings (Insight: Engineering Support) - ENGS"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Security_Offerings__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Security_Offerings@uuuuuuumusssss,
+  ]
+  _alias = "Security Offerings"
+}

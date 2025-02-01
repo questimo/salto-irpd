@@ -1,0 +1,431 @@
+jira.Automation SECOPS__ZZ_PREP_Incident_Alerts_Security_Operations@fsussus {
+  name = "SECOPS: ZZ_PREP Incident Alerts"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Prep SecOps Security Incident Demo"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.${ jira.Field.instance.Security_Source__cmdb_object_cftype__c@suubbuu.name }.Detail}}"
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.sd.create.request"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = "raiseOnBehalfOf"
+                    }
+                    fieldType = "raiseOnBehalfOf"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = "5dd64082af96bc0efbe55103"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Summary__string
+                    }
+                    fieldType = "summary"
+                    type = "SET"
+                    rawValue = "{{issue.Security Source.Detail}}"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "SET"
+                    rawValue = '''
+Timestamp: {{now}} UTC
+{{issue.Security Source.Description}}
+'''
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Next_Steps__textarea__c@suuuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+                    type = "SET"
+                    rawValue = '''
+Review the above and select the field below: *Security Alert Assessment*
+
+If a Monitoring configuration adjustment is needed, attach and submit the form with its details. 
+
+*Note*: All false positives will auto-attach the required form, please help keep our systems safe.
+'''
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Security_Source__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key = {{issue.Security Source}}"
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Application_Impacted__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key = {{issue.Security Source.Application}}"
+                  },
+                ]
+                sendNotifications = false
+                requestType = jira.RequestType.instance.missing_143
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Security Source.CI}}"
+                second = ""
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.sd.create.request"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = "raiseOnBehalfOf"
+                    }
+                    fieldType = "raiseOnBehalfOf"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = "5dd64082af96bc0efbe55103"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Summary__string
+                    }
+                    fieldType = "summary"
+                    type = "SET"
+                    rawValue = "{{issue.Security Source.Detail}}"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "SET"
+                    rawValue = '''
+Timestamp: {{now}} UTC
+{{issue.Security Source.Description}}
+'''
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Next_Steps__textarea__c@suuuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+                    type = "SET"
+                    rawValue = '''
+Review the above and select the field below: *Security Alert Assessment*
+
+If a Monitoring configuration adjustment is needed, attach and submit the form with its details. 
+
+*Note*: All false positives will auto-attach the required form, please help keep our systems safe.
+'''
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Security_Source__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key = {{issue.Security Source}}"
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Impacted_Configuration_Items__cmdb_object_cftype__c@ssuubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key = {{issue.Security Source.CI}}"
+                  },
+                ]
+                sendNotifications = false
+                requestType = jira.RequestType.instance.missing_143
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.create"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Project__project
+                    }
+                    fieldType = "project"
+                    type = "SET"
+                    value = {
+                      type = "COPY"
+                      value = "current"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Issue_Type__issuetype@suu
+                    }
+                    fieldType = "issuetype"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.IssueType.instance.Sub_task@b
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Parent
+                    }
+                    fieldType = "parent"
+                    type = "SET"
+                    value = {
+                      type = "COPY"
+                      value = "current"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Summary__string
+                    }
+                    fieldType = "summary"
+                    type = "SET"
+                    rawValue = "PREP : Reset {{issue.Security Source.CI}}"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "SET"
+                    rawValue = "this is to reset the CI to active and make sure it is not already quarantined"
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Impacted_Configuration_Items__cmdb_object_cftype__c@ssuubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN ({{issue.Security Source.CI}})"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Assignee__user
+                    }
+                    fieldType = "assignee"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "ID"
+                        value = "assignee"
+                        fieldType = "assignee"
+                      }
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Security_Level__securitylevel@suu
+                    }
+                    fieldType = "security"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Security Team - All"
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.work_in_progress@s.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Resolution__resolution
+            }
+            fieldType = "resolution"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Resolution.instance.Done
+            }
+          },
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.completed.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Security_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "SECOPS: ZZ_PREP Incident Alerts"
+}

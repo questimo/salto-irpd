@@ -1,0 +1,10 @@
+jira.ScreenScheme ITO__System__Incident_SS@uhisu {
+  name = "ITO_[System] Incident_SS"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.ITO__System__Incident_OP_default_create_SCR@uhisuudu
+    edit = jira.Screen.instance.ITO__System__Incident_OP_edit_view_SCR@uhisuudu
+    create = jira.Screen.instance.ITO__System__Incident_OP_default_create_SCR@uhisuudu
+    view = jira.Screen.instance.ITO__System__Incident_OP_edit_view_SCR@uhisuudu
+  }
+}

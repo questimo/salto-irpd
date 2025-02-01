@@ -1,0 +1,14 @@
+jira.IssueTypeScreenScheme MP_ITSS {
+  name = "MP_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = jira.IssueType.instance.Bug
+      screenSchemeId = jira.ScreenScheme.instance.MP_Bug_Default_OP_SS_SCR_1@uduuuu
+    },
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.MP_Bug_Default_OP_SS_SCR@uduuu
+    },
+  ]
+}

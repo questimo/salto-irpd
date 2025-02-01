@@ -1,0 +1,121 @@
+jira.Automation SECOPS__Lock_Down_Issue_to_Authorized_Users_Only_Security_Operations@fsssssssus {
+  name = "SECOPS: Lock Down Issue to Authorized Users Only"
+  state = "ENABLED"
+  description = "SECOPS - Manually triggered rule for locking down an incident to only those authorized as noted on the issue."
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = true
+      inputPrompts = [
+        {
+          inputType = "TEXT"
+          displayName = "Lock Down Reason"
+          required = false
+          variableName = "Reason"
+          defaultValue = "Sensitive Issue - Restrict to Auth Users only"
+        },
+      ]
+      groupIds = true
+      groups = [
+      ]
+      issueFilter = {
+        filterType = "ISSUE_TYPE"
+        value = [
+          "Security Incident",
+        ]
+      }
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1702303788730"
+        name = {
+          type = "FREE"
+          value = "newAuth"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.Authorized Viewers}}, {{initiator.accountId}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Authorized_Viewers__multiuserpicker__c@suuuu.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+            type = "SET"
+            value = [
+              {
+                type = "SMART"
+                value = "{{newAuth}}"
+              },
+            ]
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Security_Level__securitylevel@suu
+            }
+            fieldType = "security"
+            type = "SET"
+            value = {
+              type = "NAME"
+              value = "Lock Down - Auth Users Only"
+            }
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Security_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "SECOPS: Lock Down Issue to Authorized Users Only"
+}

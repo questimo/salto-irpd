@@ -1,0 +1,199 @@
+jira.Automation ITS__New_Employee_Setup__4__Associate_laptops_to_ticket_IT_Support@fssssbbssssus {
+  name = "ITS: New Employee Setup -4- Associate laptops to ticket"
+  state = "ENABLED"
+  description = "Associate any relevant laptops to the ticket"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Setup new employee"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1627855477771"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "objectType=\"Laptops\" AND \"Owner\" LIKE \"{{issue.New Employee}}\" AND \"Status\" != \"Retired\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Associated_Laptops__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN ({{lookupObjects}})"
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "BRANCH"
+              type = "jira.smart.values.branch"
+              value = {
+                id = "_customsmartvalue_id_1629577842610"
+                name = {
+                  type = "FREE"
+                  value = "status"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "{{lookupObjects.Status}}"
+                }
+                lazy = false
+              }
+              children = [
+                {
+                  component = "CONDITION"
+                  type = "jira.comparator.condition"
+                  value = {
+                    first = "{{status}}"
+                    second = "On Order"
+                    operator = "EQUALS"
+                  }
+                  children = [
+                  ]
+                  conditions = [
+                  ]
+                },
+                {
+                  component = "ACTION"
+                  type = "jira.issue.comment"
+                  value = {
+                    comment = '''
+{panel:title=ATTENTION|borderStyle=dashed|borderColor=#ccc|titleBGColor=#cd5c5c|bgColor=#cd5c5c} There are laptop orders already in progress. 
+
+Please coordinate with the team to avoid duplicates
+
+Laptop(s) on Order:
+{{lookupObjects.Name}}
+'''
+                    publicComment = false
+                    sendNotifications = true
+                    addCommentOnce = true
+                  }
+                  children = [
+                  ]
+                  conditions = [
+                  ]
+                },
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{lookupObjects}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Support@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITS: New Employee Setup -4- Associate laptops to ticket"
+}

@@ -1,0 +1,52 @@
+jira.DashboardGadget ESM___Enterprise_Service_Management_sbsss__Marketing_Content_Requests_by_Type_2_0@uuuuumuussssuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:pie-chart-gadget/gadgets/piechart-gadget.xml"
+  color = "blue"
+  position = {
+    row = 0
+    column = 2
+  }
+  title = "Marketing Content Requests by Type"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "statType"
+          value = jira.Field.instance.Marketing_content_type_s___multiselect__c@ssjkuuuu
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "name"
+          value = "Marketing (To Do)"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "projectOrFilterId"
+          value = ""
+        },
+        {
+          key = "id"
+          value = "10009"
+        },
+        {
+          key = "type"
+          value = "filter"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.ESM___Enterprise_Service_Management@sbsss,
+  ]
+  _alias = "Marketing Content Requests by Type"
+}

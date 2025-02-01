@@ -1,0 +1,19 @@
+jira.Project Security_Operations@s {
+  key = "SECOPS"
+  description = ""
+  name = "Security Operations"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "service_desk"
+  workflowScheme = jira.WorkflowScheme.instance.SECOPS_WFS
+  permissionScheme = jira.PermissionScheme.instance.Jira_Service_Management_Permission_Scheme_for_Project_SECOPS@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueSecurityScheme = jira.SecurityScheme.instance.SecOps_Issue_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.SECOPS_ITSS
+  issueTypeScheme = jira.IssueTypeScheme.instance.SECOPS__Jira_Service_Management_Issue_Type_Scheme@fssssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.SECOPS_FCS
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  assigneeType = "UNASSIGNED"
+}

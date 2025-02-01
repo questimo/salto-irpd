@@ -1,0 +1,35 @@
+jira.CustomFieldContextOption Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team_Baltimore@uuuuuuuumussssu {
+  value = "Baltimore"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team@uuuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team_Cowboys@uuuuuuuumussssu {
+  value = "Cowboys"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team@uuuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team_Houston@uuuuuuuumussssu {
+  value = "Houston"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team@uuuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team_Tiger@uuuuuuuumussssu {
+  value = "Tiger"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team@uuuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team_Washington@uuuuuuuumussssu {
+  value = "Washington"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Team__Jira_Align___select__c_sjskuuuu_Default_Configuration_Scheme_for_Team@uuuuuuuumussss,
+  ]
+}

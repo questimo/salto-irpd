@@ -1,0 +1,56 @@
+jira.DashboardGadget Platform_Development_s__Average_Age_Chart_1_2@umuussuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:average-age-chart-gadget/gadgets/average-age-gadget.xml"
+  color = "blue"
+  position = {
+    row = 2
+    column = 1
+  }
+  title = "Average Age Chart"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "name"
+          value = "Platform Development"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "periodName"
+          value = "daily"
+        },
+        {
+          key = "projectOrFilterId"
+          value = jira.Project.instance.Platform_Development@s
+        },
+        {
+          key = "daysprevious"
+          value = "10"
+        },
+        {
+          key = "id"
+          value = "10008"
+        },
+        {
+          key = "type"
+          value = "project"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Platform_Development@s,
+  ]
+  _alias = "Average Age Chart"
+}

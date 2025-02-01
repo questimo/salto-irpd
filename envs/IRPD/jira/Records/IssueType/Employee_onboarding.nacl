@@ -1,0 +1,7 @@
+jira.IssueType Employee_onboarding@s {
+  description = "Submit an onboarding request for a new hire."
+  name = "Employee onboarding"
+  untranslatedName = "Employee onboarding"
+  hierarchyLevel = 0
+  avatar = file("jira/IssueType/Employee_onboarding.s.png")
+}

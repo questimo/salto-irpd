@@ -1,0 +1,444 @@
+jira.Automation ITS__Entitlement_Check__1__Get_details_of_assets_IT_Support@fsssbbssssus {
+  name = "ITS: Entitlement Check -1- Get details of assets"
+  state = "ENABLED"
+  description = "Get current assets of employee and update comments with details of what their role should have"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Entitlement Check"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1643985122624"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "\"Owner\"= \"{{issue.Employee Requesting Transfer}}\" AND \"Status\" != \"Retired\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Employee_Asset_s___cmdb_object_cftype__c@sjkuubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN ({{lookupObjects}})"
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{lookupObjects}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1643985681563"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING inboundReferences(Name = \"{{issue.Employee Requesting Transfer.Name}}\")"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = "Current SW Assets"
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN ({{lookupObjects}})"
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{lookupObjects}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1644007310383"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING inboundReferences(object HAVING inboundReferences(\"Key\" = \"{{issue.Employee Role}}\"))"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+In the new role, {{issue.${ jira.Field.instance.Employee_Requesting_Transfer__cmdb_object_cftype__c@ssuubbuu.name }.Name}} is entitled to the following software:
+
+*Entitled Software* 
+|| Name || Category ||
+{{#lookupObjects}} 
+|{{Name}} | {{${ jira.Field.instance.Category__jwm_category__c@uubuu.name }}} |
+{{/}}
+
+Check against their current software and remove or add access as necessary.
+*[Go to Software Inventory|https://se-enterprise-demo-1.atlassian.net/jira/servicedesk/insight/object-schemas/4?typeId=34&view=list&objectId=204]*
+'''
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1644091477682"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "objectType = \"Supported laptops\" AND \"Target Roles\" IN (\"{{issue.Employee Role}}\")"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1644091739736"
+        name = {
+          type = "FREE"
+          value = "model"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{lookupObjects}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{model}}"
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1644091885357"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING outboundReferences() AND \"Model\" = \"{{model}}\" AND \"Status\" = \"In Stock\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+{panel:title=Hardware Assessment|borderStyle=dashed|borderColor=#ccc|titleBGColor=#F7D6C1|bgColor=#6495ed}
+If the user needs an upgrade, *[check the stock|https://se-enterprise-demo-1.atlassian.net/jira/servicedesk/insight/object-schemas/4?typeId=30&view=list&objectId=8908]* and assign them a new one. {panel}
+
+Currently, the following are in stock:
+|| Asset Tag || Model || Serial Number || Location || Status ||
+{{#lookupObjects}}|{{Name}} |{{Model.Name}} |{{Serial Number}} |{{Room.Name}} |{{Status}} |
+{{/}}
+
+A facilities request will automatically be raised and sent to them letting them know which stock room to pick it up from.
+
+*[Go to Laptop Inventory|https://se-enterprise-demo-1.atlassian.net/jira/servicedesk/insight/object-schemas/4?typeId=30&view=list&objectId=8908]*
+
+
+
+'''
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{lookupObjects}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+Unfortunately, we do not currently have any of the suggested models in stock for the {{issue.Employee Role.Name}} role.
+
+You can *[check Inventory of other Models|https://se-enterprise-demo-1.atlassian.net/jira/servicedesk/insight/object-schemas/4?typeId=30&view=list&objectId=8908]* or if needed, *[raise a request for a new laptop|https://se-enterprise-demo-1.atlassian.net/servicedesk/customer/portal/1/group/2/create/49]* on behalf of {{reporter.displayName}}.
+
+'''
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Support@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITS: Entitlement Check -1- Get details of assets"
+}

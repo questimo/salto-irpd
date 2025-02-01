@@ -1,0 +1,56 @@
+jira.DashboardGadget Default_dashboard_s__Recently_Created_Chart_2_2@umuussuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:recently-created-chart-gadget/gadgets/recently-created-gadget.xml"
+  color = "blue"
+  position = {
+    row = 2
+    column = 2
+  }
+  title = "Recently Created Chart"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "name"
+          value = "All Open Issues"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "periodName"
+          value = "weekly"
+        },
+        {
+          key = "projectOrFilterId"
+          value = jira.Filter.instance.All_Open_Issues@s
+        },
+        {
+          key = "daysprevious"
+          value = "30"
+        },
+        {
+          key = "id"
+          value = "10002"
+        },
+        {
+          key = "type"
+          value = "filter"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Default_dashboard@s,
+  ]
+  _alias = "Recently Created Chart"
+}

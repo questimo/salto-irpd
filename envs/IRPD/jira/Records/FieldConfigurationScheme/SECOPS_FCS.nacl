@@ -1,0 +1,10 @@
+jira.FieldConfigurationScheme SECOPS_FCS {
+  name = "SECOPS_FCS"
+  description = " "
+  items = [
+    {
+      issueTypeId = "default"
+      fieldConfigurationId = jira.FieldConfiguration.instance.SECOPS_Default_FC
+    },
+  ]
+}

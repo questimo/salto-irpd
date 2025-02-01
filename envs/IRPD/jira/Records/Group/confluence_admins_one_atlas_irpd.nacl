@@ -1,0 +1,3 @@
+jira.Group confluence_admins_one_atlas_irpd@b {
+  name = "confluence-admins-one-atlas-irpd"
+}

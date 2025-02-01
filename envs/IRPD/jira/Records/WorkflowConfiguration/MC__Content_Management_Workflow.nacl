@@ -1,0 +1,145 @@
+jira.WorkflowConfiguration MC__Content_Management_Workflow@fsss {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "MC: Content Management Workflow"
+  description = "content-management-workflow"
+  isEditable = true
+  startPointLayout = {
+    x = 157
+    y = -76.19999999999999
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.approved
+      layout = {
+        x = 678.857421875
+        y = 6.0999975585937705
+      }
+      deprecated = false
+      name = "Approved"
+    },
+    {
+      statusReference = jira.Status.instance.complete
+      layout = {
+        x = 895.90234375
+        y = 6.0999975585937705
+      }
+      deprecated = false
+      name = "Published"
+    },
+    {
+      statusReference = jira.Status.instance.draft
+      layout = {
+        x = 401.458984375
+        y = -80.19999999999999
+      }
+      deprecated = false
+      name = "Draft"
+    },
+    {
+      statusReference = jira.Status.instance.in_review@s
+      layout = {
+        x = 602.005859375
+        y = -80.19999999999999
+      }
+      deprecated = false
+      name = "In Review"
+    },
+    {
+      statusReference = jira.Status.instance.to_do@s
+      layout = {
+        x = 248.62890625
+        y = -80.19999999999999
+      }
+      deprecated = false
+      name = "To Do"
+    },
+  ]
+  transitions = {
+    Approve__From__In_Review__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.approved
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 3
+          toPort = 1
+        },
+      ]
+      name = "Approve"
+      description = ""
+    }
+    Reject___Back_to_Draft__From__In_Review__Directed@sbsssfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.draft
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 5
+          toPort = 5
+        },
+      ]
+      name = "Reject - Back to Draft"
+      description = ""
+    }
+    Publish__From__Approved__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.complete
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.approved
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Publish"
+      description = ""
+    }
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      links = [
+        {
+          toPort = 7
+        },
+      ]
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+    }
+    Start_Draft__From__To_Do__Directed@sfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.draft
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.to_do@s
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Start Draft"
+      description = ""
+    }
+    Submit_for_Review__From__Draft__Directed@ssfffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_review@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.draft
+          fromPort = 1
+          toPort = 1
+        },
+      ]
+      name = "Submit for Review"
+      description = ""
+    }
+  }
+}

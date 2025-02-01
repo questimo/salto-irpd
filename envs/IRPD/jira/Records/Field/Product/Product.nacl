@@ -1,0 +1,10 @@
+jira.Field Product__cmdb_object_cftype__c@uubbuu {
+  name = "Product"
+  description = "Product supported (Insight: Engineering Support) - ENGS"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Product__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Product@uuuuuumussss,
+  ]
+  _alias = "Product"
+}

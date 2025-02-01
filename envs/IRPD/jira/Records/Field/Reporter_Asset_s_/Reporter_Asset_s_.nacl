@@ -1,0 +1,10 @@
+jira.Field Reporter_Asset_s___cmdb_object_cftype__c@sjkuubbuu {
+  name = "Reporter Asset(s)"
+  description = "Assets associated with the reporter selected (Insight : IT Employee Assets) - ITS"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Reporter_Asset_s___cmdb_object_cftype__c_sjkuubbuu_Default_Configuration_Scheme_for_Reporter_Asset_s_@uuuuuuuuumusssssjk,
+  ]
+  _alias = "Reporter Asset(s)"
+}

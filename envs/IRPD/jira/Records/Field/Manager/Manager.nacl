@@ -1,0 +1,10 @@
+jira.Field Manager__multiuserpicker__c {
+  name = "Manager"
+  description = ""
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:userpickergroupsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Manager__multiuserpicker__c_Default_Configuration_Scheme_for_Manager@uuuuussss,
+  ]
+  _alias = "Manager"
+}

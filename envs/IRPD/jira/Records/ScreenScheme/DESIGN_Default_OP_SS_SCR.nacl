@@ -1,0 +1,8 @@
+jira.ScreenScheme DESIGN_Default_OP_SS_SCR {
+  name = "DESIGN_Default_OP_SS_SCR"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.DESIGN_Default_OP_Default_SCR
+    create = jira.Screen.instance.DESIGN_Default_OP_Create_SCR
+  }
+}

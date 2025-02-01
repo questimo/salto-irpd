@@ -1,0 +1,7 @@
+jira.ScreenScheme FAC_Report_a_maintenance_issue_SS@usssu {
+  name = "FAC_Report a maintenance issue_SS"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.FAC_Report_a_maintenance_issue_OP_default_SCR@usssuuu
+  }
+}

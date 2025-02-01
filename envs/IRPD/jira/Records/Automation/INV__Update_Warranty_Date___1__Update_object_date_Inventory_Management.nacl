@@ -1,0 +1,132 @@
+jira.Automation INV__Update_Warranty_Date___1__Update_object_date_Inventory_Management@fssssbsbsssus {
+  name = "INV: Update Warranty Date - 1- Update object date"
+  state = "ENABLED"
+  description = "For the laptop warranty update change, update the target device's warranty expiry date with the new date given. Comment back to the user that it has been done and close the change as done."
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Update laptop warranty"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+This is a standard maintenance request for target device {{issue.${ jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu.name }}} : {{issue.${ jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu.name }.Name}} 
+
+The date {{lookupObjects.Warranty Expiry Date}} was updated to {{issue.${ jira.Field.instance.New_Date__datepicker__c@suuuu.name }.format("dd/MMM/yy")}}.
+
+The system has been updated and this change will now be closed.
+'''
+        publicComment = true
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.cmdb.field.edit.attributes"
+      value = {
+        cmdbField = jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu
+        attributes = [
+          {
+            name = "Warranty Expiry Date"
+            value = "{{issue.New Date}}"
+          },
+        ]
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Resolution__resolution
+            }
+            fieldType = "resolution"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Resolution.instance.Done
+            }
+          },
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.completed.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Inventory_Management@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "INV: Update Warranty Date - 1- Update object date"
+}

@@ -1,0 +1,10 @@
+jira.ScreenScheme ITO_Access_Sub_task_Task__System__Service_request__System__Service_request_with_approvals_SS@udbddhissdhissssu {
+  name = "ITO_Access/Sub-task/Task/[System] Service request/[System] Service request with approvals_SS"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.ITO_Access_Sub_task_Task__System__Service_request__System__Service_request_with_approvals_OP_default_create_SCR@udbddhissdhissssuudu
+    edit = jira.Screen.instance.ITO_Access_Sub_task_Task__System__Service_request__System__Service_request_with_approvals_OP_edit_view_SCR@udbddhissdhissssuudu
+    create = jira.Screen.instance.ITO_Access_Sub_task_Task__System__Service_request__System__Service_request_with_approvals_OP_default_create_SCR@udbddhissdhissssuudu
+    view = jira.Screen.instance.ITO_Access_Sub_task_Task__System__Service_request__System__Service_request_with_approvals_OP_edit_view_SCR@udbddhissdhissssuudu
+  }
+}

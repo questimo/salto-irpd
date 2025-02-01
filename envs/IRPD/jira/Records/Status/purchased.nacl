@@ -1,0 +1,6 @@
+jira.Status purchased {
+  name = "Purchased"
+  statusCategory = jira.StatusCategory.instance.Done
+  description = ""
+  _alias = "Purchased"
+}

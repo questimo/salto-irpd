@@ -1,0 +1,136 @@
+jira.Automation SECOPS__Investigate_Alert__1__Classifying_Alert_moves_to_In_progress_Security_Operations@fsssbbssssssus {
+  name = "SECOPS: Investigate Alert -1- Classifying Alert moves to In progress"
+  state = "ENABLED"
+  description = "False positive or valid alert moves to in progress"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.Security_Alert_Assessment__cmdb_object_cftype__c@ssuubbuu.name
+          type = "fieldName"
+        },
+      ]
+      actions = [
+        "create",
+        "edit",
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Investigate Security Alert"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "cmdb.condition.query"
+      value = {
+        cmdbField = jira.Field.instance.Security_Alert_Assessment__cmdb_object_cftype__c@ssuubbuu
+        cmdbQuery = "Name IN (\"False Positive\",\"Valid Alert\")"
+        type = "ISSUE"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.work_in_progress@s.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{issue.${ jira.Field.instance.Security_Alert_Assessment__cmdb_object_cftype__c@ssuubbuu.name }.Name}}"
+        second = "False Positive"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.proforma.form.add.action"
+      value = {
+        templateFormsConfig = {
+          projectId = jira.Project.instance.Security_Operations@s
+          templateFormIds = [
+            7,
+          ]
+        }
+        formVisibility = "internal"
+        allowDuplicates = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Security_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "SECOPS: Investigate Alert -1- Classifying Alert moves to In progress"
+}

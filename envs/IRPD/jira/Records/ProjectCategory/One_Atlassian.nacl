@@ -1,0 +1,4 @@
+jira.ProjectCategory One_Atlassian@s {
+  description = "One Atlassian configured demo data project"
+  name = "One Atlassian"
+}

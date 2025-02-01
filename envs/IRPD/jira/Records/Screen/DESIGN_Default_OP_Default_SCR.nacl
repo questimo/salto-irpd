@@ -1,0 +1,31 @@
+jira.Screen DESIGN_Default_OP_Default_SCR {
+  name = "DESIGN_Default_OP_Default_SCR"
+  description = ""
+  tabs = {
+    Field_tab@s = {
+      name = "Field tab"
+      fields = [
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Due_date__date@suu,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Labels__array,
+        jira.Field.instance.Start_date__datepicker__c@suuuu,
+        jira.Field.instance.Product_Family__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Product__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu,
+        jira.Field.instance.Company__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Category__jwm_category__c@uubuu,
+        jira.Field.instance.Team__atlassian_team__c@uubuu,
+        jira.Field.instance.grossRiskScore__float__c,
+        jira.Field.instance.missing_customfield_10302,
+        jira.Field.instance.Likelyhood__select__c,
+        jira.Field.instance.Criticality__select__c,
+      ]
+      position = 0
+    }
+  }
+}

@@ -1,0 +1,7 @@
+jira.ScreenScheme HR_Change_request_SS@usu {
+  name = "HR_Change request_SS"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.HR_Change_request_OP_default_SCR@usuuu
+  }
+}

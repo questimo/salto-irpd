@@ -1,0 +1,10 @@
+jira.Field Transfer_Department__cmdb_object_cftype__c@suubbuu {
+  name = "Transfer Department"
+  description = "Used for employee transfer (Insight: People) - HR"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Transfer_Department__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Transfer_Department@uuuuuuumusssss,
+  ]
+  _alias = "Transfer Department"
+}

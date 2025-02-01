@@ -1,0 +1,162 @@
+jira.WorkflowConfiguration DESIGN__Web_design_process_sub_task_workflow@fssssbs {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "DESIGN: Web design process sub-task workflow"
+  description = "web-design-process-sub-task-workflow"
+  isEditable = true
+  startPointLayout = {
+    x = 1512
+    y = 0
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.done
+      layout = {
+        x = 1670.91796875
+        y = 138.35000244140622
+      }
+      deprecated = false
+      name = "Done"
+    },
+    {
+      statusReference = jira.Status.instance.in_progress@s
+      layout = {
+        x = 1641.91796875
+        y = 87.35000244140622
+      }
+      deprecated = false
+      name = "In Progress"
+    },
+    {
+      statusReference = jira.Status.instance.to_do@s
+      layout = {
+        x = 1662.80078125
+        y = 37.35000244140623
+      }
+      deprecated = false
+      name = "To Do"
+    },
+  ]
+  transitions = {
+    Done__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.done
+      name = "Done"
+      description = ""
+    }
+    To_Do__From__any_status__Global@sfffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      name = "To Do"
+      description = ""
+    }
+    In_Progress__From__any_status__Global@sfffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.in_progress@s
+      name = "In Progress"
+      description = ""
+      actions = [
+        {
+          ruleKey = "connect:remote-workflow-function"
+          parameters = {
+            appKey = "com.onresolve.jira.groovy.groovyrunner__script-postfunction"
+            id = "8bb1a901-defd-4d58-b825-b8088aa652ac"
+            disabled = "false"
+            scriptRunner = {
+              className = "com.adaptavist.sr.cloud.workflow.RunScript"
+              uuid = "01c01d2c-5543-49ce-944d-a7710eabc9bf"
+              enabled = true
+              executionUser = "ADD_ON"
+              condition = '''
+private Object getIssue() {
+    def dlpIssue = get("/rest/api/3/issue/\${issue.key}")
+            .header("Content-Type", "application/json")
+            .asObject(Map)
+            .body
+    return dlpIssue
+}
+
+private void calculation(grossRiskScore, criticality) {
+    def update = put("/rest/api/3/issue/\${issue.key}")
+            .header("Content-Type", "application/json")
+            .body([
+                    fields: [
+                            ${ jira.Field.instance.grossRiskScore__float__c }: grossRiskScore,
+                            ${ jira.Field.instance.Criticality__select__c }: [value: criticality]
+                    ]
+            ])
+            .asObject(Map)
+}
+
+def issue = getIssue()
+
+Double severity = Double.parseDouble(issue.fields.${ jira.Field.instance.Severity__select__c }.value.substring(0, 1))
+Double likelyhood = Double.parseDouble(issue.fields.${ jira.Field.instance.Likelyhood__select__c }.value.substring(0, 1))
+Double grossRiskScore  
+def criticality  
+
+logger.error "severity: \${severity}  likelyhood: \${likelyhood}"
+
+if ((severity || likelyhood) == null) {
+    logger.error "severity or likelyhood is empty"
+    return 0
+}
+
+grossRiskScore = severity * likelyhood
+
+if (grossRiskScore >= 0.0 && grossRiskScore < 3.0) {
+    criticality = "Low"
+}
+if (grossRiskScore >= 3.0 && grossRiskScore < 5.0) {
+    criticality = "Medium"
+}
+if (grossRiskScore >= 5.0 && grossRiskScore < 10.0) {
+    criticality = "High"
+}
+if (grossRiskScore >= 10.0) {
+    criticality = "Critical"
+}
+
+calculation(grossRiskScore, criticality)
+
+logger.error "crit \${criticality} grossRiskScore: \${grossRiskScore}"
+'''
+              description = "Criticality"
+              additionalCode = ""
+            }
+          }
+        },
+      ]
+    }
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      links = [
+        {
+          toPort = 7
+        },
+      ]
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+      properties = [
+        {
+          key = "jira.i18n.submit"
+          value = "common.forms.create"
+        },
+        {
+          key = "jira.i18n.title"
+          value = "common.forms.create"
+        },
+      ]
+    }
+  }
+}

@@ -1,0 +1,516 @@
+jira.Automation INV__Update_laptop_details__1__updates_to_fields_Inventory_Management@fssssbbsssus {
+  name = "INV: Update laptop details -1- updates to fields"
+  state = "ENABLED"
+  description = "Update fields from what was filled in on logging form"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Update laptop details"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.cmdb.field.edit.attributes"
+              value = {
+                cmdbField = jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu
+                attributes = [
+                  {
+                    name = "PO#"
+                    value = "{{issue.Purchase Order Number}}"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Purchase Order Number}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.cmdb.field.edit.attributes"
+              value = {
+                cmdbField = jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu
+                attributes = [
+                  {
+                    name = "Serial Number"
+                    value = "{{issue.Serial Number}}"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Serial Number}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.cmdb.field.edit.attributes"
+              value = {
+                cmdbField = jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu
+                attributes = [
+                  {
+                    name = "Cost"
+                    value = "{{issue.Cost}}"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Cost}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.cmdb.field.edit.attributes"
+              value = {
+                cmdbField = jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu
+                attributes = [
+                  {
+                    name = "Purchase Date"
+                    value = "{{issue.Purchase Date}}"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Purchase Date}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.cmdb.field.edit.attributes"
+              value = {
+                cmdbField = jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu
+                attributes = [
+                  {
+                    name = "Warranty Expiry Date"
+                    value = "{{issue.New Date}}"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.New Date}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.cmdb.field.edit.attributes"
+              value = {
+                cmdbField = jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu
+                attributes = [
+                  {
+                    name = "Status"
+                    value = "{{issue.Asset Status}}"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Asset Status}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.cmdb.field.edit.attributes"
+              value = {
+                cmdbField = jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu
+                attributes = [
+                  {
+                    name = "Asset Tag"
+                    value = "{{issue.Asset Tag}}"
+                  },
+                  {
+                    name = "Name"
+                    value = "{{issue.Asset Tag}}"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{Asset Tag}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.cmdb.field.edit.attributes"
+              value = {
+                cmdbField = jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu
+                attributes = [
+                  {
+                    name = "Owner"
+                    value = "{{issue.New Owner}}"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.New Owner}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+*Changed asset details:* for {{issue.${ jira.Field.instance.New_Laptop__cmdb_object_cftype__c@suubbuu.name }.Name}}:
+- *Name:*  {{issue.${ jira.Field.instance.Asset_Tag__textfield__c@suuuu.name }}}
+- *Serial Number*:  {{issue.${ jira.Field.instance.Serial_Number__textfield__c@suuuu.name }}}
+- *PO#:*  {{issue.${ jira.Field.instance.Purchase_Order_Number__textfield__c@ssuuuu.name }}}
+- *Purchase Date:*  {{issue.${ jira.Field.instance.Purchase_Date__datepicker__c@suuuu.name }}}
+- *Cost:*  \${{issue.${ jira.Field.instance.Cost__float__c.name }}}
+- *Warranty Expiry Date:*  {{issue.${ jira.Field.instance.New_Date__datepicker__c@suuuu.name }}}
+- *Status:*  {{issue.${ jira.Field.instance.Asset_Status__select__c@suuuu.name }}}
+- *Asset Tag:* {{issue.${ jira.Field.instance.Asset_Tag__textfield__c@suuuu.name }}}
+- *Owner:*  {{issue.Owner.Name}}
+'''
+        publicComment = true
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Resolution__resolution
+            }
+            fieldType = "resolution"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Resolution.instance.Done
+            }
+          },
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.completed.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Inventory_Management@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "INV: Update laptop details -1- updates to fields"
+}

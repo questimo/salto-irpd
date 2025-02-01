@@ -1,0 +1,7 @@
+jira.ScreenScheme HR_Employee_onboarding_SS@usu {
+  name = "HR_Employee onboarding_SS"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.HR_Employee_onboarding_OP_default_SCR@usuuu
+  }
+}

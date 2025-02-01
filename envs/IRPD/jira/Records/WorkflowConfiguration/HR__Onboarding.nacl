@@ -1,0 +1,201 @@
+jira.WorkflowConfiguration HR__Onboarding@fs {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "HR: Onboarding"
+  description = "HR Onboarding Workflow"
+  isEditable = true
+  startPointLayout = {
+    x = 719
+    y = -147.6
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.canceled
+      layout = {
+        x = 332.6208324432373
+        y = 252.30000488281252
+      }
+      deprecated = false
+      name = "Canceled"
+    },
+    {
+      statusReference = jira.Status.instance.done
+      layout = {
+        x = 937.2958335876465
+        y = 328.3000048828125
+      }
+      deprecated = false
+      name = "Done"
+    },
+    {
+      statusReference = jira.Status.instance.final_review@s
+      layout = {
+        x = 670.091667175293
+        y = 328.3000048828125
+      }
+      deprecated = false
+      name = "Final Review"
+    },
+    {
+      statusReference = jira.Status.instance.implementing
+      layout = {
+        x = 667.341667175293
+        y = 115.30000488281252
+      }
+      deprecated = false
+      name = "Implementing"
+    },
+    {
+      statusReference = jira.Status.instance.in_progress@s
+      layout = {
+        x = 671.3083343505859
+        y = 207.30000488281252
+      }
+      deprecated = false
+      name = "In Progress"
+    },
+    {
+      statusReference = jira.Status.instance.open
+      layout = {
+        x = 693.9166660308838
+        y = 13.400000000000006
+      }
+      deprecated = false
+      name = "Open"
+    },
+  ]
+  transitions = {
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.open
+      links = [
+        {
+          toPort = 1
+        },
+      ]
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+    }
+    Start_Work__From__Implementing__Directed@sfffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_progress@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.implementing
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Start Work"
+      description = ""
+    }
+    Cancel__From__In_Progress_Open__Directed@fffsszdff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.canceled
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_progress@s
+          fromPort = 7
+          toPort = 2
+        },
+        {
+          fromStatusReference = jira.Status.instance.open
+          fromPort = 7
+          toPort = 2
+        },
+      ]
+      name = "Cancel"
+      description = ""
+    }
+    Rework__From__Final_Review__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_progress@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.final_review@s
+          fromPort = 1
+          toPort = 5
+        },
+      ]
+      name = "Rework"
+      description = ""
+    }
+    HR_Review__From__In_Progress__Directed@sfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.final_review@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_progress@s
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "HR Review"
+      description = ""
+    }
+    Implementing__From__Open__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.implementing
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.open
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Implementing"
+      description = ""
+    }
+    Rework__From__Done__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_progress@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.done
+          fromPort = 1
+          toPort = 3
+        },
+      ]
+      name = "Rework"
+      description = ""
+    }
+    Resolved__From__Final_Review__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.done
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.final_review@s
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Resolved"
+      description = ""
+      transitionScreen = {
+        ruleKey = "system:transition-screen"
+        parameters = {
+          screenId = jira.Screen.instance.JIRA_Service_Desk_Resolve_Issue_Screen@s
+        }
+      }
+      properties = [
+        {
+          key = "servicedesk.customer.transition.active"
+          value = "true"
+        },
+        {
+          key = "servicedesk.customer.transition.resolution"
+          value = "10000"
+        },
+      ]
+    }
+  }
+}

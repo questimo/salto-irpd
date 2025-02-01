@@ -1,0 +1,17 @@
+jira.Project Mobile_Dev@s {
+  key = "MOBL"
+  description = "Mobile Dev team's Software Scrum Project "
+  name = "Mobile Dev"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "software"
+  workflowScheme = jira.WorkflowScheme.instance.MOBL_WFS
+  permissionScheme = jira.PermissionScheme.instance.Default_software_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.MOBL_ITSS
+  issueTypeScheme = jira.IssueTypeScheme.instance.MOBL__Scrum_Issue_Type_Scheme@fssss
+  leadAccountId = {
+    id = "60ad2eb506bf0c006a432a17"
+    displayName = "Mitch Davis"
+  }
+  assigneeType = "PROJECT_LEAD"
+}

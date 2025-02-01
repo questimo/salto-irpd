@@ -1,0 +1,26 @@
+jira.IssueTypeScreenScheme HR_ITSS {
+  name = "HR_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = jira.IssueType.instance.Change_request@s
+      screenSchemeId = jira.ScreenScheme.instance.HR_Change_request_SS@usu
+    },
+    {
+      issueTypeId = jira.IssueType.instance.Employee_offboarding@s
+      screenSchemeId = jira.ScreenScheme.instance.HR_Employee_offboarding_SS@usu
+    },
+    {
+      issueTypeId = jira.IssueType.instance.Employee_onboarding@s
+      screenSchemeId = jira.ScreenScheme.instance.HR_Employee_onboarding_SS@usu
+    },
+    {
+      issueTypeId = jira.IssueType.instance.Questions_for_HR@s
+      screenSchemeId = jira.ScreenScheme.instance.HR_Questions_for_HR_SS@ussu
+    },
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.HR_Default_SS
+    },
+  ]
+}

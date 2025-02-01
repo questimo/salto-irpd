@@ -1,0 +1,3 @@
+jira.Group guard_detect_admins_one_atlas_irpd@b {
+  name = "guard-detect-admins-one-atlas-irpd"
+}

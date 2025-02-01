@@ -1,0 +1,23 @@
+jira.Project Inventory_Management@s {
+  key = "INV"
+  description = "Manage inventory requests and asset lifecycles"
+  name = "Inventory Management"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "service_desk"
+  components = [
+    jira.ProjectComponent.instance.Inventory_Management_s__Intranet@umuu,
+    jira.ProjectComponent.instance.Inventory_Management_s__Jira@umuu,
+    jira.ProjectComponent.instance.Inventory_Management_s__Public_website@umuus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.INV_WFS
+  permissionScheme = jira.PermissionScheme.instance.Jira_Service_Management_Permission_Scheme_for_Project_INV@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.INV_ITSS
+  issueTypeScheme = jira.IssueTypeScheme.instance.INV__Jira_Service_Management_Issue_Type_Scheme@fssssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.INV_FCS
+  leadAccountId = {
+    id = "60ad31159e21bd0071e67bfa"
+    displayName = "Admin Istrator"
+  }
+  assigneeType = "PROJECT_LEAD"
+}

@@ -1,0 +1,22 @@
+jira.IssueTypeScreenScheme SECOPS_ITSS {
+  name = "SECOPS_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = jira.IssueType.instance.Sub_task@b
+      screenSchemeId = jira.ScreenScheme.instance.SECOPS_Default_Sub_task_Task__System__Post_incident_review_OP_SS_SCR_1@udbddhisbsuuuu
+    },
+    {
+      issueTypeId = jira.IssueType.instance.Task
+      screenSchemeId = jira.ScreenScheme.instance.SECOPS_Default_Sub_task_Task__System__Post_incident_review_OP_SS_SCR_1@udbddhisbsuuuu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Post_incident_review@hisbs
+      screenSchemeId = jira.ScreenScheme.instance.SECOPS_Default_Sub_task_Task__System__Post_incident_review_OP_SS_SCR_2@udbddhisbsuuuu
+    },
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.SECOPS_Default_Sub_task_Task__System__Post_incident_review_OP_SS_SCR@udbddhisbsuuu
+    },
+  ]
+}

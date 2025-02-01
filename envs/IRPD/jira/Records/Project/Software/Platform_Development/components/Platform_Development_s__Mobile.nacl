@@ -1,0 +1,12 @@
+jira.ProjectComponent Platform_Development_s__Mobile@umuu {
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Mobile"
+  leadAccountId = {
+    id = "60ad2eb506bf0c006a432a17"
+    displayName = "Mitch Davis"
+  }
+  _parent = [
+    jira.Project.instance.Platform_Development@s,
+  ]
+  _alias = "Platform Development:Mobile"
+}

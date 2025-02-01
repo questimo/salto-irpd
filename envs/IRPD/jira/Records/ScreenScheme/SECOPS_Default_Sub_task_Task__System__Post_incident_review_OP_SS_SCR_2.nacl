@@ -1,0 +1,9 @@
+jira.ScreenScheme SECOPS_Default_Sub_task_Task__System__Post_incident_review_OP_SS_SCR_2@udbddhisbsuuuu {
+  name = "SECOPS_Default/Sub-task/Task/[System] Post-incident review_OP_SS_SCR_2"
+  screens = {
+    default = jira.Screen.instance.SECOPS_Default_Sub_task_Task__System__Post_incident_review_OP_Create_Default_SCR@udbddhisbsuudu
+    edit = jira.Screen.instance.SECOPS_Default_Sub_task_Task__System__Post_incident_review_OP_Edit_View_SCR@udbddhisbsuudu
+    create = jira.Screen.instance.SECOPS_Default_Sub_task_Task__System__Post_incident_review_OP_Create_Default_SCR@udbddhisbsuudu
+    view = jira.Screen.instance.SECOPS_Default_Sub_task_Task__System__Post_incident_review_OP_Edit_View_SCR@udbddhisbsuudu
+  }
+}

@@ -1,0 +1,7 @@
+jira.ScreenScheme SECOPS_Default_Sub_task_Task__System__Post_incident_review_OP_SS_SCR_1@udbddhisbsuuuu {
+  name = "SECOPS_Default/Sub-task/Task/[System] Post-incident review_OP_SS_SCR_1"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.SECOPS_Default_Sub_task_Task__System__Post_incident_review_OP_Default_SCR_1@udbddhisbsuuuu
+  }
+}

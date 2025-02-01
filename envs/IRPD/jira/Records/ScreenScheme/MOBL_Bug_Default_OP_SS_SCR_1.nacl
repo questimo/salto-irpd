@@ -1,0 +1,7 @@
+jira.ScreenScheme MOBL_Bug_Default_OP_SS_SCR_1@uduuuu {
+  name = "MOBL_Bug/Default_OP_SS_SCR_1"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.MOBL_Bug_Default_OP_Default_SCR_1@uduuuu
+  }
+}

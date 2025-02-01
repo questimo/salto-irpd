@@ -1,0 +1,170 @@
+jira.Automation HR__Employee_Transfer__3__On_Resolution__update_Employee_s_new_details_Human_Resources@fsssbbsszdss_08217ssus {
+  name = "HR: Employee Transfer -3- On Resolution, update Employee’s new details"
+  state = "ENABLED"
+  description = "Update user with new transfer details"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.resolved.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Employee Transfer"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.cmdb.field.edit.attributes"
+              value = {
+                cmdbField = jira.Field.instance.Employee_Requesting_Transfer__cmdb_object_cftype__c@ssuubbuu
+                attributes = [
+                  {
+                    name = "Approver"
+                    value = "{{issue.Transfer Department.Director}}"
+                  },
+                  {
+                    name = "Job Role"
+                    value = "{{issue.Transfer Role}}"
+                  },
+                  {
+                    name = "Department"
+                    value = "{{issue.Transfer Department}}"
+                  },
+                  {
+                    name = "Title"
+                    value = "{{issue.Job title}}"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Job title}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.cmdb.field.edit.attributes"
+              value = {
+                cmdbField = jira.Field.instance.Employee_Requesting_Transfer__cmdb_object_cftype__c@ssuubbuu
+                attributes = [
+                  {
+                    name = "Approver"
+                    value = "{{issue.Transfer Department.Director}}"
+                  },
+                  {
+                    name = "Department"
+                    value = "{{issue.Transfer Department}}"
+                  },
+                  {
+                    name = "Job Role"
+                    value = "{{issue.Transfer Role}}"
+                  },
+                ]
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Human_Resources@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "HR: Employee Transfer -3- On Resolution, update Employee’s new details"
+}

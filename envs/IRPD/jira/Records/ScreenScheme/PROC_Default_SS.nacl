@@ -1,0 +1,8 @@
+jira.ScreenScheme PROC_Default_SS {
+  name = "PROC_Default_SS"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.PROC_Default_OP_default_SCR
+    create = jira.Screen.instance.PROC_Default_OP_create_SCR
+  }
+}

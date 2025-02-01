@@ -1,0 +1,7 @@
+jira.ScreenScheme FAC_Questions_for_facilities_SS@ussu {
+  name = "FAC_Questions for facilities_SS"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.FAC_Questions_for_facilities_OP_default_SCR@ussuuu
+  }
+}

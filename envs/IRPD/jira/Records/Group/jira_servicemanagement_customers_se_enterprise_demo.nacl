@@ -1,0 +1,3 @@
+jira.Group jira_servicemanagement_customers_se_enterprise_demo@b {
+  name = "jira-servicemanagement-customers-se-enterprise-demo"
+}

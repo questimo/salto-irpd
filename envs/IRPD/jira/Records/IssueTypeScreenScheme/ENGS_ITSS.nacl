@@ -1,0 +1,42 @@
+jira.IssueTypeScreenScheme ENGS_ITSS {
+  name = "ENGS_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = jira.IssueType.instance.Sub_task@b
+      screenSchemeId = jira.ScreenScheme.instance.ENGS_Default_Sub_task_Task__System__Change__System__Incident__System__Post_incident_review__System__Problem__System__Service_request__System__Service_request_with_approvals_OP_SS_SCR_5@udbddhisdhisdhisbsdhisdhissdhissssuuuu
+    },
+    {
+      issueTypeId = jira.IssueType.instance.Task
+      screenSchemeId = jira.ScreenScheme.instance.ENGS_Default_Sub_task_Task__System__Change__System__Incident__System__Post_incident_review__System__Problem__System__Service_request__System__Service_request_with_approvals_OP_SS_SCR_5@udbddhisdhisdhisbsdhisdhissdhissssuuuu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Change@his
+      screenSchemeId = jira.ScreenScheme.instance.ENGS_Default_Sub_task_Task__System__Change__System__Incident__System__Post_incident_review__System__Problem__System__Service_request__System__Service_request_with_approvals_OP_SS_SCR_1@udbddhisdhisdhisbsdhisdhissdhissssuuuu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Incident@his
+      screenSchemeId = jira.ScreenScheme.instance.ENGS_Default_Sub_task_Task__System__Change__System__Incident__System__Post_incident_review__System__Problem__System__Service_request__System__Service_request_with_approvals_OP_SS_SCR_2@udbddhisdhisdhisbsdhisdhissdhissssuuuu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Post_incident_review@hisbs
+      screenSchemeId = jira.ScreenScheme.instance.ENGS_Default_Sub_task_Task__System__Change__System__Incident__System__Post_incident_review__System__Problem__System__Service_request__System__Service_request_with_approvals_OP_SS_SCR_3@udbddhisdhisdhisbsdhisdhissdhissssuuuu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Problem@his
+      screenSchemeId = jira.ScreenScheme.instance.ENGS_Default_Sub_task_Task__System__Change__System__Incident__System__Post_incident_review__System__Problem__System__Service_request__System__Service_request_with_approvals_OP_SS_SCR_4@udbddhisdhisdhisbsdhisdhissdhissssuuuu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Service_request@hiss
+      screenSchemeId = jira.ScreenScheme.instance.ENGS_Default_Sub_task_Task__System__Change__System__Incident__System__Post_incident_review__System__Problem__System__Service_request__System__Service_request_with_approvals_OP_SS_SCR_5@udbddhisdhisdhisbsdhisdhissdhissssuuuu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Service_request_with_approvals@hissss
+      screenSchemeId = jira.ScreenScheme.instance.ENGS_Default_Sub_task_Task__System__Change__System__Incident__System__Post_incident_review__System__Problem__System__Service_request__System__Service_request_with_approvals_OP_SS_SCR_5@udbddhisdhisdhisbsdhisdhissdhissssuuuu
+    },
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.ENGS_Default_Sub_task_Task__System__Change__System__Incident__System__Post_incident_review__System__Problem__System__Service_request__System__Service_request_with_approvals_OP_SS_SCR@udbddhisdhisdhisbsdhisdhissdhissssuuu
+    },
+  ]
+}

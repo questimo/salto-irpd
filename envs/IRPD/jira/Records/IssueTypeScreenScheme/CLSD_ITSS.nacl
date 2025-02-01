@@ -1,0 +1,18 @@
+jira.IssueTypeScreenScheme CLSD_ITSS {
+  name = "CLSD_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = jira.IssueType.instance.Questions_for_legal@s
+      screenSchemeId = jira.ScreenScheme.instance.CLSD_Default_Questions_for_legal_Request_a_contract_review_OP_SS_SCR_2@udssdsssuuuu
+    },
+    {
+      issueTypeId = jira.IssueType.instance.Request_a_contract_review@s
+      screenSchemeId = jira.ScreenScheme.instance.CLSD_Default_Questions_for_legal_Request_a_contract_review_OP_SS_SCR_1@udssdsssuuuu
+    },
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.CLSD_Default_Questions_for_legal_Request_a_contract_review_OP_SS_SCR@udssdsssuuu
+    },
+  ]
+}

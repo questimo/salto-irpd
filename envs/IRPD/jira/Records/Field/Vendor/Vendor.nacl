@@ -1,0 +1,10 @@
+jira.Field Vendor__textfield__c {
+  name = "Vendor"
+  description = "Supplier of items or service"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Vendor__textfield__c_Default_Configuration_Scheme_for_Vendor@uuuuussss,
+  ]
+  _alias = "Vendor"
+}

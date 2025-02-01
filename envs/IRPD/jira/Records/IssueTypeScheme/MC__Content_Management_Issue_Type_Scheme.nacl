@@ -1,0 +1,10 @@
+jira.IssueTypeScheme MC__Content_Management_Issue_Type_Scheme@fsssss {
+  name = "MC: Content Management Issue Type Scheme"
+  defaultIssueTypeId = jira.IssueType.instance.Marketing_Asset@s
+  issueTypeIds = [
+    jira.IssueType.instance.Marketing_Asset@s,
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Sub_task@b,
+    jira.IssueType.instance.Epic,
+  ]
+}

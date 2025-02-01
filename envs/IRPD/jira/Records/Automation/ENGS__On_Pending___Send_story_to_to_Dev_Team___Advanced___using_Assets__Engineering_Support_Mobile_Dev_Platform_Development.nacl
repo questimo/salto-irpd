@@ -1,0 +1,308 @@
+jira.Automation ENGS__On_Pending___Send_story_to_to_Dev_Team___Advanced___using_Assets__Engineering_Support_Mobile_Dev_Platform_Development@fsssbssssssssjsbsskususus {
+  name = "ENGS: On Pending - Send story to to Dev Team  (Advanced - using Assets)"
+  state = "ENABLED"
+  description = "For engs requests that are not enhancements, allow Pending status to raise a related story for support in the Eng team's backlog (based on Engineering Group associated)"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.pending.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.create"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Summary__string
+                    }
+                    fieldType = "summary"
+                    type = "SET"
+                    rawValue = "Dev support requested for {{issue.Summary}}"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "ID"
+                        value = "description"
+                        fieldType = "description"
+                      }
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Project__project
+                    }
+                    fieldType = "project"
+                    type = "SET"
+                    value = {
+                      type = "SMART"
+                      value = "{{issue.Engineering Group.Main Project Key.id}}"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Issue_Type__issuetype@suu
+                    }
+                    fieldType = "issuetype"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.IssueType.instance.Story
+                    }
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Product_Family__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "NAME"
+                        value = "Product Family"
+                        fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                      }
+                    }
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Product__cmdb_object_cftype__c@uubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "NAME"
+                        value = "Product"
+                        fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                      }
+                    }
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Company__cmdb_object_cftype__c@uubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "NAME"
+                        value = "Company"
+                        fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                      }
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Attachment__array
+                    }
+                    fieldType = "attachment"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "ID"
+                        value = "attachment"
+                        fieldType = "attachment"
+                      }
+                    }
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "NAME"
+                        value = "Affected services"
+                        fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+                      }
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.link"
+              value = {
+                linkType = jira.IssueLinkType.instance.Blocks
+                issue = {
+                  type = "COPY"
+                  value = "created"
+                }
+                linkTypeDirection = "inward"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+                }
+                selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+                comparison = "NOT_ONE_OF"
+                compareFieldValue = {
+                  type = "NAME"
+                  multiValue = true
+                  values = [
+                    "Request a product enhancement",
+                    "Report a bug",
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "ID"
+                  value = jira.Field.instance.Project__project
+                }
+                selectedFieldType = "project"
+                comparison = "EQUALS"
+                compareFieldValue = {
+                  type = "ID"
+                  value = jira.Project.instance.Engineering_Support@s
+                  multiValue = false
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Engineering_Group__cmdb_object_cftype__c@suubbuu.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                comparison = "NOT_EMPTY"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Engineering_Support@s
+    },
+    {
+      projectId = jira.Project.instance.Mobile_Dev@s
+    },
+    {
+      projectId = jira.Project.instance.Platform_Development@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ENGS: On Pending - Send story to to Dev Team  (Advanced - using Assets)"
+}

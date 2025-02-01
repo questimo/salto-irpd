@@ -1,0 +1,10 @@
+jira.Field AMI__cmdb_object_cftype__c@uubbuu {
+  name = "AMI"
+  description = "Field for Infrastructure Request (Insight : Practice Standards) - ITO"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.AMI__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_AMI@uuuuuumussss,
+  ]
+  _alias = "AMI"
+}

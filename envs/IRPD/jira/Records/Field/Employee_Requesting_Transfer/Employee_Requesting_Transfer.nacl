@@ -1,0 +1,13 @@
+jira.Field Employee_Requesting_Transfer__cmdb_object_cftype__c@ssuubbuu {
+  name = "Employee Requesting Transfer"
+  description = '''
+Employee for transfer (Insight - People) - HR
+Limited selection to employees with approver = reporter
+'''
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Employee_Requesting_Transfer__cmdb_object_cftype__c_ssuubbuu_Default_Configuration_Scheme_for_Employee_Requesting_Transfer@uuuuuuuumussssss,
+  ]
+  _alias = "Employee Requesting Transfer"
+}

@@ -1,0 +1,7 @@
+jira.IssueType Access {
+  description = "Multi-level approvals for new or upgraded access. "
+  name = "Access"
+  untranslatedName = "Access"
+  hierarchyLevel = 0
+  avatar = file("jira/IssueType/Access.png")
+}

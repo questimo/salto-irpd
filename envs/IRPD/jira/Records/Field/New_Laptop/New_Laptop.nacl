@@ -1,0 +1,10 @@
+jira.Field New_Laptop__cmdb_object_cftype__c@suubbuu {
+  name = "New Laptop"
+  description = "New Laptop to Register (Insight : IT Employee Assets) - ITS PROC INV"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.New_Laptop__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_New_Laptop@uuuuuuumusssss,
+  ]
+  _alias = "New Laptop"
+}

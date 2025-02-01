@@ -1,0 +1,200 @@
+jira.WorkflowConfiguration DESIGN__Web_design_process_task_workflow@fsssss {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "DESIGN: Web design process task workflow"
+  description = "web-design-process-task-workflow"
+  isEditable = true
+  startPointLayout = {
+    x = 1512
+    y = 0
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.concepting
+      layout = {
+        x = 1659.984375
+        y = 63.900000000000006
+      }
+      deprecated = false
+      name = "Concepting"
+    },
+    {
+      statusReference = jira.Status.instance.design
+      layout = {
+        x = 1732.609375
+        y = 110
+      }
+      deprecated = false
+      name = "Design"
+    },
+    {
+      statusReference = jira.Status.instance.launch
+      layout = {
+        x = 1829.1640625
+        y = 200.9
+      }
+      deprecated = false
+      name = "Launch"
+    },
+    {
+      statusReference = jira.Status.instance.testing
+      layout = {
+        x = 1781.328125
+        y = 154.9
+      }
+      deprecated = false
+      name = "Testing"
+    },
+    {
+      statusReference = jira.Status.instance.to_do@s
+      layout = {
+        x = 1600.34375
+        y = 16.350002441406232
+      }
+      deprecated = false
+      name = "To Do"
+    },
+  ]
+  transitions = {
+    Design__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.design
+      name = "Design"
+      description = ""
+    }
+    Testing__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.testing
+      name = "Testing"
+      description = ""
+    }
+    To_Do__From__any_status__Global@sfffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      name = "To Do"
+      description = ""
+    }
+    Concepting__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.concepting
+      name = "Concepting"
+      description = ""
+      actions = [
+        {
+          ruleKey = "system:copy-value-from-other-field"
+          parameters = {
+            sourceFieldKey = jira.Field.instance.Likelyhood__select__c
+            targetFieldKey = jira.Field.instance.Description__string
+            issueSource = "SAME"
+          }
+        },
+        {
+          ruleKey = "connect:remote-workflow-function"
+          parameters = {
+            appKey = "com.onresolve.jira.groovy.groovyrunner__script-postfunction"
+            id = "16c3f8c1-53b1-4e51-810a-2b65105be516"
+            disabled = "false"
+            scriptRunner = {
+              className = "com.adaptavist.sr.cloud.workflow.RunScript"
+              uuid = "868dd277-ce2a-4a0a-9663-7eb70fd6b532"
+              enabled = true
+              executionUser = "ADD_ON"
+              condition = '''
+private Object getIssue() {
+    def dlpIssue = get("/rest/api/3/issue/\${issue.key}")
+            .header("Content-Type", "application/json")
+            .asObject(Map)
+            .body
+    return dlpIssue
+}
+
+private void calculation(grossRiskScore, criticality) {
+    def update = put("/rest/api/3/issue/\${issue.key}")
+            .header("Content-Type", "application/json")
+            .body([
+                    fields: [
+                            ${ jira.Field.instance.grossRiskScore__float__c }: grossRiskScore,
+                            ${ jira.Field.instance.Criticality__select__c }: [value: criticality]
+                    ]
+            ])
+            .asObject(Map)
+}
+
+def issue = getIssue()
+
+Double severity = Double.parseDouble(issue.fields.${ jira.Field.instance.Severity__select__c }.value.substring(0, 1))
+Double likelyhood = Double.parseDouble(issue.fields.${ jira.Field.instance.Likelyhood__select__c }.value.substring(0, 1))
+Double grossRiskScore  
+def criticality  
+
+logger.error "severity: \${severity}  likelyhood: \${likelyhood}"
+
+if ((severity || likelyhood) == null) {
+    logger.error "severity or likelyhood is empty"
+    return 0
+}
+
+grossRiskScore = severity * likelyhood
+
+if (grossRiskScore >= 0.0 && grossRiskScore < 3.0) {
+    criticality = "Low"
+}
+if (grossRiskScore >= 3.0 && grossRiskScore < 5.0) {
+    criticality = "Medium"
+}
+if (grossRiskScore >= 5.0 && grossRiskScore < 10.0) {
+    criticality = "High"
+}
+if (grossRiskScore >= 10.0) {
+    criticality = "Critical"
+}
+
+calculation(grossRiskScore, criticality)
+
+logger.error "crit \${criticality} grossRiskScore: \${grossRiskScore}"
+'''
+              description = "Criticality"
+              additionalCode = ""
+            }
+          }
+        },
+      ]
+    }
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      links = [
+        {
+          toPort = 7
+        },
+      ]
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+      properties = [
+        {
+          key = "jira.i18n.submit"
+          value = "common.forms.create"
+        },
+        {
+          key = "jira.i18n.title"
+          value = "common.forms.create"
+        },
+      ]
+    }
+    Launch__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.launch
+      name = "Launch"
+      description = ""
+    }
+  }
+}

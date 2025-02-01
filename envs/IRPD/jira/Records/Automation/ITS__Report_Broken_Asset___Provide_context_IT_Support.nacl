@@ -1,0 +1,114 @@
+jira.Automation ITS__Report_Broken_Asset___Provide_context_IT_Support@fssssbssus {
+  name = "ITS: Report Broken Asset - Provide context"
+  state = "ENABLED"
+  description = "Lookup info about the asset"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "NAME"
+          multiValue = true
+          values = [
+            "Report a broken asset",
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Warranty date for laptop associated is {{${ jira.Field.instance.Reporter__user.name } Asset(s).Warranty Expiry Date}} and today is {{now}}"
+    },
+    {
+      component = "BRANCH"
+      type = "jira.smart.values.branch"
+      value = {
+        id = "_customsmartvalue_id_1628092197470"
+        name = {
+          type = "FREE"
+          value = "warrantyexpirydate"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{Reporter Asset(s).Warranty Expiry Date}}"
+        }
+        lazy = false
+      }
+      children = [
+        {
+          component = "ACTION"
+          type = "jira.issue.comment"
+          value = {
+            comment = '''
+{panel:title=ATTENTION|borderStyle=dashed|borderColor=#ccc|titleBGColor=#F7D6C1|bgColor=#FFFFCE}Check Laptop Warranty Date {panel}
+
+'''
+            publicComment = false
+            sendNotifications = true
+            addCommentOnce = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Support@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITS: Report Broken Asset - Provide context"
+}

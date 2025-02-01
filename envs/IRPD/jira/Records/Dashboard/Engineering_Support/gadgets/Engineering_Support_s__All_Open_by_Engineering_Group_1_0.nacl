@@ -1,0 +1,111 @@
+jira.DashboardGadget Engineering_Support_s__All_Open_by_Engineering_Group_1_0@umuussssuu {
+  moduleKey = "com.atlassian.servicedesk.dashboard-items-plugin:filter-count-dashboard-item"
+  color = "blue"
+  position = {
+    row = 0
+    column = 1
+  }
+  title = "All Open by Engineering Group"
+  properties = [
+    {
+      key = "countOptions"
+      value = [
+        {
+          hasTrigger = false
+          trigger = {
+            display = "warning"
+            triggerEquality = "above"
+            triggerOn = "undefined"
+          }
+          id = "c91"
+          name = "APM"
+          jql = "\"Engineering Group\" in iqlFunction(\"Name = \\\"APM\\\"\")"
+        },
+        {
+          hasTrigger = false
+          trigger = {
+            display = "warning"
+            triggerEquality = "above"
+            triggerOn = "undefined"
+          }
+          id = "c95"
+          name = "Cloud Platform"
+          jql = "\"Engineering Group\" in iqlFunction(\"Name = \\\"Cloud Platform\\\"\")"
+        },
+        {
+          hasTrigger = false
+          trigger = {
+            display = "warning"
+            triggerEquality = "above"
+            triggerOn = "undefined"
+          }
+          id = "c99"
+          name = "Data Science"
+          jql = "\"Engineering Group\" in iqlFunction(\"Name = \\\"Data Science\\\"\")"
+        },
+        {
+          hasTrigger = false
+          trigger = {
+            display = "warning"
+            triggerEquality = "above"
+            triggerOn = "undefined"
+          }
+          id = "c103"
+          name = "Global Security"
+          jql = "\"Engineering Group\" in iqlFunction(\"Name = \\\"Global Security\\\"\")"
+        },
+        {
+          hasTrigger = false
+          trigger = {
+            display = "warning"
+            triggerEquality = "above"
+            triggerOn = "undefined"
+          }
+          id = "c107"
+          name = "Revenue Engineering"
+          jql = "\"Engineering Group\" in iqlFunction(\"Name = \\\"Revenue Engineering\\\"\")"
+        },
+        {
+          hasTrigger = false
+          trigger = {
+            display = ""
+            triggerEquality = ""
+            triggerOn = ""
+          }
+          name = "Total"
+          jql = ""
+          id = "c119"
+        },
+      ]
+    },
+    {
+      key = "isConfigured"
+      value = true
+    },
+    {
+      key = "projectFilterDetails"
+      values = [
+        {
+          key = "name"
+          value = "ENGS - All Open"
+        },
+        {
+          key = "type"
+          value = "filter"
+        },
+        {
+          key = "id"
+          value = "10013"
+        },
+      ]
+    },
+    {
+      key = "refresh"
+      value = "false"
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Engineering_Support@s,
+  ]
+  _alias = "All Open by Engineering Group"
+}

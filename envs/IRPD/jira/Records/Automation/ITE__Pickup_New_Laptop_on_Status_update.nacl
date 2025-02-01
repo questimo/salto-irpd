@@ -1,0 +1,182 @@
+jira.Automation ITE__Pickup_New_Laptop_on_Status_update@fssssss {
+  name = "ITE: Pickup New Laptop on Status update"
+  state = "ENABLED"
+  description = "Raises a facilities request when a laptop is moved into the status of \"Ready for Pickup\""
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "cmdb.object.trigger"
+    value = {
+      operation = "UPDATED"
+      workspaceId = "b01943c1-4dd4-4139-bd2b-1e96ba2b65f8"
+      schemaId = jira.ObjectSchema.instance.missing_6
+      schemaLabel = "IT Employee Assets "
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "cmdb.condition.query"
+      value = {
+        cmdbQuery = "objectType=Laptops AND Status = \"Ready for Pickup\""
+        type = "OBJECT"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.sd.create.request"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = "raiseOnBehalfOf"
+            }
+            fieldType = "raiseOnBehalfOf"
+            type = "SET"
+            value = {
+              type = "SMART"
+              value = "{{Object.Owner.User}}"
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Congrats! You have a new {{Object.Manufacturer.Name}} laptop for pickup"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "SET"
+            rawValue = '''
+Hello {{Object.Owner.Name}},
+
+Please pickup your new laptop from *{{Object.Room.Name}}* within the next *5 business days*.
+
+*Office Location:* {{Object.Room.Floor.Office.Address}}
+
+*[Map it|https://www.google.com/maps/search/?api=1&query={{Object.Room.Floor.Office.Address}}]*
+
+If you need to return a laptop, please bring that when you come in.
+
+Thank you,
+Your IT & Facilities Teams
+'''
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Requested_Asset__cmdb_object_cftype__c@suubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "SET"
+            rawValue = "Key IN ({{Object}})"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Due_date__date@suu
+            }
+            fieldType = "duedate"
+            type = "SET"
+            rawValue = "{{now.plusBusinessDays(5)}}"
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Office__cmdb_object_cftype__c@uubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "SET"
+            rawValue = "Key IN ({{Object.Room.Floor.Office}})"
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Room__cmdb_object_cftype__c@uubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "SET"
+            rawValue = "Key IN ({{Object.Room}})"
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Floor__cmdb_object_cftype__c@uubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "SET"
+            rawValue = "Key IN ({{Object.Room.Floor}})"
+          },
+        ]
+        sendNotifications = false
+        requestType = jira.RequestType.instance.missing_93
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "slack.notification"
+      value = {
+        webhookUrl = "https://hooks.slack.com/services/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"
+        body = '''
+Hello {{Object.Owner.Name}},
+
+Please pickup your new laptop from *{{Object.Room.Name}}* within the next *5 business days*.
+
+*Office Location:* {{Object.Room.Floor.Office.Address}}
+
+<https://www.google.com/maps/search/?api=1&query={{Object.Room.Floor.Office.Address}}|Map it>
+
+If you need to return a laptop, please bring that when you come in.
+
+Thank you,
+Your IT & Facilities Teams
+'''
+        channel = "@{{Object.Owner.slackID}}"
+        automationSender = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITE: Pickup New Laptop on Status update"
+}

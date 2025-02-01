@@ -1,0 +1,208 @@
+jira.WorkflowConfiguration ENGS__Bug_Intake@fss {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "ENGS: Bug Intake"
+  description = "Engineering Support - Custom Bug Intake Workflow"
+  isEditable = true
+  startPointLayout = {
+    x = 595
+    y = -173.6
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.bug_validated@s
+      layout = {
+        x = 540.4749984741211
+        y = 92.30000488281252
+      }
+      deprecated = false
+      name = "Bug Validated"
+    },
+    {
+      statusReference = jira.Status.instance.done
+      layout = {
+        x = 569.2999992370605
+        y = 297.3000048828125
+      }
+      deprecated = false
+      name = "Done"
+    },
+    {
+      statusReference = jira.Status.instance.duplicate
+      layout = {
+        x = 886.5250015258789
+        y = 85.30000488281252
+      }
+      deprecated = false
+      name = "Duplicate"
+    },
+    {
+      statusReference = jira.Status.instance.fix_identified@s
+      layout = {
+        x = 544.2583351135254
+        y = 196.30000488281252
+      }
+      deprecated = false
+      name = "Fix Identified"
+    },
+    {
+      statusReference = jira.Status.instance.in_review@s
+      layout = {
+        x = 556.1666660308838
+        y = -13.699995117187484
+      }
+      deprecated = false
+      name = "In Review"
+    },
+    {
+      statusReference = jira.Status.instance.open
+      layout = {
+        x = 569.2999992370605
+        y = -93.69999511718748
+      }
+      deprecated = false
+      name = "Open"
+    },
+    {
+      statusReference = jira.Status.instance.unable_to_replicate@s
+      layout = {
+        x = 205.77916193008423
+        y = 85.30000488281252
+      }
+      deprecated = false
+      name = "Unable to Replicate"
+    },
+  ]
+  transitions = {
+    Bug_Validated__From__In_Review__Directed@sfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.bug_validated@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Bug Validated"
+      description = "Agent can validate the bug exists"
+    }
+    Researching__From__Open__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_review@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.open
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Researching"
+      description = ""
+    }
+    Unable_to_Replicate__From__In_Review__Directed@ssfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.unable_to_replicate@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Unable to Replicate"
+      description = "Agent cannot reproduce issue"
+    }
+    Duplicate_Bug__From__In_Review__Directed@sfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.duplicate
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Duplicate Bug"
+      description = "Valid bug, however it has already been identified & documented"
+    }
+    Linked_to_Original__From__Duplicate__Directed@ssfffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.done
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.duplicate
+          fromPort = 5
+          toPort = 3
+        },
+      ]
+      name = "Linked to Original"
+      description = "Closed and linked to original bug ticket"
+    }
+    Fix_Identified__From__Bug_Validated__Directed@sfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.fix_identified@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.bug_validated@s
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Fix Identified"
+      description = "Development has a plan on how to address this bug"
+    }
+    Completed__From__Fix_Identified__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.done
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.fix_identified@s
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Completed"
+      description = "Work completed and in production"
+      transitionScreen = {
+        ruleKey = "system:transition-screen"
+        parameters = {
+          screenId = jira.Screen.instance.Resolve_Issue_Screen@s
+        }
+      }
+    }
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.open
+      links = [
+        {
+          toPort = 1
+        },
+      ]
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+    }
+    Closed__From__Unable_to_Replicate__Directed@fffsssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.done
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.unable_to_replicate@s
+          fromPort = 5
+          toPort = 7
+        },
+      ]
+      name = "Closed"
+      description = "Not a bug"
+    }
+  }
+}

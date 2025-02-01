@@ -1,0 +1,3 @@
+jira.Group confluence_user_access_admins_se_enterprise_demo@b {
+  name = "confluence-user-access-admins-se-enterprise-demo"
+}

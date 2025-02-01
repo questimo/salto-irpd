@@ -1,0 +1,184 @@
+jira.Automation _1A_DevEx__Scorecard_failed_in_Compass___create_a_task_for_the_current_sprint_Mobile_Dev@hbisssssbsssssssus {
+  name = "[1A-DevEx] Scorecard failed in Compass - create a task for the current sprint"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "compass.scorecard-status-updated.trigger"
+    value = {
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+    connectionId = "8e72edf0-79a2-4eb4-93bb-105e2ba235f4"
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{scorecard.status}}"
+        second = "FAILING"
+        operator = "CONTAINS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{component.ownerId}}"
+        second = "ari:cloud:identity::team/8fdab0a8-f5d3-49d0-8aa5-0226bfbeebf2"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Scorecard {{scorecard.name}} failed for component <{{component.name}}>, component cloud id = <{{component.cloudId}}>. Owner team is {{component.ownerId}}. Scorecard status is {{scorecard.status}} (used to be {{scorecard.previousStatus}})."
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Last user modification at = {{scorecard.lastUserModificationAt}}. Last modified by the user = {{component.lastUserModificationBy.displayName}}. // {{scorecard.lastUserModificationAt.jqlDateTime}} "
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.create"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Resolve Scorecard issue: {{scorecard.name}} - {{scorecard.status}} for {{component.name}}"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "SET"
+            rawValue = '''
+*Component* {{component.name}} - {{component.url}}.
+
+-- Component last modified on: {{component.lastUserModificationAt}}
+
+*Scorecard* {{scorecard.name}}:
+
+-- Scorecard last modified on: {{scorecard.lastUserModificationAt}}
+'''
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            fieldType = "project"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Project.instance.Mobile_Dev@s
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            fieldType = "issuetype"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.IssueType.instance.Task
+            }
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Sprint__gh_sprint__c@uubuu.name
+            }
+            fieldType = "com.pyxis.greenhopper.jira:gh-sprint"
+            type = "SET"
+            value = {
+              type = "REFERENCE"
+              value = "CURRENT"
+              additional = 2
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Priority__priority
+            }
+            fieldType = "priority"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Priority.instance.Critical
+            }
+          },
+        ]
+        advancedFields = '''
+{
+	"update": {
+        "components": [{
+                "add": {"name":"{{component.name}}"}
+        }]
+    }
+}
+'''
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Mobile_Dev@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "[1A-DevEx] Scorecard failed in Compass - create a task for the current sprint"
+}

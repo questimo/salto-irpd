@@ -1,0 +1,26 @@
+jira.IssueTypeScreenScheme FAC_ITSS {
+  name = "FAC_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = jira.IssueType.instance.Questions_for_facilities@s
+      screenSchemeId = jira.ScreenScheme.instance.FAC_Questions_for_facilities_SS@ussu
+    },
+    {
+      issueTypeId = jira.IssueType.instance.Report_a_maintenance_issue@s
+      screenSchemeId = jira.ScreenScheme.instance.FAC_Report_a_maintenance_issue_SS@usssu
+    },
+    {
+      issueTypeId = jira.IssueType.instance.Request_a_move@s
+      screenSchemeId = jira.ScreenScheme.instance.FAC_Request_a_move_SS@ussu
+    },
+    {
+      issueTypeId = jira.IssueType.instance.Request_an_event@s
+      screenSchemeId = jira.ScreenScheme.instance.FAC_Request_an_event_SS@ussu
+    },
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.FAC_Default_SS
+    },
+  ]
+}

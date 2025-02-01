@@ -1,0 +1,22 @@
+jira.Project Customer_Support@s {
+  key = "CS"
+  description = "Support for our Partners, Vendors, and Resellers"
+  name = "Customer Support"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "service_desk"
+  components = [
+    jira.ProjectComponent.instance.Customer_Support_s__Jira@umuu,
+    jira.ProjectComponent.instance.Customer_Support_s__Public_website@umuus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.CS_WFS
+  permissionScheme = jira.PermissionScheme.instance.Jira_Service_Management_Permission_Scheme_for_Project_CS@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.CS_ITSS
+  issueTypeScheme = jira.IssueTypeScheme.instance.CS__Jira_Service_Management_Issue_Type_Scheme@fssssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.CS_FCS
+  leadAccountId = {
+    id = "60ad31159e21bd0071e67bfa"
+    displayName = "Admin Istrator"
+  }
+  assigneeType = "UNASSIGNED"
+}

@@ -1,0 +1,649 @@
+jira.Automation ENGS__Request_for_infrastructure___AMI___VM_comment_and_close_Engineering_Support_IT_Operations@fssssbssbssssusus {
+  name = "ENGS: Request for infrastructure - AMI - VM comment and close"
+  state = "ENABLED"
+  description = '''
+If they request an AMI, then comment back about triggering scripts and webhooks, update the associated Application field, set the Support Groups, and close the request. 
+If they do not request an AMI, then comment back it's with the Platform Team and add them in the Support Group field.
+'''
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Request additional infrastructure"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.auto.approve.action"
+              value = {
+                approveAction = "Approve"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "NAME"
+                  value = jira.Status.instance.in_progress@s.name
+                }
+                transitionMatch = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "SET"
+                    rawValue = '''
+This is an automated request that leverages webhooks to trigger the AMI creation in AWS. 
+
+'''
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Engineering_Group__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Name LIKE \"Cloud Platform\""
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+Automation can leverage webhooks triggering scripts and the AMI record can hold key details that get inserted - 
+
+{code}
+aws ec2 run-instances \
+  --security-group-ids SECURITY_GROUP_ID \
+  --instance-type INSTANCE_TYPE \
+  --image-id {{issue.AMI.Name}}   \ 
+  --block-device-mappings '[{"DeviceName":"/dev/xvdf","Ebs":{"VolumeSize":SIZE,"VolumeType":"TYPE"}}]' \
+  --region REGION \ {{issue.AMI.Region Code}} 
+  --ebs-optimized
+{code}
+
+We also have AWS actions you can leverage with our built-in automation. Learn more *[here|https://support.atlassian.com/cloud-automation/docs/use-jira-automation-with-aws/]*
+'''
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+The request has been automated and completed.
+
+If this were real, you could provide the user with the access details
+
+e.g.  *ec2-user-{{issue.Reporter}}@my-aws-instance-{{issue.AMI.Name}}*
+
+
+{panel:title=AWS Connector}
+The AWS Service Management Connector for Jira Service Management (Connector) enables Jira Service Management end users to provision, manage, and operate AWS resources natively through Atlassian's Jira Service Management.
+
+It enables Jira Service Management administrators to:
+* Provide pre-approved, secured, and governed AWS resources to end-users through AWS Service Catalog.
+* Create and manage operational items through AWS Systems Manager OpsCenter.
+* Execute automation playbooks through AWS Systems Manager Automation.
+* Track resources in a configuration item view powered by AWS Config.
+* View, create, investigate, add correspondence, and resolve AWS Support cases through Jira Service Management (including AMS Accelerate support cases).
+* Manage and resolve incidents affecting AWS-hosted applications through integrations with AWS Systems Manager Incident Manager.
+
+These integrations streamline AWS native services by making it easier for you to consume and provide Jira Service Management governance and oversight over AWS products.
+
+The AWS-supplied connector is available at no charge in the Atlassian Marketplace. This new feature is generally available in all AWS Regions where AWS Service Catalog, AWS Config, and AWS Systems Manager services are available.
+
+Learn more *[here|https://www.youtube.com/watch?v=c5kTLRzOTZA]*
+
+{panel}
+'''
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Resolution__resolution
+                    }
+                    fieldType = "resolution"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.Resolution.instance.Done
+                    }
+                  },
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "NAME"
+                  value = jira.Status.instance.resolved.name
+                }
+                transitionMatch = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.AMI__cmdb_object_cftype__c@uubbuu.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                comparison = "NOT_EMPTY"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.auto.approve.action"
+              value = {
+                approveAction = "Approve"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "SET"
+                    rawValue = "This is an automated request that leverages webhooks to trigger the VMware creation in AWS Cloud. "
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Application_Impacted__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Name LIKE \"VMware Cloud\""
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Engineering_Group__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Name LIKE \"Cloud Platform\""
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "NAME"
+                  value = jira.Status.instance.in_progress@s.name
+                }
+                transitionMatch = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+Automation can leverage webhooks triggering scripts and the VMware options can hold key details that get inserted in your call - 
+
+{code}
+    "account_link_sddc_config": [ {
+        "connected_account_id": "{{issue.Reporter.id}}",
+        "customer_subnet_ids": [ "subnet-{{issue.key}}" ]
+    } ],
+    "name": "{{issue.VMware Option.Name}} ",
+    "region": "241",
+{code}
+'''
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+The request has been automated and completed.
+
+If this were real, you could provide the user with the access details here and fully automate the request.
+
+e.g.  *user-{{issue.Reporter}}@my-{{issue.VMware Option}}*
+
+'''
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Resolution__resolution
+                    }
+                    fieldType = "resolution"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.Resolution.instance.Done
+                    }
+                  },
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "NAME"
+                  value = jira.Status.instance.resolved.name
+                }
+                transitionMatch = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.VMware_Option__cmdb_object_cftype__c@suubbuu.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                comparison = "NOT_EMPTY"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.auto.approve.action"
+              value = {
+                approveAction = "Decline"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.clone"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Project__project
+                    }
+                    fieldType = "project"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.Project.instance.IT_Operations@s
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Issue_Type__issuetype@suu
+                    }
+                    fieldType = "issuetype"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.IssueType.instance._System__Service_request@hiss
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Summary__string
+                    }
+                    fieldType = "summary"
+                    type = "SET"
+                    rawValue = "Transfer from Engineering - {{issue.summary}}"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "SET"
+                    rawValue = "{{issue.Reporter.displayName}} has requested on-prem hardware. Please provision according to the attached request."
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Attachment__array
+                    }
+                    fieldType = "attachment"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "ID"
+                        value = "attachment"
+                        fieldType = "attachment"
+                      }
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Reporter__user
+                    }
+                    fieldType = "reporter"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "ID"
+                        value = "reporter"
+                        fieldType = "reporter"
+                      }
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.link"
+              value = {
+                linkType = jira.IssueLinkType.instance.Duplicate
+                issue = {
+                  type = "COPY"
+                  value = "created"
+                }
+                linkTypeDirection = "inward"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "BRANCH"
+              type = "jira.issue.related"
+              value = {
+                relatedType = "recentlycreated"
+                jql = ""
+                linkTypes = [
+                ]
+                onlyUpdatedIssues = false
+                similarityLimit = 40
+                compareValue = 0
+              }
+              children = [
+                {
+                  component = "ACTION"
+                  type = "jira.edit.request.type"
+                  value = {
+                    requestType = {
+                      type = "NAME"
+                      value = "Request for infrastructure"
+                    }
+                    sendNotifications = true
+                  }
+                  children = [
+                  ]
+                  conditions = [
+                  ]
+                },
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+Your new request has been transferred to IT Operations as we do not provision on-prem infrastructure. You will receive notification shortly. You can also follow along in the portal by going to your open requests (top right).
+
+Thank you,
+Cloud Engineering Support
+'''
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Resolution__resolution
+                    }
+                    fieldType = "resolution"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.Resolution.instance.Won_t_Do@ts
+                    }
+                  },
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "NAME"
+                  value = jira.Status.instance.closed.name
+                }
+                transitionMatch = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Engineering_Support@s
+    },
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ENGS: Request for infrastructure - AMI - VM comment and close"
+}

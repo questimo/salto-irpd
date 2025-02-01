@@ -1,0 +1,51 @@
+jira.Screen ITS__System__Incident_OP_edit_view_SCR@uhisuudu {
+  name = "ITS_[System] Incident_OP_edit/view_SCR"
+  description = ""
+  tabs = {
+    Default = {
+      name = "Default"
+      fields = [
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Components__array,
+        jira.Field.instance.Attachment__array,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Linked_Issues__array@suu,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Labels__array,
+        jira.Field.instance.Request_participants__sd_request_participants__c@suubbuu,
+        jira.Field.instance.Approvers__multiuserpicker__c,
+        jira.Field.instance.Organizations__sd_customer_organizations__c@uubbuu,
+        jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu,
+        jira.Field.instance.Affected_hardware__textfield__c@suuuu,
+        jira.Field.instance.Urgency__select__c,
+        jira.Field.instance.Impact__select__c,
+        jira.Field.instance.missing_customfield_10040,
+        jira.Field.instance.Pending_reason__select__c@suuuu,
+        jira.Field.instance.Source__select__c,
+        jira.Field.instance.Product_categorization__cascadingselect__c@suuuu,
+        jira.Field.instance.Operational_categorization__cascadingselect__c@suuuu,
+        jira.Field.instance.Device__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Device_Type__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Cloud_Subscriptions__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.New_Employee__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Region__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Office__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Associated_Laptops__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Requested_Asset__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Reporter_Asset_s___cmdb_object_cftype__c@sjkuubbuu,
+        jira.Field.instance.Major_incident__major_incident_entity_field_cftype__c@suubbbbuu,
+        jira.Field.instance.Employee_Asset_s___cmdb_object_cftype__c@sjkuubbuu,
+        jira.Field.instance.Team__atlassian_team__c@uubuu,
+        jira.Field.instance.Parent,
+        jira.Field.instance.grossRiskScore__float__c,
+        jira.Field.instance.missing_customfield_10302,
+        jira.Field.instance.Likelyhood__select__c,
+        jira.Field.instance.Criticality__select__c,
+      ]
+      position = 0
+    }
+  }
+}

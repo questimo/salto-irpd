@@ -1,0 +1,45 @@
+jira.Screen PROC_Default_OP_default_SCR {
+  name = "PROC_Default_OP_default_SCR"
+  description = ""
+  tabs = {
+    General = {
+      name = "General"
+      fields = [
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Attachment__array,
+        jira.Field.instance.Due_date__date@suu,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Labels__array,
+        jira.Field.instance.Amount__textfield__c,
+        jira.Field.instance.Vendor__textfield__c,
+        jira.Field.instance.Account__textfield__c,
+        jira.Field.instance.Start_date__datepicker__c@suuuu,
+        jira.Field.instance.Associated_Laptops__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Cost__float__c,
+        jira.Field.instance.New_Laptop__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Purchase_Date__datepicker__c@suuuu,
+        jira.Field.instance.New_Date__datepicker__c@suuuu,
+        jira.Field.instance.Asset_Status__select__c@suuuu,
+        jira.Field.instance.Serial_Number__textfield__c@suuuu,
+        jira.Field.instance.Purchase_Order_Number__textfield__c@ssuuuu,
+        jira.Field.instance.Asset_Tag__textfield__c@suuuu,
+        jira.Field.instance.Quantity__float__c,
+        jira.Field.instance.New_Owner__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Office__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Employee_Asset_s___cmdb_object_cftype__c@sjkuubbuu,
+        jira.Field.instance.Requested_Asset__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Category__jwm_category__c@uubuu,
+        jira.Field.instance.Team__atlassian_team__c@uubuu,
+        jira.Field.instance.grossRiskScore__float__c,
+        jira.Field.instance.missing_customfield_10302,
+        jira.Field.instance.Likelyhood__select__c,
+        jira.Field.instance.Criticality__select__c,
+      ]
+      position = 0
+    }
+  }
+}

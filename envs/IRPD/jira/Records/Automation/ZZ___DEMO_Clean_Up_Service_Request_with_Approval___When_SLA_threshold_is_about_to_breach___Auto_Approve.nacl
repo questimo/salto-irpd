@@ -1,0 +1,121 @@
+jira.Automation ZZ___DEMO_Clean_Up_Service_Request_with_Approval___When_SLA_threshold_is_about_to_breach___Auto_Approve@sbssssssssbssssssss_08594ss {
+  name = "ZZ - DEMO Clean Up Service Request with Approval - When SLA threshold is about to breach → Auto Approve"
+  state = "ENABLED"
+  description = "Clean up demo gen data: Resolve request when SLA threshold is about to breach in 3h"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.sla.threshold.trigger"
+    value = {
+      customFieldId = "customfield_10051"
+      thresholdType = "WILL_BREACH"
+      thresholdValue = 1800000
+      scheduleConfigIdSet = [
+        4,
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Issue_Type__issuetype@suu
+        }
+        selectedFieldType = "issuetype"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "ID"
+          multiValue = true
+          values = [
+            jira.IssueType.instance._System__Service_request_with_approvals@hissss,
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Labels__array
+        }
+        selectedFieldType = "labels"
+        comparison = "CONTAINS_NONE"
+        compareFieldValue = {
+          type = "NAME"
+          multiValue = true
+          values = [
+            "JSM-SE",
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.auto.approve.action"
+      value = {
+        approveAction = "Approve"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+Hey {{issue.${ jira.Field.instance.Reporter__user }.displayName}},
+
+This ticket will breach its SLA in 5 hours. We are auto-approving to show movement for our dashboards & reports.
+
+Cheers,
+Your friendly automation bot
+'''
+        publicComment = true
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ZZ - DEMO Clean Up Service Request with Approval - When SLA threshold is about to breach → Auto Approve"
+}

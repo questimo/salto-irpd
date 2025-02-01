@@ -1,0 +1,9 @@
+jira.FieldContextOptionsOrder Security_Badge__select__c_suuuu_Configuration_Scheme_for_Security_Badge_order_child@uuuuumussssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Security_Badge__select__c_suuuu_Configuration_Scheme_for_Security_Badge_Yes@uuuuumussssu,
+    jira.CustomFieldContextOption.instance.Security_Badge__select__c_suuuu_Configuration_Scheme_for_Security_Badge_No@uuuuumussssu,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Security_Badge__select__c_suuuu_Configuration_Scheme_for_Security_Badge@uuuuumussss,
+  ]
+}

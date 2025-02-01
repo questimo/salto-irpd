@@ -1,0 +1,16 @@
+jira.ApplicationRole Jira_Product_Discovery@s {
+  key = "jira-product-discovery"
+  groups = [
+    jira.Group.instance.jira_product_discovery_users_one_atlas_irpd@b,
+  ]
+  name = "Jira Product Discovery"
+  defaultGroups = [
+    jira.Group.instance.jira_product_discovery_users_one_atlas_irpd@b,
+  ]
+  selectedByDefault = false
+  defined = true
+  numberOfSeats = 35000
+  userCountDescription = "jira.product-discovery.user.count"
+  hasUnlimitedSeats = false
+  platform = false
+}

@@ -1,0 +1,3 @@
+jira.Group jira_software_users_se_enterprise_demo@b {
+  name = "jira-software-users-se-enterprise-demo"
+}

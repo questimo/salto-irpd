@@ -1,0 +1,31 @@
+jira.WorkflowScheme HR_WFS {
+  name = "HR_WFS"
+  description = "This Jira Service Management IT Support Workflow Scheme was generated for Project HR"
+  defaultWorkflow = jira.WorkflowConfiguration.instance.HR__Jira_Service_Management_default_workflow@fsssss
+  items = [
+    {
+      workflow = jira.WorkflowConfiguration.instance.HR__Service_Request_Fulfilment_with_Approvals_workflow_for_Jira_Service_Management@fssssssssss
+      issueType = jira.IssueType.instance._System__Service_request_with_approvals@hissss
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.HR__Simple_ESM_workflow_for_Jira_Service_Management@fsssssss
+      issueType = jira.IssueType.instance.Change_request@s
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.HR__Simple_ESM_workflow_for_Jira_Service_Management@fsssssss
+      issueType = jira.IssueType.instance.Questions_for_HR@s
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.HR__Onboarding@fs
+      issueType = jira.IssueType.instance.Employee_onboarding@s
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.HR__Offboarding@fs
+      issueType = jira.IssueType.instance.Employee_offboarding@s
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.HR__Simple_ESM_workflow_for_Jira_Service_Management@fsssssss
+      issueType = jira.IssueType.instance.Emailed_request@s
+    },
+  ]
+}

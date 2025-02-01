@@ -1,0 +1,10 @@
+jira.Field Asset_Tag__textfield__c@suuuu {
+  name = "Asset Tag"
+  description = "Asset Tag - ITS PROC INV"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Asset_Tag__textfield__c_suuuu_Default_Configuration_Scheme_for_Asset_Tag@uuuuumusssss,
+  ]
+  _alias = "Asset Tag"
+}

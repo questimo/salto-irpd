@@ -1,0 +1,7 @@
+jira.ScreenScheme FAC_Request_an_event_SS@ussu {
+  name = "FAC_Request an event_SS"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.FAC_Request_an_event_OP_default_SCR@ussuuu
+  }
+}

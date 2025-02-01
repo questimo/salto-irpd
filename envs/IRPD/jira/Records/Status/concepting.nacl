@@ -1,0 +1,6 @@
+jira.Status concepting {
+  name = "Concepting"
+  statusCategory = jira.StatusCategory.instance.In_Progress@s
+  description = ""
+  _alias = "Concepting"
+}

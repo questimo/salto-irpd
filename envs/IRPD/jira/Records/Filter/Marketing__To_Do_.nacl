@@ -1,0 +1,22 @@
+jira.Filter Marketing__To_Do_@sjsk {
+  name = "Marketing (To Do)"
+  description = ""
+  owner = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  jql = "${ jira.Field.instance.Project__project } in (${ jira.Project.instance.Marketing_Services@s }, ${ jira.Project.instance.Design.key }) AND ${ jira.Field.instance.Resolution__resolution } = Unresolved ORDER BY ${ jira.Field.instance.Created__datetime } DESC"
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+  editPermissions = [
+    {
+      type = "group"
+      group = {
+        name = jira.Group.instance.site_admins@b
+      }
+    },
+  ]
+}

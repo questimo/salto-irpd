@@ -1,0 +1,10 @@
+jira.Field Target_Device__cmdb_object_cftype__c@suubbuu {
+  name = "Target Device"
+  description = "Target device shows objects in CMDB (Insight : IT Employee Assets) - ITO INV "
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Target_Device__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Target_Device@uuuuuuumusssss,
+  ]
+  _alias = "Target Device"
+}

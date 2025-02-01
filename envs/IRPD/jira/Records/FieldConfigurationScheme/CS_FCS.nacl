@@ -1,0 +1,10 @@
+jira.FieldConfigurationScheme CS_FCS {
+  name = "CS_FCS"
+  description = " "
+  items = [
+    {
+      issueTypeId = "default"
+      fieldConfigurationId = jira.FieldConfiguration.instance.CS_Default_FC
+    },
+  ]
+}

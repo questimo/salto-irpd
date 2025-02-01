@@ -1,0 +1,10 @@
+jira.IssueTypeScreenScheme PROC_ITSS {
+  name = "PROC_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.PROC_Default_SS
+    },
+  ]
+}

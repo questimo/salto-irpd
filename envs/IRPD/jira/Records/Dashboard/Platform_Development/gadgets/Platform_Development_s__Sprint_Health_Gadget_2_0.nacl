@@ -1,0 +1,48 @@
+jira.DashboardGadget Platform_Development_s__Sprint_Health_Gadget_2_0@umuussuu {
+  uri = "rest/gadgets/1.0/g/com.pyxis.greenhopper.jira:greenhopper-gadget-sprint-health/gadgets/greenhopper-sprint-health.xml"
+  color = "blue"
+  position = {
+    row = 0
+    column = 2
+  }
+  title = "Sprint Health Gadget"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "showSprintName"
+          value = "false"
+        },
+        {
+          key = "sprintId"
+          value = "auto"
+        },
+        {
+          key = "rapidViewId"
+          value = "1"
+        },
+        {
+          key = "showRapidViewName"
+          value = "true"
+        },
+        {
+          key = "showAssignees"
+          value = "false"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Platform_Development@s,
+  ]
+  _alias = "Sprint Health Gadget"
+}

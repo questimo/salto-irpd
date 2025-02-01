@@ -1,0 +1,23 @@
+jira.Project Marketing_Services@s {
+  key = "MS"
+  description = ""
+  name = "Marketing Services"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "service_desk"
+  components = [
+    jira.ProjectComponent.instance.Marketing_Services_s__Intranet@umuu,
+    jira.ProjectComponent.instance.Marketing_Services_s__Jira@umuu,
+    jira.ProjectComponent.instance.Marketing_Services_s__Public_website@umuus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.MS_WFS
+  permissionScheme = jira.PermissionScheme.instance.Jira_Service_Management_Permission_Scheme_for_Project_MS@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.MS_ITSS
+  issueTypeScheme = jira.IssueTypeScheme.instance.MS__Jira_Service_Management_Issue_Type_Scheme@fssssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.MS_FCS
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  assigneeType = "UNASSIGNED"
+}

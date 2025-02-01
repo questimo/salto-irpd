@@ -1,0 +1,9 @@
+jira.Field Job_title__textfield__c@suuuu {
+  name = "Job title"
+  description = ""
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Job_title__textfield__c_suuuu_Default_Configuration_Scheme_for_Job_title@uuuuumusssss,
+  ]
+  _alias = "Job title"
+}

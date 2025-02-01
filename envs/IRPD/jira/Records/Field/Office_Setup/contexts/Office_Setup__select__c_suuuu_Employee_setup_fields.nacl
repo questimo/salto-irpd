@@ -1,0 +1,18 @@
+jira.CustomFieldContext Office_Setup__select__c_suuuu_Employee_setup_fields@uuuuumuss {
+  name = "Employee setup fields"
+  description = "Fields used in the Employee setup request"
+  defaultValue = {
+    type = "option.single"
+    optionId = jira.CustomFieldContextOption.instance.Office_Setup__select__c_suuuu_Employee_setup_fields_No@uuuuumussu
+  }
+  issueTypeIds = [
+    jira.IssueType.instance.Employee_setup@s,
+  ]
+  projectIds = [
+    jira.Project.instance.IT_Support@s,
+  ]
+  _parent = [
+    jira.Field.instance.Office_Setup__select__c@suuuu,
+  ]
+  _alias = "Office Setup context in Employee setup fields"
+}

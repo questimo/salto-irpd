@@ -1,0 +1,7 @@
+jira.IssueType Marketing_Asset@s {
+  description = "A digital or physical item to be tracked."
+  name = "Marketing Asset"
+  untranslatedName = "Marketing Asset"
+  hierarchyLevel = 0
+  avatar = file("jira/IssueType/Marketing_Asset.s.png")
+}

@@ -1,0 +1,7 @@
+jira.ScreenScheme ENGS_Default_Sub_task_Task__System__Change__System__Incident__System__Post_incident_review__System__Problem__System__Service_request__System__Service_request_with_approvals_OP_SS_SCR@udbddhisdhisdhisbsdhisdhissdhissssuuu {
+  name = "ENGS_Default/Sub-task/Task/[System] Change/[System] Incident/[System] Post-incident review/[System] Problem/[System] Service request/[System] Service request with approvals_OP_SS_SCR"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.ENGS_Default_Sub_task_Task__System__Change__System__Incident__System__Post_incident_review__System__Problem__System__Service_request__System__Service_request_with_approvals_OP_Default_SCR@udbddhisdhisdhisbsdhisdhissdhissssuuu
+  }
+}

@@ -1,0 +1,162 @@
+jira.WorkflowConfiguration LGSD__Contract_review_workflow_for_Jira_Service_Management@fsssssss {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "LGSD: Contract review workflow for Jira Service Management"
+  description = "This Jira Service Management Service contract review workflow was generated for Project LGSD"
+  isEditable = true
+  startPointLayout = {
+    x = 314.5
+    y = 81.80000000000001
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.cancelled
+      layout = {
+        x = 1303.17578125
+        y = 265.8187593048096
+      }
+      deprecated = false
+      name = "Cancelled"
+    },
+    {
+      statusReference = jira.Status.instance.in_review_by_legal@s
+      layout = {
+        x = 728.58203125
+        y = 131.8
+      }
+      deprecated = false
+      name = "In Review By Legal"
+    },
+    {
+      statusReference = jira.Status.instance.resolved
+      layout = {
+        x = 1307.23828125
+        y = 8.006247860717792
+      }
+      deprecated = false
+      name = "Resolved"
+    },
+    {
+      statusReference = jira.Status.instance.to_do@s
+      layout = {
+        x = 447.19921875
+        y = 131.8
+      }
+      deprecated = false
+      name = "To Do"
+    },
+    {
+      statusReference = jira.Status.instance.with_other_party@s
+      layout = {
+        x = 1083.74609375
+        y = 131.8
+      }
+      deprecated = false
+      name = "With Other Party"
+    },
+  ]
+  transitions = {
+    Details_provided__From__With_Other_Party__Directed@sfffsssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_review_by_legal@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.with_other_party@s
+          fromPort = 6
+          toPort = 4
+        },
+      ]
+      name = "Details provided"
+      description = ""
+    }
+    Request_created__From__none__Initial@sfffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      links = [
+        {
+          toPort = 7
+        },
+      ]
+      name = "Request created"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+    }
+    Approved__From__In_Review_By_Legal__Directed@fffssssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.resolved
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review_by_legal@s
+          fromPort = 1
+          toPort = 7
+        },
+      ]
+      name = "Approved"
+      description = ""
+      transitionScreen = {
+        ruleKey = "system:transition-screen"
+        parameters = {
+          screenId = jira.Screen.instance.Jira_Service_Desk_Resolve_Issue_Screen___10@ssssssbs
+        }
+      }
+    }
+    Start_review__From__To_Do__Directed@sfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_review_by_legal@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.to_do@s
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Start review"
+      description = ""
+    }
+    Cancelled__From__In_Review_By_Legal_With_Other_Party__Directed@fffsssszdssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.cancelled
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review_by_legal@s
+          fromPort = 5
+          toPort = 5
+        },
+        {
+          fromStatusReference = jira.Status.instance.with_other_party@s
+          fromPort = 5
+          toPort = 7
+        },
+      ]
+      name = "Cancelled"
+      description = ""
+      transitionScreen = {
+        ruleKey = "system:transition-screen"
+        parameters = {
+          screenId = jira.Screen.instance.Jira_Service_Desk_Resolve_Issue_Screen___10@ssssssbs
+        }
+      }
+    }
+    Details_required__From__In_Review_By_Legal__Directed@sfffssssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.with_other_party@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review_by_legal@s
+          fromPort = 2
+          toPort = 0
+        },
+      ]
+      name = "Details required"
+      description = ""
+    }
+  }
+}

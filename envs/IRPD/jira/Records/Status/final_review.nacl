@@ -1,0 +1,6 @@
+jira.Status final_review@s {
+  name = "Final Review"
+  statusCategory = jira.StatusCategory.instance.Done
+  description = ""
+  _alias = "Final Review"
+}

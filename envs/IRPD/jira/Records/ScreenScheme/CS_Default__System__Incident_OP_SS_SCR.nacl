@@ -1,0 +1,7 @@
+jira.ScreenScheme CS_Default__System__Incident_OP_SS_SCR@udhisuuu {
+  name = "CS_Default/[System] Incident_OP_SS_SCR"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.CS_Default__System__Incident_OP_Default_SCR@udhisuuu
+  }
+}

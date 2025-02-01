@@ -1,0 +1,116 @@
+jira.Automation _1A_DevEx__Create_a_code_branch_on_issue_transition_to__In_Progress___if_component___repo_exist__Mobile_Dev@hbisssssssssrsrsjssesskus {
+  name = "[1A-DevEx] Create a code branch on issue transition to \"In Progress\" (if component & repo exist)"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.to_do@s.name
+        },
+        {
+          type = "NAME"
+          value = jira.Status.instance.architecture_review@s.name
+        },
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.in_progress@s.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Components__array
+        }
+        selectedFieldType = "components"
+        comparison = "NOT_EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.${ jira.Field.instance.Components__array }.first.name}} - {{issue.${ jira.Field.instance.Components__array }.first.ari}}"
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "https://demo-streaming.services.atlassian.com/v1/repo/create_branch"
+        headers = [
+          {
+            id = "_header_1732047794136"
+            name = "content-type"
+            value = "application/json"
+            headerSecure = false
+          },
+          {
+            id = "_header_1732050866769"
+            name = ""
+            value = ""
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "issue"
+        customBody = ""
+        method = "POST"
+        responseEnabled = true
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Mobile_Dev@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "[1A-DevEx] Create a code branch on issue transition to \"In Progress\" (if component & repo exist)"
+}

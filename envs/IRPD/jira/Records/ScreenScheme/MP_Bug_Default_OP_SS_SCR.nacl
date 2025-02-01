@@ -1,0 +1,7 @@
+jira.ScreenScheme MP_Bug_Default_OP_SS_SCR@uduuu {
+  name = "MP_Bug/Default_OP_SS_SCR"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.MP_Bug_Default_OP_Default_SCR@uduuu
+  }
+}

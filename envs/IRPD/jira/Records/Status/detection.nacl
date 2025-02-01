@@ -1,0 +1,6 @@
+jira.Status detection {
+  name = "Detection"
+  statusCategory = jira.StatusCategory.instance.To_Do@s
+  description = "Incident reported or detected"
+  _alias = "Detection"
+}

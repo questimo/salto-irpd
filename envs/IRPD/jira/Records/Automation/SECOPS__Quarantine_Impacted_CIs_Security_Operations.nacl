@@ -1,0 +1,260 @@
+jira.Automation SECOPS__Quarantine_Impacted_CIs_Security_Operations@fsssus {
+  name = "SECOPS: Quarantine Impacted CIs"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.manual.trigger.issue"
+    value = {
+      inputFromUsers = false
+      inputPrompts = [
+      ]
+      groupIds = true
+      groups = [
+      ]
+      issueFilter = {
+        filterType = "ISSUE_TYPE"
+        value = [
+          "Security Incident",
+        ]
+      }
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Impacted_Configuration_Items__cmdb_object_cftype__c@ssuubbuu.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+        comparison = "NOT_EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.cmdb.field.edit.attributes"
+      value = {
+        cmdbField = jira.Field.instance.Impacted_Configuration_Items__cmdb_object_cftype__c@ssuubbuu
+        attributes = [
+          {
+            name = "Status"
+            value = "Support Requested"
+          },
+          {
+            name = "Quarantined"
+            value = "True"
+          },
+        ]
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      type = "jira.smart.values.branch"
+      value = {
+        id = "_customsmartvalue_id_1703019978986"
+        name = {
+          type = "FREE"
+          value = "cis"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.Impacted Configuration Items}}"
+        }
+        lazy = false
+      }
+      children = [
+        {
+          component = "ACTION"
+          type = "jira.issue.create"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Project__project
+                }
+                fieldType = "project"
+                type = "SET"
+                value = {
+                  type = "COPY"
+                  value = "current"
+                }
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Issue_Type__issuetype@suu
+                }
+                fieldType = "issuetype"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.IssueType.instance.Sub_task@b
+                }
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Parent
+                }
+                fieldType = "parent"
+                type = "SET"
+                value = {
+                  type = "COPY"
+                  value = "current"
+                }
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Summary__string
+                }
+                fieldType = "summary"
+                type = "SET"
+                rawValue = "Initiate lock down on {{cis.Name}}"
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Description__string
+                }
+                fieldType = "description"
+                type = "SET"
+                rawValue = "Initiate lock down to identified systems; place in quarantine"
+              },
+              {
+                field = {
+                  type = "NAME"
+                  value = jira.Field.instance.Impacted_Configuration_Items__cmdb_object_cftype__c@ssuubbuu.name
+                }
+                fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                type = "SET"
+                rawValue = "key IN ({{cis}})"
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Security_Level__securitylevel@suu
+                }
+                fieldType = "security"
+                type = "SET"
+                value = {
+                  type = "NAME"
+                  value = "Security Team - All"
+                }
+              },
+            ]
+            sendNotifications = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "NAME"
+                  value = jira.Status.instance.containment.name
+                }
+                transitionMatch = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "ID"
+                  value = jira.Field.instance.Status__status
+                }
+                selectedFieldType = "status"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "NAME"
+                  multiValue = true
+                  values = [
+                    jira.Status.instance.investigating.name,
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Security_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "SECOPS: Quarantine Impacted CIs"
+}

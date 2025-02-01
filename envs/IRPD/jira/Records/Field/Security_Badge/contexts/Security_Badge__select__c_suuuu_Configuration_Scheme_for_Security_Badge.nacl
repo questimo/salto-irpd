@@ -1,0 +1,18 @@
+jira.CustomFieldContext Security_Badge__select__c_suuuu_Configuration_Scheme_for_Security_Badge@uuuuumussss {
+  name = "Configuration Scheme for Security Badge"
+  description = "Field used in the Employee setup request"
+  defaultValue = {
+    type = "option.single"
+    optionId = jira.CustomFieldContextOption.instance.Security_Badge__select__c_suuuu_Configuration_Scheme_for_Security_Badge_Yes@uuuuumussssu
+  }
+  issueTypeIds = [
+    jira.IssueType.instance.Employee_setup@s,
+  ]
+  projectIds = [
+    jira.Project.instance.IT_Support@s,
+  ]
+  _parent = [
+    jira.Field.instance.Security_Badge__select__c@suuuu,
+  ]
+  _alias = "Security Badge context in Configuration Scheme for Security Badge"
+}

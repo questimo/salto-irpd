@@ -1,0 +1,18 @@
+jira.IssueTypeScreenScheme INV_ITSS {
+  name = "INV_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = jira.IssueType.instance.Ask_a_question@s
+      screenSchemeId = jira.ScreenScheme.instance.INV_Ask_a_question_Default_Submit_a_request_or_incident_OP_SS_SCR_2@ussddssssuuuu
+    },
+    {
+      issueTypeId = jira.IssueType.instance.Submit_a_request_or_incident@s
+      screenSchemeId = jira.ScreenScheme.instance.INV_Ask_a_question_Default_Submit_a_request_or_incident_OP_SS_SCR_1@ussddssssuuuu
+    },
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.INV_Ask_a_question_Default_Submit_a_request_or_incident_OP_SS_SCR@ussddssssuuu
+    },
+  ]
+}

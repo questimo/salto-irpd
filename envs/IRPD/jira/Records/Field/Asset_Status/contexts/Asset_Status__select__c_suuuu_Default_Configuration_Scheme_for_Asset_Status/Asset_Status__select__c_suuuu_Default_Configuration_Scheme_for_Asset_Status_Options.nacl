@@ -1,0 +1,42 @@
+jira.CustomFieldContextOption Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_Active@uuuuumusssssu {
+  value = "Active"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_In_Service@uuuuumusssssus {
+  value = "In Service"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_In_Stock@uuuuumusssssus {
+  value = "In Stock"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_On_Order@uuuuumusssssus {
+  value = "On Order"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_Retired@uuuuumusssssu {
+  value = "Retired"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status_Support_Requested@uuuuumusssssus {
+  value = "Support Requested"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__select__c_suuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuumusssss,
+  ]
+}

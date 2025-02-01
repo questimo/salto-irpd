@@ -1,0 +1,39 @@
+jira.DashboardGadget Engineering_Support_s__Service_project_report_0_1@umuussuu {
+  moduleKey = "com.atlassian.servicedesk.servicedesk-reports-plugin:custom-report-dashboard-item"
+  color = "blue"
+  position = {
+    row = 1
+    column = 0
+  }
+  title = "Service project report"
+  properties = [
+    {
+      key = "intervalValue"
+      value = "2"
+    },
+    {
+      key = "isConfigured"
+      value = true
+    },
+    {
+      key = "isCustom"
+      value = true
+    },
+    {
+      key = "projectValue"
+      value = "ENGS"
+    },
+    {
+      key = "refresh"
+      value = "false"
+    },
+    {
+      key = "reportValue"
+      value = "39"
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Engineering_Support@s,
+  ]
+  _alias = "Service project report"
+}

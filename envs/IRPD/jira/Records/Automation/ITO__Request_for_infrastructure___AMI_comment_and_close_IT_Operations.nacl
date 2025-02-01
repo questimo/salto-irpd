@@ -1,0 +1,262 @@
+jira.Automation ITO__Request_for_infrastructure___AMI_comment_and_close_IT_Operations@fssssbssssus {
+  name = "ITO: Request for infrastructure - AMI comment and close"
+  state = "ENABLED"
+  description = '''
+If they request an AMI, then comment back about triggering scripts and webhooks, update the associated Application field, set the Support Groups, and close the request. 
+If they do not request an AMI, then comment back it's with the Platform Team and add them in the Support Group field.
+'''
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Request for infrastructure"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Application_Impacted__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Name LIKE \"AWS EC2\""
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Support_Group__multigrouppicker__c@suuuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:multigrouppicker"
+                    type = "SET"
+                    value = [
+                      {
+                        type = "GROUP_ID"
+                        value = "983aaec4-1296-4d49-baae-f767dc8a06e5"
+                      },
+                      {
+                        type = "GROUP_ID"
+                        value = "c3013a5f-35a5-4964-bce3-5ffa3739de03"
+                      },
+                    ]
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+Automation can leverage webhooks triggering scripts and the AMI record can hold key details that get inserted - 
+
+aws ec2 run-instances \
+  --security-group-ids SECURITY_GROUP_ID \
+  --instance-type INSTANCE_TYPE \
+  --image-id {{issue.AMI.Name}}  \ 
+  --block-device-mappings '[{"DeviceName":"/dev/xvdf","Ebs":{"VolumeSize":SIZE,"VolumeType":"TYPE"}}]' \
+  --region REGION \
+  --ebs-optimized
+'''
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+The request has been automated and completed.
+
+If this were real, you could provide the user with the access details
+e.g.  ec2-user@my-aws-instance-{{issue.AMI.Name}} 
+
+'''
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "NAME"
+                  value = jira.Status.instance.resolved.name
+                }
+                transitionMatch = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.AMI__cmdb_object_cftype__c@uubbuu.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                comparison = "NOT_EMPTY"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+Your request has been received. The platform team will contact you shortly.
+
+Thank you,
+IT Operations 
+'''
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Support_Group__multigrouppicker__c@suuuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:multigrouppicker"
+                    type = "SET"
+                    value = [
+                      {
+                        type = "GROUP_ID"
+                        value = "c3013a5f-35a5-4964-bce3-5ffa3739de03"
+                      },
+                    ]
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Request for infrastructure - AMI comment and close"
+}

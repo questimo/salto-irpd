@@ -1,0 +1,15 @@
+jira.WorkflowScheme DESIGN_WFS {
+  name = "DESIGN_WFS"
+  description = ""
+  defaultWorkflow = jira.WorkflowConfiguration.instance.DESIGN__Web_design_process_task_workflow@fsssss
+  items = [
+    {
+      workflow = jira.WorkflowConfiguration.instance.DESIGN__Web_design_process_task_workflow@fsssss
+      issueType = jira.IssueType.instance.Task
+    },
+    {
+      workflow = jira.WorkflowConfiguration.instance.DESIGN__Web_design_process_sub_task_workflow@fssssbs
+      issueType = jira.IssueType.instance.Sub_task@b
+    },
+  ]
+}

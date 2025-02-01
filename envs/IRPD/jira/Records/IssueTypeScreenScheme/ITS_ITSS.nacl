@@ -1,0 +1,38 @@
+jira.IssueTypeScreenScheme ITS_ITSS {
+  name = "ITS_ITSS"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = jira.IssueType.instance.Sub_task@b
+      screenSchemeId = jira.ScreenScheme.instance.ITS_Sub_task_Task__System__Service_request__System__Service_request_with_approvals_SS@ubddhissdhissssu
+    },
+    {
+      issueTypeId = jira.IssueType.instance.Task
+      screenSchemeId = jira.ScreenScheme.instance.ITS_Sub_task_Task__System__Service_request__System__Service_request_with_approvals_SS@ubddhissdhissssu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Change@his
+      screenSchemeId = jira.ScreenScheme.instance.ITS__System__Change_SS@uhisu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Incident@his
+      screenSchemeId = jira.ScreenScheme.instance.ITS__System__Incident_SS@uhisu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Problem@his
+      screenSchemeId = jira.ScreenScheme.instance.ITS__System__Problem_SS@uhisu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Service_request@hiss
+      screenSchemeId = jira.ScreenScheme.instance.ITS_Sub_task_Task__System__Service_request__System__Service_request_with_approvals_SS@ubddhissdhissssu
+    },
+    {
+      issueTypeId = jira.IssueType.instance._System__Service_request_with_approvals@hissss
+      screenSchemeId = jira.ScreenScheme.instance.ITS_Sub_task_Task__System__Service_request__System__Service_request_with_approvals_SS@ubddhissdhissssu
+    },
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.ITS_Default_SS
+    },
+  ]
+}

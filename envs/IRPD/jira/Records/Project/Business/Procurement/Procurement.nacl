@@ -1,0 +1,17 @@
+jira.Project Procurement {
+  key = "PROC"
+  description = "Procurement Team's Work Management for Orders"
+  name = "Procurement"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "business"
+  workflowScheme = jira.WorkflowScheme.instance.PROC_WFS
+  permissionScheme = jira.PermissionScheme.instance.Default_Permission_Scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.PROC_ITSS
+  issueTypeScheme = jira.IssueTypeScheme.instance.PROC__Procurement_Issue_Type_Scheme@fssss
+  leadAccountId = {
+    id = "60ad35d906bf0c006a441102"
+    displayName = "Kevin Campbell"
+  }
+  assigneeType = "PROJECT_LEAD"
+}

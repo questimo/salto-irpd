@@ -1,0 +1,26 @@
+jira.Dashboard Platform_Development@s {
+  description = "This dashboard brings together metrics on sprint health for the Platform Dev team as well as support KPis for their systems. Dev + Ops."
+  name = "Platform Development"
+  owner = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+  gadgets = [
+    jira.DashboardGadget.instance.Platform_Development_s__Recently_Created_Chart_0_0@umuussuu,
+    jira.DashboardGadget.instance.Platform_Development_s__Sprint_Burndown_Gadget_0_1@umuussuu,
+    jira.DashboardGadget.instance.Platform_Development_s__Heat_Map_0_2@umuusuu,
+    jira.DashboardGadget.instance.Platform_Development_s__Heat_Map_0_3@umuusuu,
+    jira.DashboardGadget.instance.Platform_Development_s__Created_vs__Resolved_Chart_1_0@umuusvssuu,
+    jira.DashboardGadget.instance.Platform_Development_s__Service_project_report_1_1@umuussuu,
+    jira.DashboardGadget.instance.Platform_Development_s__Average_Age_Chart_1_2@umuussuu,
+    jira.DashboardGadget.instance.Platform_Development_s__Sprint_Health_Gadget_2_0@umuussuu,
+    jira.DashboardGadget.instance.Platform_Development_s__Pie_Chart_2_1@umuusuu,
+    jira.DashboardGadget.instance.Platform_Development_s__Bubble_Chart_2_2@umuusuu,
+  ]
+  layout = "AAA"
+}
