@@ -1,0 +1,449 @@
+jira.Automation ITO__All___Set_empty_Impact_based_on_Service_and_update_priority_if_urgency_is_present_IT_Operations@fssbsssssssssssssus {
+  name = "ITO: All - Set empty Impact based on Service and update priority if urgency is present"
+  state = "ENABLED"
+  description = "If impact is not selected and urgency is not empty, update it based on Service selected (using Tier) and calculate priority"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Impact__select__c.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+        comparison = "EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Urgency__select__c.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+        comparison = "NOT_EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.Affected Services}} which is {{issue.${ jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu.name }.Name}} of Tier: {{issue.${ jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu.name }.Tier}}"
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1627777704973"
+        name = {
+          type = "FREE"
+          value = "Tier"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.Affected services.Tier}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Impact__select__c.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Extensive / Widespread"
+                    }
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.create.variable"
+              value = {
+                id = "_customsmartvalue_id_1627778989793"
+                name = {
+                  type = "FREE"
+                  value = "NewImpact"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "\"Extensive / Widespread\""
+                }
+                lazy = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{Tier}}"
+                second = "1"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Impact__select__c.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Significant / Large"
+                    }
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.create.variable"
+              value = {
+                id = "_customsmartvalue_id_1627779499276"
+                name = {
+                  type = "FREE"
+                  value = "NewImpact"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "\"Significant / Large\""
+                }
+                lazy = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{Tier}}"
+                second = "2"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Impact__select__c.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Moderate / Limited"
+                    }
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.create.variable"
+              value = {
+                id = "_customsmartvalue_id_1627779545747"
+                name = {
+                  type = "FREE"
+                  value = "NewImpact"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "\"Moderate / Limited\""
+                }
+                lazy = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{Tier}}"
+                second = "3"
+                operator = "EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Impact__select__c.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Minor / Localized"
+                    }
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.create.variable"
+              value = {
+                id = "_customsmartvalue_id_1627779575609"
+                name = {
+                  type = "FREE"
+                  value = "NewImpact"
+                }
+                type = "SMART"
+                query = {
+                  type = "SMART"
+                  value = "\"Minor / Localized\""
+                }
+                lazy = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Impact of {{NewImpact} and urgency of {{issue.urgency}} "
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_8
+        customSmartValue = {
+          id = "_customsmartvalue_id_1630090396326"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "ObjectType=\"Priority Matrix\" AND \"Impact\" IN ({{NewImpact}}) AND \"Urgency\" IN (\"{{issue.urgency}}\")"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{lookupObjects}} is {{lookupObjects.Name}} with value of {{lookupObjects.Priority}} "
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Priority__priority
+            }
+            fieldType = "priority"
+            type = "SET"
+            value = {
+              type = "SMART"
+              value = "{{lookupObjects.Priority}}"
+            }
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: All - Set empty Impact based on Service and update priority if urgency is present"
+}

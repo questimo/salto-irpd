@@ -1,0 +1,35 @@
+jira.CustomFieldContextOption Company_Value__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Company_Value_Be_the_Change_You_Seek@uuuuuuuumusssssussss {
+  value = "Be the Change You Seek"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Company_Value__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Company_Value@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Company_Value__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Company_Value_Build_with_Heart_and_Balance@uuuuuuuumusssssussss {
+  value = "Build with Heart and Balance"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Company_Value__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Company_Value@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Company_Value__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Company_Value_Don_t______the_Customer@uuuuuuuumusssssutsnmlpss {
+  value = "Don't #@!% the Customer"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Company_Value__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Company_Value@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Company_Value__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Company_Value_Open_Company__No_Bullsh_t@uuuuuuuumusssssuszdsso {
+  value = "Open Company, No Bullsh*t"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Company_Value__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Company_Value@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Company_Value__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Company_Value_Play__as_a_Team@uuuuuuuumusssssuzdsss {
+  value = "Play, as a Team"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Company_Value__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Company_Value@uuuuuuuumusssss,
+  ]
+}

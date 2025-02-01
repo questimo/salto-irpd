@@ -1,0 +1,157 @@
+jira.Automation ITO__Warning___Reset_on_Field_Change_for_Assignee_IT_Operations@fssessssssus {
+  name = "ITO: Warning & Reset on Field Change for Assignee"
+  state = "ENABLED"
+  description = "Don't let people manually change the assignee after the change has been approved or completed"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.Assignee__user
+          type = "field"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+Please don't do that. Reassigning from {{fieldChange.toString}} back to {{fieldChange.fromString}}.
+
+*Example of an automated rule that is triggered on changing the Assignee after this has been approved
+'''
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Assignee__user
+                    }
+                    fieldType = "assignee"
+                    type = "SET"
+                    value = {
+                      type = "SMART"
+                      value = "{{fieldChange.from}}"
+                    }
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "ID"
+                  value = jira.Field.instance.Assignee__user
+                }
+                selectedFieldType = "assignee"
+                comparison = "NOT_EMPTY"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "ID"
+                  value = jira.Field.instance.Status__status
+                }
+                selectedFieldType = "status"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "NAME"
+                  multiValue = true
+                  values = [
+                    jira.Status.instance.awaiting_implementation@s.name,
+                    jira.Status.instance.implementing.name,
+                    jira.Status.instance.canceled.name,
+                    jira.Status.instance.completed.name,
+                    jira.Status.instance.declined.name,
+                    jira.Status.instance.failed.name,
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Warning & Reset on Field Change for Assignee"
+}

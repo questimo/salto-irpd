@@ -1,0 +1,10 @@
+jira.Field Details__migrated___textarea__c@sjkuuuu {
+  name = "Details (migrated)"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Details__migrated___textarea__c_sjkuuuu_Default_Configuration_Scheme_for_Details@uuuuuuumussss,
+  ]
+  _alias = "Details (migrated)"
+}

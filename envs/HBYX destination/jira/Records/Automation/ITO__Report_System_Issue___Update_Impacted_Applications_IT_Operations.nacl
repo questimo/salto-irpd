@@ -1,0 +1,158 @@
+jira.Automation ITO__Report_System_Issue___Update_Impacted_Applications_IT_Operations@fssssbsssus {
+  name = "ITO: Report System Issue - Update Impacted Applications"
+  state = "ENABLED"
+  description = "When a system issue is logged add the applications that support the selected service to the ticket"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Report a system issue"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_2
+        customSmartValue = {
+          id = "_customsmartvalue_id_1629583226792"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING outboundReferences() AND \"Services\" IN (\"{{issue.Affected services}}\")"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Application_Impacted__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN ({{lookupObjects}})"
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Support_Group__multigrouppicker__c@suuuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:multigrouppicker"
+                    type = "SET"
+                    value = [
+                      {
+                        type = "SMART"
+                        value = "{{lookupObjects.Support Groups}}"
+                      },
+                    ]
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{lookupObjects}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Report System Issue - Update Impacted Applications"
+}

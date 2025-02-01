@@ -1,0 +1,22 @@
+jira.Filter All_Open_Issues@s {
+  name = "All Open Issues"
+  description = ""
+  owner = {
+    id = "60ad31159e21bd0071e67bfa"
+    displayName = "Admin Istrator"
+  }
+  jql = "${ jira.Field.instance.Resolution__resolution } = Unresolved order by ${ jira.Field.instance.Priority__priority } DESC,${ jira.Field.instance.Updated__datetime } DESC"
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+  editPermissions = [
+    {
+      type = "group"
+      group = {
+        name = jira.Group.instance.site_admins@b
+      }
+    },
+  ]
+}

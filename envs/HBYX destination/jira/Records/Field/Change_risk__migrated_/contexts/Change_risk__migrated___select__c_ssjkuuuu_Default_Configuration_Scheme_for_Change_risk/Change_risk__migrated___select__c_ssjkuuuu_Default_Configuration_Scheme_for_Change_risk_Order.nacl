@@ -1,0 +1,11 @@
+jira.FieldContextOptionsOrder Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk_order_child@uuuuuuuumusssssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk_Critical@uuuuuuuumusssssu,
+    jira.CustomFieldContextOption.instance.Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk_High@uuuuuuuumusssssu,
+    jira.CustomFieldContextOption.instance.Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk_Medium@uuuuuuuumusssssu,
+    jira.CustomFieldContextOption.instance.Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk_Low@uuuuuuuumusssssu,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk@uuuuuuuumusssss,
+  ]
+}

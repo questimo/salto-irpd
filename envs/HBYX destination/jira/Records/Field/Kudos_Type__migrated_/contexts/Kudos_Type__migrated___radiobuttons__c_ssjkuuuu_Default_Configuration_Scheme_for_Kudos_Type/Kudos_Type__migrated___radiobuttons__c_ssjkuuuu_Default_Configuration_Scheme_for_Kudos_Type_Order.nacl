@@ -1,0 +1,10 @@
+jira.FieldContextOptionsOrder Kudos_Type__migrated___radiobuttons__c_ssjkuuuu_Default_Configuration_Scheme_for_Kudos_Type_order_child@uuuuuuuumusssssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Kudos_Type__migrated___radiobuttons__c_ssjkuuuu_Default_Configuration_Scheme_for_Kudos_Type_Standard@uuuuuuuumusssssu,
+    jira.CustomFieldContextOption.instance.Kudos_Type__migrated___radiobuttons__c_ssjkuuuu_Default_Configuration_Scheme_for_Kudos_Type_Better_Kudos@uuuuuuuumusssssus,
+    jira.CustomFieldContextOption.instance.Kudos_Type__migrated___radiobuttons__c_ssjkuuuu_Default_Configuration_Scheme_for_Kudos_Type_Big_Kudos@uuuuuuuumusssssus,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Kudos_Type__migrated___radiobuttons__c_ssjkuuuu_Default_Configuration_Scheme_for_Kudos_Type@uuuuuuuumusssss,
+  ]
+}

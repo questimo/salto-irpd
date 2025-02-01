@@ -1,0 +1,78 @@
+jira.Automation ITO__All___Suggest_Support_Groups_based_on_Application_Impacted_IT_Operations@fssbsssssssus {
+  name = "ITO: All - Suggest Support Groups based on Application Impacted"
+  state = "ENABLED"
+  description = "Surface the support groups that may be able to help given the application associated with this issue or change"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.Application_Impacted__cmdb_object_cftype__c@suubbuu.name
+          type = "fieldName"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Support_Group__multigrouppicker__c@suuuu.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:multigrouppicker"
+            type = "SET"
+            value = [
+              {
+                type = "SMART"
+                value = "{{issue.Application Impacted.Support Groups}}"
+              },
+            ]
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: All - Suggest Support Groups based on Application Impacted"
+}

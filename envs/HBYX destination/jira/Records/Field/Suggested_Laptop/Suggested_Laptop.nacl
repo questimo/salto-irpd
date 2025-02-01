@@ -1,0 +1,10 @@
+jira.Field Suggested_Laptop__cmdb_object_cftype__c@suubbuu {
+  name = "Suggested Laptop"
+  description = "Suggested Laptop Model for Role (Insight: IT Employee Assets) - HR"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Suggested_Laptop__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Suggested_Laptop@uuuuuuumusssss,
+  ]
+  _alias = "Suggested Laptop"
+}

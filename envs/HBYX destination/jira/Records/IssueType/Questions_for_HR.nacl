@@ -1,0 +1,7 @@
+jira.IssueType Questions_for_HR@s {
+  description = "Send us a question or make a general request."
+  name = "Questions for HR"
+  untranslatedName = "Questions for HR"
+  hierarchyLevel = 0
+  avatar = file("jira/IssueType/Questions_for_HR.s.png")
+}

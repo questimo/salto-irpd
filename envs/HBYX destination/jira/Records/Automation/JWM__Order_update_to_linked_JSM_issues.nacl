@@ -1,0 +1,213 @@
+jira.Automation JWM__Order_update_to_linked_JSM_issues@fssssss {
+  name = "JWM: Order update to linked JSM issues"
+  state = "ENABLED"
+  description = "Shows interaction of JWM orders updating the related JSM request"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:commented"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_commented"
+      eventTypes = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Issue_Type__issuetype@suu
+        }
+        selectedFieldType = "issuetype"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "ID"
+          value = jira.IssueType.instance.Order
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1629220511632"
+        name = {
+          type = "FREE"
+          value = "update"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.comment.last.body}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1629220604679"
+        name = {
+          type = "FREE"
+          value = "author"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.comment.author.displayName.getFromEnd(0)}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{author}}"
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "BRANCH"
+              type = "jira.issue.related"
+              value = {
+                relatedType = "linked"
+                jql = ""
+                linkTypes = [
+                  "relates to",
+                ]
+                onlyUpdatedIssues = false
+                similarityLimit = 40
+                compareValue = 0
+              }
+              children = [
+                {
+                  component = "ACTION"
+                  type = "jira.issue.comment"
+                  value = {
+                    comment = '''
+{{author}} has an update from Procurement
+
+{{update}}
+'''
+                    publicComment = false
+                    sendNotifications = true
+                    addCommentOnce = true
+                  }
+                  children = [
+                  ]
+                  conditions = [
+                  ]
+                },
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issues.related.condition"
+              value = {
+                relatedType = "linked"
+                linkTypes = [
+                  "relates to",
+                ]
+                operator = "present"
+                relatedJql = ""
+                compareJql = ""
+                compareValue = 0
+                similarityLimit = 40
+                jql = ""
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+                }
+                selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "NAME"
+                  multiValue = true
+                  values = [
+                    "Setup new employee",
+                    "Request a new notebook",
+                    "Order new devices",
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "JWM: Order update to linked JSM issues"
+}

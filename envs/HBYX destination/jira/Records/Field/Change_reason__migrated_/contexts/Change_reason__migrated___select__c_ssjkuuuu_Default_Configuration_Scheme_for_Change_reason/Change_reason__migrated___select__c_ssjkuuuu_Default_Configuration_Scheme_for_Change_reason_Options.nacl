@@ -1,0 +1,42 @@
+jira.CustomFieldContextOption Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason_Maintenance@uuuuuuuumusssssu {
+  value = "Maintenance"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason_New_functionality@uuuuuuuumusssssus {
+  value = "New functionality"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason_Other@uuuuuuuumusssssu {
+  value = "Other"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason_Repair@uuuuuuuumusssssu {
+  value = "Repair"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason_Software_Change@uuuuuuuumusssssus {
+  value = "Software Change"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason_Upgrade@uuuuuuuumusssssu {
+  value = "Upgrade"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Change_reason__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_reason@uuuuuuuumusssss,
+  ]
+}

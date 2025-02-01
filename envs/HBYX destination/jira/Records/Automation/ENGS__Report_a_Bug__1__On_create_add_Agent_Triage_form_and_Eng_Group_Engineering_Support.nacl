@@ -1,0 +1,122 @@
+jira.Automation ENGS__Report_a_Bug__1__On_create_add_Agent_Triage_form_and_Eng_Group_Engineering_Support@fssssbbsssssssssus {
+  name = "ENGS: Report a Bug -1- On create add Agent Triage form and Eng Group"
+  state = "ENABLED"
+  description = "When bug report is created, add the agent triage form and add the right Engineering Group based on Product Family"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "NAME"
+          multiValue = true
+          values = [
+            "Report a bug",
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.proforma.form.add.action"
+      value = {
+        templateFormsConfig = {
+          projectId = jira.Project.instance.Engineering_Support@s
+          templateFormIds = [
+            3,
+          ]
+        }
+        formVisibility = "internal"
+        allowDuplicates = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Engineering_Group__cmdb_object_cftype__c@suubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "SET"
+            rawValue = "Key = {{issue.Product Family.Engineering Team}}"
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+            type = "SET"
+            value = [
+              {
+                type = "ID"
+                value = "ari:cloud:graph::service/06dbcfde-7b49-4323-a4f6-a75da9f63df5/855e9156-cb42-11ed-b7d4-128b42819424"
+                additional = "{\"name\":\"Software Delivery\"}"
+              },
+            ]
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Engineering_Support@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ENGS: Report a Bug -1- On create add Agent Triage form and Eng Group"
+}

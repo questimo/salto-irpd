@@ -1,0 +1,44 @@
+jira.DashboardGadget ESM___Enterprise_Service_Management_sbsss__All_Open_HR_Cases_1_0@uuuuumuusssuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:filter-results-gadget/gadgets/filter-results-gadget.xml"
+  color = "blue"
+  position = {
+    row = 0
+    column = 1
+  }
+  title = "All Open HR Cases"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "filterId"
+          value = "10008"
+        },
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "columnNames"
+          value = "customfield_10010|issuekey|summary|priority|customfield_10050|assignee"
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "num"
+          value = "10"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.ESM___Enterprise_Service_Management@sbsss,
+  ]
+  _alias = "All Open HR Cases"
+}

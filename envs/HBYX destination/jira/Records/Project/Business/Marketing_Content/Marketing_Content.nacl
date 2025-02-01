@@ -1,0 +1,17 @@
+jira.Project Marketing_Content@s {
+  key = "MC"
+  description = ""
+  name = "Marketing Content"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "business"
+  workflowScheme = jira.WorkflowScheme.instance.MC__Content_Management_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.Default_Permission_Scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.MC__Content_Management_Issue_Type_Screen_Scheme@fssssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.MC__Content_Management_Issue_Type_Scheme@fsssss
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  assigneeType = "UNASSIGNED"
+}

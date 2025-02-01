@@ -1,0 +1,10 @@
+jira.Field Change_type__migrated___select__c@ssjkuuuu {
+  name = "Change type (migrated)"
+  description = "Used to determine the type of change for Change Enablement (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+  contexts = [
+    jira.CustomFieldContext.instance.Change_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_type@uuuuuuuumusssss,
+  ]
+  _alias = "Change type (migrated)"
+}

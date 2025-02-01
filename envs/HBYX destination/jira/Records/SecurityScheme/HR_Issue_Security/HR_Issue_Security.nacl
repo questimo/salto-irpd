@@ -1,0 +1,8 @@
+jira.SecurityScheme HR_Issue_Security@s {
+  name = "HR Issue Security"
+  description = "Issue Security Schemes for HR restricted visibility "
+  levels = [
+    jira.SecurityLevel.instance.HR_Issue_Security_s__HR_Managers@uumuus,
+    jira.SecurityLevel.instance.HR_Issue_Security_s___HR_Team___All__Default__@uumuusssbssjks,
+  ]
+}

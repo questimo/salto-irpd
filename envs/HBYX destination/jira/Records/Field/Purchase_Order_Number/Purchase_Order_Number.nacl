@@ -1,0 +1,10 @@
+jira.Field Purchase_Order_Number__textfield__c@ssuuuu {
+  name = "Purchase Order Number"
+  description = "PO# for new asset - ITS PROC INV"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Purchase_Order_Number__textfield__c_ssuuuu_Default_Configuration_Scheme_for_Purchase_Order_Number@uuuuuumussssss,
+  ]
+  _alias = "Purchase Order Number"
+}

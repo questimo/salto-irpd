@@ -1,0 +1,3 @@
+jira.Group jira_users_one_atlas_irpd@b {
+  name = "jira-users-one-atlas-irpd"
+}

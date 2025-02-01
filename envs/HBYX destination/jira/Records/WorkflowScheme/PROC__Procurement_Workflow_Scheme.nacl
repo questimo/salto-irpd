@@ -1,0 +1,11 @@
+jira.WorkflowScheme PROC__Procurement_Workflow_Scheme@fsss {
+  name = "PROC: Procurement Workflow Scheme"
+  description = ""
+  defaultWorkflow = jira.WorkflowConfiguration.instance.PROC__Procurement_Workflow_v2@fsss
+  items = [
+    {
+      workflow = jira.WorkflowConfiguration.instance.PROC__Procurement_Workflow_v2@fsss
+      issueType = jira.IssueType.instance.Order
+    },
+  ]
+}

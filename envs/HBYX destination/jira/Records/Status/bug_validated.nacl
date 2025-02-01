@@ -1,0 +1,6 @@
+jira.Status bug_validated@s {
+  name = "Bug Validated"
+  statusCategory = jira.StatusCategory.instance.In_Progress@s
+  description = ""
+  _alias = "Bug Validated"
+}

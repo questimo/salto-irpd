@@ -1,0 +1,10 @@
+jira.Field Office__cmdb_object_cftype__c@uubbuu {
+  name = "Office"
+  description = "Office location (Insight : Facilities) - ITS FAC HR "
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Office__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Office@uuuuuumussss,
+  ]
+  _alias = "Office"
+}

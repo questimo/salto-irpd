@@ -1,0 +1,7 @@
+jira.ScreenScheme MOBL__Scrum_Bug_Screen_Scheme@fssss {
+  name = "MOBL: Scrum Bug Screen Scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.MOBL__Scrum_Bug_Screen@fsss
+  }
+}

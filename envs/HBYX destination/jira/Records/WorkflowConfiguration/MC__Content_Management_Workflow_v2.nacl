@@ -1,0 +1,180 @@
+jira.WorkflowConfiguration MC__Content_Management_Workflow_v2@fssss {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "MC: Content Management Workflow v2"
+  description = "content-management-workflow"
+  isEditable = true
+  startPointLayout = {
+    x = 15
+    y = -314.2
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.accepted
+      layout = {
+        x = 703.943359375
+        y = -75.90000244140623
+      }
+      deprecated = false
+      name = "Accepted"
+    },
+    {
+      statusReference = jira.Status.instance.complete
+      layout = {
+        x = 890.90234375
+        y = -75.90000244140623
+      }
+      deprecated = false
+      name = "Published"
+    },
+    {
+      statusReference = jira.Status.instance.in_review@s
+      layout = {
+        x = 705.474609375
+        y = -208.64999853515624
+      }
+      deprecated = false
+      name = "In Review"
+    },
+    {
+      statusReference = jira.Status.instance.planning
+      layout = {
+        x = 331.26953125
+        y = -208.64999853515624
+      }
+      deprecated = false
+      name = "Planning"
+    },
+    {
+      statusReference = jira.Status.instance.ready_for_review@s
+      layout = {
+        x = 512.740234375
+        y = -208.64999853515624
+      }
+      deprecated = false
+      name = "Pending Review"
+    },
+    {
+      statusReference = jira.Status.instance.to_do@s
+      layout = {
+        x = 102.62890625
+        y = -208.64999853515624
+      }
+      deprecated = false
+      name = "To Do"
+    },
+  ]
+  transitions = {
+    Reject___Back_to_Planning__From__In_Review__Directed@sbsssfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.planning
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 5
+          toPort = 5
+        },
+      ]
+      name = "Reject - Back to Planning"
+      description = ""
+    }
+    Publish__From__Accepted__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.complete
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.accepted
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Publish"
+      description = ""
+    }
+    Reviewing__From__Pending_Review__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_review@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.ready_for_review@s
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Reviewing"
+      description = ""
+    }
+    Accepted__From__In_Review__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.accepted
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Accepted"
+      description = ""
+    }
+    Revisit__From__Pending_Review__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.planning
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.ready_for_review@s
+          fromPort = 1
+          toPort = 1
+        },
+      ]
+      name = "Revisit"
+      description = ""
+    }
+    Submit_for_Review__From__Planning__Directed@ssfffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.ready_for_review@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.planning
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Submit for Review"
+      description = ""
+    }
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      links = [
+        {
+          toPort = 7
+        },
+      ]
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+    }
+    Start_Planning__From__To_Do__Directed@sfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.planning
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.to_do@s
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Start Planning"
+      description = ""
+    }
+  }
+}

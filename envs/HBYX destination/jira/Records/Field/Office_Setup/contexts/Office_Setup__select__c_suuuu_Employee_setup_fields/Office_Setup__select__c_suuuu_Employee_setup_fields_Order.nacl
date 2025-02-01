@@ -1,0 +1,9 @@
+jira.FieldContextOptionsOrder Office_Setup__select__c_suuuu_Employee_setup_fields_order_child@uuuuumussuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Office_Setup__select__c_suuuu_Employee_setup_fields_Yes@uuuuumussu,
+    jira.CustomFieldContextOption.instance.Office_Setup__select__c_suuuu_Employee_setup_fields_No@uuuuumussu,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Office_Setup__select__c_suuuu_Employee_setup_fields@uuuuumuss,
+  ]
+}

@@ -1,0 +1,10 @@
+jira.Field Quantity__migrated___float__c@sjkuuuu {
+  name = "Quantity (migrated)"
+  description = "Quantity requested for orders - ITS PROC INV  (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:exactnumber"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:float"
+  contexts = [
+    jira.CustomFieldContext.instance.Quantity__migrated___float__c_sjkuuuu_Default_Configuration_Scheme_for_Quantity@uuuuuuumussss,
+  ]
+  _alias = "Quantity (migrated)"
+}

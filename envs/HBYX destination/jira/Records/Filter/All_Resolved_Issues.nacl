@@ -1,0 +1,68 @@
+jira.Filter All_Resolved_Issues@s {
+  name = "All Resolved Issues"
+  description = ""
+  owner = {
+    id = "60ad31159e21bd0071e67bfa"
+    displayName = "Admin Istrator"
+  }
+  jql = "${ jira.Field.instance.Status__status } in (${ jira.Status.instance.canceled.name }, ${ jira.Status.instance.closed.name }, ${ jira.Status.instance.completed.name }, ${ jira.Status.instance.declined.name }, ${ jira.Status.instance.done.name }, ${ jira.Status.instance.purchased.name }, ${ jira.Status.instance.rejected.name }, ${ jira.Status.instance.resolved.name }) AND ${ jira.Field.instance.Resolution__resolution } = ${ jira.Resolution.instance.Done.name } ORDER BY ${ jira.Field.instance.Priority__priority } DESC, ${ jira.Field.instance.Updated__datetime } DESC"
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+  editPermissions = [
+    {
+      type = "group"
+      group = {
+        name = jira.Group.instance.site_admins@b
+      }
+    },
+  ]
+  columns = [
+    {
+      label = "Issue Type"
+      value = "issuetype"
+    },
+    {
+      label = "Key"
+      value = "issuekey"
+    },
+    {
+      label = "Summary"
+      value = "summary"
+    },
+    {
+      label = "Assignee"
+      value = "assignee"
+    },
+    {
+      label = "Reporter"
+      value = "reporter"
+    },
+    {
+      label = "Priority"
+      value = "priority"
+    },
+    {
+      label = "Status"
+      value = "status"
+    },
+    {
+      label = "Resolution"
+      value = "resolution"
+    },
+    {
+      label = "Created"
+      value = "created"
+    },
+    {
+      label = "Updated"
+      value = "updated"
+    },
+    {
+      label = "Due date"
+      value = "duedate"
+    },
+  ]
+}

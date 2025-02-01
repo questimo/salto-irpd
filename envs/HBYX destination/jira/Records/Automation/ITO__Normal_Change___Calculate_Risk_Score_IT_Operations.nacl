@@ -1,0 +1,238 @@
+jira.Automation ITO__Normal_Change___Calculate_Risk_Score_IT_Operations@fsssbsssus {
+  name = "ITO: Normal Change - Calculate Risk Score"
+  state = "ENABLED"
+  description = "When a normal change is submitted, evaluate the answers and compute the risk based on the matrix in the Insight Practice Standards schema."
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Request an application upgrade (normal change)"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1627839024458"
+        name = {
+          type = "FREE"
+          value = "ServiceTier"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{issue.Affected services.Tier}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_8
+        customSmartValue = {
+          id = "_customsmartvalue_id_1627839048380"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "objectType =\"Business Service Risk\" AND \"Tier Number\" = {{issue.Affected services.Tier}}"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Lookup the Service Risk and Score -> {{lookupObjects.Name}} : {{lookupObjects.Score}}   "
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Calculation should add: {{issue.Risk: Business Hours.Score}}+{{issue.Risk: Rollback.Score}}+{{issue.Risk: Testing.Score}}+{{lookupObjects.Score}}"
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1627838388450"
+        name = {
+          type = "FREE"
+          value = "ChangeRiskValue"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{#=}}{{issue.Risk: Business Hours.Score}}+{{issue.Risk: Rollback.Score}}+{{issue.Risk: Testing.Score}}+{{lookupObjects.Score}}{{/}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Change Risk Value = {{ChangeRiskValue}}"
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_8
+        customSmartValue = {
+          id = "_customsmartvalue_id_1627839770065"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "objectType = \"Risk Computation Scores\" AND \"Lower Limit\" < {{ChangeRiskValue}} AND \"Upper Limit\" > {{ChangeRiskValue}}"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Risk Score {{ChangeRiskValue}} equals Risk Value of {{lookupObjects.Name}}"
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Change_risk__select__c@suuuu.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+            type = "SET"
+            value = {
+              type = "SMART"
+              value = "{{lookupObjects.Name}}"
+            }
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+An automated assessment has been based on the service and responses you selected. *Your risk score = {{ChangeRiskValue}}* which means the risk value is *{{lookupObjects.Name}}*
+
+For an explanation of the calculation and what matters, check out this [Risk Assessment article|{{baseUrl}}/servicedesk/customer/kb/view/5236195568].
+
+
+'''
+        publicComment = true
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Normal Change - Calculate Risk Score"
+}

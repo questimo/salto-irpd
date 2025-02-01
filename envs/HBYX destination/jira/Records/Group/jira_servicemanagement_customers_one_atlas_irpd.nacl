@@ -1,0 +1,3 @@
+jira.Group jira_servicemanagement_customers_one_atlas_irpd@b {
+  name = "jira-servicemanagement-customers-one-atlas-irpd"
+}

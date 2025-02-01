@@ -1,0 +1,23 @@
+jira.Project Commercial_Legal_Service_Desk@s {
+  key = "CLSD"
+  description = "Commercial Legal’s intake of requests from internal customers.  "
+  name = "Commercial Legal Service Desk"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "service_desk"
+  components = [
+    jira.ProjectComponent.instance.Commercial_Legal_Service_Desk_s__Intranet@uuumuu,
+    jira.ProjectComponent.instance.Commercial_Legal_Service_Desk_s__Jira@uuumuu,
+    jira.ProjectComponent.instance.Commercial_Legal_Service_Desk_s__Public_website@uuumuus,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.Jira_Service_Management_IT_Support_Workflow_Scheme_generated_for_Project_LGSD@s
+  permissionScheme = jira.PermissionScheme.instance.Jira_Service_Management_Permission_Scheme_for_Project_LGSD@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.LGSD__Jira_Service_Management_Issue_Type_Screen_Scheme@fsssssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.LGSD__Jira_Service_Management_Issue_Type_Scheme@fssssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.Jira_Service_Management_Field_Configuration_Scheme_for_Project_LGSD@s
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  assigneeType = "UNASSIGNED"
+}

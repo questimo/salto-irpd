@@ -1,0 +1,56 @@
+jira.DashboardGadget Default_dashboard_s__Resolution_Time_1_3@umuusuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:resolution-time-gadget/gadgets/resolution-time-gadget.xml"
+  color = "blue"
+  position = {
+    row = 3
+    column = 1
+  }
+  title = "Resolution Time"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "name"
+          value = "All Resolved Issues"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "periodName"
+          value = "daily"
+        },
+        {
+          key = "projectOrFilterId"
+          value = jira.Filter.instance.All_Resolved_Issues@s
+        },
+        {
+          key = "daysprevious"
+          value = "5"
+        },
+        {
+          key = "id"
+          value = "10003"
+        },
+        {
+          key = "type"
+          value = "filter"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Default_dashboard@s,
+  ]
+  _alias = "Resolution Time"
+}

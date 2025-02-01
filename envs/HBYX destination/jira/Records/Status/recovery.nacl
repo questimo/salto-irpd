@@ -1,0 +1,6 @@
+jira.Status recovery {
+  name = "Recovery"
+  statusCategory = jira.StatusCategory.instance.In_Progress@s
+  description = ""
+  _alias = "Recovery"
+}

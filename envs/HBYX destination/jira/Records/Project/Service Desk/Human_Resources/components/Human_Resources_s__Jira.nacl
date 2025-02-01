@@ -1,0 +1,13 @@
+jira.ProjectComponent Human_Resources_s__Jira@umuu {
+  description = "Issues related to Jira. Created by Jira Service Management."
+  assigneeType = "UNASSIGNED"
+  name = "Jira"
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  _parent = [
+    jira.Project.instance.Human_Resources@s,
+  ]
+  _alias = "Human Resources:Jira"
+}

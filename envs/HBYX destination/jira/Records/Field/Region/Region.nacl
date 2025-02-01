@@ -1,0 +1,10 @@
+jira.Field Region__cmdb_object_cftype__c@uubbuu {
+  name = "Region"
+  description = "Geographical Region (AMER, APAC, EMEA) (Insight : People) - FAC ITS HR "
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Region__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Region@uuuuuumussss,
+  ]
+  _alias = "Region"
+}

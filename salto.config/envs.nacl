@@ -1,4 +1,10 @@
 envs {
   envs = [
+    {
+      name = "HBYX destination"
+      accountToServiceName = {
+        jira = "jira"
+      }
+    },
   ]
 }

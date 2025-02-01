@@ -1,0 +1,220 @@
+jira.Automation HR__Add_Employee_to_Issue_Human_Resources@fssssus {
+  name = "HR: Add Employee to Issue"
+  state = "ENABLED"
+  description = "For non-on/off boarding requests, add the reporter's people record (if it exists) to the ticket for additional context for the agent"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "NAME"
+          multiValue = true
+          values = [
+            "Give Kudos",
+            "Request for Leave",
+            "Raise HR Case",
+            "HR benefits setup",
+            "Change request",
+            "Questions for HR",
+            "Emailed request",
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_7
+        customSmartValue = {
+          id = "_customsmartvalue_id_1649262771832"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "Name LIKE \"{{issue.reporter.displayName}}\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Employee__cmdb_object_cftype__c@uubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN ({{lookupObjects}})"
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Region__cmdb_object_cftype__c@uubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN ({{lookupObjects.Region}})"
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Employee_Department__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN ({{lookupObjects.Department}})"
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Employee_Type__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN ({{lookupObjects.Type}})"
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Employee_Manager__cmdb_object_cftype__c@suubbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+                    type = "SET"
+                    rawValue = "Key IN ({{lookupObjects.Approver}})"
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{lookupObjects}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{lookupObjects.Status}}"
+        second = "Deactivated"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+{panel:title=Deactivated Warning|borderStyle=dashed|borderColor=#ccc|titleBGColor=#F7D6C1|bgColor=#f4cccc}
+This employee is no longer actively employed. Please use caution and check eligibility of this service before proceeding.
+{panel}
+
+'''
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Human_Resources@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "HR: Add Employee to Issue"
+}

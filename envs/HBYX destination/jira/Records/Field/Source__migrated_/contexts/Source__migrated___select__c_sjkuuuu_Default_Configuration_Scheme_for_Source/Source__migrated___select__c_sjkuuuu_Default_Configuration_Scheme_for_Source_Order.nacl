@@ -1,0 +1,13 @@
+jira.FieldContextOptionsOrder Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_order_child@uuuuuuumussssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Email@uuuuuuumussssu,
+    jira.CustomFieldContextOption.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Phone@uuuuuuumussssu,
+    jira.CustomFieldContextOption.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Monitoring_systems@uuuuuuumussssus,
+    jira.CustomFieldContextOption.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Vendor_technical_advisory@uuuuuuumussssuds,
+    jira.CustomFieldContextOption.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Customer@uuuuuuumussssu,
+    jira.CustomFieldContextOption.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Other@uuuuuuumussssu,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source@uuuuuuumussss,
+  ]
+}

@@ -1,0 +1,10 @@
+jira.Field Planned_start__migrated___datetime__c@ssjkuuuu {
+  name = "Planned start (migrated)"
+  description = "When is the change expected to start? (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:datetimerange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datetime"
+  contexts = [
+    jira.CustomFieldContext.instance.Planned_start__migrated___datetime__c_ssjkuuuu_Default_Configuration_Scheme_for_Planned_start@uuuuuuuumusssss,
+  ]
+  _alias = "Planned start (migrated)"
+}

@@ -1,0 +1,7 @@
+jira.IssueType Employee_setup@s {
+  description = "A request to setup a new hire with all necessary access and equipment."
+  name = "Employee setup"
+  untranslatedName = "Employee setup"
+  hierarchyLevel = 0
+  avatar = file("jira/IssueType/Employee_setup.s.png")
+}

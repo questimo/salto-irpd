@@ -1,0 +1,409 @@
+jira.Automation ITO__Normal_Change___When_transitioned_to_implementing__add_standard_sub_tasks_IT_Operations@fsssbsssszdsssbus {
+  name = "ITO: Normal Change - When transitioned to implementing, add standard sub-tasks"
+  state = "DISABLED"
+  description = "When a change is transitioned, add sub-tasks to the issues and link them"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.implementing.name
+        },
+        {
+          type = "NAME"
+          value = jira.Status.instance.awaiting_implementation@s.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "NAME"
+          multiValue = true
+          values = [
+            "Request an application upgrade (normal change)",
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.create"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Project__project
+                    }
+                    fieldType = "project"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.Project.instance.IT_Operations@s
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Issue_Type__issuetype@suu
+                    }
+                    fieldType = "issuetype"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.IssueType.instance.Sub_task@b
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Parent
+                    }
+                    fieldType = "parent"
+                    type = "SET"
+                    value = {
+                      type = "COPY"
+                      value = "current"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Summary__string
+                    }
+                    fieldType = "summary"
+                    type = "SET"
+                    rawValue = "Task 1 - Due {{now.plusBusinessDays(2).fullDateTime}}"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "SET"
+                    rawValue = "{{issue.summary}}"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Assignee__user
+                    }
+                    fieldType = "assignee"
+                    type = "SET"
+                    value = {
+                      type = "COPY"
+                      value = "current"
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.create"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Project__project
+                    }
+                    fieldType = "project"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.Project.instance.IT_Operations@s
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Issue_Type__issuetype@suu
+                    }
+                    fieldType = "issuetype"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.IssueType.instance.Sub_task@b
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Parent
+                    }
+                    fieldType = "parent"
+                    type = "SET"
+                    value = {
+                      type = "COPY"
+                      value = "current"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Summary__string
+                    }
+                    fieldType = "summary"
+                    type = "SET"
+                    rawValue = "Task 2 - Due {{now.plusBusinessDays(5).fullDateTime}}"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "SET"
+                    rawValue = '''
+{{issue.summary}}
+
+'''
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Assignee__user
+                    }
+                    fieldType = "assignee"
+                    type = "SET"
+                    value = {
+                      type = "COPY"
+                      value = "current"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "NAME"
+                        value = "Affected services"
+                        fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+                      }
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Create_Tasks__radiobuttons__c@suuuu.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:radiobuttons"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "NAME"
+                  multiValue = true
+                  values = [
+                    "Yes",
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.create"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Project__project
+                    }
+                    fieldType = "project"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.Project.instance.IT_Operations@s
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Issue_Type__issuetype@suu
+                    }
+                    fieldType = "issuetype"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = jira.IssueType.instance.Sub_task@b
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Parent
+                    }
+                    fieldType = "parent"
+                    type = "SET"
+                    value = {
+                      type = "COPY"
+                      value = "current"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Summary__string
+                    }
+                    fieldType = "summary"
+                    type = "SET"
+                    rawValue = "Extra task given the risk level"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "SET"
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Change_risk__select__c@suuuu.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "NAME"
+                  multiValue = true
+                  values = [
+                    "Critical",
+                    "High",
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Normal Change - When transitioned to implementing, add standard sub-tasks"
+}

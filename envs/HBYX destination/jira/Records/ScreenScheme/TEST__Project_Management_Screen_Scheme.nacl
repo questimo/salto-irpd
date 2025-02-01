@@ -1,0 +1,8 @@
+jira.ScreenScheme TEST__Project_Management_Screen_Scheme@fssss {
+  name = "TEST: Project Management Screen Scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.TEST__Project_Management_Edit_View_Issue_Screen@fsssdss
+    create = jira.Screen.instance.TEST__Project_Management_Create_Issue_Screen@fsssss
+  }
+}

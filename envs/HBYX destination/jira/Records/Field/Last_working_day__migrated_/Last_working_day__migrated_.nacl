@@ -1,0 +1,10 @@
+jira.Field Last_working_day__migrated___datepicker__c@sssjkuuuu {
+  name = "Last working day (migrated)"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:daterange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Last_working_day__migrated___datepicker__c_sssjkuuuu_Default_Configuration_Scheme_for_Last_working_day@uuuuuuuuumussssss,
+  ]
+  _alias = "Last working day (migrated)"
+}

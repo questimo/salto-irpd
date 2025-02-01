@@ -1,0 +1,10 @@
+jira.Field Requested_Asset__cmdb_object_cftype__c@suubbuu {
+  name = "Requested Asset"
+  description = "Used to track IT temporary asset for a given request(Insight : IT Employee Assets) - PROC ITS"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Requested_Asset__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Requested_Asset@uuuuuuumusssss,
+  ]
+  _alias = "Requested Asset"
+}

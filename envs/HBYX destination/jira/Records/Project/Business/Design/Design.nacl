@@ -1,0 +1,18 @@
+jira.Project Design {
+  key = "DESIGN"
+  description = ""
+  name = "Design"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "business"
+  workflowScheme = jira.WorkflowScheme.instance.DESIGN_WFS
+  permissionScheme = jira.PermissionScheme.instance.Default_Permission_Scheme__migrated_@sssjk
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme__migrated_@sssjk
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.DESIGN_ITSS
+  issueTypeScheme = jira.IssueTypeScheme.instance.DESIGN__Web_design_process_issue_type_scheme@fssssss
+  fieldConfigurationScheme = jira.FieldConfigurationScheme.instance.Default_Field_Layout_Scheme@s
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  assigneeType = "UNASSIGNED"
+}

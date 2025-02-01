@@ -1,0 +1,14 @@
+jira.Screen SecOps___Jira_Service_Desk_Resolve_Issue_Screen___11@sbsssssssbs {
+  name = "SecOps - Jira Service Desk Resolve Issue Screen - 11"
+  description = "Allows to set resolution"
+  tabs = {
+    General = {
+      name = "General"
+      fields = [
+        jira.Field.instance.Resolution__resolution,
+        jira.Field.instance.Team__atlassian_team__c@uubuu,
+      ]
+      position = 0
+    }
+  }
+}

@@ -1,0 +1,10 @@
+jira.Field Purchase_Date__datepicker__c@suuuu {
+  name = "Purchase Date"
+  description = "Date for use with asset and inventory - PROC ITS INV"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:daterange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Purchase_Date__datepicker__c_suuuu_Default_Configuration_Scheme_for_Purchase_Date@uuuuumusssss,
+  ]
+  _alias = "Purchase Date"
+}

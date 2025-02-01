@@ -1,0 +1,177 @@
+jira.WorkflowConfiguration LGL__Document_Approval_Workflow_v2@fssss {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "LGL: Document Approval Workflow v2"
+  description = "document-approval-workflow"
+  isEditable = true
+  startPointLayout = {
+    x = 73.5
+    y = -163.90000244140623
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.done
+      layout = {
+        x = 991.521484375
+        y = -90.90000244140623
+      }
+      deprecated = false
+      name = "Done"
+    },
+    {
+      statusReference = jira.Status.instance.draft
+      layout = {
+        x = 363.80859375
+        y = -133.90000244140623
+      }
+      deprecated = false
+      name = "Draft"
+    },
+    {
+      statusReference = jira.Status.instance.in_review@s
+      layout = {
+        x = 574.72265625
+        y = -133.90000244140623
+      }
+      deprecated = false
+      name = "In Review"
+    },
+    {
+      statusReference = jira.Status.instance.second_review@s
+      layout = {
+        x = 556.69140625
+        y = -22.90000244140623
+      }
+      deprecated = false
+      name = "Second Review"
+    },
+    {
+      statusReference = jira.Status.instance.to_do@s
+      layout = {
+        x = 170.12890625
+        y = -133.90000244140623
+      }
+      deprecated = false
+      name = "To Do"
+    },
+  ]
+  transitions = {
+    Back_to_Draft__From__In_Review__Directed@ssfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.draft
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 6
+          toPort = 4
+        },
+      ]
+      name = "Back to Draft"
+      description = ""
+    }
+    Back_to_Draft__From__Second_Review__Directed@ssfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.draft
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.second_review@s
+          fromPort = 7
+          toPort = 5
+        },
+      ]
+      name = "Back to Draft"
+      description = ""
+    }
+    Accepted__From__Second_Review__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.done
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.second_review@s
+          fromPort = 2
+          toPort = 7
+        },
+      ]
+      name = "Accepted"
+      description = ""
+    }
+    To_Do__From__any_status__Global@sfffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      name = "To Do"
+      description = ""
+    }
+    Send_for_Review__From__Draft__Directed@ssfffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_review@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.draft
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Send for Review"
+      description = ""
+    }
+    Second_Review__From__In_Review__Directed@sfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.second_review@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Second Review"
+      description = ""
+    }
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      links = [
+        {
+          toPort = 7
+        },
+      ]
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+    }
+    Start_Draft__From__To_Do__Directed@sfffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.draft
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.to_do@s
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Start Draft"
+      description = ""
+    }
+    Accepted__From__In_Review__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.done
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Accepted"
+      description = ""
+    }
+  }
+}

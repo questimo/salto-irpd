@@ -1,0 +1,250 @@
+jira.Automation MS__Marketing_Automation_Example_Marketing_Services@fsssus {
+  name = "MS: Marketing Automation Example"
+  state = "ENABLED"
+  description = "Creates automated tasks as an example"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Submit a campaign request"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.create"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Content for Campaign request"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "ID"
+                value = "description"
+                fieldType = "description"
+              }
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            fieldType = "project"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Project.instance.Marketing_Content@s
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            fieldType = "issuetype"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.IssueType.instance.Marketing_Asset@s
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Due_date__date@suu
+            }
+            fieldType = "duedate"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "ID"
+                value = "duedate"
+                fieldType = "duedate"
+              }
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Linked_Issues__array@suu
+            }
+            fieldType = "issuelinks"
+            type = "SET"
+            value = {
+              issue = {
+                type = "COPY"
+                value = "trigger"
+              }
+              linkType = "10003"
+              linkTypeDirection = "inward"
+            }
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.link"
+      value = {
+        linkType = jira.IssueLinkType.instance.Relates
+        issue = {
+          type = "COPY"
+          value = "created"
+        }
+        linkTypeDirection = "inward"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.create"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Automation Example"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "SET"
+            rawValue = "Automation example"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            fieldType = "project"
+            type = "SET"
+            value = {
+              value = "current"
+              type = "COPY"
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            fieldType = "issuetype"
+            type = "SET"
+            value = {
+              type = "COPY"
+              value = "trigger"
+            }
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.link"
+      value = {
+        linkType = jira.IssueLinkType.instance.Relates
+        issue = {
+          type = "COPY"
+          value = "created"
+        }
+        linkTypeDirection = "inward"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Marketing_Services@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "MS: Marketing Automation Example"
+}

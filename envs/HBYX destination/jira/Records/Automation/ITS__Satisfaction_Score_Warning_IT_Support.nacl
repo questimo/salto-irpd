@@ -1,0 +1,110 @@
+jira.Automation ITS__Satisfaction_Score_Warning_IT_Support@fsssus {
+  name = "ITS: Satisfaction Score Warning"
+  state = "ENABLED"
+  description = "When a low score (<3) is received, post a comment to the issue for awareness. "
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "VALUE_ADDED"
+      fields = [
+        {
+          value = jira.Field.instance.Satisfaction__sd_request_feedback__c@uubbuu.name
+          type = "fieldName"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{fieldChange.toString}} "
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+{panel:title=ATTENTION|borderStyle=dashed|borderColor=#ccc|titleBGColor=#F7D6C1|bgColor=#FFFFCE}Warning - low survey score received {panel}
+
+Please follow up with the customer.
+'''
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{fieldChange.toString}} "
+                second = "3"
+                operator = "LESS_THAN"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Support@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITS: Satisfaction Score Warning"
+}

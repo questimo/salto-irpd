@@ -1,0 +1,6 @@
+jira.Status duplicate {
+  name = "Duplicate"
+  statusCategory = jira.StatusCategory.instance.In_Progress@s
+  description = ""
+  _alias = "Duplicate"
+}

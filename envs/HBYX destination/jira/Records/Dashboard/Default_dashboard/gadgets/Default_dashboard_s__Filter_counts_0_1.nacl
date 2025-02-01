@@ -1,0 +1,111 @@
+jira.DashboardGadget Default_dashboard_s__Filter_counts_0_1@umuusuu {
+  moduleKey = "com.atlassian.servicedesk.dashboard-items-plugin:filter-count-dashboard-item"
+  color = "blue"
+  position = {
+    row = 1
+    column = 0
+  }
+  title = "Filter counts"
+  properties = [
+    {
+      key = "countOptions"
+      value = [
+        {
+          hasTrigger = false
+          trigger = {
+            display = ""
+            triggerEquality = ""
+            triggerOn = ""
+          }
+          name = "Status - Waiting for customer"
+          jql = "status = \"Waiting for customer\""
+          id = "c308"
+        },
+        {
+          hasTrigger = false
+          trigger = {
+            display = ""
+            triggerEquality = ""
+            triggerOn = ""
+          }
+          name = "Status - Waiting for approval"
+          jql = "status = \"Waiting for approval\""
+          id = "c292"
+        },
+        {
+          hasTrigger = false
+          trigger = {
+            display = ""
+            triggerEquality = ""
+            triggerOn = ""
+          }
+          name = "Status - Waiting for support"
+          jql = "status = \"Waiting for support\""
+          id = "c300"
+        },
+        {
+          hasTrigger = false
+          trigger = {
+            display = ""
+            triggerEquality = ""
+            triggerOn = ""
+          }
+          name = "Status - In Progress"
+          jql = "status = \"In Progress\""
+          id = "c296"
+        },
+        {
+          hasTrigger = false
+          trigger = {
+            display = ""
+            triggerEquality = ""
+            triggerOn = ""
+          }
+          name = "Status - Resolved"
+          jql = "status = Resolved"
+          id = "c304"
+        },
+        {
+          hasTrigger = false
+          trigger = {
+            display = ""
+            triggerEquality = ""
+            triggerOn = ""
+          }
+          name = "Total"
+          jql = ""
+          id = "c312"
+        },
+      ]
+    },
+    {
+      key = "isConfigured"
+      value = true
+    },
+    {
+      key = "projectFilterDetails"
+      values = [
+        {
+          key = "name"
+          value = "All Open Issues"
+        },
+        {
+          key = "type"
+          value = "filter"
+        },
+        {
+          key = "id"
+          value = "10002"
+        },
+      ]
+    },
+    {
+      key = "refresh"
+      value = "false"
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Default_dashboard@s,
+  ]
+  _alias = "Filter counts"
+}

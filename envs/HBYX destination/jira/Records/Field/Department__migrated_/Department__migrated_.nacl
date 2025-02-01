@@ -1,0 +1,10 @@
+jira.Field Department__migrated___textfield__c@sjkuuuu {
+  name = "Department (migrated)"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Department__migrated___textfield__c_sjkuuuu_Default_Configuration_Scheme_for_Department@uuuuuuumussss,
+  ]
+  _alias = "Department (migrated)"
+}

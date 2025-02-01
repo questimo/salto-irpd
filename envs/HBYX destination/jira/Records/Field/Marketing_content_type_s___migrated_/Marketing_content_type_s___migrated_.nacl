@@ -1,0 +1,10 @@
+jira.Field Marketing_content_type_s___migrated___multiselect__c@ssjksjkuuuu {
+  name = "Marketing content type(s) (migrated)"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multiselect"
+  contexts = [
+    jira.CustomFieldContext.instance.Marketing_content_type_s___migrated___multiselect__c_ssjksjkuuuu_Default_Configuration_Scheme_for_Marketing_content_type_s_@uuuuuuuuuuumussssssjk,
+  ]
+  _alias = "Marketing content type(s) (migrated)"
+}

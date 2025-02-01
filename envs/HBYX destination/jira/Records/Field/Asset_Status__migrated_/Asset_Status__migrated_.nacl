@@ -1,0 +1,10 @@
+jira.Field Asset_Status__migrated___select__c@ssjkuuuu {
+  name = "Asset Status (migrated)"
+  description = "Asset Status - ITS PROC INV  (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+  contexts = [
+    jira.CustomFieldContext.instance.Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuuuuumusssss,
+  ]
+  _alias = "Asset Status (migrated)"
+}

@@ -1,0 +1,230 @@
+jira.Automation ITO__Raise_Problems_on_Tier_1_Critical__High_or_Highest_Priority_Issues_IT_Operations@fsssssszdsssssus {
+  name = "ITO: Raise Problems on Tier 1 Critical, High or Highest Priority Issues"
+  state = "ENABLED"
+  description = "Unless it's a Major Incident as those will create PIRs"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.resolved.name
+        },
+        {
+          type = "NAME"
+          value = jira.Status.instance.completed.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.sd.create.request"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = "raiseOnBehalfOf"
+                    }
+                    fieldType = "raiseOnBehalfOf"
+                    type = "SET"
+                    value = {
+                      type = "ID"
+                      value = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+                    }
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Summary__string
+                    }
+                    fieldType = "summary"
+                    type = "SET"
+                    rawValue = "Problem Investigation for Tier 1 Service Issue"
+                  },
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Description__string
+                    }
+                    fieldType = "description"
+                    type = "SET"
+                    rawValue = '''
+This is automatically raised based on the linked priority outage.
+
+A PIR for this needs to be completed due to the priority and Tier level of the affected service(s)
+'''
+                  },
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu.name
+                    }
+                    fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+                    type = "COPY"
+                    value = {
+                      copyOptions = [
+                      ]
+                      sourceIssue = "current"
+                      sourceField = {
+                        type = "NAME"
+                        value = "Affected services"
+                        fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+                      }
+                    }
+                  },
+                ]
+                sendNotifications = false
+                requestType = jira.RequestType.instance.missing_30
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.link"
+              value = {
+                linkType = jira.IssueLinkType.instance.Problem_Incident@d
+                issue = {
+                  type = "COPY"
+                  value = "created"
+                }
+                linkTypeDirection = "inward"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.affected.services.condition"
+              value = {
+                selectedAttribute = "tier"
+                selectedComparison = "ONE_OF"
+                compareValue = "1"
+                fieldId = "customfield_10039"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "ID"
+                  value = jira.Field.instance.Priority__priority
+                }
+                selectedFieldType = "priority"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "ID"
+                  multiValue = true
+                  values = [
+                    jira.Priority.instance.Critical,
+                    jira.Priority.instance.Highest,
+                    jira.Priority.instance.High,
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+                }
+                selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+                comparison = "EQUALS"
+                compareFieldValue = {
+                  type = "NAME"
+                  value = "Report a system issue"
+                  multiValue = false
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Major incident}}"
+                second = "MAJOR_INCIDENT"
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Raise Problems on Tier 1 Critical, High or Highest Priority Issues"
+}

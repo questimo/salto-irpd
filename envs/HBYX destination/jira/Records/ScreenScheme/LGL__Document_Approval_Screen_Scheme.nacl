@@ -1,0 +1,8 @@
+jira.ScreenScheme LGL__Document_Approval_Screen_Scheme@fssss {
+  name = "LGL: Document Approval Screen Scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.LGL__Document_Approval_Edit_View_Issue_Screen@fsssdss
+    create = jira.Screen.instance.LGL__Document_Approval_Create_Issue_Screen@fsssss
+  }
+}

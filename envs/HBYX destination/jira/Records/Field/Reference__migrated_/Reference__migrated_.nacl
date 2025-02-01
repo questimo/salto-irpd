@@ -1,0 +1,10 @@
+jira.Field Reference__migrated___textfield__c@sjkuuuu {
+  name = "Reference (migrated)"
+  description = "Document or case number (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Reference__migrated___textfield__c_sjkuuuu_Default_Configuration_Scheme_for_Reference@uuuuuuumussss,
+  ]
+  _alias = "Reference (migrated)"
+}

@@ -1,0 +1,145 @@
+jira.WorkflowConfiguration PROC__Procurement_Workflow_v2@fsss {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "PROC: Procurement Workflow v2"
+  description = "Updated for conflict"
+  isEditable = true
+  startPointLayout = {
+    x = 150.5
+    y = -108.19999999999999
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.accepted
+      layout = {
+        x = 541.8943881988525
+        y = -83.90000244140623
+      }
+      deprecated = false
+      name = "Accepted"
+    },
+    {
+      statusReference = jira.Status.instance.in_review@s
+      layout = {
+        x = 396.16796875
+        y = -83.90000244140623
+      }
+      deprecated = false
+      name = "In Review"
+    },
+    {
+      statusReference = jira.Status.instance.purchased
+      layout = {
+        x = 709.10546875
+        y = -83.90000244140623
+      }
+      deprecated = false
+      name = "Purchased"
+    },
+    {
+      statusReference = jira.Status.instance.rejected
+      layout = {
+        x = 242.60546875
+        y = -14.90000244140623
+      }
+      deprecated = false
+      name = "Rejected"
+    },
+    {
+      statusReference = jira.Status.instance.requested
+      layout = {
+        x = 237.71484375
+        y = -113.90000244140623
+      }
+      deprecated = false
+      name = "Requested"
+    },
+  ]
+  transitions = {
+    Reject__From__Requested__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.rejected
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.requested
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Reject"
+      description = ""
+    }
+    In_Review__From__Requested__Directed@sfffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.in_review@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.requested
+          fromPort = 4
+          toPort = 7
+        },
+      ]
+      name = "In Review"
+      description = ""
+    }
+    Accepted__From__In_Review__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.accepted
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Accepted"
+      description = "Ready for purchase"
+    }
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.requested
+      links = [
+        {
+          toPort = 7
+        },
+      ]
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+    }
+    Reject__From__In_Review__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.rejected
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.in_review@s
+          fromPort = 5
+          toPort = 3
+        },
+      ]
+      name = "Reject"
+      description = ""
+    }
+    Purchased__From__Accepted__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.purchased
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.accepted
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Purchased"
+      description = "Order submitted to vendor"
+    }
+  }
+}

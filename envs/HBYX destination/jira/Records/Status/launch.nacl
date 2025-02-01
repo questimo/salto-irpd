@@ -1,0 +1,6 @@
+jira.Status launch {
+  name = "Launch"
+  statusCategory = jira.StatusCategory.instance.Done
+  description = ""
+  _alias = "Launch"
+}

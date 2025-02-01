@@ -1,0 +1,9 @@
+jira.Field Employment_type__select__c@suuuu {
+  name = "Employment type"
+  description = ""
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+  contexts = [
+    jira.CustomFieldContext.instance.Employment_type__select__c_suuuu_Default_Configuration_Scheme_for_Employment_type@uuuuumusssss,
+  ]
+  _alias = "Employment type"
+}

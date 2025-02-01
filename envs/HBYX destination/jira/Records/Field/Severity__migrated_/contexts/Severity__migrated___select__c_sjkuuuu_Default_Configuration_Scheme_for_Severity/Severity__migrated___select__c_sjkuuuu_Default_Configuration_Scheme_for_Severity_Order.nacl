@@ -1,0 +1,11 @@
+jira.FieldContextOptionsOrder Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity_order_child@uuuuuuumussssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity_Sev_0@uuuuuuumussssub,
+    jira.CustomFieldContextOption.instance.Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity_Sev_1@uuuuuuumussssub,
+    jira.CustomFieldContextOption.instance.Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity_Sev_2@uuuuuuumussssub,
+    jira.CustomFieldContextOption.instance.Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity_Sev_3@uuuuuuumussssub,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity@uuuuuuumussss,
+  ]
+}

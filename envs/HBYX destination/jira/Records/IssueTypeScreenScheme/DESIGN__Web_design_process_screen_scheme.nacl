@@ -1,0 +1,10 @@
+jira.IssueTypeScreenScheme DESIGN__Web_design_process_screen_scheme@fsssss {
+  name = "DESIGN: Web design process screen scheme"
+  description = ""
+  issueTypeMappings = [
+    {
+      issueTypeId = "default"
+      screenSchemeId = jira.ScreenScheme.instance.DESIGN__Web_design_process_screen_scheme@fsssss
+    },
+  ]
+}

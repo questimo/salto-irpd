@@ -1,0 +1,10 @@
+jira.Field Security_Source__cmdb_object_cftype__c@suubbuu {
+  name = "Security Source"
+  description = "SECOPS Prep use case - Schema: Practice Standards"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Security_Source__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_SIEM_Solution@uuuuuuumusssss,
+  ]
+  _alias = "Security Source"
+}

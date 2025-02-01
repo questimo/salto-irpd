@@ -1,0 +1,58 @@
+jira.Automation ZZ___DEMO__When_an_issue_is_created___automatically_assign_using_balanced_workload@sbsfssssss_08594sssss {
+  name = "ZZ - DEMO: When an issue is created → automatically assign using balanced workload"
+  state = "ENABLED"
+  description = "Assign to users in demo-user-group"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      type = "jira.issue.assign"
+      value = {
+        assignType = "GROUP"
+        group = {
+          type = "GROUP_ID"
+          value = "demo-user-group"
+        }
+        excludedUsers = [
+        ]
+        userList = [
+        ]
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ZZ - DEMO: When an issue is created → automatically assign using balanced workload"
+}

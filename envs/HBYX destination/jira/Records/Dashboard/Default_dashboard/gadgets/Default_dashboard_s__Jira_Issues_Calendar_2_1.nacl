@@ -1,0 +1,56 @@
+jira.DashboardGadget Default_dashboard_s__Jira_Issues_Calendar_2_1@umuussuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.ext.calendar:issuescalendar-gadget/templates/plugins/jira/portlets/calendar/gadget/calendar-gadget.xml"
+  color = "blue"
+  position = {
+    row = 1
+    column = 2
+  }
+  title = "Jira Issues Calendar"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "numOfIssueIcons"
+          value = "10"
+        },
+        {
+          key = "dateFieldName"
+          value = "duedate"
+        },
+        {
+          key = "name"
+          value = "All Open Issues"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "projectOrFilterId"
+          value = jira.Filter.instance.All_Open_Issues@s
+        },
+        {
+          key = "id"
+          value = "10002"
+        },
+        {
+          key = "type"
+          value = "filter"
+        },
+        {
+          key = "displayVersions"
+          value = "false"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Default_dashboard@s,
+  ]
+  _alias = "Jira Issues Calendar"
+}

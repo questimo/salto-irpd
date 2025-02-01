@@ -1,0 +1,145 @@
+jira.Automation ITO__Alert_of_Critical_Issue_IT_Operations@fssssus {
+  name = "ITO: Alert of Critical Issue"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.Priority__priority
+          type = "field"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = "{panel:title=ATTENTION|borderStyle=dashed|borderColor=#ccc|titleBGColor=#cd5c5c|bgColor=#cd5c5c}This is a critical Tier 1 priority service {panel}"
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.affected.services.condition"
+              value = {
+                selectedAttribute = "tier"
+                selectedComparison = "ONE_OF"
+                compareValue = "1"
+                fieldId = "customfield_10039"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "ID"
+                  value = jira.Field.instance.Priority__priority
+                }
+                selectedFieldType = "priority"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "ID"
+                  multiValue = true
+                  values = [
+                    jira.Priority.instance.Critical,
+                    jira.Priority.instance.Highest,
+                    jira.Priority.instance.High,
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+                }
+                selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "NAME"
+                  multiValue = true
+                  values = [
+                    "Report a system issue",
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Alert of Critical Issue"
+}

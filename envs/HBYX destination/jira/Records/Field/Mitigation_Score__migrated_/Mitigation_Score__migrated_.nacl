@@ -1,0 +1,10 @@
+jira.Field Mitigation_Score__migrated___float__c@ssjkuuuu {
+  name = "Mitigation Score (migrated)"
+  description = "SECOPS Mitigation Score (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:exactnumber"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:float"
+  contexts = [
+    jira.CustomFieldContext.instance.Mitigation_Score__migrated___float__c_ssjkuuuu_Default_Configuration_Scheme_for_Mitigation_Score@uuuuuuuumusssss,
+  ]
+  _alias = "Mitigation Score (migrated)"
+}

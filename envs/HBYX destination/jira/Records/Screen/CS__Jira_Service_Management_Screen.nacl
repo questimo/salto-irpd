@@ -1,0 +1,35 @@
+jira.Screen CS__Jira_Service_Management_Screen@fssss {
+  name = "CS: Jira Service Management Screen"
+  description = "This Jira Service Management Screen was generated automatically"
+  tabs = {
+    Default = {
+      name = "Default"
+      fields = [
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Components__array,
+        jira.Field.instance.Attachment__array,
+        jira.Field.instance.Due_date__date@suu,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Linked_Issues__array@suu,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Labels__array,
+        jira.Field.instance.Request_participants__sd_request_participants__c@suubbuu,
+        jira.Field.instance.Approvers__multiuserpicker__c,
+        jira.Field.instance.Organizations__sd_customer_organizations__c@uubbuu,
+        jira.Field.instance._CHART__Time_in_Status__timeinstatus__c@hisssuuuu,
+        jira.Field.instance.Company__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Contact__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Contract__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Product__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Feature__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Project_s___cmdb_object_cftype__c@jkuubbuu,
+        jira.Field.instance.Team__atlassian_team__c@uubuu,
+        jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu,
+      ]
+      position = 0
+    }
+  }
+}

@@ -1,0 +1,242 @@
+jira.Automation INV__Decommission__1__Approval_Assignment_and_Details_Inventory_Management@fssbbssssus {
+  name = "INV: Decommission -1- Approval Assignment and Details"
+  state = "ENABLED"
+  description = "Add Standard Decommission Change Details and set approval to owner or if no owner, to the admin group"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Decommission laptop"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_8
+        customSmartValue = {
+          id = "_customsmartvalue_id_1628365375338"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "objectType=\"Standard Changes\" AND Name = \"Decommission Asset\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "codebarrel.action.log"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "{{issue.Target Device.Owner}} : {{issue.Target Device.Owner.User}}"
+            },
+            {
+              component = "ACTION"
+              type = "cmdb.lookup.objects"
+              value = {
+                workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+                schemaId = jira.ObjectSchema.instance.missing_8
+                customSmartValue = {
+                  id = "_customsmartvalue_id_1628365003977"
+                  name = {
+                    type = "FREE"
+                    value = "lookupObjects"
+                  }
+                  type = "IQL"
+                  query = {
+                    type = "SMART"
+                    value = "User = {{issue.Target Device.Owner.User}}"
+                  }
+                  lazy = false
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Approvers__multiuserpicker__c.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+                    type = "SET"
+                    value = [
+                      {
+                        type = "SMART"
+                        value = "{{lookupObjects.User}}"
+                      },
+                    ]
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Target Device.Owner}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Approvers__multiuserpicker__c.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+                    type = "SET"
+                    value = [
+                      {
+                        type = "ID"
+                        value = {
+                          id = "60ad31159e21bd0071e67bfa"
+                          displayName = "Admin Istrator"
+                        }
+                      },
+                    ]
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.authorize.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Inventory_Management@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "INV: Decommission -1- Approval Assignment and Details"
+}

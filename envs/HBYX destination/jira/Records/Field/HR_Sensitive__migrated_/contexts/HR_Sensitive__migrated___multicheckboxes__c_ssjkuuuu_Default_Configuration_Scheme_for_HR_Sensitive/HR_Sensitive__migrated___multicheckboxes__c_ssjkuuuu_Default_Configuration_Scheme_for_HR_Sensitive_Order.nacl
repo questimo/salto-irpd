@@ -1,0 +1,8 @@
+jira.FieldContextOptionsOrder HR_Sensitive__migrated___multicheckboxes__c_ssjkuuuu_Default_Configuration_Scheme_for_HR_Sensitive_order_child@uuuuuuuumusssssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.HR_Sensitive__migrated___multicheckboxes__c_ssjkuuuu_Default_Configuration_Scheme_for_HR_Sensitive_Yes@uuuuuuuumusssssu,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.HR_Sensitive__migrated___multicheckboxes__c_ssjkuuuu_Default_Configuration_Scheme_for_HR_Sensitive@uuuuuuuumusssss,
+  ]
+}

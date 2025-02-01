@@ -1,0 +1,7 @@
+jira.IssueTypeScheme PROC__Procurement_Issue_Type_Scheme@fssss {
+  name = "PROC: Procurement Issue Type Scheme"
+  defaultIssueTypeId = jira.IssueType.instance.Order
+  issueTypeIds = [
+    jira.IssueType.instance.Order,
+  ]
+}

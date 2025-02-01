@@ -1,0 +1,10 @@
+jira.Field Employee_Start_date__migrated___datepicker__c@sssjkuuuu {
+  name = "Employee Start date (migrated)"
+  description = "Employee Start Date - Onboarding - HR (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:daterange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Employee_Start_date__migrated___datepicker__c_sssjkuuuu_Default_Configuration_Scheme_for_Start_date@uuuuuuuuumusssss,
+  ]
+  _alias = "Employee Start date (migrated)"
+}

@@ -1,0 +1,10 @@
+jira.Field SecOps_Information_Impact_Category__cmdb_object_cftype__c@sssuubbuu {
+  name = "SecOps Information Impact Category"
+  description = "SecOps Information Impact Category - Schema: Standards & Practices - SecOps"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.SecOps_Information_Impact_Category__cmdb_object_cftype__c_sssuubbuu_Default_Configuration_Scheme_for_SecOps_Information_Impact_Category@uuuuuuuuumusssssss,
+  ]
+  _alias = "SecOps Information Impact Category"
+}

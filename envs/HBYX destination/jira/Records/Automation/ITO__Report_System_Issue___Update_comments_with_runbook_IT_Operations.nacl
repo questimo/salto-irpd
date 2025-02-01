@@ -1,0 +1,174 @@
+jira.Automation ITO__Report_System_Issue___Update_comments_with_runbook_IT_Operations@fssssbssssus {
+  name = "ITO: Report System Issue - Update comments with runbook"
+  state = "ENABLED"
+  description = '''
+Different messages with different confluence links will post based on the tier of service selected. 
+An external comment will also be posted letting the reporter know we're on it.
+'''
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Report a system issue"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+*IT Ops team outage response gameplan:*
+
+This appears to be a service outage As the first IT ops agent responding to this incident be sure to check the following: 
+
+{quote}
+- Complete initial outage review using the *[Incident Operations Runbooks|{{baseUrl}}/wiki/spaces/ITO/pages/5236162624/RB+-+Billing+Health+Monitoring]* and update the incident with what you find.
+- Start *Service outage communications* and inform service owner(s)
+-  Establish a *incident response chatops room* in Slack for the on-call team responding
+-  Post a *StatusPage incident* announcement
+{quote}
+
+
+'''
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.affected.services.condition"
+              value = {
+                selectedAttribute = "tier"
+                selectedComparison = "ONE_OF"
+                compareValue = "1,2"
+                fieldId = "customfield_10039"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+This is for a tier 3 or 4 Service. 
+
+Check the [runbooks|{{baseUrl}}/wiki/spaces/ITO/pages/5236195364/Incident+Runbooks] for guidance and any [known errors|{{baseUrl}}/wiki/spaces/ITO/pages/5236129899/Known+Errors+Workarounds].
+'''
+                publicComment = false
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+Thank you for reporting this issue. We are on it!
+
+'''
+        publicComment = true
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Report System Issue - Update comments with runbook"
+}

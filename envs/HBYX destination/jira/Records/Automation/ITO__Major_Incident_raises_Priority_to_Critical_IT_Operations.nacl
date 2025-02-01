@@ -1,0 +1,109 @@
+jira.Automation ITO__Major_Incident_raises_Priority_to_Critical_IT_Operations@fssssssus {
+  name = "ITO: Major Incident raises Priority to Critical"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.Major_incident__major_incident_entity_field_cftype__c@suubbbbuu.name
+          type = "fieldName"
+        },
+      ]
+      actions = [
+        "edit",
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.comparator.condition"
+      value = {
+        first = "{{issue.${ jira.Field.instance.Major_incident__major_incident_entity_field_cftype__c@suubbbbuu.name }}}"
+        second = "MAJOR_INCIDENT"
+        operator = "EQUALS"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Priority__priority
+            }
+            fieldType = "priority"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Priority.instance.Critical
+            }
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+{panel:title=Major Incident Escalation|borderStyle=dashed|borderColor=#ccc|titleBGColor=#F7D6C1|bgColor=#ff0000}
+This has been escalated as a major incident. The priority has been increased to Critical and the Responders are being alerted according to the escalation policies and on-call schedule(s).
+{panel}
+
+*Note*: Only managers may de-escalate a Major Incident. If you have raised this in error, please contact the Manager on-call.
+'''
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Major Incident raises Priority to Critical"
+}

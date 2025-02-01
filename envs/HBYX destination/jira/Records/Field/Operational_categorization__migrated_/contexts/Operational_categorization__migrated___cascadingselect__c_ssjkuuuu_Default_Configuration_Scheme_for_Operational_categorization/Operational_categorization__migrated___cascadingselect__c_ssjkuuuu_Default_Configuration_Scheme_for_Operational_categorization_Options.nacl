@@ -1,0 +1,378 @@
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request@uuuuuuuumusssssus {
+  value = "Account Request"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request_Active_Directory@uuuuuuuumusssssusus {
+  value = "Active Directory"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request_Firewall@uuuuuuuumusssssusu {
+  value = "Firewall"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request_Operating_System@uuuuuuuumusssssusus {
+  value = "Operating System"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request_Printer@uuuuuuuumusssssusu {
+  value = "Printer"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request_VPN@uuuuuuuumusssssusu {
+  value = "VPN"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request_Virus_scan@uuuuuuuumusssssusus {
+  value = "Virus scan"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Account_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix@uuuuuuuumusssssusds {
+  value = "Break / Fix"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix_Docking_Station@uuuuuuuumusssssusdsus {
+  value = "Docking Station"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix@uuuuuuuumusssssusds,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix_Hard_Drive@uuuuuuuumusssssusdsus {
+  value = "Hard Drive"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix@uuuuuuuumusssssusds,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix_Keyboard@uuuuuuuumusssssusdsu {
+  value = "Keyboard"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix@uuuuuuuumusssssusds,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix_Laptop@uuuuuuuumusssssusdsu {
+  value = "Laptop"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix@uuuuuuuumusssssusds,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix_Monitor@uuuuuuuumusssssusdsu {
+  value = "Monitor"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix@uuuuuuuumusssssusds,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix_PC@uuuuuuuumusssssusdsu {
+  value = "PC"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Break___Fix@uuuuuuuumusssssusds,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration@uuuuuuuumusssssu {
+  value = "Configuration"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration_Active_Directory@uuuuuuuumusssssuus {
+  value = "Active Directory"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration@uuuuuuuumusssssu,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration_Firewall@uuuuuuuumusssssuu {
+  value = "Firewall"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration@uuuuuuuumusssssu,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration_Operating_System@uuuuuuuumusssssuus {
+  value = "Operating System"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration@uuuuuuuumusssssu,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration_Printer@uuuuuuuumusssssuu {
+  value = "Printer"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration@uuuuuuuumusssssu,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration_User_Account@uuuuuuuumusssssuus {
+  value = "User Account"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration@uuuuuuuumusssssu,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration_VPN@uuuuuuuumusssssuu {
+  value = "VPN"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration@uuuuuuuumusssssu,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration_Virus_scan@uuuuuuuumusssssuus {
+  value = "Virus scan"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Configuration@uuuuuuuumusssssu,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Connectivity@uuuuuuuumusssssu {
+  value = "Connectivity"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Hardware_Request@uuuuuuuumusssssus {
+  value = "Hardware Request"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Hardware_Request_Add@uuuuuuuumusssssusu {
+  value = "Add"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Hardware_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Hardware_Request_Configure@uuuuuuuumusssssusu {
+  value = "Configure"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Hardware_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Hardware_Request_Move@uuuuuuuumusssssusu {
+  value = "Move"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Hardware_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Hardware_Request_New@uuuuuuuumusssssusu {
+  value = "New"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Hardware_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Hardware_Request_Repair@uuuuuuuumusssssusu {
+  value = "Repair"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Hardware_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Instance_Request@uuuuuuuumusssssus {
+  value = "Instance Request"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Instance_Request_Copy@uuuuuuuumusssssusu {
+  value = "Copy"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Instance_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Instance_Request_Create@uuuuuuuumusssssusu {
+  value = "Create"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Instance_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Instance_Request_Move@uuuuuuuumusssssusu {
+  value = "Move"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Instance_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Instance_Request_Remove@uuuuuuuumusssssusu {
+  value = "Remove"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Instance_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Instance_Request_Repair@uuuuuuuumusssssusu {
+  value = "Repair"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Instance_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Network_Request@uuuuuuuumusssssus {
+  value = "Network Request"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Network_Request_Create@uuuuuuuumusssssusu {
+  value = "Create"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Network_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Network_Request_Modify@uuuuuuuumusssssusu {
+  value = "Modify"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Network_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Network_Request_Terminate@uuuuuuuumusssssusu {
+  value = "Terminate"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Network_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Process_Request@uuuuuuuumusssssus {
+  value = "Process Request"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Process_Request_Audit@uuuuuuuumusssssusu {
+  value = "Audit"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Process_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Process_Request_Update@uuuuuuuumusssssusu {
+  value = "Update"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Process_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change@uuuuuuuumusssssus {
+  value = "Server Change"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change_Decommission@uuuuuuuumusssssusu {
+  value = "Decommission"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change_Extend@uuuuuuuumusssssusu {
+  value = "Extend"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change_Network@uuuuuuuumusssssusu {
+  value = "Network"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change_Post_Implementation@uuuuuuuumusssssusus {
+  value = "Post Implementation"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change_Provision@uuuuuuuumusssssusu {
+  value = "Provision"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change_Storage@uuuuuuuumusssssusu {
+  value = "Storage"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change_Update_Configuration@uuuuuuuumusssssusus {
+  value = "Update Configuration"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_Server_Change@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_VM_Request@uuuuuuuumusssssus {
+  value = "VM Request"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_VM_Request_Extend@uuuuuuuumusssssusu {
+  value = "Extend"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_VM_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_VM_Request_Provision@uuuuuuuumusssssusu {
+  value = "Provision"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_VM_Request@uuuuuuuumusssssus,
+  ]
+}
+jira.CustomFieldContextOption Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_VM_Request_Remove@uuuuuuuumusssssusu {
+  value = "Remove"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContextOption.instance.Operational_categorization__migrated___cascadingselect__c_ssjkuuuu_Default_Configuration_Scheme_for_Operational_categorization_VM_Request@uuuuuuuumusssssus,
+  ]
+}

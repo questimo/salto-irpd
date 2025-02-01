@@ -1,0 +1,28 @@
+jira.CustomFieldContextOption Maintenance_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Maintenance_type_A_safety_hazard@uuuuuuuumusssssuss {
+  value = "A safety hazard"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Maintenance_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Maintenance_type@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Maintenance_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Maintenance_type_Major_repair@uuuuuuuumusssssus {
+  value = "Major repair"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Maintenance_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Maintenance_type@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Maintenance_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Maintenance_type_Minor_repair@uuuuuuuumusssssus {
+  value = "Minor repair"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Maintenance_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Maintenance_type@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Maintenance_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Maintenance_type_Replacement_required@uuuuuuuumusssssus {
+  value = "Replacement required"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Maintenance_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Maintenance_type@uuuuuuuumusssss,
+  ]
+}

@@ -1,0 +1,9 @@
+jira.Field Resignation_date__datepicker__c@suuuu {
+  name = "Resignation date"
+  description = ""
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Resignation_date__datepicker__c_suuuu_Default_Configuration_Scheme_for_Resignation_date@uuuuumusssss,
+  ]
+  _alias = "Resignation date"
+}

@@ -1,0 +1,129 @@
+jira.Automation FAC__Add_regional_approver_to_request_and_update_comment_Facilities@fssssssssu {
+  name = "FAC: Add regional approver to request and update comment"
+  state = "ENABLED"
+  description = "If the office has not been selected, add the regional approver instead."
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Request a new office"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Office__cmdb_object_cftype__c@uubbuu.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+        comparison = "EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Approvers__multiuserpicker__c.name
+            }
+            fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+            type = "SET"
+            value = [
+              {
+                type = "SMART"
+                value = "{{issue.region.Approver.User}}"
+              },
+            ]
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+Hello {{${ jira.Field.instance.Reporter__user }.displayName}}, 
+
+We have received your request for a new office. Once the regional approver, {{issue.region.Approver.Name}}, has identified available offices for this request, we'll contact you with location options.  The typical turn around time for this is 30 business days. We will let you know if there is any delay. Thank you and let us know if you have any other questions.  
+
+Best,
+Your Facilities Team
+'''
+        publicComment = true
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Facilities
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "FAC: Add regional approver to request and update comment"
+}

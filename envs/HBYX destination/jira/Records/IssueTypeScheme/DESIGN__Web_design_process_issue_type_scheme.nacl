@@ -1,0 +1,9 @@
+jira.IssueTypeScheme DESIGN__Web_design_process_issue_type_scheme@fssssss {
+  name = "DESIGN: Web design process issue type scheme"
+  defaultIssueTypeId = jira.IssueType.instance.Task
+  issueTypeIds = [
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Story,
+    jira.IssueType.instance.Sub_task@b,
+  ]
+}

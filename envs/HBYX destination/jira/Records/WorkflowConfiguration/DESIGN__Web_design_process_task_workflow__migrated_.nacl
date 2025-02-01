@@ -1,0 +1,92 @@
+jira.WorkflowConfiguration DESIGN__Web_design_process_task_workflow__migrated_@fssssssjk {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "DESIGN: Web design process task workflow (migrated)"
+  description = "web-design-process-task-workflow"
+  isEditable = true
+  statuses = [
+    {
+      statusReference = jira.Status.instance.concepting
+      deprecated = false
+      name = "Concepting"
+    },
+    {
+      statusReference = jira.Status.instance.design
+      deprecated = false
+      name = "Design"
+    },
+    {
+      statusReference = jira.Status.instance.launch
+      deprecated = false
+      name = "Launch"
+    },
+    {
+      statusReference = jira.Status.instance.testing
+      deprecated = false
+      name = "Testing"
+    },
+    {
+      statusReference = jira.Status.instance.to_do@s
+      deprecated = false
+      name = "To Do"
+    },
+  ]
+  transitions = {
+    Design__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.design
+      name = "Design"
+      description = ""
+    }
+    Concepting__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.concepting
+      name = "Concepting"
+      description = ""
+      actions = [
+        {
+          ruleKey = "connect:remote-workflow-function"
+          parameters = {
+            appKey = "com.onresolve.jira.groovy.groovyrunner__script-postfunction"
+            id = "7c7dfd47-7a75-4149-be3f-5054ef88a854"
+            disabled = "true"
+            scriptRunner = "{\"remoteWorkflowPostFunctionConfiguration\":\"eyJjb21wcmVzc2VkIjpbMzEsMTM5LDgsMCwwLDAsMCwwLDAsMywxOTcsODUsMTA5LDc5LDIxOSw0OCwxNiwyNTQsNDMsODYsMTMyLDgwLDU4LDE4MSwxMTAsMjE4LDY0LDIwMywxNzAsMTAxLDIxMCw4NCw2MiwxMDgsMjEwLDAsOSwxODIsNzksNDMsNjYsMTEwLDEyNCw0NSwxNjYsMTEwLDI4LDI0OSwxNjUsMTYsMTQ5LDI1NCwyNDcsMjE3LDEzLDE2MSwzOCw0NCwxNDgsMjM3LDIwMyw0NCw1NywxMzcsMjM5LDIyOSwyNDEsMjIxLDExNSwyMzEsMTIwLDI5LDE2NCwxNTYsNDAsMTE3LDc4LDE1MCwxNiwxNDAsMTMwLDg0LDQ0LDQ5LDE2MSwzNiwyMTUsMTAwLDE5NywxNDgsMTk4LDc0LDIyNiwxNDgsMTEsNjcsMjQxLDE4OSwxNDQsMTM5LDI1LDIzLDI0NywyNDgsMjEwLDEwMCw4NywxNjksMTAwLDE4NSwxNCwyMTgsMTI5LDQ5LDE0MCw5MCwxNTksMTQ3LDE5Myw5LDE2NSwyNTMsMjI1LDE3NiwxNDcsNjYsMTU5LDExNiwxNDIsNzIsNjgsNTgsMzEsNywxMzEsMTg0LDUxLDEzMiwyMzMsNDgsMTU0LDIwOSwxOTMsMjQ0LDU2LDIzOCw5MSwxMDcsMjAwLDIwMCwxNDgsMTMxLDExNywyMDgsMjEwLDEyOCw5Myw2Miw2NCwxMDYsNTIsMTksMjE3LDc5LDUsMjEwLDE2MiwxMjQsNTcsNjEsMTg5LDE4NSw1NiwxODMsMTE4LDE2OSwyMDAsNDAsMTE1LDEwLDQzLDIwNCwzNyw5MSwxNywxMywyMzIsOTgsMTIyLDcsMTY5LDcwLDExNSwyMDgsMjIzLDE0OCw1MCwxNiwxODIsMjA4LDEyMiwzNCwzOSwyNSwxNzgsMTMxLDE5NCwxMiw4MSwxNTgsMTExLDIyOSw0MCwxMTMsMzgsMjI1LDM2LDIzMiw3NCw4MCwxODYsNzUsMTE0LDIxNCwxNDEsMTg3LDIwNCwxMDUsMTg2LDcsMjM1LDIzNywyNyw0NywxNjAsMjE2LDc2LDEzMCw4NiwyMjksOTMsMTMsMTI0LDExLDEzMiwxMzAsMTgwLDE3NCw5OSwxNDUsMTA1LDIwMCwxMTYsMjMxLDcxLDE0NSwxOTUsMzYsMTA0LDE2Myw3Myw2NCwyNDIsMTU2LDE3OSwxNDgsMTg0LDE0NCwxODYsMTE5LDc0LDEwMCwxMjcsMTE0LDM5LDE3MCwxMiw0OSw2MCwzNSwyNDksMTA3LDIzNyw4NCwyMDgsMTYyLDE4LDc0LDIwOCw3MCwxMDIsMjA3LDMzLDU5LDI0MSwxOTgsNjEsMjIwLDE3MiwyMTAsOTMsOSw3MCw4MSw3NCwxMjAsMTA2LDI0OCwxMTgsMjE5LDExMiw0NiwxMzMsODIsMTUxLDc2LDQ1LDE3NCw4MiwzMywxNjEsMTQxLDEwOCw1LDE4MCwxMywxMzcsNTEsOTMsMjEyLDE2OCw0OCw1NywxMTcsOCw5LDIwMiwyMDUsMTI3LDMzLDE5NCwxNjUsMjYsMjU0LDE3MCwxMzksMTcxLDQ5LDk5LDE5MiwxNjksMjYsMTYxLDcwLDEzMSwxMDYsMTY0LDcwLDEwNSwxNzcsMjIwLDE1NCwyMjMsMjQ0LDE2Miw1NiwyMzQsMTQxLDgwLDE0MSwxMzEsMTkxLDY5LDU2LDE3OCwxODcsMTc0LDgsNTUsNDgsMjQyLDIxNywxODcsMTEwLDEzMCwxMjEsMTY1LDE4NCwxMjYsNzEsMjA5LDE1OSwxMSwyMzMsNDIsMTkzLDExOCwyOSwyNDksMjEyLDE4MCwxNDksMjQ2LDg0LDI0LDEyMywxOCwxNDQsMTMwLDIxLDIxNiw3MiwxMCwxMDcsODMsNzQsMTEyLDc4LDE2NCwxMzAsMjQyLDU5LDQ0LDE3MSw4NCwxOCwxMzQsMjM1LDIwMSwyNDQsMjQxLDU0LDIxLDE3MiwyMDQsODQsMTA1LDIwMSwxNzgsMTIxLDI0LDE4MSw4MSwxNzUsMjEzLDI0MiwyMDgsNTcsOTEsMCw0NywxMTAsMTMzLDE2MCwyNTUsMTI4LDMxLDIzOSwxOTksMTI3LDg5LDE0LDEzMiwxNzAsMTgwLDYxLDExNCw3NSwxNjEsMTU1LDkyLDIwNCwyMzEsMzIsNDksNzIsNDEsMTY0LDEwOSwxNjQsNDIsMjQzLDE3LDU4LDg4LDg3LDIyMywyNywyMjgsMTMzLDIzNiwyMCwxODcsMTQ5LDIzNywyMTEsMTAsMTM2LDIwNSw4MCwyNCw2MiwxOSwyNDcsMjQ4LDIzMiwyNDksMTgwLDgwLDE0NiwxNjAsMjA0LDExMiwyMzgsMTU3LDEzNiwxMzQsMTI1LDE0NSw5MywxMjEsMjUyLDQ4LDEzMyw5NiwxNTMsMjM1LDE2MiwyMjAsMTk4LDI0OSw2MSwyOSwyMTAsMjMyLDY5LDgxLDEwNywyNSwzOSwxODcsMiwxMjYsMjQwLDIwOCwyNTIsNzIsMTA3LDMwLDE1OSwxOSwyMCwyMjUsOCwyOSwzMCwyMTQsMjAxLDI1MSwxMzIsOTgsMjgsMTIxLDk3LDI1MSwyOCwzOCw1NCwyMzgsMjM5LDIyNiwxOTAsMTQwLDEwOSwyMTEsMTQwLDI4LDU1LDMyLDMxLDE5MSwxMzcsMTI0LDYsMTQ4LDE1MywyMjksOTQsMjQwLDIyNyw2LDI0MCw5NCwyNDQsMzgsMjUwLDg3LDU0LDE5MSwyMjEsMTM5LDE4OSw3LDk5LDI1MiwxODAsMjQ2LDExMiwyMjAsMTI0LDIzOSwyMjMsMTc3LDE2MSwzLDE1NywxMzcsMjM3LDQ5LDIwNywxMTQsODMsMjAzLDIwNiwxODEsMjI0LDc1LDEzNywxMDksNjcsMTIzLDYxLDgxLDgwLDIxOSwyNTEsMTc1LDE4OCwxNjAsMTk4LDU5LDAsMTcxLDM1LDE4MCwxODgsMTg1LDgsMzEsMTEsMjM0LDE3NCwyMTEsOTYsMjQzLDI3LDEwMCwyMjYsMjA2LDI0Nyw5NSw3LDAsMF19\",\"remoteWorkflowPostFunctionUUID\":\"16c3f8c1-53b1-4e51-810a-2b65105be516\"}"
+          }
+        },
+      ]
+    }
+    Testing__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.testing
+      name = "Testing"
+      description = ""
+    }
+    To_Do__From__any_status__Global@sfffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      name = "To Do"
+      description = ""
+    }
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.to_do@s
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+    }
+    Launch__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.launch
+      name = "Launch"
+      description = ""
+    }
+  }
+}

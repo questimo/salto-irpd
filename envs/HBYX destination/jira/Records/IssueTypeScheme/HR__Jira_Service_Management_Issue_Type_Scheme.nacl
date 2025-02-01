@@ -1,0 +1,14 @@
+jira.IssueTypeScheme HR__Jira_Service_Management_Issue_Type_Scheme@fssssss {
+  name = "HR: Jira Service Management Issue Type Scheme"
+  description = "This Jira Service Management Issue Type Scheme was generated automatically"
+  issueTypeIds = [
+    jira.IssueType.instance.Questions_for_HR@s,
+    jira.IssueType.instance.Employee_offboarding@s,
+    jira.IssueType.instance.Task,
+    jira.IssueType.instance.Employee_onboarding@s,
+    jira.IssueType.instance.Change_request@s,
+    jira.IssueType.instance.Sub_task@b,
+    jira.IssueType.instance.Emailed_request@s,
+    jira.IssueType.instance._System__Service_request_with_approvals@hissss,
+  ]
+}

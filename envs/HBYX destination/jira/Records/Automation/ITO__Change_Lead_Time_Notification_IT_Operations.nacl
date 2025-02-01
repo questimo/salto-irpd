@@ -1,0 +1,383 @@
+jira.Automation ITO__Change_Lead_Time_Notification_IT_Operations@fssssus {
+  name = "ITO: Change Lead Time Notification"
+  state = "ENABLED"
+  description = "Posts a warning message back to the requestor if they've requested a start time that is before the necessary lead time for the risk level."
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.field.changed"
+    value = {
+      changeType = "ANY_CHANGE"
+      fields = [
+        {
+          value = jira.Field.instance.Change_risk__select__c@suuuu.name
+          type = "fieldName"
+        },
+      ]
+      actions = [
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "NAME"
+          multiValue = true
+          values = [
+            "Request an application upgrade (normal change)",
+            "Request routine maintenance (standard change)",
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Planned_start__datetime__c@suuuu.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:datetime"
+        comparison = "NOT_EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_8
+        customSmartValue = {
+          id = "_customsmartvalue_id_1635107995046"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "objectType = \"Lead Time\" AND object HAVING outboundReferences(\"Name\" LIKE {{issue.Change risk}})"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1635110557383"
+        name = {
+          type = "FREE"
+          value = "Low"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{now.plusDays(7)}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636681936642"
+        name = {
+          type = "FREE"
+          value = "Medium"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{now.plusDays(14)}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.create.variable"
+      value = {
+        id = "_customsmartvalue_id_1636681614292"
+        name = {
+          type = "FREE"
+          value = "High"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{now.plusDays(21)}}"
+        }
+        lazy = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+{panel:title=Lead Time Warning|borderStyle=dashed|borderColor=#ccc|titleBGColor=#F7D6C1|bgColor=#6495ed}
+Your start date is less than the {{lookupObjects.Days}} days required for this Change Risk Level ({{issue.Change risk}}). Please check the Change Calendar and reschedule this as appropriate.
+{panel}
+'''
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Change_risk__select__c@suuuu.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "NAME"
+                  multiValue = true
+                  values = [
+                    "Low",
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Planned start}}"
+                second = "{{Low}}"
+                operator = "LESS_THAN"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+{panel:title=Lead Time Warning|borderStyle=dashed|borderColor=#ccc|titleBGColor=#F7D6C1|bgColor=#FFFFCE}
+Your start date is less than the {{lookupObjects.Days}} days required for this Change Risk Level ({{issue.Change risk}}). Please check the Change Calendar and reschedule this as appropriate.
+{panel}
+'''
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Change_risk__select__c@suuuu.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "NAME"
+                  multiValue = true
+                  values = [
+                    "Medium",
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Planned start}}"
+                second = "{{Medium}}"
+                operator = "LESS_THAN"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+{panel:title=Lead Time Warning|borderStyle=dashed|borderColor=#ccc|titleBGColor=#F7D6C1|bgColor=#f4cccc}
+Your start date is less than the {{lookupObjects.Days}} days required for this Change Risk Level ({{issue.Change risk}}). Please check the Change Calendar and reschedule this as appropriate.
+{panel}
+
+'''
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Change_risk__select__c@suuuu.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                comparison = "ONE_OF"
+                compareFieldValue = {
+                  type = "NAME"
+                  multiValue = true
+                  values = [
+                    "High",
+                  ]
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{issue.Planned start}}"
+                second = "{{High}}"
+                operator = "LESS_THAN"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Change Lead Time Notification"
+}

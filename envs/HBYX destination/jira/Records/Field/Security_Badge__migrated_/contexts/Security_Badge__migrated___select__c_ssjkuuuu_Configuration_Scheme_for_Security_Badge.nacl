@@ -1,0 +1,15 @@
+jira.CustomFieldContext Security_Badge__migrated___select__c_ssjkuuuu_Configuration_Scheme_for_Security_Badge@uuuuuuuumussss {
+  name = "Configuration Scheme for Security Badge"
+  description = "Field used in the Employee setup request (Migrated on 17 Jan 2025 13:51 UTC)"
+  defaultValue = {
+    type = "option.single"
+    optionId = jira.CustomFieldContextOption.instance.Security_Badge__migrated___select__c_ssjkuuuu_Configuration_Scheme_for_Security_Badge_Yes@uuuuuuuumussssu
+  }
+  issueTypeIds = [
+    jira.IssueType.instance.Employee_setup@s,
+  ]
+  _parent = [
+    jira.Field.instance.Security_Badge__migrated___select__c@ssjkuuuu,
+  ]
+  _alias = "Security Badge (migrated) context in Configuration Scheme for Security Badge"
+}

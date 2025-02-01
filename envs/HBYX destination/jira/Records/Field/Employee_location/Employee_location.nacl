@@ -1,0 +1,9 @@
+jira.Field Employee_location__textfield__c@suuuu {
+  name = "Employee location"
+  description = ""
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Employee_location__textfield__c_suuuu_Default_Configuration_Scheme_for_Employee_location@uuuuumusssss,
+  ]
+  _alias = "Employee location"
+}

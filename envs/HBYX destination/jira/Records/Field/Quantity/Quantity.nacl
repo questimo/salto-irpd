@@ -1,0 +1,10 @@
+jira.Field Quantity__float__c {
+  name = "Quantity"
+  description = "Quantity requested for orders - ITS PROC INV "
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:exactnumber"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:float"
+  contexts = [
+    jira.CustomFieldContext.instance.Quantity__float__c_Default_Configuration_Scheme_for_Quantity@uuuuussss,
+  ]
+  _alias = "Quantity"
+}

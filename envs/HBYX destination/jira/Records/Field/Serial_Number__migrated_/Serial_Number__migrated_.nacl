@@ -1,0 +1,10 @@
+jira.Field Serial_Number__migrated___textfield__c@ssjkuuuu {
+  name = "Serial Number (migrated)"
+  description = "Asset Serial Number (SN) - ITS PROC INV (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Serial_Number__migrated___textfield__c_ssjkuuuu_Default_Configuration_Scheme_for_Serial_Number@uuuuuuuumusssss,
+  ]
+  _alias = "Serial Number (migrated)"
+}

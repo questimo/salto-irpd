@@ -1,0 +1,61 @@
+jira.Screen ITS__Jira_Service_Management__Change_Create_Issue_Screen@fsssfssss {
+  name = "ITS: Jira Service Management: Change Create Issue Screen"
+  description = ""
+  tabs = {
+    Default = {
+      name = "Default"
+      fields = [
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Components__array,
+        jira.Field.instance.Attachment__array,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Linked_Issues__array@suu,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Labels__array,
+        jira.Field.instance.Request_participants__sd_request_participants__c@suubbuu,
+        jira.Field.instance.Approvers__multiuserpicker__c,
+        jira.Field.instance.Organizations__sd_customer_organizations__c@uubbuu,
+        jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu,
+        jira.Field.instance.Change_type__select__c@suuuu,
+        jira.Field.instance.Impact__select__c,
+        jira.Field.instance.Urgency__select__c,
+        jira.Field.instance.Change_risk__select__c@suuuu,
+        jira.Field.instance.Change_reason__select__c@suuuu,
+        jira.Field.instance.Implementation_plan__textarea__c@suuuu,
+        jira.Field.instance.Backout_plan__textarea__c@suuuu,
+        jira.Field.instance.Test_plan__textarea__c@suuuu,
+        jira.Field.instance.Planned_start__datetime__c@suuuu,
+        jira.Field.instance.Planned_end__datetime__c@suuuu,
+        jira.Field.instance.Change_start_date__datetime__c@ssuuuu,
+        jira.Field.instance.Change_completion_date__datetime__c@ssuuuu,
+        jira.Field.instance.Device__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Device_Type__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Cloud_Subscriptions__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.New_Employee__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Region__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Office__cmdb_object_cftype__c@uubbuu,
+        jira.Field.instance.Associated_Laptops__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.New_Date__datepicker__c@suuuu,
+        jira.Field.instance.Cost__float__c,
+        jira.Field.instance.New_Laptop__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Purchase_Date__datepicker__c@suuuu,
+        jira.Field.instance.Asset_Status__select__c@suuuu,
+        jira.Field.instance.Serial_Number__textfield__c@suuuu,
+        jira.Field.instance.Purchase_Order_Number__textfield__c@ssuuuu,
+        jira.Field.instance.Asset_Tag__textfield__c@suuuu,
+        jira.Field.instance.Quantity__float__c,
+        jira.Field.instance.New_Owner__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Requested_Asset__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Consumable_Asset__cmdb_object_cftype__c@suubbuu,
+        jira.Field.instance.Employee_Requesting_Transfer__cmdb_object_cftype__c@ssuubbuu,
+        jira.Field.instance.Employee_Asset_s___cmdb_object_cftype__c@sjkuubbuu,
+        jira.Field.instance.Team__atlassian_team__c@uubuu,
+      ]
+      position = 0
+    }
+  }
+}

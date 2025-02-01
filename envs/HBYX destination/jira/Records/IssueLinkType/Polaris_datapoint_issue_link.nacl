@@ -1,0 +1,5 @@
+jira.IssueLinkType Polaris_datapoint_issue_link@s {
+  name = "Polaris datapoint issue link"
+  inward = "added to idea"
+  outward = "is idea for"
+}

@@ -1,0 +1,10 @@
+jira.Field Threat_Score__float__c@suuuu {
+  name = "Threat Score"
+  description = "SECOPS Threat Score"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:exactnumber"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:float"
+  contexts = [
+    jira.CustomFieldContext.instance.Threat_Score__float__c_suuuu_Default_Configuration_Scheme_for_Threat_Score@uuuuumusssss,
+  ]
+  _alias = "Threat Score"
+}

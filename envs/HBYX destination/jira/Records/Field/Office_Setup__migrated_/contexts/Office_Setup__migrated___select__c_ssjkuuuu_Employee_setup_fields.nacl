@@ -1,0 +1,15 @@
+jira.CustomFieldContext Office_Setup__migrated___select__c_ssjkuuuu_Employee_setup_fields@uuuuuuuumuss {
+  name = "Employee setup fields"
+  description = "Fields used in the Employee setup request (Migrated on 17 Jan 2025 13:51 UTC)"
+  defaultValue = {
+    type = "option.single"
+    optionId = jira.CustomFieldContextOption.instance.Office_Setup__migrated___select__c_ssjkuuuu_Employee_setup_fields_No@uuuuuuuumussu
+  }
+  issueTypeIds = [
+    jira.IssueType.instance.Employee_setup@s,
+  ]
+  _parent = [
+    jira.Field.instance.Office_Setup__migrated___select__c@ssjkuuuu,
+  ]
+  _alias = "Office Setup (migrated) context in Employee setup fields"
+}

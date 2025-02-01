@@ -1,0 +1,60 @@
+jira.DashboardGadget Engineering_Support_s__Open_Statistics__Group_x_Team_1_1@umuusfsssuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:two-dimensional-stats-gadget/gadgets/two-dimensional-stats-gadget.xml"
+  color = "blue"
+  position = {
+    row = 1
+    column = 1
+  }
+  title = "Open Statistics: Group x Team"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "filterId"
+          value = "filter-10013"
+        },
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "sortDirection"
+          value = "asc"
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "ystattype"
+          value = jira.Field.instance.Engineering_Team__cmdb_object_cftype__c@suubbuu
+        },
+        {
+          key = "more"
+          value = "false"
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "sortBy"
+          value = "natural"
+        },
+        {
+          key = "xstattype"
+          value = jira.Field.instance.Engineering_Group__cmdb_object_cftype__c@suubbuu
+        },
+        {
+          key = "numberToShow"
+          value = "5"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Engineering_Support@s,
+  ]
+  _alias = "Open Statistics: Group x Team"
+}

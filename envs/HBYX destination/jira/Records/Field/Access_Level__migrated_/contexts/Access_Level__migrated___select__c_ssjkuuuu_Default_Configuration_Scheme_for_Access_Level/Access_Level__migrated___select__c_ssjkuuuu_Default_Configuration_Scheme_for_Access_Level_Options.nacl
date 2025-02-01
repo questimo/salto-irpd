@@ -1,0 +1,28 @@
+jira.CustomFieldContextOption Access_Level__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Access_Level_Admin@uuuuuuuumusssssu {
+  value = "Admin"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Access_Level__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Access_Level@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Access_Level__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Access_Level_Power_User@uuuuuuuumusssssus {
+  value = "Power User"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Access_Level__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Access_Level@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Access_Level__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Access_Level_Root@uuuuuuuumusssssu {
+  value = "Root"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Access_Level__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Access_Level@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Access_Level__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Access_Level_User@uuuuuuuumusssssu {
+  value = "User"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Access_Level__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Access_Level@uuuuuuuumusssss,
+  ]
+}

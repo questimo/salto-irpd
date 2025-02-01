@@ -1,0 +1,10 @@
+jira.Field Employee_Role__cmdb_object_cftype__c@suubbuu {
+  name = "Employee Role"
+  description = "Role for on or offboarding for employee (Insight: People) - HR"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Employee_Role__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Employee_Role@uuuuuuumusssss,
+  ]
+  _alias = "Employee Role"
+}

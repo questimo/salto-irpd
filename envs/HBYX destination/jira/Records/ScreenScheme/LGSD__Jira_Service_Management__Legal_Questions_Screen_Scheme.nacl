@@ -1,0 +1,7 @@
+jira.ScreenScheme LGSD__Jira_Service_Management__Legal_Questions_Screen_Scheme@fsssfssss {
+  name = "LGSD: Jira Service Management: Legal Questions Screen Scheme"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.LGSD__Jira_Service_Management__Legal_Questions_Issue_Screen@fsssfssss
+  }
+}

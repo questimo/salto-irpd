@@ -1,0 +1,10 @@
+jira.Field Kill_Chain_Step__cmdb_object_cftype__c@ssuubbuu {
+  name = "Kill Chain Step"
+  description = "SecOps Cyber Kill Chain Step - Schema: Standards & Practices - SecOps"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Kill_Chain_Step__cmdb_object_cftype__c_ssuubbuu_Default_Configuration_Scheme_for_Kill_Chain_Step@uuuuuuuumussssss,
+  ]
+  _alias = "Kill Chain Step"
+}

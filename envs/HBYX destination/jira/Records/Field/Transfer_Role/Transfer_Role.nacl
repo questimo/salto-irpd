@@ -1,0 +1,10 @@
+jira.Field Transfer_Role__cmdb_object_cftype__c@suubbuu {
+  name = "Transfer Role"
+  description = "Role for transferring employee (Insight: People) - HR limits selection to roles in the department selected"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Transfer_Role__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Transfer_Role@uuuuuuumusssss,
+  ]
+  _alias = "Transfer Role"
+}

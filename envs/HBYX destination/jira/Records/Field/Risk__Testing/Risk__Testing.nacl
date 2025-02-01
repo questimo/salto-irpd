@@ -1,0 +1,10 @@
+jira.Field Risk__Testing__cmdb_object_cftype__c@fsuubbuu {
+  name = "Risk: Testing"
+  description = "Risk Assessment Question for Change Enablement (Insight : Practice Standards) - ITO "
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Risk__Testing__cmdb_object_cftype__c_fsuubbuu_Default_Configuration_Scheme_for_Risk__Testing@uuuuuuuumussssfs,
+  ]
+  _alias = "Risk: Testing"
+}

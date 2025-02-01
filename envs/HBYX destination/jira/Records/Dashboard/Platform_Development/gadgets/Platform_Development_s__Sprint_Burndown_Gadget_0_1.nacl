@@ -1,0 +1,44 @@
+jira.DashboardGadget Platform_Development_s__Sprint_Burndown_Gadget_0_1@umuussuu {
+  uri = "rest/gadgets/1.0/g/com.pyxis.greenhopper.jira:greenhopper-gadget-sprint-burndown/gadgets/greenhopper-sprint-burndown.xml"
+  color = "blue"
+  position = {
+    row = 1
+    column = 0
+  }
+  title = "Sprint Burndown Gadget"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "showSprintName"
+          value = "false"
+        },
+        {
+          key = "sprintId"
+          value = "auto"
+        },
+        {
+          key = "rapidViewId"
+          value = "1"
+        },
+        {
+          key = "showRapidViewName"
+          value = "false"
+        },
+        {
+          key = "refresh"
+          value = "60"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Platform_Development@s,
+  ]
+  _alias = "Sprint Burndown Gadget"
+}

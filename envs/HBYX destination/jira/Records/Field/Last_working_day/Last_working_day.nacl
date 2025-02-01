@@ -1,0 +1,9 @@
+jira.Field Last_working_day__datepicker__c@ssuuuu {
+  name = "Last working day"
+  description = ""
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Last_working_day__datepicker__c_ssuuuu_Default_Configuration_Scheme_for_Last_working_day@uuuuuumussssss,
+  ]
+  _alias = "Last working day"
+}

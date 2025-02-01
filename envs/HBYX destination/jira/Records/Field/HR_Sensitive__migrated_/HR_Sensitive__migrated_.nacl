@@ -1,0 +1,10 @@
+jira.Field HR_Sensitive__migrated___multicheckboxes__c@ssjkuuuu {
+  name = "HR Sensitive (migrated)"
+  description = "HR Sensitive Field - Checkbox flags privacy, sensitive nature of request - HR (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multicheckboxes"
+  contexts = [
+    jira.CustomFieldContext.instance.HR_Sensitive__migrated___multicheckboxes__c_ssjkuuuu_Default_Configuration_Scheme_for_HR_Sensitive@uuuuuuuumusssss,
+  ]
+  _alias = "HR Sensitive (migrated)"
+}

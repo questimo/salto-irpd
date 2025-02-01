@@ -1,0 +1,6 @@
+jira.Status complete {
+  name = "Complete"
+  statusCategory = jira.StatusCategory.instance.Done
+  description = ""
+  _alias = "Complete"
+}

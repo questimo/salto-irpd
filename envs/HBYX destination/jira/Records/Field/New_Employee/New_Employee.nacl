@@ -1,0 +1,10 @@
+jira.Field New_Employee__cmdb_object_cftype__c@suubbuu {
+  name = "New Employee"
+  description = "New starter (Insight : People) - ITS HR "
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.New_Employee__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_New_Employee@uuuuuuumusssss,
+  ]
+  _alias = "New Employee"
+}

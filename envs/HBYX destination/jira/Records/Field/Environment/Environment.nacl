@@ -1,0 +1,19 @@
+jira.Field Environment__string {
+  name = "Environment"
+  schema = {
+    type = "string"
+    system = "environment"
+  }
+  description = ""
+  _alias = "Environment"
+}
+jira.Field Environment__cmdb_object_cftype__c@uubbuu {
+  name = "Environment"
+  description = "Field for Infrastructure Request (Insight : Practice Standards) - ITO "
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Environment__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Environment@uuuuuumussss,
+  ]
+  _alias = "Environment"
+}

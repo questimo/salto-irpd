@@ -1,0 +1,28 @@
+jira.CustomFieldContextOption Legal_Revew_Topic__migrated___select__c_sssjkuuuu_Default_Configuration_Scheme_for_Legal_Revew_Topic_IP_Branding@uuuuuuuuumussssssud {
+  value = "IP/Branding"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Revew_Topic__migrated___select__c_sssjkuuuu_Default_Configuration_Scheme_for_Legal_Revew_Topic@uuuuuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Revew_Topic__migrated___select__c_sssjkuuuu_Default_Configuration_Scheme_for_Legal_Revew_Topic_Other@uuuuuuuuumussssssu {
+  value = "Other"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Revew_Topic__migrated___select__c_sssjkuuuu_Default_Configuration_Scheme_for_Legal_Revew_Topic@uuuuuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Revew_Topic__migrated___select__c_sssjkuuuu_Default_Configuration_Scheme_for_Legal_Revew_Topic_Privacy@uuuuuuuuumussssssu {
+  value = "Privacy"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Revew_Topic__migrated___select__c_sssjkuuuu_Default_Configuration_Scheme_for_Legal_Revew_Topic@uuuuuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Revew_Topic__migrated___select__c_sssjkuuuu_Default_Configuration_Scheme_for_Legal_Revew_Topic_Sanctions_Export_Control@uuuuuuuuumussssssuds {
+  value = "Sanctions/Export Control"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Revew_Topic__migrated___select__c_sssjkuuuu_Default_Configuration_Scheme_for_Legal_Revew_Topic@uuuuuuuuumussssss,
+  ]
+}

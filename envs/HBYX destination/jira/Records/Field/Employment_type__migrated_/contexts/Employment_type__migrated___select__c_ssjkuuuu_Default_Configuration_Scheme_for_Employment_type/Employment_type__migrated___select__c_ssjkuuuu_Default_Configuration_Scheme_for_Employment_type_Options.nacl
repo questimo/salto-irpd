@@ -1,0 +1,28 @@
+jira.CustomFieldContextOption Employment_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Employment_type_Casual@uuuuuuuumusssssu {
+  value = "Casual"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Employment_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Employment_type@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Employment_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Employment_type_Contract@uuuuuuuumusssssu {
+  value = "Contract"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Employment_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Employment_type@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Employment_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Employment_type_Full_Time@uuuuuuuumusssssus {
+  value = "Full Time"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Employment_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Employment_type@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Employment_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Employment_type_Part_Time@uuuuuuuumusssssus {
+  value = "Part Time"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Employment_type__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Employment_type@uuuuuuuumusssss,
+  ]
+}

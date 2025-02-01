@@ -1,0 +1,35 @@
+jira.SecurityLevel SecOps_Issue_Scheme_s__Lock_Down___Auth_Users_Only@uumuussbsss {
+  description = "Locked down issue limited to the issue's Authorized list of users only"
+  name = "Lock Down - Auth Users Only"
+  members = [
+    {
+      holder = {
+        type = "assignee"
+      }
+    },
+    {
+      holder = {
+        type = "user"
+        parameter = {
+          id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+          displayName = "Automation for Jira"
+        }
+      }
+    },
+    {
+      holder = {
+        type = "userCustomField"
+        parameter = jira.Field.instance.Authorized_Viewers__multiuserpicker__c@suuuu
+      }
+    },
+    {
+      holder = {
+        type = "projectRole"
+        parameter = jira.ProjectRole.instance.atlassian_addons_project_access@b
+      }
+    },
+  ]
+  _parent = [
+    jira.SecurityScheme.instance.SecOps_Issue_Scheme@s,
+  ]
+}

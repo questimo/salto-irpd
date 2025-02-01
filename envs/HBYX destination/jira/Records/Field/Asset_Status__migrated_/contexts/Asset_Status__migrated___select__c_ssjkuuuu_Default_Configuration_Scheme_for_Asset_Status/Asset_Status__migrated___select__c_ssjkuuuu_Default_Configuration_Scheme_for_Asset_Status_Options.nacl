@@ -1,0 +1,42 @@
+jira.CustomFieldContextOption Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status_Active@uuuuuuuumusssssu {
+  value = "Active"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status_In_Service@uuuuuuuumusssssus {
+  value = "In Service"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status_In_Stock@uuuuuuuumusssssus {
+  value = "In Stock"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status_On_Order@uuuuuuuumusssssus {
+  value = "On Order"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status_Retired@uuuuuuuumusssssu {
+  value = "Retired"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status_Support_Requested@uuuuuuuumusssssus {
+  value = "Support Requested"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Asset_Status__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Asset_Status@uuuuuuuumusssss,
+  ]
+}

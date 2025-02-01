@@ -1,0 +1,7 @@
+jira.IssueType Document {
+  description = "A document requiring approval."
+  name = "Document"
+  untranslatedName = "Document"
+  hierarchyLevel = 0
+  avatar = file("jira/IssueType/Document.png")
+}

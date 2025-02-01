@@ -1,0 +1,110 @@
+jira.Automation SECOPS__Security_Incident__4__On_I_C_form_submission_move_to_Containment_Security_Operations@fsssbbssesssssus {
+  name = "SECOPS: Security Incident -4- On I&C form submission move to Containment"
+  state = "ENABLED"
+  description = "When the Investigation and Containment form is submitted, move to Containment status"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.proforma.form.submitted.trigger"
+    value = {
+      templateFormsConfig = {
+        projectId = jira.Project.instance.Security_Operations@s
+        templateFormIds = [
+          5,
+        ]
+      }
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Issue_Type__issuetype@suu
+        }
+        selectedFieldType = "issuetype"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "ID"
+          value = jira.IssueType.instance.Security_Incident@s
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Status__status
+        }
+        selectedFieldType = "status"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "NAME"
+          multiValue = true
+          values = [
+            jira.Status.instance.investigating.name,
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.containment.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Security_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "SECOPS: Security Incident -4- On I&C form submission move to Containment"
+}

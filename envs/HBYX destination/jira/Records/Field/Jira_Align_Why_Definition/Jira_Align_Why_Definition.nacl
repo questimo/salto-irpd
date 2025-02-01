@@ -1,0 +1,10 @@
+jira.Field Jira_Align_Why_Definition__textarea__c@sssuuuu {
+  name = "Jira Align Why Definition"
+  description = "Jira Align Why Definition Connector Mapping"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Jira_Align_Why_Definition__textarea__c_sssuuuu_Default_Configuration_Scheme_for_Jira_Align_Why_Definition@uuuuuuumusssssss,
+  ]
+  _alias = "Jira Align Why Definition"
+}

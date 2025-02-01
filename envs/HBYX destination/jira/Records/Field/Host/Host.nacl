@@ -1,0 +1,10 @@
+jira.Field Host__cmdb_object_cftype__c@uubbuu {
+  name = "Host"
+  description = "Field for Hosts within Insight Discovery (Insight : Infrastructure Discovery) - ITO "
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Host__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Host@uuuuuumussss,
+  ]
+  _alias = "Host"
+}

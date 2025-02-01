@@ -1,0 +1,5 @@
+jira.IssueLinkType Developer_Escalations@s {
+  name = "Developer Escalations"
+  inward = "is escalated to"
+  outward = "is an escalation for"
+}

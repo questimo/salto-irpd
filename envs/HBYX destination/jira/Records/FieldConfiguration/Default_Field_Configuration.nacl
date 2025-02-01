@@ -1,0 +1,1277 @@
+jira.FieldConfiguration Default_Field_Configuration@s {
+  name = "Default Field Configuration"
+  description = "The default field configuration"
+  isDefault = true
+  fields = {
+    Summary__string = {
+      isHidden = false
+      isRequired = true
+    }
+    Issue_Type__issuetype@suu = {
+      isHidden = false
+      isRequired = true
+    }
+    Security_Level__securitylevel@suu = {
+      isHidden = false
+      isRequired = false
+    }
+    Priority__priority = {
+      isHidden = false
+      isRequired = false
+    }
+    Due_date__date@suu = {
+      isHidden = false
+      isRequired = false
+    }
+    Components__array = {
+      isHidden = false
+      isRequired = false
+    }
+    Affects_versions__array@suu = {
+      isHidden = false
+      isRequired = false
+    }
+    Fix_versions__array@suu = {
+      isHidden = false
+      isRequired = false
+    }
+    Assignee__user = {
+      isHidden = false
+      isRequired = false
+    }
+    Reporter__user = {
+      isHidden = false
+      isRequired = true
+    }
+    Environment__string = {
+      description = "For example operating system, software platform and/or hardware specifications (include as appropriate for the issue)."
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Description__string = {
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Time_tracking__timetracking@suu = {
+      description = '''
+An estimate of how much work remains until this issue will be resolved.
+The format of this is ' *w *d *h *m ' (representing weeks, days, hours and minutes - where * can be any number).
+Examples: 4d, 5h 30m, 60m and 3w.
+'''
+      isHidden = false
+      isRequired = false
+    }
+    Resolution__resolution = {
+      isHidden = false
+      isRequired = false
+    }
+    Attachment__array = {
+      isHidden = false
+      isRequired = false
+    }
+    Comment__comments_page@uub = {
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Labels__array = {
+      isHidden = false
+      isRequired = false
+    }
+    Log_Work__array@suu = {
+      description = "Allows work to be logged whilst creating, editing or transitioning issues."
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Linked_Issues__array@suu = {
+      isHidden = false
+      isRequired = false
+    }
+    Approvers__multiuserpicker__c = {
+      description = "Contains users needed for approval. This custom field was created by Jira Service Desk."
+      isHidden = false
+      isRequired = false
+    }
+    Impact__select__c = {
+      isHidden = false
+      isRequired = false
+    }
+    Change_type__select__c@suuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Change_risk__select__c@suuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Change_reason__select__c@suuuu = {
+      description = "Choose the reason for the change request"
+      isHidden = false
+      isRequired = false
+    }
+    Change_start_date__datetime__c@ssuuuu = {
+      description = "Specify the time and date for the start of the change"
+      isHidden = false
+      isRequired = false
+    }
+    Change_completion_date__datetime__c@ssuuuu = {
+      description = "Specify the completion time for the change request"
+      isHidden = false
+      isRequired = false
+    }
+    _CHART__Date_of_First_Response__firstresponsedate__c@hissssuuuu = {
+      description = ""
+      isHidden = false
+      isRequired = false
+    }
+    _CHART__Time_in_Status__timeinstatus__c@hisssuuuu = {
+      description = ""
+      isHidden = false
+      isRequired = false
+    }
+    uuid__uuid__c = {
+      description = "Adding both UUID and Location fields to a project, will enable JIRA Mobile Connect for that project."
+      isHidden = false
+      isRequired = false
+    }
+    Story_Points__float__c@suuuu = {
+      description = "Measurement of complexity and/or size of a requirement."
+      isHidden = false
+      isRequired = false
+    }
+    Location__location__c = {
+      description = "Adding both UUID and Location fields to a project, will enable JIRA Mobile Connect for that project."
+      isHidden = false
+      isRequired = false
+    }
+    Urgency__select__c = {
+      isHidden = false
+      isRequired = false
+    }
+    Pending_reason__select__c@suuuu = {
+      description = "Specify the reason for moving the issue to the Pending status"
+      isHidden = false
+      isRequired = false
+    }
+    Product_categorization__cascadingselect__c@suuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Operational_categorization__cascadingselect__c@suuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Affected_hardware__textfield__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Severity__select__c = {
+      isHidden = false
+      isRequired = false
+    }
+    Source__select__c = {
+      description = "Captures the reporting source for this issue"
+      isHidden = false
+      isRequired = false
+    }
+    Implementation_plan__textarea__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Backout_plan__textarea__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Test_plan__textarea__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Planned_start__datetime__c@suuuu = {
+      description = "When is the change expected to start?"
+      isHidden = false
+      isRequired = false
+    }
+    Planned_end__datetime__c@suuuu = {
+      description = "When is the change expected to end?"
+      isHidden = false
+      isRequired = false
+    }
+    Investigation_reason__select__c@suuuu = {
+      description = "Reason for problem investigation"
+      isHidden = false
+      isRequired = false
+    }
+    Root_cause__textarea__c@suuuu = {
+      description = "Describe the root cause for the problem"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Workaround__textarea__c = {
+      description = "Describe the workaround for the problem"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Employee_Start_date__datepicker__c@ssuuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Employee_location__textfield__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Employment_type__select__c@suuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Job_title__textfield__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Manager__multiuserpicker__c = {
+      isHidden = false
+      isRequired = false
+    }
+    Last_working_day__datepicker__c@ssuuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Resignation_date__datepicker__c@suuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Maintenance_type__select__c@suuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Maintenance_location__textfield__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Move_date__datepicker__c@suuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Move_from__textfield__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Move_to__textfield__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Move_count__textfield__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Who_is_moving___multiuserpicker__c@ssauuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Event_date__datepicker__c@suuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Event_location__textfield__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Event_count__textfield__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Amount__textfield__c = {
+      description = "Cost of the request"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Vendor__textfield__c = {
+      description = "Supplier of items or service"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Account__textfield__c = {
+      description = "Account to be charged for items or service"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Client__textfield__c = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Reference__textfield__c = {
+      description = "Document or case number"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Approver_groups__multigrouppicker__c@suuuu = {
+      description = "Contains groups of users needed for approval. This custom field was created by Jira Service Management."
+      isHidden = false
+      isRequired = false
+    }
+    Device__cmdb_object_cftype__c@uubbuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Device_Type__cmdb_object_cftype__c@suubbuu = {
+      description = "Select the type of device (e.g. Laptop, Phone, Monitor)"
+      isHidden = false
+      isRequired = false
+    }
+    Supported_Laptop_Models__cmdb_object_cftype__c@ssuubbuu = {
+      description = "Models from the Hardware Catalog"
+      isHidden = false
+      isRequired = false
+    }
+    Supported_Laptop_Accessories__cmdb_object_cftype__c@ssuubbuu = {
+      description = "Supported accessories"
+      isHidden = false
+      isRequired = false
+    }
+    Security_Badge__select__c@suuuu = {
+      description = "Is a security badge required for this?"
+      isHidden = false
+      isRequired = false
+    }
+    Office_Setup__select__c@suuuu = {
+      description = "Does this user need an office setup?"
+      isHidden = false
+      isRequired = false
+    }
+    Cloud_Subscriptions__cmdb_object_cftype__c@suubbuu = {
+      description = "Available cloud options"
+      isHidden = false
+      isRequired = false
+    }
+    New_Employee__cmdb_object_cftype__c@suubbuu = {
+      description = "New starter"
+      isHidden = false
+      isRequired = false
+    }
+    Region__cmdb_object_cftype__c@uubbuu = {
+      description = "Geographical Region (AMER, APAC, EMEA)"
+      isHidden = false
+      isRequired = false
+    }
+    Office__cmdb_object_cftype__c@uubbuu = {
+      description = "Office location"
+      isHidden = false
+      isRequired = false
+    }
+    Room__cmdb_object_cftype__c@uubbuu = {
+      description = "Location in an office building"
+      isHidden = false
+      isRequired = false
+    }
+    Floor__cmdb_object_cftype__c@uubbuu = {
+      description = "Floor of a given office building"
+      isHidden = false
+      isRequired = false
+    }
+    Bicycles_Available__cmdb_object_cftype__c@suubbuu = {
+      description = "bicycles currently available for use"
+      isHidden = false
+      isRequired = false
+    }
+    Content_type__textfield__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Publication_date__datepicker__c@suuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Marketing_content_type_s___multiselect__c@ssjkuuuu = {
+      isHidden = false
+      isRequired = false
+    }
+    Support_Group__multigrouppicker__c@suuuu = {
+      description = "Used for group assignment of an issue"
+      isHidden = false
+      isRequired = false
+    }
+    Application_Impacted__cmdb_object_cftype__c@suubbuu = {
+      description = "Impacted Application"
+      isHidden = false
+      isRequired = false
+    }
+    Standard_Change__cmdb_object_cftype__c@suubbuu = {
+      description = "Selection list of pre-approved, standard changes for Change Enablement Practice"
+      isHidden = false
+      isRequired = false
+    }
+    Risk__Business_Hours__cmdb_object_cftype__c@fssuubbuu = {
+      description = "Risk Assessment Question for Change Enablement"
+      isHidden = false
+      isRequired = false
+    }
+    Risk__Rollback__cmdb_object_cftype__c@fsuubbuu = {
+      description = "Risk Assessment Question for Change Enablement"
+      isHidden = false
+      isRequired = false
+    }
+    Risk__Testing__cmdb_object_cftype__c@fsuubbuu = {
+      description = "Risk Assessment Question for Change Enablement (Insight)"
+      isHidden = false
+      isRequired = false
+    }
+    Create_Tasks__radiobuttons__c@suuuu = {
+      description = "Change Enablement Question to auto-create associated tasks"
+      isHidden = false
+      isRequired = false
+    }
+    Host__cmdb_object_cftype__c@uubbuu = {
+      description = "Field for Hosts within Insight Discovery - ITO"
+      isHidden = false
+      isRequired = false
+    }
+    AMI__cmdb_object_cftype__c@uubbuu = {
+      description = "Field for Infrastructure Request (Insight) - ITO"
+      isHidden = false
+      isRequired = false
+    }
+    Environment__cmdb_object_cftype__c@uubbuu = {
+      description = "Field for Infrastructure Request (Insight) - ITO"
+      isHidden = false
+      isRequired = false
+    }
+    Associated_Laptops__cmdb_object_cftype__c@suubbuu = {
+      description = "Laptops associated with the Reporting User (Insight) - ITS"
+      isHidden = false
+      isRequired = false
+    }
+    Target_Device__cmdb_object_cftype__c@suubbuu = {
+      description = "Target device shows objects in CMDB (Insight) - ITO"
+      isHidden = false
+      isRequired = false
+    }
+    New_Date__datepicker__c@suuuu = {
+      description = "Used to hold a new date for interaction with assets (Insight) - ITO"
+      isHidden = false
+      isRequired = false
+    }
+    Application_to_Change__cmdb_object_cftype__c@ssuubbuu = {
+      description = "Target application to change for a standard change (Insight) - ITO"
+      isHidden = false
+      isRequired = false
+    }
+    Associated_Tasks__cmdb_object_cftype__c@suubbuu = {
+      description = "Associated Tasks for a standard change (Insight) - ITO"
+      isHidden = false
+      isRequired = false
+    }
+    Cost__float__c = {
+      description = "Cost of Asset - ITS"
+      isHidden = false
+      isRequired = false
+    }
+    New_Laptop__cmdb_object_cftype__c@suubbuu = {
+      description = "New Laptop to Register - ITS PROC"
+      isHidden = false
+      isRequired = false
+    }
+    Purchase_Date__datepicker__c@suuuu = {
+      description = "Date for use with asset and inventory - PROC ITS"
+      isHidden = false
+      isRequired = false
+    }
+    Asset_Status__select__c@suuuu = {
+      description = "Asset Status - ITS"
+      isHidden = false
+      isRequired = false
+    }
+    Serial_Number__textfield__c@suuuu = {
+      description = "Asset Serial Number (SN) - ITS"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Purchase_Order_Number__textfield__c@ssuuuu = {
+      description = "PO# for new asset - ITS PROC"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Asset_Tag__textfield__c@suuuu = {
+      description = "Asset Tag - ITS PROC"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Quantity__float__c = {
+      description = "Quantity requested for orders - ITS PROC"
+      isHidden = false
+      isRequired = false
+    }
+    New_Owner__cmdb_object_cftype__c@suubbuu = {
+      description = "New Owner for asset (Insight) - ITS PROC"
+      isHidden = false
+      isRequired = false
+    }
+    URL__url__c = {
+      description = "Used to hold the URL of the Change Plan - ITO"
+      isHidden = false
+      isRequired = false
+    }
+    Employee_Asset_s___cmdb_object_cftype__c@sjkuubbuu = {
+      description = "Holds current assets associated with an Employee (Insight : IT Employee Assets) - INV"
+      isHidden = false
+      isRequired = false
+    }
+    Requested_Asset__cmdb_object_cftype__c@suubbuu = {
+      description = "Used to track IT temporary asset for a given request(Insight : IT Employee Assets) - PROC ITS"
+      isHidden = false
+      isRequired = false
+    }
+    Employee_Role__cmdb_object_cftype__c@suubbuu = {
+      description = "Role for on or offboarding for employee (Insight: People) - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Employee_Equipment_Needed__select__c@ssuuuu = {
+      description = "Employee Equipment Needed for onboarding request - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Employee_Department__cmdb_object_cftype__c@suubbuu = {
+      description = "Employee Department (Insight: People) - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Employee_Team_s___cmdb_object_cftype__c@sjkuubbuu = {
+      description = "Employee virtual Team(s) (Insight : People) - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Employee_Type__cmdb_object_cftype__c@suubbuu = {
+      description = "Employee Type (Insight : People) - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Employee_Manager__cmdb_object_cftype__c@suubbuu = {
+      description = "Employee Manager (Insight : People) - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Suggested_Laptop__cmdb_object_cftype__c@suubbuu = {
+      description = "Suggested Laptop Model for Role (Insight: IT Employee Assets) - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Suggested_Subscriptions__cmdb_object_cftype__c@suubbuu = {
+      description = "Suggested Cloud Subscriptions for Role (Insight: IT Employee Assets) - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Leaving_Employee__cmdb_object_cftype__c@suubbuu = {
+      description = "Offboarding user (Insight: People) - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Consumable_Asset__cmdb_object_cftype__c@suubbuu = {
+      description = "Consumable Assets (Insight: IT Employee Assets) - ITS INV"
+      isHidden = false
+      isRequired = false
+    }
+    Team__Jira_Align___select__c@sjskuuuu = {
+      description = "Jira Align Connector Team Field Mapping"
+      isHidden = false
+      isRequired = false
+    }
+    Jira_Align_Why_Definition__textarea__c@sssuuuu = {
+      description = "Jira Align Why Definition Connector Mapping"
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Reporter_Asset_s___cmdb_object_cftype__c@sjkuubbuu = {
+      description = "Assets associated with the reporter selected (Insight : IT Employee Assets) - ITS"
+      isHidden = false
+      isRequired = false
+    }
+    Access_Level__select__c@suuuu = {
+      description = "Used for Application Access Levels for System Access request - ITO"
+      isHidden = false
+      isRequired = false
+    }
+    Employee__cmdb_object_cftype__c@uubbuu = {
+      description = "Employee people object (Insight: People) - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Kudos_Type__radiobuttons__c@suuuu = {
+      description = "Kudos Selection for HR - Radio button - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Company_Value__select__c@suuuu = {
+      description = "Kudos value single select - HR"
+      isHidden = false
+      isRequired = false
+    }
+    HR_Sensitive__multicheckboxes__c@suuuu = {
+      description = "HR Sensitive Field - Checkbox flags privacy, sensitive nature of request - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Employee_Requesting_Transfer__cmdb_object_cftype__c@ssuubbuu = {
+      description = '''
+Employee for transfer (Insight - People) - HR
+Limited selection to employees with approver = reporter
+'''
+      isHidden = false
+      isRequired = false
+    }
+    Transfer_Department__cmdb_object_cftype__c@suubbuu = {
+      description = "Used for employee transfer (Insight: People) - HR filter to departments of current reporter"
+      isHidden = false
+      isRequired = false
+    }
+    Transfer_Role__cmdb_object_cftype__c@suubbuu = {
+      description = "Role for transferring employee (Insight: People) - HR limits selection to roles in the department selected"
+      isHidden = false
+      isRequired = false
+    }
+    Current_SW_Asset_s___cmdb_object_cftype__c@ssjkuubbuu = {
+      description = "Employee's current software assets (Insight : IT Employee Assets) - HR"
+      isHidden = false
+      isRequired = false
+    }
+    Product__cmdb_object_cftype__c@uubbuu = {
+      description = "ENGS - Product supported (Insight: Engineering Support) - ENGS"
+      isHidden = false
+      isRequired = false
+    }
+    Feature__cmdb_object_cftype__c@uubbuu = {
+      description = "Feature for products (Insight: Engineering Support) - ENGS"
+      isHidden = false
+      isRequired = false
+    }
+    Product_Family__cmdb_object_cftype__c@suubbuu = {
+      description = "Product Family (Insight - Engineering Support) - ENGS"
+      isHidden = false
+      isRequired = false
+    }
+    Engineering_Team__cmdb_object_cftype__c@suubbuu = {
+      description = "Engineering Team (Insight: Engineering Support) - ENGS"
+      isHidden = false
+      isRequired = false
+    }
+    Engineering_Offering__cmdb_object_cftype__c@suubbuu = {
+      description = "Engineering Offerings (Insight: Engineering Support) - ENGS"
+      isHidden = false
+      isRequired = false
+    }
+    Engineering_Group__cmdb_object_cftype__c@suubbuu = {
+      description = "Engineering Group (Insight: Engineering Support) - ENGS"
+      isHidden = false
+      isRequired = false
+    }
+    Security_Offerings__cmdb_object_cftype__c@suubbuu = {
+      description = "SecOps & Security Engineering Offerings (Insight: Engineering Support) - ENGS"
+      isHidden = false
+      isRequired = false
+    }
+    Security_Team__cmdb_object_cftype__c@suubbuu = {
+      description = "SecOps & Security Engineering Teams (Insight: Engineering Support) - ENGS"
+      isHidden = false
+      isRequired = false
+    }
+    Party_Name__textfield__c@suuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Department__textfield__c = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Legal_Request_Topic__select__c@ssuuuu = {
+      description = "Legal request topic - CLSD"
+      isHidden = false
+      isRequired = false
+    }
+    Legal_Revew_Topic__select__c@ssuuuu = {
+      description = "Legal review topic - CLSD"
+      isHidden = false
+      isRequired = false
+    }
+    Company__cmdb_object_cftype__c@uubbuu = {
+      description = "Customer Companies (Insight: Customer Support) - ENGS"
+      isHidden = false
+      isRequired = false
+    }
+    Contact__cmdb_object_cftype__c@uubbuu = {
+      description = "Customer Contacts (Insight: Customer Support) - ENGS CS"
+      isHidden = false
+      isRequired = false
+    }
+    Contract__cmdb_object_cftype__c@uubbuu = {
+      description = "Customer Contracts (Insight: Customer Support) - ENGS CS"
+      isHidden = false
+      isRequired = false
+    }
+    Project_s___cmdb_object_cftype__c@jkuubbuu = {
+      description = "Project(s) to tie assets to (Insight: Engineering Support) - ENGS CS ITO"
+      isHidden = false
+      isRequired = false
+    }
+    VMware_Option__cmdb_object_cftype__c@suubbuu = {
+      description = "VMware options (Insight: Practice Standards) - ENGS ITO"
+      isHidden = false
+      isRequired = false
+    }
+    Compliance_review_scope__textarea__c@ssuuuu = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Details__textarea__c = {
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Attack_Vector_s___cmdb_object_cftype__c@sjkuubbuu = {
+      description = "SecOps Attack Vector(s) - Schema: Standards & Practices - SecOps"
+      isHidden = false
+      isRequired = false
+    }
+    Attack_Tactic_s___cmdb_object_cftype__c@sjkuubbuu = {
+      description = "SecOps Attack Tactic(s) - Schema: Standards & Practices - SecOps"
+      isHidden = false
+      isRequired = false
+    }
+    Attack_Technique_s___cmdb_object_cftype__c@sjkuubbuu = {
+      description = "SecOps Attack Technique(s) - Schema: Standards & Practices - SecOps"
+      isHidden = false
+      isRequired = false
+    }
+    Security_Alert_Assessment__cmdb_object_cftype__c@ssuubbuu = {
+      description = "SecOps Security Alert Assessment - Schema: Standards & Practices - SecOps"
+      isHidden = false
+      isRequired = false
+    }
+    Kill_Chain_Step__cmdb_object_cftype__c@ssuubbuu = {
+      description = "SecOps Cyber Kill Chain Step - Schema: Standards & Practices - SecOps"
+      isHidden = false
+      isRequired = false
+    }
+    Attack_Mitigation_s___cmdb_object_cftype__c@sjkuubbuu = {
+      description = "SecOps Attack Mitigation(s) - Schema: Standards & Practices - SecOps"
+      isHidden = false
+      isRequired = false
+    }
+    SecOps_Information_Impact_Category__cmdb_object_cftype__c@sssuubbuu = {
+      description = "SecOps Information Impact Category - Schema: Standards & Practices - SecOps"
+      isHidden = false
+      isRequired = false
+    }
+    Impacted_Configuration_Items__cmdb_object_cftype__c@ssuubbuu = {
+      description = "Impacted CIs for Security Containment & Remediation - (SECOPS)"
+      isHidden = false
+      isRequired = false
+    }
+    Authorized_Viewers__multiuserpicker__c@suuuu = {
+      description = "SecOps Authorized Viewers of Active Security Incident (SECOPS)"
+      isHidden = false
+      isRequired = false
+    }
+    Security_Source__cmdb_object_cftype__c@suubbuu = {
+      description = "SECOPS Prep use case - Schema: Practice Standards"
+      isHidden = false
+      isRequired = false
+    }
+    Next_Steps__textarea__c@suuuu = {
+      description = "SECOPS - Next Steps & Guidance for the team"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Threat_Score__float__c@suuuu = {
+      description = "SECOPS Threat Score"
+      isHidden = false
+      isRequired = false
+    }
+    Mitigation_Score__float__c@suuuu = {
+      description = "SECOPS Mitigation Score"
+      isHidden = false
+      isRequired = false
+    }
+    Parent = {
+      isHidden = false
+      isRequired = false
+    }
+    Change_risk__migrated___select__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Change_start_date__migrated___datetime__c@sssjkuuuu = {
+      description = "Specify the time and date for the start of the change (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Approvers__migrated___multiuserpicker__c@sjkuuuu = {
+      description = "Contains users needed for approval. This custom field was created by Jira. (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Urgency__migrated___select__c@sjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Impact__migrated___select__c@sjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Affected_hardware__migrated___textfield__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Change_reason__migrated___select__c@ssjkuuuu = {
+      description = "Choose the reason for the change request (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Backout_plan__migrated___textarea__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    _CHART__Date_of_First_Response__migrated___firstresponsedate__c@hisssssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Planned_start__migrated___datetime__c@ssjkuuuu = {
+      description = "When is the change expected to start? (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    _CHART__Time_in_Status__migrated___timeinstatus__c@hissssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Employment_type__migrated___select__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Source__migrated___select__c@sjkuuuu = {
+      description = "Captures the reporting source for this issue (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Job_title__migrated___textfield__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Planned_end__migrated___datetime__c@ssjkuuuu = {
+      description = "When is the change expected to end? (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Resignation_date__migrated___datepicker__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Investigation_reason__migrated___select__c@ssjkuuuu = {
+      description = "Reason for problem investigation (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Move_from__migrated___textfield__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Workaround__migrated___textarea__c@sjkuuuu = {
+      description = "Describe the workaround for the problem (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Who_is_moving___migrated___multiuserpicker__c@ssasjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Event_count__migrated___textfield__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Employee_Start_date__migrated___datepicker__c@sssjkuuuu = {
+      description = "Employee Start Date - Onboarding - HR (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Reference__migrated___textfield__c@sjkuuuu = {
+      description = "Document or case number (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Last_working_day__migrated___datepicker__c@sssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Content_type__migrated___textfield__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Maintenance_type__migrated___select__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Purchase_Order_Number__migrated___textfield__c@sssjkuuuu = {
+      description = "PO# for new asset - ITS PROC INV (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Move_to__migrated___textfield__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Asset_Tag__migrated___textfield__c@ssjkuuuu = {
+      description = "Asset Tag - ITS PROC INV (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Move_count__migrated___textfield__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Quantity__migrated___float__c@sjkuuuu = {
+      description = "Quantity requested for orders - ITS PROC INV  (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Event_date__migrated___datepicker__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Employee_Equipment_Needed__migrated___select__c@sssjkuuuu = {
+      description = "Employee Equipment Needed for onboarding request - HR (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Security_Badge__migrated___select__c@ssjkuuuu = {
+      description = "Is a security badge required for this? - ITS FAC  (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Access_Level__migrated___select__c@ssjkuuuu = {
+      description = "Used for Application Access Levels for System Access request - ITO (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Publication_date__migrated___datepicker__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Company_Value__migrated___select__c@ssjkuuuu = {
+      description = "Kudos value single select - HR (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Marketing_content_type_s___migrated___multiselect__c@ssjksjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Likelyhood__select__c = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Department__migrated___textfield__c@sjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Asset_Status__migrated___select__c@ssjkuuuu = {
+      description = "Asset Status - ITS PROC INV  (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Compliance_review_scope__migrated___textarea__c@sssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Serial_Number__migrated___textfield__c@ssjkuuuu = {
+      description = "Asset Serial Number (SN) - ITS PROC INV (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    URL__migrated___url__c@sjkuuuu = {
+      description = "Used to hold the URL of the Change Plan - ITO (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Team__Jira_Align___migrated___select__c@sjsksjkuuuu = {
+      description = "Jira Align Connector Team Field Mapping (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Jira_Align_Why_Definition__migrated___textarea__c@ssssjkuuuu = {
+      description = "Jira Align Why Definition Connector Mapping (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Product_categorization__migrated___cascadingselect__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Party_Name__migrated___textfield__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Legal_Request_Topic__migrated___select__c@sssjkuuuu = {
+      description = "Legal request topic - CLSD (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Severity__migrated___select__c@sjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Next_Steps__migrated___textarea__c@ssjkuuuu = {
+      description = "SECOPS - Next Steps & Guidance for the team (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Test_plan__migrated___textarea__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Root_cause__migrated___textarea__c@ssjkuuuu = {
+      description = "Describe the root cause for the problem (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Change_type__migrated___select__c@ssjkuuuu = {
+      description = "Used to determine the type of change for Change Enablement (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Change_completion_date__migrated___datetime__c@sssjkuuuu = {
+      description = "Specify the completion time for the change request (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Employee_location__migrated___textfield__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Pending_reason__migrated___select__c@ssjkuuuu = {
+      description = "Specify the reason for moving the issue to the Pending status (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Manager__migrated___multiuserpicker__c@sjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Operational_categorization__migrated___cascadingselect__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Move_date__migrated___datepicker__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Implementation_plan__migrated___textarea__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Amount__migrated___textfield__c@sjkuuuu = {
+      description = "Cost of the request (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Maintenance_location__migrated___textfield__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Account__migrated___textfield__c@sjkuuuu = {
+      description = "Account to be charged for items or service (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Event_location__migrated___textfield__c@ssjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Approver_groups__migrated___multigrouppicker__c@ssjkuuuu = {
+      description = "Contains groups of users needed for approval. This custom field was created by Jira Service Management. (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Vendor__migrated___textfield__c@sjkuuuu = {
+      description = "Supplier of items or service (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Client__migrated___textfield__c@sjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "text-renderer"
+    }
+    Support_Group__migrated___multigrouppicker__c@ssjkuuuu = {
+      description = "Used for queue grouping - ITS - ITO (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Office_Setup__migrated___select__c@ssjkuuuu = {
+      description = "Does this user need an office setup? - ITS FAC  (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Severity__migrated_2___select__c@sjskuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    grossRiskScore__float__c = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Create_Tasks__migrated___radiobuttons__c@ssjkuuuu = {
+      description = "Change Enablement Question to auto-create associated tasks  - ITO (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Criticality__select__c = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    New_Date__migrated___datepicker__c@ssjkuuuu = {
+      description = "Used to hold a new date for interaction with assets - ITO ITS PROC INV  (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Legal_Revew_Topic__migrated___select__c@sssjkuuuu = {
+      description = "Legal review topic - CLSD (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Cost__migrated___float__c@sjkuuuu = {
+      description = "Cost of Asset - ITS PROC INV  (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Purchase_Date__migrated___datepicker__c@ssjkuuuu = {
+      description = "Date for use with asset and inventory - PROC ITS INV (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Details__migrated___textarea__c@sjkuuuu = {
+      description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+      renderer = "wiki-renderer"
+    }
+    Kudos_Type__migrated___radiobuttons__c@ssjkuuuu = {
+      description = "Kudos Selection for HR - Radio button - HR (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Authorized_Viewers__migrated___multiuserpicker__c@ssjkuuuu = {
+      description = "SecOps Authorized Viewers of Active Security Incident (SECOPS) (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    HR_Sensitive__migrated___multicheckboxes__c@ssjkuuuu = {
+      description = "HR Sensitive Field - Checkbox flags privacy, sensitive nature of request - HR (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Threat_Score__migrated___float__c@ssjkuuuu = {
+      description = "SECOPS Threat Score (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+    Mitigation_Score__migrated___float__c@ssjkuuuu = {
+      description = "SECOPS Mitigation Score (Migrated on 17 Jan 2025 13:51 UTC)"
+      isHidden = false
+      isRequired = false
+    }
+  }
+}

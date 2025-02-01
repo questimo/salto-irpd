@@ -1,0 +1,77 @@
+jira.CustomFieldContextOption Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic_Assignment___Consent_to_Assign@uuuuuumussssssusdsss {
+  value = "Assignment / Consent to Assign"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic@uuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic_Bankruptcy@uuuuuumussssssu {
+  value = "Bankruptcy"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic@uuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic_Business_Associate_Agreement@uuuuuumussssssuss {
+  value = "Business Associate Agreement"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic@uuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic_Cloud_Terms_of_Service@uuuuuumussssssusss {
+  value = "Cloud Terms of Service"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic@uuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic_Data_Processing_Agreement@uuuuuumussssssuss {
+  value = "Data Processing Agreement"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic@uuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic_Divestment_Assistance@uuuuuumussssssus {
+  value = "Divestment Assistance"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic@uuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic_Other@uuuuuumussssssu {
+  value = "Other"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic@uuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic_Ownership_dispute@uuuuuumussssssus {
+  value = "Ownership dispute"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic@uuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic_Preservation_orders@uuuuuumussssssus {
+  value = "Preservation orders"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic@uuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic_Software_License_Agreement@uuuuuumussssssuss {
+  value = "Software License Agreement"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic@uuuuuumussssss,
+  ]
+}
+jira.CustomFieldContextOption Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic_Subpoena_requests@uuuuuumussssssus {
+  value = "Subpoena requests"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Legal_Request_Topic__select__c_ssuuuu_Default_Configuration_Scheme_for_Legal_Request_Topic@uuuuuumussssss,
+  ]
+}

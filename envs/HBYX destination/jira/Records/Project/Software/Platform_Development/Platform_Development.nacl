@@ -1,0 +1,22 @@
+jira.Project Platform_Development@s {
+  key = "PLAT"
+  description = "Platform Development team's Scrum SW Project"
+  name = "Platform Development"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "software"
+  components = [
+    jira.ProjectComponent.instance.Platform_Development_s__Infrastructure@umuu,
+    jira.ProjectComponent.instance.Platform_Development_s__Mobile@umuu,
+    jira.ProjectComponent.instance.Platform_Development_s__Web@umuu,
+  ]
+  workflowScheme = jira.WorkflowScheme.instance.PLAT__Software_Simplified_Workflow_Scheme@fssss
+  permissionScheme = jira.PermissionScheme.instance.Default_software_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.PLAT__Scrum_Issue_Type_Screen_Scheme@fsssss
+  issueTypeScheme = jira.IssueTypeScheme.instance.PLAT__Scrum_Issue_Type_Scheme@fssss
+  leadAccountId = {
+    id = "60ad2eb506bf0c006a432a17"
+    displayName = "Mitch Davis"
+  }
+  assigneeType = "PROJECT_LEAD"
+}

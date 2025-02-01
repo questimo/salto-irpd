@@ -1,0 +1,52 @@
+jira.DashboardGadget Engineering_Support_s__All_Open_by_Engineering_Group_1_3@umuussssuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:pie-chart-gadget/gadgets/piechart-gadget.xml"
+  color = "blue"
+  position = {
+    row = 3
+    column = 1
+  }
+  title = "All Open by Engineering Group"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "statType"
+          value = jira.Field.instance.Engineering_Group__cmdb_object_cftype__c@suubbuu
+        },
+        {
+          key = "isPopup"
+          value = "false"
+        },
+        {
+          key = "name"
+          value = "The filter you requested does not exist or you do not have permission to view it."
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "projectOrFilterId"
+          value = ""
+        },
+        {
+          key = "id"
+          value = "10013"
+        },
+        {
+          key = "type"
+          value = "filter"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Engineering_Support@s,
+  ]
+  _alias = "All Open by Engineering Group"
+}

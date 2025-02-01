@@ -1,0 +1,6 @@
+jira.Status unable_to_replicate@s {
+  name = "Unable to Replicate"
+  statusCategory = jira.StatusCategory.instance.In_Progress@s
+  description = ""
+  _alias = "Unable to Replicate"
+}

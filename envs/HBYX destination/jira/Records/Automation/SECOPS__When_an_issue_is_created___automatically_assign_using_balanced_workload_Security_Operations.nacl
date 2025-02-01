@@ -1,0 +1,63 @@
+jira.Automation SECOPS__When_an_issue_is_created___automatically_assign_using_balanced_workload_Security_Operations@fssssss_08594sssssus {
+  name = "SECOPS: When an issue is created → automatically assign using balanced workload"
+  state = "ENABLED"
+  description = "Template rule for all team members auto-assign"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      type = "jira.issue.assign"
+      value = {
+        assignType = "ROLE"
+        role = {
+          type = "NAME"
+          value = jira.ProjectRole.instance.Service_Desk_Team@s.name
+        }
+        excludedUsers = [
+        ]
+        userList = [
+        ]
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Security_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "SECOPS: When an issue is created → automatically assign using balanced workload"
+}

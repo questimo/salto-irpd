@@ -1,0 +1,251 @@
+jira.WorkflowConfiguration SECOPS__NIST_Workflow@fss {
+  scope = {
+    type = "GLOBAL"
+  }
+  name = "SECOPS: NIST Workflow"
+  description = "NIST Workflow for Security Investigation"
+  isEditable = true
+  startPointLayout = {
+    x = 281
+    y = -157.6
+  }
+  statuses = [
+    {
+      statusReference = jira.Status.instance.canceled
+      layout = {
+        x = 1431.6667289733887
+        y = 174.24999707031247
+      }
+      deprecated = false
+      name = "Canceled"
+    },
+    {
+      statusReference = jira.Status.instance.closed
+      layout = {
+        x = 1431.6667289733887
+        y = 102.30000488281252
+      }
+      deprecated = false
+      name = "Closed"
+    },
+    {
+      statusReference = jira.Status.instance.containment
+      layout = {
+        x = 546.970832824707
+        y = 9.400000000000006
+      }
+      deprecated = false
+      name = "Containment"
+    },
+    {
+      statusReference = jira.Status.instance.detection
+      layout = {
+        x = 238.96875
+        y = -76.02495599365238
+      }
+      deprecated = false
+      name = "Detection"
+    },
+    {
+      statusReference = jira.Status.instance.eradication
+      layout = {
+        x = 710.6458320617676
+        y = 58.300004882812516
+      }
+      deprecated = false
+      name = "Eradication"
+    },
+    {
+      statusReference = jira.Status.instance.investigating
+      layout = {
+        x = 385.59583282470703
+        y = 9.400000000000006
+      }
+      deprecated = false
+      name = "Investigating"
+    },
+    {
+      statusReference = jira.Status.instance.preventative_measures@s
+      layout = {
+        x = 1192.3875579833984
+        y = 102.30000488281252
+      }
+      deprecated = false
+      name = "Preventative Measures"
+    },
+    {
+      statusReference = jira.Status.instance.recovery
+      layout = {
+        x = 874.779167175293
+        y = 58.300004882812516
+      }
+      deprecated = false
+      name = "Recovery"
+    },
+    {
+      statusReference = jira.Status.instance.resolved
+      layout = {
+        x = 1038.5958938598633
+        y = 102.30000488281252
+      }
+      deprecated = false
+      name = "Resolved"
+    },
+    {
+      statusReference = jira.Status.instance.triage
+      layout = {
+        x = 250.22500038146973
+        y = 9.400000000000006
+      }
+      deprecated = false
+      name = "Triage"
+    },
+  ]
+  transitions = {
+    Eradication__From__Containment__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.eradication
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.containment
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Eradication"
+      description = "Mitigate and Remove impact"
+    }
+    Triage__From__Detection__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.triage
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.detection
+          fromPort = 5
+          toPort = 1
+        },
+      ]
+      name = "Triage"
+      description = "Analyze & Prioritize"
+    }
+    Investigate__From__Triage__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.investigating
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.triage
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Investigate"
+      description = "Analysis & Research incident"
+    }
+    Containment__From__Investigating__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.containment
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.investigating
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Containment"
+      description = "Contain the incident"
+    }
+    Resolved__From__Recovery__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.resolved
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.recovery
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Resolved"
+      description = "Confirm that the affected systems are functioning normally"
+      transitionScreen = {
+        ruleKey = "system:transition-screen"
+        parameters = {
+          screenId = jira.Screen.instance.SecOps___Jira_Service_Desk_Resolve_Issue_Screen___11@sbsssssssbs
+        }
+      }
+    }
+    Create__From__none__Initial@fffsff = {
+      type = "INITIAL"
+      toStatusReference = jira.Status.instance.detection
+      links = [
+        {
+          toPort = 1
+        },
+      ]
+      name = "Create"
+      description = ""
+      validators = [
+        {
+          ruleKey = "system:check-permission-validator"
+          parameters = {
+            permissionKey = "CREATE_ISSUES"
+          }
+        },
+      ]
+    }
+    Canceled__From__any_status__Global@fffssff = {
+      type = "GLOBAL"
+      toStatusReference = jira.Status.instance.canceled
+      name = "Canceled"
+      description = ""
+      properties = [
+        {
+          key = "servicedesk.customer.transition.active"
+          value = "true"
+        },
+        {
+          key = "servicedesk.customer.transition.resolution"
+          value = "10003"
+        },
+      ]
+    }
+    Recovery__From__Eradication__Directed@fffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.recovery
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.eradication
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Recovery"
+      description = "Return affected systems to an operationally ready state"
+    }
+    Close__From__Preventative_Measures__Directed@fffssff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.closed
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.preventative_measures@s
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Close"
+      description = "Recommendations submitted"
+    }
+    Preventative_Measures__From__Resolved__Directed@sfffsff = {
+      type = "DIRECTED"
+      toStatusReference = jira.Status.instance.preventative_measures@s
+      links = [
+        {
+          fromStatusReference = jira.Status.instance.resolved
+          fromPort = 3
+          toPort = 7
+        },
+      ]
+      name = "Preventative Measures"
+      description = "Post Incident Measures"
+    }
+  }
+}

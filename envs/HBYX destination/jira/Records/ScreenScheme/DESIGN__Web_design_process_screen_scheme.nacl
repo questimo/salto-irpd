@@ -1,0 +1,8 @@
+jira.ScreenScheme DESIGN__Web_design_process_screen_scheme@fsssss {
+  name = "DESIGN: Web design process screen scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.DESIGN__Web_design_process_edit_view_issue_screen@fssssdss
+    create = jira.Screen.instance.DESIGN__Web_design_process_create_issue_screen@fssssss
+  }
+}

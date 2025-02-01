@@ -1,0 +1,14 @@
+jira.Project Legal_Team@s {
+  key = "LEO"
+  description = ""
+  name = "Legal Team"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "business"
+  entityId = "d6814fae-4087-4f96-bafe-3b61733d1628"
+  uuid = "d6814fae-4087-4f96-bafe-3b61733d1628"
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  assigneeType = "PROJECT_LEAD"
+}

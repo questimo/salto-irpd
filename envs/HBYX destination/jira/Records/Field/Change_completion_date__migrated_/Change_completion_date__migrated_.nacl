@@ -1,0 +1,10 @@
+jira.Field Change_completion_date__migrated___datetime__c@sssjkuuuu {
+  name = "Change completion date (migrated)"
+  description = "Specify the completion time for the change request (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:datetimerange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datetime"
+  contexts = [
+    jira.CustomFieldContext.instance.Change_completion_date__migrated___datetime__c_sssjkuuuu_Default_Configuration_Scheme_for_Change_completion_date@uuuuuuuuumussssss,
+  ]
+  _alias = "Change completion date (migrated)"
+}

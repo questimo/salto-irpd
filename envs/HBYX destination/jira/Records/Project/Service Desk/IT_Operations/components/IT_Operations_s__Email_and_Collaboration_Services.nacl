@@ -1,0 +1,13 @@
+jira.ProjectComponent IT_Operations_s__Email_and_Collaboration_Services@umuusss {
+  description = "Created by Jira Service Management"
+  assigneeType = "PROJECT_DEFAULT"
+  name = "Email and Collaboration Services"
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  _parent = [
+    jira.Project.instance.IT_Operations@s,
+  ]
+  _alias = "IT Operations:Email and Collaboration Services"
+}

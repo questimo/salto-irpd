@@ -1,0 +1,9 @@
+jira.Field Party_Name__textfield__c@suuuu {
+  name = "Party Name"
+  description = ""
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Party_Name__textfield__c_suuuu_Default_Configuration_Scheme_for_Party_Name@uuuuumusssss,
+  ]
+  _alias = "Party Name"
+}

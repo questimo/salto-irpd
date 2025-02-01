@@ -1,0 +1,39 @@
+jira.DashboardGadget ESM___Enterprise_Service_Management_sbsss__Service_project_report_0_0@uuuuumuussuu {
+  moduleKey = "com.atlassian.servicedesk.servicedesk-reports-plugin:custom-report-dashboard-item"
+  color = "blue"
+  position = {
+    row = 0
+    column = 0
+  }
+  title = "Service project report"
+  properties = [
+    {
+      key = "intervalValue"
+      value = "4"
+    },
+    {
+      key = "isConfigured"
+      value = true
+    },
+    {
+      key = "isCustom"
+      value = true
+    },
+    {
+      key = "projectValue"
+      value = "FAC"
+    },
+    {
+      key = "refresh"
+      value = "15"
+    },
+    {
+      key = "reportValue"
+      value = "26"
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.ESM___Enterprise_Service_Management@sbsss,
+  ]
+  _alias = "Service project report"
+}

@@ -1,0 +1,28 @@
+jira.CustomFieldContextOption Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk_Critical@uuuuuuuumusssssu {
+  value = "Critical"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk_High@uuuuuuuumusssssu {
+  value = "High"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk_Low@uuuuuuuumusssssu {
+  value = "Low"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk@uuuuuuuumusssss,
+  ]
+}
+jira.CustomFieldContextOption Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk_Medium@uuuuuuuumusssssu {
+  value = "Medium"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Change_risk__migrated___select__c_ssjkuuuu_Default_Configuration_Scheme_for_Change_risk@uuuuuuuumusssss,
+  ]
+}

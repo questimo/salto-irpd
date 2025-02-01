@@ -1,0 +1,193 @@
+jira.Automation INV__Decommission__3__Complete___Update_Asset_Status_Facilities_Inventory_Management_Platform_Development@fssbbssbsssuusus {
+  name = "INV: Decommission -3- Complete - Update Asset Status"
+  state = "ENABLED"
+  description = "Once Completed, update asset to Retired Status"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.completed.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Decommission laptop"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.cmdb.field.edit.attributes"
+      value = {
+        cmdbField = jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu
+        attributes = [
+          {
+            name = "Status"
+            value = "Retired"
+          },
+        ]
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      type = "jira.issue.related"
+      value = {
+        relatedType = "subtasks"
+        jql = ""
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "ACTION"
+          type = "jira.issue.transition"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Resolution__resolution
+                }
+                fieldType = "resolution"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.Resolution.instance.Done
+                }
+              },
+            ]
+            sendNotifications = true
+            destinationStatus = {
+              type = "NAME"
+              value = jira.Status.instance.done.name
+            }
+            transitionMatch = ""
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+          "relates to",
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "ACTION"
+          type = "jira.issue.transition"
+          value = {
+            operations = [
+            ]
+            sendNotifications = true
+            destinationStatus = {
+              type = "NAME"
+              value = jira.Status.instance.resolved.name
+            }
+            transitionMatch = ""
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = "{{issue.${ jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu.name }.Name}} has been Retired and this request is now completed."
+        publicComment = true
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Facilities
+    },
+    {
+      projectId = jira.Project.instance.Inventory_Management@s
+    },
+    {
+      projectId = jira.Project.instance.Platform_Development@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "INV: Decommission -3- Complete - Update Asset Status"
+}

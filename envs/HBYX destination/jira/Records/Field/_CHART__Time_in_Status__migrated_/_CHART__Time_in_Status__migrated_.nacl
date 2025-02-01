@@ -1,0 +1,10 @@
+jira.Field _CHART__Time_in_Status__migrated___timeinstatus__c@hissssjkuuuu {
+  name = "[CHART] Time in Status (migrated)"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.ext.charting:textsearcher"
+  type = "com.atlassian.jira.ext.charting:timeinstatus"
+  contexts = [
+    jira.CustomFieldContext.instance._CHART__Time_in_Status__migrated___timeinstatus__c_hissssjkuuuu_Default_Configuration_Scheme_for__CHART__Time_in_Status@uuuuuuuuuuuumusssshisss,
+  ]
+  _alias = "[CHART] Time in Status (migrated)"
+}

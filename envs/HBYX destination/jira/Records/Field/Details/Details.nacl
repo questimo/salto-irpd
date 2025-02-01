@@ -1,0 +1,9 @@
+jira.Field Details__textarea__c {
+  name = "Details"
+  description = ""
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Details__textarea__c_Default_Configuration_Scheme_for_Details@uuuuussss,
+  ]
+  _alias = "Details"
+}

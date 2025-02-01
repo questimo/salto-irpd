@@ -1,0 +1,42 @@
+jira.CustomFieldContextOption Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Customer@uuuuuuumussssu {
+  value = "Customer"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source@uuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Email@uuuuuuumussssu {
+  value = "Email"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source@uuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Monitoring_systems@uuuuuuumussssus {
+  value = "Monitoring systems"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source@uuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Other@uuuuuuumussssu {
+  value = "Other"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source@uuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Phone@uuuuuuumussssu {
+  value = "Phone"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source@uuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source_Vendor_technical_advisory@uuuuuuumussssuds {
+  value = "Vendor/technical advisory"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Source__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Source@uuuuuuumussss,
+  ]
+}

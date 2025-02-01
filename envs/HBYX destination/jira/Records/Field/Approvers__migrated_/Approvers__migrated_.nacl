@@ -1,0 +1,10 @@
+jira.Field Approvers__migrated___multiuserpicker__c@sjkuuuu {
+  name = "Approvers (migrated)"
+  description = "Contains users needed for approval. This custom field was created by Jira. (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:userpickergroupsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Approvers__migrated___multiuserpicker__c_sjkuuuu_Default_Configuration_Scheme_for_Approvers@uuuuuuumussss,
+  ]
+  _alias = "Approvers (migrated)"
+}

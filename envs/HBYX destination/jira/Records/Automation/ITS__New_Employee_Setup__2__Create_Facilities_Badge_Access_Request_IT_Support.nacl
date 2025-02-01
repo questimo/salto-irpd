@@ -1,0 +1,151 @@
+jira.Automation ITS__New_Employee_Setup__2__Create_Facilities_Badge_Access_Request_IT_Support@fssssbbsssssus {
+  name = "ITS: New Employee Setup -2- Create Facilities Badge Access Request"
+  state = "ENABLED"
+  description = "When a setup request includes a security badge, create a corresponding facilities request"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Setup new employee"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Security_Badge__select__c@suuuu.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Yes"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.sd.create.request"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = "raiseOnBehalfOf"
+            }
+            fieldType = "raiseOnBehalfOf"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Setup new user with security badge access"
+          },
+        ]
+        sendNotifications = false
+        requestType = jira.RequestType.instance.missing_56
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.link"
+      value = {
+        linkType = jira.IssueLinkType.instance.Relates
+        issue = {
+          type = "COPY"
+          value = "created"
+        }
+        linkTypeDirection = "inward"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = "An access badge request has been raised with the facilities team."
+        publicComment = true
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Support@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITS: New Employee Setup -2- Create Facilities Badge Access Request"
+}

@@ -1,0 +1,14 @@
+jira.CustomFieldContextOption Office_Setup__migrated___select__c_ssjkuuuu_Employee_setup_fields_No@uuuuuuuumussu {
+  value = "No"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Office_Setup__migrated___select__c_ssjkuuuu_Employee_setup_fields@uuuuuuuumuss,
+  ]
+}
+jira.CustomFieldContextOption Office_Setup__migrated___select__c_ssjkuuuu_Employee_setup_fields_Yes@uuuuuuuumussu {
+  value = "Yes"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Office_Setup__migrated___select__c_ssjkuuuu_Employee_setup_fields@uuuuuuuumuss,
+  ]
+}

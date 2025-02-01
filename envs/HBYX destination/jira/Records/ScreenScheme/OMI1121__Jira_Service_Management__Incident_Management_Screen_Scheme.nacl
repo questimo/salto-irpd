@@ -1,0 +1,10 @@
+jira.ScreenScheme OMI1121__Jira_Service_Management__Incident_Management_Screen_Scheme@fsssfssss {
+  name = "OMI1121: Jira Service Management: Incident Management Screen Scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.OMI1121__Jira_Service_Management__Incident_Create_Issue_Screen@fsssfssss
+    edit = jira.Screen.instance.OMI1121__Jira_Service_Management__Incident_View_Edit_Screen@fsssfssds
+    create = jira.Screen.instance.OMI1121__Jira_Service_Management__Incident_Create_Issue_Screen@fsssfssss
+    view = jira.Screen.instance.OMI1121__Jira_Service_Management__Incident_View_Edit_Screen@fsssfssds
+  }
+}

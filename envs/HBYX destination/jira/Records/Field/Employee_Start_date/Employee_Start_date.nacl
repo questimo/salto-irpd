@@ -1,0 +1,9 @@
+jira.Field Employee_Start_date__datepicker__c@ssuuuu {
+  name = "Employee Start date"
+  description = "Employee Start Date - Onboarding - HR"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Employee_Start_date__datepicker__c_ssuuuu_Default_Configuration_Scheme_for_Start_date@uuuuuumusssss,
+  ]
+  _alias = "Employee Start date"
+}

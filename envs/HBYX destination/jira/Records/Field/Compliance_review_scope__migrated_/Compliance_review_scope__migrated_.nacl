@@ -1,0 +1,10 @@
+jira.Field Compliance_review_scope__migrated___textarea__c@sssjkuuuu {
+  name = "Compliance review scope (migrated)"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Compliance_review_scope__migrated___textarea__c_sssjkuuuu_Default_Configuration_Scheme_for_Compliance_review_scope@uuuuuuuuumussssss,
+  ]
+  _alias = "Compliance review scope (migrated)"
+}

@@ -1,0 +1,17 @@
+jira.Project Mobile_Program@s {
+  key = "MP"
+  description = ""
+  name = "Mobile Program"
+  projectCategory = jira.ProjectCategory.instance.One_Atlassian@s
+  projectTypeKey = "software"
+  workflowScheme = jira.WorkflowScheme.instance.MP__Software_Simplified_Workflow_Scheme__1_@fsssssjk
+  permissionScheme = jira.PermissionScheme.instance.Default_software_scheme@s
+  notificationScheme = jira.NotificationScheme.instance.Default_Notification_Scheme@s
+  issueTypeScreenScheme = jira.IssueTypeScreenScheme.instance.MP__Kanban_Issue_Type_Screen_Scheme__1_@fssssssjk
+  issueTypeScheme = jira.IssueTypeScheme.instance.MP__Kanban_Issue_Type_Scheme__1_@fsssssjk
+  leadAccountId = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  assigneeType = "UNASSIGNED"
+}

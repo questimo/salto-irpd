@@ -1,0 +1,10 @@
+jira.Field Workaround__migrated___textarea__c@sjkuuuu {
+  name = "Workaround (migrated)"
+  description = "Describe the workaround for the problem (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Workaround__migrated___textarea__c_sjkuuuu_Default_Configuration_Scheme_for_Workaround@uuuuuuumussss,
+  ]
+  _alias = "Workaround (migrated)"
+}

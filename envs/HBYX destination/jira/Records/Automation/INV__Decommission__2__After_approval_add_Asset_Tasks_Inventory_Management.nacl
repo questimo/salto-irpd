@@ -1,0 +1,380 @@
+jira.Automation INV__Decommission__2__After_approval_add_Asset_Tasks_Inventory_Management@fssbbsssssus {
+  name = "INV: Decommission -2- After approval add Asset Tasks"
+  state = "ENABLED"
+  description = "Once Approved, create a task with the standard decommission items and add a request for Facilities to help with recycling."
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.authorize.name
+        },
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.awaiting_implementation@s.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Issue_Type__issuetype@suu
+        }
+        selectedFieldType = "issuetype"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "ID"
+          value = jira.IssueType.instance._System__Change@his
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Decommission laptop"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_8
+        customSmartValue = {
+          id = "_customsmartvalue_id_1628366742831"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING inboundReferences(objecttype = \"Standard Changes\" AND Name = \"Decommission Asset\")"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      type = "jira.smart.values.branch"
+      value = {
+        id = "_customsmartvalue_id_1628366849172"
+        name = {
+          type = "FREE"
+          value = "task"
+        }
+        type = "SMART"
+        query = {
+          type = "SMART"
+          value = "{{lookupObjects}}"
+        }
+        lazy = false
+      }
+      children = [
+        {
+          component = "ACTION"
+          type = "jira.issue.create"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Project__project
+                }
+                fieldType = "project"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.Project.instance.Inventory_Management@s
+                }
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Issue_Type__issuetype@suu
+                }
+                fieldType = "issuetype"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.IssueType.instance.Sub_task@b
+                }
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Parent
+                }
+                fieldType = "parent"
+                type = "SET"
+                value = {
+                  type = "COPY"
+                  value = "current"
+                }
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Summary__string
+                }
+                fieldType = "summary"
+                type = "SET"
+                rawValue = "{{task.Name}}"
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Description__string
+                }
+                fieldType = "description"
+                type = "SET"
+                rawValue = "{{task.Description}}"
+              },
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Assignee__user
+                }
+                fieldType = "assignee"
+                type = "COPY"
+                value = {
+                  copyOptions = [
+                  ]
+                  sourceIssue = "current"
+                  sourceField = {
+                    type = "ID"
+                    value = "assignee"
+                    fieldType = "assignee"
+                  }
+                }
+              },
+            ]
+            sendNotifications = false
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.${ jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu.name }}} : {{issue.${ jira.Field.instance.Target_Device__cmdb_object_cftype__c@suubbuu.name }.Name}}"
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.create"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            fieldType = "project"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Project.instance.Facilities
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            fieldType = "issuetype"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.IssueType.instance.Task
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Check in {{issue.Target Device.Name}} for recycling & disposal"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "SET"
+            rawValue = "A laptop has been decommissioned. Ensure that you've checked in this asset for proper disposal."
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.link"
+      value = {
+        linkType = jira.IssueLinkType.instance.Relates
+        issue = {
+          type = "COPY"
+          value = "created"
+        }
+        linkTypeDirection = "inward"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.create"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Remote Wipe for {{issue.Target Device.Name}} [Retiring Asset]"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "SET"
+            rawValue = "Wipe and prep {{issue.Target Device}} : {{issue.Target Device.Name}}"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            fieldType = "project"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Project.instance.Platform_Development@s
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            fieldType = "issuetype"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.IssueType.instance.Task
+            }
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.link"
+      value = {
+        linkType = jira.IssueLinkType.instance.Relates
+        issue = {
+          type = "COPY"
+          value = "created"
+        }
+        linkTypeDirection = "inward"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Inventory_Management@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "INV: Decommission -2- After approval add Asset Tasks"
+}

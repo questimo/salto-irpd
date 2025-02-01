@@ -1,0 +1,8 @@
+jira.ScreenScheme PROC__Procurement_Screen_Scheme@fsss {
+  name = "PROC: Procurement Screen Scheme"
+  description = ""
+  screens = {
+    default = jira.Screen.instance.PROC__Procurement_Edit_View_Issue_Screen@fssdss
+    create = jira.Screen.instance.PROC__Procurement_Create_Issue_Screen@fssss
+  }
+}

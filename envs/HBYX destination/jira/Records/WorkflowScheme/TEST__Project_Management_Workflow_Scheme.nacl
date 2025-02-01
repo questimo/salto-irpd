@@ -1,0 +1,5 @@
+jira.WorkflowScheme TEST__Project_Management_Workflow_Scheme@fssss {
+  name = "TEST: Project Management Workflow Scheme"
+  description = ""
+  defaultWorkflow = jira.WorkflowConfiguration.instance.TEST__Project_Management_Workflow@fsss
+}

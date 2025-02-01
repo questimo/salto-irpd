@@ -1,0 +1,199 @@
+jira.Automation FAC__Room_Inspection_Facilities@fssu {
+  name = "FAC: Room Inspection"
+  state = "DISABLED"
+  description = "Looks up all assets associated with the room"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Request a room inspection"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_5
+        customSmartValue = {
+          id = "_customsmartvalue_id_1629580802201"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "object HAVING outboundReferences() AND \"Room\" = \"{{issue.Room}}\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = '''
+Here are the assets listed for the room: {{issue.Room.Name}}:
+
+|| Asset  || Model || Serviceable || Maintenance Date ||
+{{#lookupObjects}}
+|{{Name}} |{{Model.Name}} |{{Serviceable}} |{{Maintenance Date}} |
+{{/}}
+
+'''
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{lookupObjects}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.comment"
+              value = {
+                comment = "There are no assets on record for this room."
+                publicComment = true
+                sendNotifications = true
+                addCommentOnce = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Resolution__resolution
+            }
+            fieldType = "resolution"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Resolution.instance.Done
+            }
+          },
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.resolved.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Facilities
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "FAC: Room Inspection"
+}

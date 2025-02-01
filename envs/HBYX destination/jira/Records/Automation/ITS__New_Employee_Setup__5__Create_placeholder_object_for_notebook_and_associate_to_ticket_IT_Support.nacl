@@ -1,0 +1,210 @@
+jira.Automation ITS__New_Employee_Setup__5__Create_placeholder_object_for_notebook_and_associate_to_ticket_IT_Support@fssssbbsssssssssus {
+  name = "ITS: New Employee Setup -5- Create placeholder object for notebook and associate to ticket"
+  state = "DISABLED"
+  description = "Employee setup assumes approval and creates a Temporary Asset in Insight with a status of \"On Order\" and associate it to the ticket"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.in_progress@s.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Setup new employee"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.object.create"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaLabel = "IT Employee Assets "
+        schemaId = jira.ObjectSchema.instance.missing_6
+        objectTypeLabel = "Laptops"
+        objectTypeId = jira.ObjectType.instance.missing_61
+        attributes = [
+          {
+            name = "Name"
+            value = "{{issue.key}}-{{issue.New Employee.Name}}-Pending Purchase"
+            isLabel = true
+          },
+          {
+            name = "Model"
+            value = "{{issue.Supported Laptop Models}}"
+            isLabel = false
+          },
+          {
+            name = "Owner"
+            value = "{{issue.New Employee}}"
+            isLabel = false
+          },
+          {
+            name = "Status"
+            value = "On Order"
+            isLabel = false
+          },
+        ]
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "New asset has been created -- time delay to lookup the object and then place it in the new field"
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Time Delay - Pause"
+    },
+    {
+      component = "ACTION"
+      type = "jira.worklog.add"
+      value = {
+        timeSpent = "1m"
+        dateStarted = {
+          type = "SMART"
+          value = "{{now}}"
+        }
+        description = "Added placeholder asset"
+        adjustEstimate = "ADJUST_AUTOMATICALLY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "added a work entry for 1m"
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_6
+        customSmartValue = {
+          id = "_customsmartvalue_id_1636728417736"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "ObjectType = \"Laptops\" AND \"Name\" LIKE \"{{issue.key}}-{{issue.New Employee.Name}}-Pending Purchase\""
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{lookupObjects}}"
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.New_Laptop__cmdb_object_cftype__c@suubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "SET"
+            rawValue = "Key IN ({{lookupObjects}})"
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Support@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITS: New Employee Setup -5- Create placeholder object for notebook and associate to ticket"
+}

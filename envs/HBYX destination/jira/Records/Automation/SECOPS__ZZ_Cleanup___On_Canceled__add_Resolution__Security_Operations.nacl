@@ -1,0 +1,77 @@
+jira.Automation SECOPS__ZZ_Cleanup___On_Canceled__add_Resolution__Security_Operations@fsusbsszdsssus {
+  name = "SECOPS: ZZ_Cleanup - On Canceled, add Resolution "
+  state = "ENABLED"
+  description = "Update resolution if the issue is canceled"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.canceled.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Resolution__resolution
+            }
+            fieldType = "resolution"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Resolution.instance.Won_t_Do@ts
+            }
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Security_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "SECOPS: ZZ_Cleanup - On Canceled, add Resolution "
+}

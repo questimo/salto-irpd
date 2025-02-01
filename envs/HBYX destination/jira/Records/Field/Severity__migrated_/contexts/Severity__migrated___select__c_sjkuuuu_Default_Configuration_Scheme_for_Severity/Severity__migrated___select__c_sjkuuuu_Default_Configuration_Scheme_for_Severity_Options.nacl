@@ -1,0 +1,28 @@
+jira.CustomFieldContextOption Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity_Sev_0@uuuuuuumussssub {
+  value = "Sev-0"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity@uuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity_Sev_1@uuuuuuumussssub {
+  value = "Sev-1"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity@uuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity_Sev_2@uuuuuuumussssub {
+  value = "Sev-2"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity@uuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity_Sev_3@uuuuuuumussssub {
+  value = "Sev-3"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Severity__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Severity@uuuuuuumussss,
+  ]
+}

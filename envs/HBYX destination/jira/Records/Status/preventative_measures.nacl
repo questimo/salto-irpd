@@ -1,0 +1,6 @@
+jira.Status preventative_measures@s {
+  name = "Preventative Measures"
+  statusCategory = jira.StatusCategory.instance.Done
+  description = ""
+  _alias = "Preventative Measures"
+}

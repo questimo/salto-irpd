@@ -1,0 +1,187 @@
+jira.Automation ITS__New_Employee_Setup__3__Create_Facilities_Office_Setup_Request_IT_Support@fssssbbsssssus {
+  name = "ITS: New Employee Setup -3- Create Facilities Office Setup Request"
+  state = "ENABLED"
+  description = "When a setup request includes an office setup, create a corresponding facilities request"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Setup new employee"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Office_Setup__select__c@suuuu.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Yes"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.${ jira.Field.instance.New_Employee__cmdb_object_cftype__c@suubbuu.name }}} or {{issue.${ jira.Field.instance.New_Employee__cmdb_object_cftype__c@suubbuu }}} is {{issue.${ jira.Field.instance.New_Employee__cmdb_object_cftype__c@suubbuu }.Name}} which is {{issue.${ jira.Field.instance.New_Employee__cmdb_object_cftype__c@suubbuu }.User}} : {{issue.${ jira.Field.instance.New_Employee__cmdb_object_cftype__c@suubbuu }.User.Name}} in region {{issue.${ jira.Field.instance.New_Employee__cmdb_object_cftype__c@suubbuu }.Region}} which is {{issue.${ jira.Field.instance.New_Employee__cmdb_object_cftype__c@suubbuu }.Region.Name}}"
+    },
+    {
+      component = "ACTION"
+      type = "jira.sd.create.request"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Setup new user,  {{issue.customfield_10088.Name}}, with an office in {{issue.customfield_10088.Region.Name}}"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Due_date__date@suu
+            }
+            fieldType = "duedate"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "ID"
+                value = "duedate"
+                fieldType = "duedate"
+              }
+            }
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Region__cmdb_object_cftype__c@uubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "SET"
+            rawValue = "Name LIKE {{issue.customfield_10088.Region.Name}} "
+          },
+          {
+            field = {
+              type = "ID"
+              value = "raiseOnBehalfOf"
+            }
+            fieldType = "raiseOnBehalfOf"
+            type = "SET"
+            value = {
+              type = "SMART"
+              value = "{{issue.customfield_10088.User}}"
+            }
+          },
+        ]
+        sendNotifications = false
+        requestType = jira.RequestType.instance.missing_57
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.link"
+      value = {
+        linkType = jira.IssueLinkType.instance.Relates
+        issue = {
+          type = "COPY"
+          value = "created"
+        }
+        linkTypeDirection = "inward"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = "An office setup request has been raised with the facilities team."
+        publicComment = true
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Support@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITS: New Employee Setup -3- Create Facilities Office Setup Request"
+}

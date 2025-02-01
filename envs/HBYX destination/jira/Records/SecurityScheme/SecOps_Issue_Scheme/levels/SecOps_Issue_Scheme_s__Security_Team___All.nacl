@@ -1,0 +1,40 @@
+jira.SecurityLevel SecOps_Issue_Scheme_s__Security_Team___All@uumuussbs {
+  description = "Security Team - All Members"
+  name = "Security Team - All"
+  members = [
+    {
+      holder = {
+        type = "projectRole"
+        parameter = jira.ProjectRole.instance.Service_Desk_Team@s
+      }
+    },
+    {
+      holder = {
+        type = "user"
+        parameter = {
+          id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+          displayName = "Automation for Jira"
+        }
+      }
+    },
+    {
+      holder = {
+        type = "reporter"
+      }
+    },
+    {
+      holder = {
+        type = "sd.customer.portal.only"
+      }
+    },
+    {
+      holder = {
+        type = "projectRole"
+        parameter = jira.ProjectRole.instance.atlassian_addons_project_access@b
+      }
+    },
+  ]
+  _parent = [
+    jira.SecurityScheme.instance.SecOps_Issue_Scheme@s,
+  ]
+}

@@ -1,0 +1,8 @@
+jira.FieldContextOptionsOrder Create_Tasks__radiobuttons__c_suuuu_Default_Configuration_Scheme_for_Create_Tasks_order_child@uuuuumusssssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Create_Tasks__radiobuttons__c_suuuu_Default_Configuration_Scheme_for_Create_Tasks_Yes@uuuuumusssssu,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Create_Tasks__radiobuttons__c_suuuu_Default_Configuration_Scheme_for_Create_Tasks@uuuuumusssss,
+  ]
+}

@@ -1,0 +1,10 @@
+jira.Field Employee_location__migrated___textfield__c@ssjkuuuu {
+  name = "Employee location (migrated)"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Employee_location__migrated___textfield__c_ssjkuuuu_Default_Configuration_Scheme_for_Employee_location@uuuuuuuumusssss,
+  ]
+  _alias = "Employee location (migrated)"
+}

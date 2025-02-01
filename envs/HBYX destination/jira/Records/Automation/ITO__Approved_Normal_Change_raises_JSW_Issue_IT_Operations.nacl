@@ -1,0 +1,187 @@
+jira.Automation ITO__Approved_Normal_Change_raises_JSW_Issue_IT_Operations@fssssssus {
+  name = "ITO: Approved Normal Change raises JSW Issue"
+  state = "ENABLED"
+  description = "Shows interaction of JSW & JSM on transition of workflow"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:transitioned"
+    value = {
+      eventKey = "jira:issue_updated"
+      issueEvent = "issue_generic"
+      fromStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.authorize.name
+        },
+      ]
+      toStatus = [
+        {
+          type = "NAME"
+          value = jira.Status.instance.awaiting_implementation@s.name
+        },
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Request an application upgrade (normal change)"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.create"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "JSM <-> JSW Example of Automated Change Collaboration"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "SET"
+            rawValue = '''
+This is a new story that is related to a normal change. You can trigger new stories or issues in other projects and products like this, JSW, or even in JWM.
+This allows for collaboration across the platform helping your teams to execute faster and reducing silos
+'''
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            fieldType = "project"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Project.instance.Platform_Development@s
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            fieldType = "issuetype"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.IssueType.instance.Story
+            }
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "NAME"
+                value = "Affected services"
+                fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+              }
+            }
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Application_Impacted__cmdb_object_cftype__c@suubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "NAME"
+                value = "Application Impacted"
+                fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+              }
+            }
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.link"
+      value = {
+        linkType = jira.IssueLinkType.instance.Relates
+        issue = {
+          type = "COPY"
+          value = "created"
+        }
+        linkTypeDirection = "inward"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Approved Normal Change raises JSW Issue"
+}

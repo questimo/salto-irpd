@@ -1,0 +1,330 @@
+jira.Automation ITO__When_a_change_management_request_is_created___then_update_change_type_and_risk_IT_Operations@fssssssss_08594ssssssus {
+  name = "ITO: When a change management request is created → then update change type and risk"
+  state = "ENABLED"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.jql.condition"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "\"Ticket category\" = Changes"
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Change_risk__select__c@suuuu
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Critical"
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.affected.services.condition"
+              value = {
+                selectedAttribute = "tier"
+                selectedComparison = "EQUALS"
+                compareValue = "1"
+                fieldId = "customfield_10039"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Change_risk__select__c@suuuu
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Low"
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Change_type__select__c@suuuu
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Standard"
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "ID"
+                  value = jira.Status.instance.implementing
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.jql.condition"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "change-gating-type = tracked-only AND request-channel-type = deployment"
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Change_type__select__c@suuuu
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Normal"
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+            {
+              component = "ACTION"
+              type = "jira.issue.transition"
+              value = {
+                operations = [
+                ]
+                sendNotifications = true
+                destinationStatus = {
+                  type = "ID"
+                  value = jira.Status.instance.authorize
+                }
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.jql.condition"
+              children = [
+              ]
+              conditions = [
+              ]
+              rawValue = "request-channel-type=deployment"
+            },
+          ]
+        },
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "ID"
+                      value = jira.Field.instance.Change_type__select__c@suuuu
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                    type = "SET"
+                    value = {
+                      type = "NAME"
+                      value = "Normal"
+                    }
+                  },
+                ]
+                sendNotifications = false
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.issue.condition"
+              value = {
+                selectedField = {
+                  type = "NAME"
+                  value = jira.Field.instance.Change_type__select__c@suuuu.name
+                }
+                selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+                comparison = "EMPTY"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: When a change management request is created → then update change type and risk"
+}

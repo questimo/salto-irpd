@@ -1,0 +1,31 @@
+jira.CustomFieldContext Supported_Laptop_Accessories__cmdb_object_cftype__c_ssuubbuu_Configuration_Scheme_for_Accessories@uuuuuuuumusss {
+  name = "Configuration Scheme for Accessories"
+  description = "Configuration Scheme for Accessories"
+  issueTypeIds = [
+    jira.IssueType.instance._System__Service_request@hiss,
+    jira.IssueType.instance._System__Service_request_with_approvals@hissss,
+    jira.IssueType.instance.Employee_setup@s,
+  ]
+  projectIds = [
+    jira.Project.instance.IT_Support@s,
+  ]
+  assetsObjectFieldConfiguration = {
+    objectSchemaId = jira.ObjectSchema.instance.missing_6
+    objectFilterQuery = "objectType in (\"Supported mice\", \"Supported keyboards\")"
+    attributesIncludedInAutoCompleteSearch = [
+      "Name",
+    ]
+    attributesDisplayedOnIssue = [
+      "Name",
+      "Model",
+      "Cost",
+      "Manufacturer",
+    ]
+    multiple = true
+    shouldSetDefaultValuesFromEmptySearch = false
+  }
+  _parent = [
+    jira.Field.instance.Supported_Laptop_Accessories__cmdb_object_cftype__c@ssuubbuu,
+  ]
+  _alias = "Supported Laptop Accessories context in Configuration Scheme for Accessories"
+}

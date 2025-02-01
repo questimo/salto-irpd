@@ -1,0 +1,10 @@
+jira.Field Mitigation_Score__float__c@suuuu {
+  name = "Mitigation Score"
+  description = "SECOPS Mitigation Score"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:exactnumber"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:float"
+  contexts = [
+    jira.CustomFieldContext.instance.Mitigation_Score__float__c_suuuu_Default_Configuration_Scheme_for_Mitigation_Score@uuuuumusssss,
+  ]
+  _alias = "Mitigation Score"
+}

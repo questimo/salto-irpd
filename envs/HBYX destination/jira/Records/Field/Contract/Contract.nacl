@@ -1,0 +1,10 @@
+jira.Field Contract__cmdb_object_cftype__c@uubbuu {
+  name = "Contract"
+  description = "Customer Contracts (Insight: Customer Support) - ENGS CS"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Contract__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Contract@uuuuuumussss,
+  ]
+  _alias = "Contract"
+}

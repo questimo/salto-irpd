@@ -1,0 +1,533 @@
+jira.Automation HR__Employee_Transfer__1__Raise_Entitlement_Check_and_Automated_Tasks@fsssbbssssss {
+  name = "HR: Employee Transfer -1- Raise Entitlement Check and Automated Tasks"
+  state = "ENABLED"
+  description = "Raise an entitlement check request with ITS and kick off the workday task"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Request_Type__vp_origin__c@suubuu.name
+        }
+        selectedFieldType = "com.atlassian.servicedesk:vp-origin"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "NAME"
+          value = "Employee Transfer"
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.create"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            fieldType = "project"
+            type = "SET"
+            value = {
+              type = "COPY"
+              value = "current"
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            fieldType = "issuetype"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.IssueType.instance.Sub_task@b
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Parent
+            }
+            fieldType = "parent"
+            type = "SET"
+            value = {
+              type = "COPY"
+              value = "current"
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Automated update to Workday via Workato & API"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "SET"
+            rawValue = '''
+This is an automated API call to initiate Workato calls to update Workday with the new role.
+
+A webhook would be leveraged to autoclose this. You can try it by reopening this task and then going to a terminal window and executing the command below. Once the command is run, it will trigger an automation rule that will close this task.
+
+curl -X POST -H 'Content-type: application/json' \
+https://automation.atlassian.com/pro/hooks/yourkeygoeshere
+
+'''
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Assignee__user
+            }
+            fieldType = "assignee"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = {
+                id = "5f51c0c59a0131004155b56e"
+                displayName = "field-demo-bot"
+              }
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Reporter__user
+            }
+            fieldType = "reporter"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = {
+                id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+                displayName = "Automation for Jira"
+              }
+            }
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.create"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Project__project
+            }
+            fieldType = "project"
+            type = "SET"
+            value = {
+              type = "COPY"
+              value = "current"
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            fieldType = "issuetype"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.IssueType.instance.Sub_task@b
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Parent
+            }
+            fieldType = "parent"
+            type = "SET"
+            value = {
+              type = "COPY"
+              value = "current"
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Order & Send Welcome Kit"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "SET"
+            rawValue = "Send the welcome kit selected"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Due_date__date@suu
+            }
+            fieldType = "duedate"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "ID"
+                value = "duedate"
+                fieldType = "duedate"
+              }
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Reporter__user
+            }
+            fieldType = "reporter"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "ID"
+                value = "reporter"
+                fieldType = "reporter"
+              }
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Assignee__user
+            }
+            fieldType = "assignee"
+            type = "SET"
+            value = {
+              type = "COPY"
+              value = jira.Field.instance.Parent
+            }
+          },
+        ]
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.sd.create.request"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = "raiseOnBehalfOf"
+            }
+            fieldType = "raiseOnBehalfOf"
+            type = "SET"
+            value = {
+              type = "SMART"
+              value = "{{issue.Employee Requesting Transfer.User}}"
+            }
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Reassess software needs and hardware for {{issue.Employee Requesting Transfer.Name}}"
+          },
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Description__string
+            }
+            fieldType = "description"
+            type = "SET"
+            rawValue = '''
+Congrats on the new role {{Issue.Employee Requesting Transfer.Name}}!
+
+We'll be reviewing your software access and will make sure you have everything you need to get started as a new {{issue.Transfer Role.Name}}.
+
+Thanks,
+Your friendly IT Team
+'''
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Employee_Role__cmdb_object_cftype__c@suubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "COPY"
+            value = {
+              copyOptions = [
+              ]
+              sourceIssue = "current"
+              sourceField = {
+                type = "NAME"
+                value = "Transfer Role"
+                fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+              }
+            }
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Employee_Requesting_Transfer__cmdb_object_cftype__c@ssuubbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "SET"
+            rawValue = "Key IN ({{issue.Employee Requesting Transfer}})"
+          },
+        ]
+        sendNotifications = false
+        requestType = jira.RequestType.instance.missing_101
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.link"
+      value = {
+        linkType = jira.IssueLinkType.instance.Relates
+        issue = {
+          type = "COPY"
+          value = "created"
+        }
+        linkTypeDirection = "inward"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+A linked request has been raised with IT to evaluate the current access against new entitlements along with their updated hardware needs.
+
+Good job TEAM!
+
+
+'''
+        publicComment = false
+        sendNotifications = true
+        addCommentOnce = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_7
+        customSmartValue = {
+          id = "_customsmartvalue_id_1644090425693"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "Key = {{issue.Transfer Department.Director}}"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{lookupObjects}}"
+    },
+    {
+      component = "CONDITION"
+      type = "jira.condition.container.block"
+      children = [
+        {
+          component = "CONDITION_BLOCK"
+          type = "jira.condition.if.block"
+          value = {
+            conditionMatchType = "ALL"
+          }
+          children = [
+            {
+              component = "ACTION"
+              type = "jira.issue.edit"
+              value = {
+                operations = [
+                  {
+                    field = {
+                      type = "NAME"
+                      value = jira.Field.instance.Approvers__multiuserpicker__c.name
+                    }
+                    fieldType = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+                    type = "SET"
+                    value = [
+                      {
+                        type = "SMART"
+                        value = "{{lookupObjects.User}}"
+                      },
+                    ]
+                  },
+                ]
+                sendNotifications = true
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+          conditions = [
+            {
+              component = "CONDITION"
+              type = "jira.comparator.condition"
+              value = {
+                first = "{{lookupObjects}}"
+                second = ""
+                operator = "NOT_EQUALS"
+              }
+              children = [
+              ]
+              conditions = [
+              ]
+            },
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Summary__string
+            }
+            fieldType = "summary"
+            type = "SET"
+            rawValue = "Transfer for {{issue.Employee Requesting Transfer.Name}}"
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.outgoing.webhook"
+      value = {
+        url = "https://automation.atlassian.com/pro/hooks/yourkeygoeshere"
+        headers = [
+          {
+            id = "_header_1649272577766"
+            name = ""
+            value = ""
+            headerSecure = false
+          },
+        ]
+        sendIssue = false
+        contentType = "empty"
+        method = "POST"
+        responseEnabled = false
+        continueOnErrorEnabled = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "HR: Employee Transfer -1- Raise Entitlement Check and Automated Tasks"
+}

@@ -1,0 +1,9 @@
+jira.FieldContextOptionsOrder Employee_Equipment_Needed__select__c_ssuuuu_Default_Configuration_Scheme_for_Employee_Equipment_Needed_order_child@uuuuuumussssssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Employee_Equipment_Needed__select__c_ssuuuu_Default_Configuration_Scheme_for_Employee_Equipment_Needed_Yes___Standard_for_Role@uuuuuumussssssusbsss,
+    jira.CustomFieldContextOption.instance.Employee_Equipment_Needed__select__c_ssuuuu_Default_Configuration_Scheme_for_Employee_Equipment_Needed_No___No_Equipment_is_Needed@uuuuuumussssssusbssss,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Employee_Equipment_Needed__select__c_ssuuuu_Default_Configuration_Scheme_for_Employee_Equipment_Needed@uuuuuumussssss,
+  ]
+}

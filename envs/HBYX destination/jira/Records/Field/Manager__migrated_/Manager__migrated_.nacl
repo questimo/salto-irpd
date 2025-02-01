@@ -1,0 +1,10 @@
+jira.Field Manager__migrated___multiuserpicker__c@sjkuuuu {
+  name = "Manager (migrated)"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:userpickergroupsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Manager__migrated___multiuserpicker__c_sjkuuuu_Default_Configuration_Scheme_for_Manager@uuuuuuumussss,
+  ]
+  _alias = "Manager (migrated)"
+}

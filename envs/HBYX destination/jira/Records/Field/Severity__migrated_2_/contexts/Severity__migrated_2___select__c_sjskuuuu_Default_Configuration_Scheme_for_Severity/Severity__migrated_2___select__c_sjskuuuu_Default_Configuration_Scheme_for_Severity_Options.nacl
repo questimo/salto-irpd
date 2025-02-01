@@ -1,0 +1,42 @@
+jira.CustomFieldContextOption Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity_1_Minor@uuuuuuuumussssu_00061 {
+  value = "1=Minor"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity@uuuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity_2_Medium@uuuuuuuumussssu_00061 {
+  value = "2=Medium"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity@uuuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity_3_Major@uuuuuuuumussssu_00061 {
+  value = "3=Major"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity@uuuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity_4_Critical@uuuuuuuumussssu_00061 {
+  value = "4=Critical"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity@uuuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity_Blocker@uuuuuuuumussssu {
+  value = "Blocker"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity@uuuuuuuumussss,
+  ]
+}
+jira.CustomFieldContextOption Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity_Trivial@uuuuuuuumussssu {
+  value = "Trivial"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.Severity__migrated_2___select__c_sjskuuuu_Default_Configuration_Scheme_for_Severity@uuuuuuuumussss,
+  ]
+}

@@ -1,0 +1,5 @@
+jira.IssueLinkType Polaris_merge_issue_link@s {
+  name = "Polaris merge issue link"
+  inward = "merged into"
+  outward = "merged from"
+}

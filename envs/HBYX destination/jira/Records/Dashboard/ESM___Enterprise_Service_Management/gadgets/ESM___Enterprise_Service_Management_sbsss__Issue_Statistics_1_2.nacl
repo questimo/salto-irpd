@@ -1,0 +1,64 @@
+jira.DashboardGadget ESM___Enterprise_Service_Management_sbsss__Issue_Statistics_1_2@uuuuumuusuu {
+  uri = "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:stats-gadget/gadgets/stats-gadget.xml"
+  color = "blue"
+  position = {
+    row = 2
+    column = 1
+  }
+  title = "Issue Statistics"
+  properties = [
+    {
+      key = "config"
+      values = [
+        {
+          key = "isConfigured"
+          value = "true"
+        },
+        {
+          key = "sortDirection"
+          value = "desc"
+        },
+        {
+          key = "statType"
+          value = "assignees"
+        },
+        {
+          key = "maxResults"
+          value = "10"
+        },
+        {
+          key = "name"
+          value = "The project you requested does not exist or you do not have permission to view it."
+        },
+        {
+          key = "refresh"
+          value = "false"
+        },
+        {
+          key = "projectOrFilterId"
+          value = jira.Project.instance.Human_Resources@s
+        },
+        {
+          key = "includeResolvedIssues"
+          value = "true"
+        },
+        {
+          key = "sortBy"
+          value = "total"
+        },
+        {
+          key = "id"
+          value = "10005"
+        },
+        {
+          key = "type"
+          value = "project"
+        },
+      ]
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.ESM___Enterprise_Service_Management@sbsss,
+  ]
+  _alias = "Issue Statistics"
+}

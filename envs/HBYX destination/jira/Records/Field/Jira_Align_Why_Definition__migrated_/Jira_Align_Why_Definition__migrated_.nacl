@@ -1,0 +1,10 @@
+jira.Field Jira_Align_Why_Definition__migrated___textarea__c@ssssjkuuuu {
+  name = "Jira Align Why Definition (migrated)"
+  description = "Jira Align Why Definition Connector Mapping (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Jira_Align_Why_Definition__migrated___textarea__c_ssssjkuuuu_Default_Configuration_Scheme_for_Jira_Align_Why_Definition@uuuuuuuuuumusssssss,
+  ]
+  _alias = "Jira Align Why Definition (migrated)"
+}

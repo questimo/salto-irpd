@@ -1,0 +1,7 @@
+jira.ScreenScheme LGSD__Jira_Service_Management__Contract_Review_Screen_Scheme@fsssfssss {
+  name = "LGSD: Jira Service Management: Contract Review Screen Scheme"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.LGSD__Jira_Service_Management__Contract_Review_Issue_Screen@fsssfssss
+  }
+}

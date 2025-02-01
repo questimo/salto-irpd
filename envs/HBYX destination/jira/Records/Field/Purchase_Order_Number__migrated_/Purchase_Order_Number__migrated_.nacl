@@ -1,0 +1,10 @@
+jira.Field Purchase_Order_Number__migrated___textfield__c@sssjkuuuu {
+  name = "Purchase Order Number (migrated)"
+  description = "PO# for new asset - ITS PROC INV (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Purchase_Order_Number__migrated___textfield__c_sssjkuuuu_Default_Configuration_Scheme_for_Purchase_Order_Number@uuuuuuuuumussssss,
+  ]
+  _alias = "Purchase Order Number (migrated)"
+}

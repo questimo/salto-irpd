@@ -1,0 +1,51 @@
+jira.DashboardGadget Platform_Development_s__Bubble_Chart_2_2@umuusuu {
+  moduleKey = "com.atlassian.jira.gadgets:bubble-chart-dashboard-item"
+  color = "blue"
+  position = {
+    row = 2
+    column = 2
+  }
+  title = "Bubble Chart"
+  properties = [
+    {
+      key = "bubbleType"
+      value = "participants"
+    },
+    {
+      key = "id"
+      value = 10008
+    },
+    {
+      key = "isConfigured"
+      value = true
+    },
+    {
+      key = "name"
+      value = "Platform Development"
+    },
+    {
+      key = "recentCommentsPeriod"
+      value = 7
+    },
+    {
+      key = "refresh"
+      value = 15
+    },
+    {
+      key = "type"
+      value = "project"
+    },
+    {
+      key = "useLogarithmicScale"
+      value = false
+    },
+    {
+      key = "useRelativeColoring"
+      value = true
+    },
+  ]
+  _parent = [
+    jira.Dashboard.instance.Platform_Development@s,
+  ]
+  _alias = "Bubble Chart"
+}

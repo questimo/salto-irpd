@@ -1,0 +1,10 @@
+jira.Field Event_date__migrated___datepicker__c@ssjkuuuu {
+  name = "Event date (migrated)"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:daterange"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:datepicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Event_date__migrated___datepicker__c_ssjkuuuu_Default_Configuration_Scheme_for_Event_date@uuuuuuuumusssss,
+  ]
+  _alias = "Event date (migrated)"
+}

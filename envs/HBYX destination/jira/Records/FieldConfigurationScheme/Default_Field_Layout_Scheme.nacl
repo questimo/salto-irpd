@@ -1,0 +1,10 @@
+jira.FieldConfigurationScheme Default_Field_Layout_Scheme@s {
+  name = "Default Field Layout Scheme"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  items = [
+    {
+      issueTypeId = "default"
+      fieldConfigurationId = jira.FieldConfiguration.instance.Default_Field_Layout__migrated_@sssjk
+    },
+  ]
+}

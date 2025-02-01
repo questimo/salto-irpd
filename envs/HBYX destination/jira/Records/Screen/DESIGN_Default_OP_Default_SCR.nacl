@@ -1,0 +1,28 @@
+jira.Screen DESIGN_Default_OP_Default_SCR {
+  name = "DESIGN_Default_OP_Default_SCR"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  tabs = {
+    Field_tab@s = {
+      name = "Field tab"
+      fields = [
+        jira.Field.instance.Summary__string,
+        jira.Field.instance.Issue_Type__issuetype@suu,
+        jira.Field.instance.Due_date__date@suu,
+        jira.Field.instance.Description__string,
+        jira.Field.instance.Reporter__user,
+        jira.Field.instance.Assignee__user,
+        jira.Field.instance.Priority__priority,
+        jira.Field.instance.Labels__array,
+        jira.Field.instance.Start_date__datepicker__c@suuuu,
+        jira.Field.instance.Category__jwm_category__c@uubuu,
+        jira.Field.instance.Team__atlassian_team__c@uubuu,
+        jira.Field.instance.grossRiskScore__float__c,
+        jira.Field.instance.Severity__migrated_2___select__c@sjskuuuu,
+        jira.Field.instance.Likelyhood__select__c,
+        jira.Field.instance.Criticality__select__c,
+        jira.Field.instance.Severity__select__c,
+      ]
+      position = 0
+    }
+  }
+}

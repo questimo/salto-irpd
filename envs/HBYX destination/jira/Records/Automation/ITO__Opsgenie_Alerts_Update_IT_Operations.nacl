@@ -1,0 +1,163 @@
+jira.Automation ITO__Opsgenie_Alerts_Update_IT_Operations@fsssus {
+  name = "ITO: Opsgenie Alerts Update"
+  state = "DISABLED"
+  description = "When an Opsgenie integrated alert comes through, enrich it with details."
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Reporter__user
+        }
+        selectedFieldType = "reporter"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "ID"
+          value = {
+            id = "5dd64082af96bc0efbe55103"
+            displayName = "System"
+          }
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.edit.request.type"
+      value = {
+        requestType = {
+          type = "NAME"
+          value = "Escalate an Issue"
+        }
+        sendNotifications = false
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{issue.${ jira.Field.instance.Affected_hardware__textfield__c@suuuu.name }}}"
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "3ce6870d-eb87-42bc-b613-47e5f9637131"
+        schemaId = jira.ObjectSchema.instance.missing_9
+        customSmartValue = {
+          id = "_customsmartvalue_id_1647886601231"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "Name IN ({{issue.Affected hardware}})"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{lookupObjects}}"
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "NAME"
+              value = "Impacted System"
+            }
+            fieldType = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+            type = "SET"
+            rawValue = "Key IN ({{lookupObjects}})"
+          },
+          {
+            field = {
+              type = "NAME"
+              value = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu.name
+            }
+            fieldType = "com.atlassian.jira.plugins.service-entity:service-entity-field-cftype"
+            type = "SET"
+            value = [
+              {
+                type = "ID"
+                value = "ari:cloud:graph::service/e297dd7c-dd5c-4423-9f8b-2a0bec5eab23/80cb0e90-0a6d-11ec-9516-0abe3f4a6601"
+                additional = "{\"name\":\"Infrastructure Services\"}"
+              },
+            ]
+          },
+        ]
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: Opsgenie Alerts Update"
+}

@@ -1,0 +1,24 @@
+jira.Dashboard Default_dashboard@s {
+  name = "Default dashboard"
+  sharePermissions = [
+    {
+      type = "global"
+    },
+  ]
+  gadgets = [
+    jira.DashboardGadget.instance.Default_dashboard_s__Pie_Chart_0_0@umuusuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Filter_counts_0_1@umuusuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Issue_Statistics_0_2@umuusuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Projects_0_3@umuuuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Assigned_to_Me_1_0@umuussuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Watched_Issues_1_1@umuusuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Issues_in_progress_1_2@umuussuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Resolution_Time_1_3@umuusuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__All_Open_Issues_by_Type___Priority_1_4@umuusssssesuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Activity_Stream_2_0@umuusuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Jira_Issues_Calendar_2_1@umuussuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Recently_Created_Chart_2_2@umuussuu,
+    jira.DashboardGadget.instance.Default_dashboard_s__Introduction_2_3@umuuuu,
+  ]
+  layout = "AAA"
+}

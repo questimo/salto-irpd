@@ -1,0 +1,371 @@
+jira.Automation ZZ___DEMO_Clean_Up__Service_Request___When_SLA_threshold_is_about_to_breach_3h___Resolved@sbsssfsssbsssssssss_08594s {
+  name = "ZZ - DEMO Clean Up: Service Request - When SLA threshold is about to breach 3h → Resolved"
+  state = "ENABLED"
+  description = "Clean up demo gen data: Resolve request when SLA threshold is about to breach in 3h"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.sla.threshold.trigger"
+    value = {
+      customFieldId = "customfield_10050"
+      thresholdType = "WILL_BREACH"
+      thresholdValue = 25200000
+      scheduleConfigIdSet = [
+        3,
+      ]
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Issue_Type__issuetype@suu
+        }
+        selectedFieldType = "issuetype"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "ID"
+          multiValue = true
+          values = [
+            jira.IssueType.instance._System__Service_request@hiss,
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.comment"
+      value = {
+        comment = '''
+Hey {{issue.${ jira.Field.instance.Reporter__user }.displayName}},
+
+This ticket will breach its SLA in a few hours. We are resolving your demo issue now.
+
+Cheers,
+Your friendly automation bot
+'''
+        publicComment = true
+        sendNotifications = true
+        addCommentOnce = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      type = "jira.issue.related"
+      value = {
+        relatedType = "subtasks"
+        jql = ""
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = true
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "ACTION"
+          type = "jira.issue.transition"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Resolution__resolution
+                }
+                fieldType = "resolution"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.Resolution.instance.Done
+                }
+              },
+            ]
+            sendNotifications = true
+            destinationStatus = {
+              type = "NAME"
+              value = jira.Status.instance.done.name
+            }
+            transitionMatch = ""
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "CONDITION"
+          type = "jira.issue.condition"
+          value = {
+            selectedField = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            selectedFieldType = "issuetype"
+            comparison = "EQUALS"
+            compareFieldValue = {
+              type = "ID"
+              value = jira.IssueType.instance.Task
+              multiValue = false
+            }
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          type = "jira.issue.transition"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Resolution__resolution
+                }
+                fieldType = "resolution"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.Resolution.instance.Done
+                }
+              },
+            ]
+            sendNotifications = true
+            destinationStatus = {
+              type = "NAME"
+              value = jira.Status.instance.done.name
+            }
+            transitionMatch = ""
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "CONDITION"
+          type = "jira.issue.condition"
+          value = {
+            selectedField = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            selectedFieldType = "issuetype"
+            comparison = "ONE_OF"
+            compareFieldValue = {
+              type = "ID"
+              multiValue = true
+              values = [
+                jira.IssueType.instance._System__Service_request@hiss,
+                jira.IssueType.instance.Employee_setup@s,
+              ]
+            }
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          type = "jira.issue.transition"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Resolution__resolution
+                }
+                fieldType = "resolution"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.Resolution.instance.Done
+                }
+              },
+            ]
+            sendNotifications = true
+            destinationStatus = {
+              type = "NAME"
+              value = jira.Status.instance.resolved.name
+            }
+            transitionMatch = ""
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "BRANCH"
+      type = "jira.issue.related"
+      value = {
+        relatedType = "linked"
+        jql = ""
+        linkTypes = [
+        ]
+        onlyUpdatedIssues = false
+        similarityLimit = 40
+        compareValue = 0
+      }
+      children = [
+        {
+          component = "CONDITION"
+          type = "jira.issue.condition"
+          value = {
+            selectedField = {
+              type = "ID"
+              value = jira.Field.instance.Issue_Type__issuetype@suu
+            }
+            selectedFieldType = "issuetype"
+            comparison = "EQUALS"
+            compareFieldValue = {
+              type = "ID"
+              value = jira.IssueType.instance._System__Service_request_with_approvals@hissss
+              multiValue = false
+            }
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+        {
+          component = "ACTION"
+          type = "jira.issue.transition"
+          value = {
+            operations = [
+              {
+                field = {
+                  type = "ID"
+                  value = jira.Field.instance.Resolution__resolution
+                }
+                fieldType = "resolution"
+                type = "SET"
+                value = {
+                  type = "ID"
+                  value = jira.Resolution.instance.Declined
+                }
+              },
+            ]
+            sendNotifications = true
+            destinationStatus = {
+              type = "NAME"
+              value = jira.Status.instance.canceled.name
+            }
+            transitionMatch = ""
+          }
+          children = [
+          ]
+          conditions = [
+          ]
+        },
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Resolution__resolution
+            }
+            fieldType = "resolution"
+            type = "SET"
+            value = {
+              type = "ID"
+              value = jira.Resolution.instance.Done
+            }
+          },
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.resolved.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ZZ - DEMO Clean Up: Service Request - When SLA threshold is about to breach 3h → Resolved"
+}

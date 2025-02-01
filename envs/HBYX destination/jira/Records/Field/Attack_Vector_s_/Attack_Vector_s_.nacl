@@ -1,0 +1,10 @@
+jira.Field Attack_Vector_s___cmdb_object_cftype__c@sjkuubbuu {
+  name = "Attack Vector(s)"
+  description = "SecOps Attack Vector(s) - Schema: Standards & Practices - SecOps"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Attack_Vector_s___cmdb_object_cftype__c_sjkuubbuu_Default_Configuration_Scheme_for_Attack_Vector_s_@uuuuuuuuumusssssjk,
+  ]
+  _alias = "Attack Vector(s)"
+}

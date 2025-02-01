@@ -1,0 +1,5 @@
+jira.WorkflowScheme LGL__Document_Approval_Workflow_Scheme@fssss {
+  name = "LGL: Document Approval Workflow Scheme"
+  description = ""
+  defaultWorkflow = jira.WorkflowConfiguration.instance.LGL__Document_Approval_Workflow_v2@fssss
+}

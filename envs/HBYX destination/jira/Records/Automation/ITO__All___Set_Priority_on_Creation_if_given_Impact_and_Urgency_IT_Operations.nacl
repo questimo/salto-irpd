@@ -1,0 +1,173 @@
+jira.Automation ITO__All___Set_Priority_on_Creation_if_given_Impact_and_Urgency_IT_Operations@fssbsssssssssus {
+  name = "ITO: All - Set Priority on Creation if given Impact and Urgency"
+  state = "ENABLED"
+  description = "For any issue in ITO that asks for impact and urgency, set the priority based on the IxU=P Matrix in Insight (Schema: Practice Standards, ObjectType = \"Priority Matrix\")"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Priority__priority
+        }
+        selectedFieldType = "priority"
+        comparison = "NOT_ONE_OF"
+        compareFieldValue = {
+          type = "ID"
+          multiValue = true
+          values = [
+            jira.Priority.instance.Critical,
+            jira.Priority.instance.Highest,
+            jira.Priority.instance.High,
+            jira.Priority.instance.Low,
+            jira.Priority.instance.Lowest,
+            jira.Priority.instance.Informational,
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Impact__select__c.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+        comparison = "NOT_EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Urgency__select__c.name
+        }
+        selectedFieldType = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+        comparison = "NOT_EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "Impact of {{issue.impact}} and urgency of {{issue.urgency}} and Priority is {{issue.${ jira.Field.instance.Priority__priority }}}"
+    },
+    {
+      component = "ACTION"
+      type = "cmdb.lookup.objects"
+      value = {
+        workspaceId = "5216a551-f809-431a-86df-68b7b9e4dcf2"
+        schemaId = jira.ObjectSchema.instance.missing_8
+        customSmartValue = {
+          id = "_customsmartvalue_id_1627767717595"
+          name = {
+            type = "FREE"
+            value = "lookupObjects"
+          }
+          type = "IQL"
+          query = {
+            type = "SMART"
+            value = "ObjectType=\"Priority Matrix\" AND \"Impact\" IN (\"{{issue.impact}}\") AND \"Urgency\" IN (\"{{issue.urgency}}\")"
+          }
+          lazy = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "codebarrel.action.log"
+      children = [
+      ]
+      conditions = [
+      ]
+      rawValue = "{{lookupObjects}} is {{lookupObjects.Name}} with value of {{lookupObjects.Priority}} which is {{lookupObjects.Priority.asJsonString}} "
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.edit"
+      value = {
+        operations = [
+          {
+            field = {
+              type = "ID"
+              value = jira.Field.instance.Priority__priority
+            }
+            fieldType = "priority"
+            type = "SET"
+            value = {
+              type = "SMART"
+              value = "{{lookupObjects.Priority}}"
+            }
+          },
+        ]
+        advancedFields = ""
+        sendNotifications = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.IT_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "ITO: All - Set Priority on Creation if given Impact and Urgency"
+}

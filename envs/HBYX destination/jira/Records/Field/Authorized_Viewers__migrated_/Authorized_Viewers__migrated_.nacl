@@ -1,0 +1,10 @@
+jira.Field Authorized_Viewers__migrated___multiuserpicker__c@ssjkuuuu {
+  name = "Authorized Viewers (migrated)"
+  description = "SecOps Authorized Viewers of Active Security Incident (SECOPS) (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:userpickergroupsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multiuserpicker"
+  contexts = [
+    jira.CustomFieldContext.instance.Authorized_Viewers__migrated___multiuserpicker__c_ssjkuuuu_Default_Configuration_Scheme_for_Authorized_Viewers@uuuuuuuumusssss,
+  ]
+  _alias = "Authorized Viewers (migrated)"
+}

@@ -1,0 +1,7 @@
+jira.CustomFieldContextOption HR_Sensitive__multicheckboxes__c_suuuu_Default_Configuration_Scheme_for_HR_Sensitive_Yes@uuuuumusssssu {
+  value = "Yes"
+  disabled = false
+  _parent = [
+    jira.CustomFieldContext.instance.HR_Sensitive__multicheckboxes__c_suuuu_Default_Configuration_Scheme_for_HR_Sensitive@uuuuumusssss,
+  ]
+}

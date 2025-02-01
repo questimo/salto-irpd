@@ -1,0 +1,5 @@
+jira.IssueLinkType Resolve {
+  name = "Resolve"
+  inward = "is resolved by"
+  outward = "resolves"
+}

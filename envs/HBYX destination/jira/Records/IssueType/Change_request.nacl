@@ -1,0 +1,7 @@
+jira.IssueType Change_request@s {
+  description = "Send a request to make changes to your information."
+  name = "Change request"
+  untranslatedName = "Change request"
+  hierarchyLevel = 0
+  avatar = file("jira/IssueType/Change_request.s.png")
+}

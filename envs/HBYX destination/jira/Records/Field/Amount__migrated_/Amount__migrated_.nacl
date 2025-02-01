@@ -1,0 +1,10 @@
+jira.Field Amount__migrated___textfield__c@sjkuuuu {
+  name = "Amount (migrated)"
+  description = "Cost of the request (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textfield"
+  contexts = [
+    jira.CustomFieldContext.instance.Amount__migrated___textfield__c_sjkuuuu_Default_Configuration_Scheme_for_Amount@uuuuuuumussss,
+  ]
+  _alias = "Amount (migrated)"
+}

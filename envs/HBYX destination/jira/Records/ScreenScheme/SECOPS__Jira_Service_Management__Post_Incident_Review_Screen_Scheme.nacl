@@ -1,0 +1,9 @@
+jira.ScreenScheme SECOPS__Jira_Service_Management__Post_Incident_Review_Screen_Scheme@fsssfsbsss {
+  name = "SECOPS: Jira Service Management: Post-Incident Review Screen Scheme"
+  screens = {
+    default = jira.Screen.instance.SECOPS__Jira_Service_Management__Post_Incident_Review_Create_Issue_Screen@fsssfsbssss
+    edit = jira.Screen.instance.SECOPS__Jira_Service_Management__Post_Incident_Review_View_Edit_Screen@fsssfsbssds
+    create = jira.Screen.instance.SECOPS__Jira_Service_Management__Post_Incident_Review_Create_Issue_Screen@fsssfsbssss
+    view = jira.Screen.instance.SECOPS__Jira_Service_Management__Post_Incident_Review_View_Edit_Screen@fsssfsbssds
+  }
+}

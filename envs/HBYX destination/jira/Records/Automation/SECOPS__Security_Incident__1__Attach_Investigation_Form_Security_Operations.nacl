@@ -1,0 +1,83 @@
+jira.Automation SECOPS__Security_Incident__1__Attach_Investigation_Form_Security_Operations@fsssbbsssus {
+  name = "SECOPS: Security Incident -1- Attach Investigation Form"
+  state = "ENABLED"
+  description = "Attach attack assessment on Security Alert"
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "jira.issue.event.trigger:created"
+    value = {
+      eventKey = "jira:issue_created"
+      issueEvent = "issue_created"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Issue_Type__issuetype@suu
+        }
+        selectedFieldType = "issuetype"
+        comparison = "EQUALS"
+        compareFieldValue = {
+          type = "ID"
+          value = jira.IssueType.instance.Security_Incident@s
+          multiValue = false
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.proforma.form.add.action"
+      value = {
+        templateFormsConfig = {
+          projectId = jira.Project.instance.Security_Operations@s
+          templateFormIds = [
+            5,
+          ]
+        }
+        formVisibility = "internal"
+        allowDuplicates = true
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = true
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Security_Operations@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "SECOPS: Security Incident -1- Attach Investigation Form"
+}

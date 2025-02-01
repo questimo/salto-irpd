@@ -1,0 +1,9 @@
+jira.FieldContextOptionsOrder Security_Badge__migrated___select__c_ssjkuuuu_Configuration_Scheme_for_Security_Badge_order_child@uuuuuuuumussssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Security_Badge__migrated___select__c_ssjkuuuu_Configuration_Scheme_for_Security_Badge_Yes@uuuuuuuumussssu,
+    jira.CustomFieldContextOption.instance.Security_Badge__migrated___select__c_ssjkuuuu_Configuration_Scheme_for_Security_Badge_No@uuuuuuuumussssu,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Security_Badge__migrated___select__c_ssjkuuuu_Configuration_Scheme_for_Security_Badge@uuuuuuuumussss,
+  ]
+}

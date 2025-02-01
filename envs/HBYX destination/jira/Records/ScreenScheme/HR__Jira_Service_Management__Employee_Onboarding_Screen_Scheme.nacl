@@ -1,0 +1,7 @@
+jira.ScreenScheme HR__Jira_Service_Management__Employee_Onboarding_Screen_Scheme@fsssfssss {
+  name = "HR: Jira Service Management: Employee Onboarding Screen Scheme"
+  description = "This Jira Service Management Screen Scheme was generated automatically"
+  screens = {
+    default = jira.Screen.instance.HR__Jira_Service_Management__Employee_Onboarding_Issue_Screen@fsssfssss
+  }
+}

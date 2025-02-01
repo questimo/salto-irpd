@@ -1,0 +1,10 @@
+jira.Field Urgency__migrated___select__c@sjkuuuu {
+  name = "Urgency (migrated)"
+  description = "(Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:multiselectsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:select"
+  contexts = [
+    jira.CustomFieldContext.instance.Urgency__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Urgency@uuuuuuumussss,
+  ]
+  _alias = "Urgency (migrated)"
+}

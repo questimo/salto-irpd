@@ -1,0 +1,10 @@
+jira.Field URL__migrated___url__c@sjkuuuu {
+  name = "URL (migrated)"
+  description = "Used to hold the URL of the Change Plan - ITO (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:exacttextsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:url"
+  contexts = [
+    jira.CustomFieldContext.instance.URL__migrated___url__c_sjkuuuu_Default_Configuration_Scheme_for_URL@uuuuuuumussss,
+  ]
+  _alias = "URL (migrated)"
+}

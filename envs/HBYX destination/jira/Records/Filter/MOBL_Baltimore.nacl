@@ -1,0 +1,74 @@
+jira.Filter MOBL_Baltimore@s {
+  name = "MOBL Baltimore"
+  description = ""
+  owner = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  jql = "${ jira.Field.instance.Project__project } = \"Mobile Dev\" AND (\"${ jira.Field.instance.Team__Jira_Align___select__c@sjskuuuu.name }[Dropdown]\" = Baltimore OR ${ jira.Field.instance.Labels__array } = Baltimore)"
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+  editPermissions = [
+    {
+      type = "project"
+      project = {
+        id = jira.Project.instance.Mobile_Dev@s
+      }
+    },
+    {
+      type = "group"
+      group = {
+        name = jira.Group.instance.site_admins@b
+      }
+    },
+  ]
+  columns = [
+    {
+      label = "Issue Type"
+      value = "issuetype"
+    },
+    {
+      label = "Key"
+      value = "issuekey"
+    },
+    {
+      label = "Summary"
+      value = "summary"
+    },
+    {
+      label = "Assignee"
+      value = "assignee"
+    },
+    {
+      label = "Reporter"
+      value = "reporter"
+    },
+    {
+      label = "Priority"
+      value = "priority"
+    },
+    {
+      label = "Status"
+      value = "status"
+    },
+    {
+      label = "Resolution"
+      value = "resolution"
+    },
+    {
+      label = "Created"
+      value = "created"
+    },
+    {
+      label = "Updated"
+      value = "updated"
+    },
+    {
+      label = "Due date"
+      value = "duedate"
+    },
+  ]
+}

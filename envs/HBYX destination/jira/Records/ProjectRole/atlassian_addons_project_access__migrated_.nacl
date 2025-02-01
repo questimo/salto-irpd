@@ -1,0 +1,4 @@
+jira.ProjectRole atlassian_addons_project_access__migrated_@bbbsjk {
+  name = "atlassian-addons-project-access (migrated)"
+  description = "A project role that represents Connect add-ons declaring a scope that requires more than read issue permissions"
+}

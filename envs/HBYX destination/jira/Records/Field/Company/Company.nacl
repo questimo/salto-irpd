@@ -1,0 +1,10 @@
+jira.Field Company__cmdb_object_cftype__c@uubbuu {
+  name = "Company"
+  description = "Customer Companies (Insight: Customer Support) - ENGS CS"
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Company__cmdb_object_cftype__c_uubbuu_Default_Configuration_Scheme_for_Company@uuuuuumussss,
+  ]
+  _alias = "Company"
+}

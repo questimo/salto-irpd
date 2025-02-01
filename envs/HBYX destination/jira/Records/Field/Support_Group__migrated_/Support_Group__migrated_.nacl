@@ -1,0 +1,7 @@
+jira.Field Support_Group__migrated___multigrouppicker__c@ssjkuuuu {
+  name = "Support Group (migrated)"
+  description = "Used for queue grouping - ITS - ITO (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:grouppickersearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:multigrouppicker"
+  _alias = "Support Group (migrated)"
+}

@@ -1,0 +1,10 @@
+jira.Field Bicycles_Available__cmdb_object_cftype__c@suubbuu {
+  name = "Bicycles Available"
+  description = "Bicycles currently available for use (Insight : Facilities) - FAC "
+  searcherKey = "com.atlassian.jira.plugins.cmdb:cmdb-object-searcher"
+  type = "com.atlassian.jira.plugins.cmdb:cmdb-object-cftype"
+  contexts = [
+    jira.CustomFieldContext.instance.Bicycles_Available__cmdb_object_cftype__c_suubbuu_Default_Configuration_Scheme_for_Bicycles_Available@uuuuuuumusssss,
+  ]
+  _alias = "Bicycles Available"
+}

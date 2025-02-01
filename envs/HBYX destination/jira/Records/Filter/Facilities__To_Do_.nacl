@@ -1,0 +1,76 @@
+jira.Filter Facilities__To_Do_@sjsk {
+  name = "Facilities (To Do)"
+  description = ""
+  owner = {
+    id = "60ad2d2a06bf0c006a42fa84"
+    displayName = "Alana Grant"
+  }
+  jql = "${ jira.Field.instance.Project__project } = ${ jira.Project.instance.Facilities } AND ${ jira.Field.instance.Resolution__resolution } = Unresolved ORDER BY ${ jira.Field.instance.Created__datetime } DESC"
+  sharePermissions = [
+    {
+      type = "authenticated"
+    },
+  ]
+  editPermissions = [
+    {
+      type = "group"
+      group = {
+        name = jira.Group.instance.site_admins@b
+      }
+    },
+  ]
+  columns = [
+    {
+      label = "Project"
+      value = "project"
+    },
+    {
+      label = "Issue Type"
+      value = "issuetype"
+    },
+    {
+      label = "Key"
+      value = "issuekey"
+    },
+    {
+      label = "Summary"
+      value = "summary"
+    },
+    {
+      label = "Assignee"
+      value = "assignee"
+    },
+    {
+      label = "Reporter"
+      value = "reporter"
+    },
+    {
+      label = "Priority"
+      value = "priority"
+    },
+    {
+      label = "Status"
+      value = "status"
+    },
+    {
+      label = "Resolution"
+      value = "resolution"
+    },
+    {
+      label = "Created"
+      value = "created"
+    },
+    {
+      label = "Updated"
+      value = "updated"
+    },
+    {
+      label = "Due date"
+      value = "duedate"
+    },
+    {
+      label = "Request Type"
+      value = "customfield_10010"
+    },
+  ]
+}

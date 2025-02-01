@@ -1,0 +1,11 @@
+jira.FieldContextOptionsOrder Impact__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Impact_order_child@uuuuuuumussssuu {
+  options = [
+    jira.CustomFieldContextOption.instance.Impact__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Impact_Extensive___Widespread@uuuuuuumussssusds,
+    jira.CustomFieldContextOption.instance.Impact__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Impact_Significant___Large@uuuuuuumussssusds,
+    jira.CustomFieldContextOption.instance.Impact__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Impact_Moderate___Limited@uuuuuuumussssusds,
+    jira.CustomFieldContextOption.instance.Impact__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Impact_Minor___Localized@uuuuuuumussssusds,
+  ]
+  _parent = [
+    jira.CustomFieldContext.instance.Impact__migrated___select__c_sjkuuuu_Default_Configuration_Scheme_for_Impact@uuuuuuumussss,
+  ]
+}

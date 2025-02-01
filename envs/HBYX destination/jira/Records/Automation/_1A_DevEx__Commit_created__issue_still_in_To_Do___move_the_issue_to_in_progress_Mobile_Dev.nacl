@@ -1,0 +1,103 @@
+jira.Automation _1A_DevEx__Commit_created__issue_still_in_To_Do___move_the_issue_to_in_progress_Mobile_Dev@hbisszdssssbsbsssssbus {
+  name = "[1A-DevEx] Commit created, issue still in To-Do - move the issue to in-progress"
+  state = "ENABLED"
+  description = ""
+  authorAccountId = {
+    id = "712020:6a8656a5-8285-4c80-b72b-2261112430f7"
+    displayName = "provision-fy24-5-bot"
+  }
+  actor = {
+    type = "ACCOUNT_ID"
+    value = {
+      id = "557058:f58131cb-b67d-43c7-b30d-6b58d40bd077"
+      displayName = "Automation for Jira"
+    }
+  }
+  trigger = {
+    component = "TRIGGER"
+    type = "devops.commit.event.trigger:created"
+    value = {
+      shouldProcessMergeCommits = false
+      tagType = "USES_DEVOPS_INTEGRATION"
+      tagValue = "COMMIT"
+    }
+    children = [
+    ]
+    conditions = [
+    ]
+  }
+  components = [
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "NAME"
+          value = jira.Field.instance.Sprint__gh_sprint__c@uubuu.name
+        }
+        selectedFieldType = "com.pyxis.greenhopper.jira:gh-sprint"
+        comparison = "NOT_EMPTY"
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "CONDITION"
+      type = "jira.issue.condition"
+      value = {
+        selectedField = {
+          type = "ID"
+          value = jira.Field.instance.Status__status
+        }
+        selectedFieldType = "status"
+        comparison = "ONE_OF"
+        compareFieldValue = {
+          type = "NAME"
+          multiValue = true
+          values = [
+            jira.Status.instance.to_do@s.name,
+            jira.Status.instance.architecture_review@s.name,
+          ]
+        }
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+    {
+      component = "ACTION"
+      type = "jira.issue.transition"
+      value = {
+        operations = [
+        ]
+        sendNotifications = true
+        destinationStatus = {
+          type = "NAME"
+          value = jira.Status.instance.in_progress@s.name
+        }
+        transitionMatch = ""
+      }
+      children = [
+      ]
+      conditions = [
+      ]
+    },
+  ]
+  canOtherRuleTrigger = false
+  notifyOnError = "FIRSTERROR"
+  projects = [
+    {
+      projectId = jira.Project.instance.Mobile_Dev@s
+    },
+  ]
+  labels = [
+  ]
+  writeAccessType = "UNRESTRICTED"
+  collaborators = [
+  ]
+  billingType = "NORMAL"
+  _alias = "[1A-DevEx] Commit created, issue still in To-Do - move the issue to in-progress"
+}

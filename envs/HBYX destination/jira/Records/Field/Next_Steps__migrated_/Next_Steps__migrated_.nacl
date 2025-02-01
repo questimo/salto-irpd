@@ -1,0 +1,10 @@
+jira.Field Next_Steps__migrated___textarea__c@ssjkuuuu {
+  name = "Next Steps (migrated)"
+  description = "SECOPS - Next Steps & Guidance for the team (Migrated on 17 Jan 2025 13:51 UTC)"
+  searcherKey = "com.atlassian.jira.plugin.system.customfieldtypes:textsearcher"
+  type = "com.atlassian.jira.plugin.system.customfieldtypes:textarea"
+  contexts = [
+    jira.CustomFieldContext.instance.Next_Steps__migrated___textarea__c_ssjkuuuu_Default_Configuration_Scheme_for_Next_Steps@uuuuuuuumusssss,
+  ]
+  _alias = "Next Steps (migrated)"
+}
