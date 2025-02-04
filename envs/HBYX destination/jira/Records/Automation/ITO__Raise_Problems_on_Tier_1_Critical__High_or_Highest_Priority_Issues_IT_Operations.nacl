@@ -140,7 +140,7 @@ A PIR for this needs to be completed due to the priority and Tier level of the a
                 selectedAttribute = "tier"
                 selectedComparison = "ONE_OF"
                 compareValue = "1"
-                fieldId = "customfield_10039"
+                fieldId = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu
               }
               children = [
               ]

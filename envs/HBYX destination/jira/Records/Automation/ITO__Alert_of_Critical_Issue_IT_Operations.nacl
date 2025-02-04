@@ -66,7 +66,7 @@ jira.Automation ITO__Alert_of_Critical_Issue_IT_Operations@fssssus {
                 selectedAttribute = "tier"
                 selectedComparison = "ONE_OF"
                 compareValue = "1"
-                fieldId = "customfield_10039"
+                fieldId = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu
               }
               children = [
               ]
