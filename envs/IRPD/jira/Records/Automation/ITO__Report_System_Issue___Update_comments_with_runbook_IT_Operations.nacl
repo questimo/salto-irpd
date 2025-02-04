@@ -97,7 +97,7 @@ This appears to be a service outage As the first IT ops agent responding to this
                 selectedAttribute = "tier"
                 selectedComparison = "ONE_OF"
                 compareValue = "1,2"
-                fieldId = "customfield_10039"
+                fieldId = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu
               }
               children = [
               ]

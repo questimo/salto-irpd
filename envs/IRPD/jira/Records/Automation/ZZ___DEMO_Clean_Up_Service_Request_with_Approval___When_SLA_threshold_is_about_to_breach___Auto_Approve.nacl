@@ -17,7 +17,7 @@ jira.Automation ZZ___DEMO_Clean_Up_Service_Request_with_Approval___When_SLA_thre
     component = "TRIGGER"
     type = "jira.sla.threshold.trigger"
     value = {
-      customFieldId = "customfield_10051"
+      customFieldId = jira.Field.instance.Time_to_first_response__sd_sla_field__c@sssuubbuu
       thresholdType = "WILL_BREACH"
       thresholdValue = 1800000
       scheduleConfigIdSet = [

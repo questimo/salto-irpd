@@ -79,7 +79,7 @@ jira.Automation ITO__When_a_change_management_request_is_created___then_update_c
                 selectedAttribute = "tier"
                 selectedComparison = "EQUALS"
                 compareValue = "1"
-                fieldId = "customfield_10039"
+                fieldId = jira.Field.instance.Affected_services__service_entity_field_cftype__c@suubbbuu
               }
               children = [
               ]

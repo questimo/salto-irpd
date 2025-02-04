@@ -17,7 +17,7 @@ jira.Automation ZZ___DEMO_Clean_Up__Service_Request___When_SLA_threshold_is_abou
     component = "TRIGGER"
     type = "jira.sla.threshold.trigger"
     value = {
-      customFieldId = "customfield_10050"
+      customFieldId = jira.Field.instance.Time_to_resolution__sd_sla_field__c@ssuubbuu
       thresholdType = "WILL_BREACH"
       thresholdValue = 25200000
       scheduleConfigIdSet = [
