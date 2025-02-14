@@ -12,7 +12,7 @@ jira.DashboardGadget ESM___Enterprise_Service_Management_sbsss__Marketing__To_Do
       values = [
         {
           key = "filterId"
-          value = jira.Filter.instance.Marketing__To_Do_@sjsk
+          value = "10009"
         },
         {
           key = "isConfigured"
